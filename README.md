@@ -2,13 +2,13 @@
 
 # 🧰 Agent Skills
 
-### 13 battle-tested skills that make your AI coding agent work like a senior engineer.
+### 17 battle-tested skills that make your AI coding agent work like a senior engineer.
 
 **Works with Claude Code · Cline · Cursor · Codex · any agent that reads `SKILL.md`**
 
 [![Stars](https://img.shields.io/github/stars/milad-ahmd/agent-skills?style=social)](https://github.com/milad-ahmd/agent-skills)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE)
-![Skills](https://img.shields.io/badge/skills-13-orange)
+![Skills](https://img.shields.io/badge/skills-17-orange)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](#-contributing)
 
 [Install](#-install-in-10-seconds) · [All skills](#-the-skills) · [What is a skill?](#-what-is-a-skill) · [Awesome list](https://github.com/milad-ahmd/awesome-agent-skills)
@@ -20,7 +20,7 @@
 ## ⚡ Install in 10 seconds
 
 ```bash
-# all 13 skills
+# all 17 skills
 curl -fsSL https://raw.githubusercontent.com/milad-ahmd/agent-skills/main/install.sh | bash
 
 # or only the ones you want
@@ -39,13 +39,24 @@ Then just talk to your agent normally. It picks the right skill automatically.
 |---|---|---|
 | 🔎 [**pr-reviewer-pro**](https://github.com/milad-ahmd/pr-reviewer-pro) | Senior-engineer PR reviews: severities, `file:line` evidence, suggested fixes | *"Review PR #123"* |
 | 🧱 [**commit-craft**](https://github.com/milad-ahmd/commit-craft) | Messy changes → clean, atomic Conventional Commits | *"Commit my changes"* |
+| 📋 [**meeting-notes-to-tickets**](https://github.com/milad-ahmd/meeting-notes-to-tickets) | Meeting notes → de-duplicated GitHub/Linear/Jira tickets | *"Turn these notes into issues"* |
 | 📝 [**changelog-from-git**](https://github.com/milad-ahmd/changelog-from-git) | Human-readable release notes from git history | *"Write release notes since v1.2"* |
 
 ### 🧪 Testing & Quality
 | Skill | What it does | Try saying |
 |---|---|---|
 | 🧪 [**test-gap-hunter**](https://github.com/milad-ahmd/test-gap-hunter) | Finds the riskiest untested code and writes real tests | *"Find test gaps and fix the top 3"* |
+
+### 🎨 Frontend
+| Skill | What it does | Try saying |
+|---|---|---|
+| 🖼️ [**screenshot-to-component**](https://github.com/milad-ahmd/screenshot-to-component) | Screenshot → component in *your* design system | *"Build this screenshot as a component"* |
 | ♿ [**a11y-fixer**](https://github.com/milad-ahmd/a11y-fixer) | WCAG 2.2 AA audit that fixes issues in code | *"Make this app accessible"* |
+
+### 🧙 Refactoring
+| Skill | What it does | Try saying |
+|---|---|---|
+| 🧙 [**migration-wizard**](https://github.com/milad-ahmd/migration-wizard) | Safe, phased migrations: JS→TS, Jest→Vitest, Pages→App Router | *"Migrate this project to TypeScript"* |
 
 ### 🔐 Security & Maintenance
 | Skill | What it does | Try saying |
@@ -57,6 +68,7 @@ Then just talk to your agent normally. It picks the right skill automatically.
 | Skill | What it does | Try saying |
 |---|---|---|
 | 🐳 [**dockerize-anything**](https://github.com/milad-ahmd/dockerize-anything) | Small, secure, multi-stage Dockerfile and compose | *"Dockerize this project"* |
+| 🔌 [**api-to-sdk**](https://github.com/milad-ahmd/api-to-sdk) | Typed, idiomatic SDK from OpenAPI or your routes | *"Generate a TS SDK from openapi.yaml"* |
 | ⚡ [**sql-optimizer**](https://github.com/milad-ahmd/sql-optimizer) | Explains slow queries and suggests indexes and rewrites | *"Why is this query slow?"* |
 
 ### 📚 Documentation
@@ -94,12 +106,9 @@ Every skill in this collection:
 
 ## 🗺️ Roadmap
 
-- [ ] `migration-wizard`: JS→TS, Jest→Vitest, Pages→App Router
-- [ ] `api-to-sdk`: typed client from an OpenAPI spec
-- [ ] `screenshot-to-component`: image → component in your design system
-- [ ] `meeting-notes-to-tickets`: notes → GitHub, Linear or Jira issues
+All 17 planned skills have shipped. Next up is your idea:
 
-👉 Want a skill? [Open an issue](https://github.com/milad-ahmd/agent-skills/issues/new). Popular requests get built first.
+👉 [Request a skill](https://github.com/milad-ahmd/agent-skills/issues/new). Popular requests get built first.
 
 ## 🤝 Contributing
 

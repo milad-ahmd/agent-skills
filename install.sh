@@ -6,7 +6,7 @@
 set -euo pipefail
 
 USER_NAME="milad-ahmd"
-ALL=(readme-glow-up pr-reviewer-pro commit-craft test-gap-hunter dependency-doctor env-secrets-guard dockerize-anything changelog-from-git codebase-explainer a11y-fixer sql-optimizer launch-post-writer landing-page-roaster)
+ALL=(readme-glow-up pr-reviewer-pro commit-craft test-gap-hunter dependency-doctor env-secrets-guard dockerize-anything changelog-from-git codebase-explainer a11y-fixer sql-optimizer launch-post-writer landing-page-roaster migration-wizard api-to-sdk screenshot-to-component meeting-notes-to-tickets)
 DEST="${SKILLS_DIR:-$HOME/.claude/skills}"
 
 command -v git >/dev/null || { echo "git is required" >&2; exit 1; }
