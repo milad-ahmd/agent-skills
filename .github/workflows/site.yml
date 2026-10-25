@@ -1,0 +1,46 @@
+name: Build site & notify search engines
+
+on:
+  push:
+    branches: [main]
+    paths: ["skills/**", "scripts/**", "assets/**", "install.sh"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Lint all skills
+        run: python3 skills/skills-doctor/scripts/skills_doctor.py skills
+      - name: Build site
+        run: python3 scripts/build_site.py
+      - name: Commit docs/ if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs
+          git diff --cached --quiet || (git commit -m "chore: rebuild site [skip ci]" && git push)
+      - name: Wait for GitHub Pages deploy
+        run: sleep 90
+      - name: Ping IndexNow (Bing, Yandex, Seznam, Naver)
+        run: |
+          KEY=$(cat scripts/indexnow.key)
+          python3 - "$KEY" <<'EOF'
+          import json, sys, urllib.request
+          key = sys.argv[1]
+          urls = [u.strip() for u in open("docs/urls.txt") if u.strip()]
+          body = json.dumps({"host": "milad-ahmd.github.io", "key": key,
+                             "keyLocation": f"https://milad-ahmd.github.io/agent-skills/{key}.txt", "urlList": urls}).encode()
+          req = urllib.request.Request("https://api.indexnow.org/indexnow", data=body, headers={"Content-Type": "application/json; charset=utf-8"})
+          try:
+              print("IndexNow:", urllib.request.urlopen(req, timeout=30).status, len(urls), "urls")
+          except Exception as e:
+              print("IndexNow failed (non-fatal):", e)
+          EOF
