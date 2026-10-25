@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://milad-ahmd.github.io/agent-skills/sitemap.xml

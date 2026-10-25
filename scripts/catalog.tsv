@@ -1,0 +1,51 @@
+commit-craft	🧱	Turn messy changes into clean, atomic Conventional Commits	Git & Workflow	Commit my changes|Split these changes into clean commits
+test-gap-hunter	🧪	Find the riskiest untested code and write real tests for it	Testing & Quality	Find test gaps in this project and write tests for the top 3|Add tests for src/billing
+dependency-doctor	🩺	Audit vulnerable, outdated and unused packages with a safe upgrade plan	Security & Maintenance	Check my dependencies|Plan the upgrade to React 19
+env-secrets-guard	🔐	Find leaked API keys and secrets before they hit GitHub	Security & Maintenance	Scan this repo for leaked secrets before I push|I'm open-sourcing this repo, is it safe?
+dockerize-anything	🐳	Production-ready, small, secure Dockerfile and compose for any repo	DevOps	Dockerize this project|Make my Docker image smaller
+changelog-from-git	📝	Polished release notes and CHANGELOG entries from git history	Git & Workflow	Write release notes since the last tag|Draft the GitHub release for v2.0
+codebase-explainer	🗺️	Onboarding guide for any repo, with Mermaid architecture diagrams	Documentation	Explain this codebase|Where do I start in this repo?
+a11y-fixer	♿	WCAG 2.2 AA audit that fixes accessibility issues in your code	Frontend	Audit this app for accessibility and fix the issues|Make the signup form screen-reader friendly
+sql-optimizer	⚡	Explain slow SQL queries and get index and rewrite fixes	Backend & Data	Why is this query slow?|Find N+1 queries in this API
+launch-post-writer	🚀	Turn your repo into an X thread, Show HN, LinkedIn and Reddit launch posts	Growth	Write launch posts for this repo|Write a Show HN post for v1.0
+landing-page-roaster	🔥	Honest, funny, scored roast of your landing page plus copy rewrites	Growth	Roast my landing page|Improve the conversion of our pricing page
+migration-wizard	🧙	Safe, incremental codebase migrations: JS→TS, Jest→Vitest, Pages→App Router and more	Refactoring	Migrate this project from JavaScript to TypeScript|Move our tests from Jest to Vitest
+api-to-sdk	🔌	Typed, idiomatic client SDK from an OpenAPI spec or your backend routes	Backend & Data	Generate a TypeScript SDK from openapi.yaml|Create a typed client for our API
+screenshot-to-component	🖼️	Screenshot or mockup to a component built with your design system	Frontend	Build this screenshot as a React component|Implement this mockup in Flutter
+meeting-notes-to-tickets	📋	Meeting notes into de-duplicated GitHub, Linear or Jira tickets	Git & Workflow	Turn these meeting notes into GitHub issues|Create tickets from this transcript
+instagram-growth-manager	📸	Grow and manage Instagram with bio audits, Reels scripts, carousels, captions, hashtags and growth reviews	Marketing	Audit my Instagram profile and plan next month|Write 5 Reels scripts for my bakery
+tiktok-viral-creator	🎵	TikTok ideas, 2-second hooks, shot-by-shot scripts and retention analysis	Marketing	Give me 10 TikTok ideas for my fitness app|Script a 30s TikTok about this feature
+youtube-seo-optimizer	📺	YouTube titles, thumbnails, descriptions, chapters and channel audits for more views	Marketing	Optimize the title and description for this video|Audit my YouTube channel
+youtube-script-writer	🎬	High-retention YouTube and Shorts scripts with hooks, open loops and B-roll cues	Marketing	Write a 10-minute YouTube script about X|Turn this blog post into a YouTube Short
+content-repurposer	♻️	One video or podcast into 15+ posts: Shorts, Reels, threads, LinkedIn, carousel, newsletter	Marketing	Repurpose this transcript into social posts|Turn my latest video into a content pack
+social-media-calendar	🗓️	Monthly cross-platform content calendar, exported as CSV for Notion, Sheets, Buffer or Later	Marketing	Plan my social media calendar for November|Create a 4-week launch content plan
+hook-generator	🪝	Scroll-stopping hooks for videos, posts, emails and ads, scored and ranked	Marketing	Give me hooks for a video about X|Write 20 opening lines for this LinkedIn post
+ad-copy-generator	📣	Ad copy for Meta, TikTok, Google and YouTube within each platform's limits, plus an A/B test matrix	Marketing	Write Meta ads for my product|Create Google RSA headlines for this landing page
+seo-blog-writer	✍️	SEO blog posts that rank: intent research, outline, meta tags, FAQ and schema	Marketing	Write an SEO article for 'best budgeting apps'|Outline a blog post that ranks for X
+email-campaign-writer	📧	Welcome, launch, cart and newsletter email sequences with subject-line tests	Marketing	Write a 5-email welcome sequence|Write a launch email campaign
+brand-voice-guide	🎨	A brand voice, positioning and personas guide, then rewrites copy on-brand	Marketing	Create a brand voice guide from our website|Make this post sound like our brand
+competitor-spy	🕵️	Competitor analysis of pricing, messaging, socials, ads and reviews, with a SWOT and opportunities	Marketing	Analyze my top 3 competitors|Find gaps in our competitors' marketing
+influencer-outreach	🤝	Influencer and UGC campaigns: vetting, outreach DMs, briefs and tracking	Marketing	Plan a micro-influencer campaign on TikTok|Write outreach DMs to these creators
+social-analytics-reporter	📊	Social media analytics exports into a clear report with KPIs, reasons and next actions	Marketing	Analyze this Instagram Insights export|Write my monthly social media report
+social-media-manager	🧠	All-in-one social media manager: picks platforms, sets KPIs, plans weekly and directs every platform skill	Social Platforms	Manage my brand's social media|Which platforms should my business focus on?
+linkedin-growth-manager	💼	LinkedIn profile rewrite, post writing, comment strategy and analytics for personal brands and company pages	Social Platforms	Rewrite my LinkedIn headline and About|Write 5 LinkedIn posts about my startup journey
+x-twitter-growth-manager	𝕏	Grow on X/Twitter with profile, daily posts, threads, a reply strategy and analytics	Social Platforms	Write a thread about what I learned building X|Make a 30-day X content bank for my niche
+facebook-page-manager	👍	Facebook Pages and Groups: setup, posts, Reels, Messenger replies, reviews and boosting	Social Platforms	Set up and plan content for my Facebook page|Write rules and a welcome post for my Facebook group
+pinterest-growth-manager	📌	Pinterest SEO: keywords, boards, Pin titles and descriptions, and seasonal plans for traffic	Social Platforms	Create a Pinterest strategy for my blog|Write Pin titles and descriptions for this product
+threads-growth-manager	🧵	Grow on Meta Threads with conversation-starting posts, reply strategy and a content bank	Social Platforms	Write 20 Threads posts for my brand|How do I grow on Threads?
+reddit-marketing-agent	👽	Authentic Reddit marketing: subreddit research and rules, value-first posts and launch posts	Social Platforms	Find subreddits where I can share my app|Write a Reddit launch post that follows the rules
+telegram-channel-manager	✈️	Grow and run a Telegram channel or group: content, formatting, moderation and monetization	Social Platforms	Plan a content calendar for my Telegram channel|Write rules and a pinned post for my Telegram group
+whatsapp-business-agent	💬	WhatsApp Business for sales and support: quick replies, broadcasts, API templates and chatbot flows	Social Platforms	Set up WhatsApp Business replies for my shop|Design a WhatsApp chatbot flow for orders
+google-business-profile-manager	📍	Rank on Google Maps: Google Business Profile optimization, posts, reviews and local SEO	Social Platforms	Optimize my Google Business Profile|Reply to these Google reviews
+roast-my-github	🔥	Get your GitHub profile roasted with real data, then a scorecard and glow-up plan	Fun & Viral	Roast my GitHub: milad-ahmd|Rate my GitHub profile and tell me what to fix
+startup-idea-validator	🦈	Stress-test a startup idea with a VC, customer and competitor panel, cheap experiments and a verdict	Founders	Validate my startup idea: ...|What could kill this idea?
+codebase-time-machine	⏳	The story of your repo from git history, as a documentary: eras, cast, plot twists, cursed files	Fun & Viral	Tell me the story of this codebase|Who built what in this repo, and when?
+ai-slop-detector	🧹	Score text for AI-sounding writing and rewrite it to sound human, keeping the author's voice	Writing	De-slop this blog post|Does this sound like AI? Make it sound human
+agent-memory-keeper	🧠	Persistent project memory (MEMORY.md) so your agent stops repeating the same mistakes	Agent Productivity	Remember that we use pnpm, not npm|What do you remember about this project?
+skill-creator-pro	🛠️	Turn any workflow into a well-written SKILL.md, with a linter to validate it	Agent Productivity	Create a skill for our release process|Turn this checklist into an agent skill
+cost-cutter	💸	Cut cloud, SaaS and LLM API bills with dollar estimates, effort, risk and exact fixes	DevOps	Why is our AWS bill so high?|Cut our OpenAI API costs
+incident-commander	🚨	Run a production outage from triage to mitigation, status updates and a blameless postmortem	DevOps	Production is down, help me|Write a postmortem for yesterday's outage
+app-store-optimizer	📱	App Store and Google Play ASO: keywords, titles, screenshot captions, review replies, A/B tests	Growth	Optimize my App Store listing|Write Google Play short descriptions for my app
+skills-doctor	🩺	Audit your installed skills for broken frontmatter, vague triggers, conflicts and leaked secrets	Agent Productivity	Check my installed skills|Why isn't my skill triggering?
+readme-glow-up	✨	Turn any README into a star magnet using only facts from your repo	Documentation	Glow up the README of this repo|Rewrite my README with badges and a quickstart
+pr-reviewer-pro	🔎	Senior-engineer PR reviews with severity levels, file:line evidence and suggested fixes	Git & Workflow	Review PR #123|Review my changes before I push

@@ -11,7 +11,7 @@
 ![Skills](https://img.shields.io/badge/skills-51-orange)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](#-contributing)
 
-[Install](#-install-in-10-seconds) · [Demos](#-see-them-in-action-real-output-not-mockups) · [Packs](#-packs-install-by-who-you-are) · [Platform agents](#-social-platform-agents) · [Marketing skills](#-marketing--content-skills) · [Developer skills](#-developer-skills) · [What is a skill?](#-what-is-a-skill) · [Awesome list](https://github.com/milad-ahmd/awesome-agent-skills)
+[🌐 Website](https://milad-ahmd.github.io/agent-skills/) · [Install](#-install-in-10-seconds) · [Demos](#-see-them-in-action-real-output-not-mockups) · [Packs](#-packs-install-by-who-you-are) · [Platform agents](#-social-platform-agents) · [Marketing skills](#-marketing--content-skills) · [Developer skills](#-developer-skills) · [What is a skill?](#-what-is-a-skill) · [Awesome list](https://github.com/milad-ahmd/awesome-agent-skills)
 
 <img src="assets/demo-install.gif" alt="Installing agent-skills with one command" width="760"/>
 
@@ -20,6 +20,36 @@
 ---
 
 ## ⚡ Install in 10 seconds
+
+### Option 1: Claude Code plugin (recommended)
+
+```text
+/plugin install all-skills --marketplace milad-ahmd/agent-skills
+```
+
+Or install just one pack:
+
+```text
+/plugin install creator-pack --marketplace milad-ahmd/agent-skills
+/plugin install marketer-pack --marketplace milad-ahmd/agent-skills
+/plugin install indie-hacker-pack --marketplace milad-ahmd/agent-skills
+/plugin install local-business-pack --marketplace milad-ahmd/agent-skills
+/plugin install startup-cto-pack --marketplace milad-ahmd/agent-skills
+/plugin install developer-pack --marketplace milad-ahmd/agent-skills
+/plugin install skill-builder-pack --marketplace milad-ahmd/agent-skills
+/plugin install fun-pack --marketplace milad-ahmd/agent-skills
+```
+
+On older Claude Code versions, run `/plugin marketplace add milad-ahmd/agent-skills` first.
+
+### Option 2: `npx skills` (Cursor, Codex, Cline, Windsurf, Copilot and 75+ agents)
+
+```bash
+npx skills add milad-ahmd/agent-skills                          # pick skills interactively
+npx skills add milad-ahmd/agent-skills --skill roast-my-github  # one skill
+```
+
+### Option 3: shell installer
 
 ```bash
 # all 51 skills

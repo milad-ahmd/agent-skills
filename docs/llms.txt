@@ -1,0 +1,57 @@
+# Agent Skills by Milad Ahmadi
+
+> 51 open-source Agent Skills (SKILL.md) for Claude Code, Cursor, Codex, Cline and other AI agents. Install: `/plugin install all-skills --marketplace milad-ahmd/agent-skills` or `npx skills add milad-ahmd/agent-skills`.
+
+## Skills
+
+- [a11y-fixer](https://milad-ahmd.github.io/agent-skills/skills/a11y-fixer/): WCAG 2.2 AA audit that fixes accessibility issues in your code
+- [ad-copy-generator](https://milad-ahmd.github.io/agent-skills/skills/ad-copy-generator/): Ad copy for Meta, TikTok, Google and YouTube within each platform's limits, plus an A/B test matrix
+- [agent-memory-keeper](https://milad-ahmd.github.io/agent-skills/skills/agent-memory-keeper/): Persistent project memory (MEMORY.md) so your agent stops repeating the same mistakes
+- [ai-slop-detector](https://milad-ahmd.github.io/agent-skills/skills/ai-slop-detector/): Score text for AI-sounding writing and rewrite it to sound human, keeping the author's voice
+- [api-to-sdk](https://milad-ahmd.github.io/agent-skills/skills/api-to-sdk/): Typed, idiomatic client SDK from an OpenAPI spec or your backend routes
+- [app-store-optimizer](https://milad-ahmd.github.io/agent-skills/skills/app-store-optimizer/): App Store and Google Play ASO: keywords, titles, screenshot captions, review replies, A/B tests
+- [brand-voice-guide](https://milad-ahmd.github.io/agent-skills/skills/brand-voice-guide/): A brand voice, positioning and personas guide, then rewrites copy on-brand
+- [changelog-from-git](https://milad-ahmd.github.io/agent-skills/skills/changelog-from-git/): Polished release notes and CHANGELOG entries from git history
+- [codebase-explainer](https://milad-ahmd.github.io/agent-skills/skills/codebase-explainer/): Onboarding guide for any repo, with Mermaid architecture diagrams
+- [codebase-time-machine](https://milad-ahmd.github.io/agent-skills/skills/codebase-time-machine/): The story of your repo from git history, as a documentary: eras, cast, plot twists, cursed files
+- [commit-craft](https://milad-ahmd.github.io/agent-skills/skills/commit-craft/): Turn messy changes into clean, atomic Conventional Commits
+- [competitor-spy](https://milad-ahmd.github.io/agent-skills/skills/competitor-spy/): Competitor analysis of pricing, messaging, socials, ads and reviews, with a SWOT and opportunities
+- [content-repurposer](https://milad-ahmd.github.io/agent-skills/skills/content-repurposer/): One video or podcast into 15+ posts: Shorts, Reels, threads, LinkedIn, carousel, newsletter
+- [cost-cutter](https://milad-ahmd.github.io/agent-skills/skills/cost-cutter/): Cut cloud, SaaS and LLM API bills with dollar estimates, effort, risk and exact fixes
+- [dependency-doctor](https://milad-ahmd.github.io/agent-skills/skills/dependency-doctor/): Audit vulnerable, outdated and unused packages with a safe upgrade plan
+- [dockerize-anything](https://milad-ahmd.github.io/agent-skills/skills/dockerize-anything/): Production-ready, small, secure Dockerfile and compose for any repo
+- [email-campaign-writer](https://milad-ahmd.github.io/agent-skills/skills/email-campaign-writer/): Welcome, launch, cart and newsletter email sequences with subject-line tests
+- [env-secrets-guard](https://milad-ahmd.github.io/agent-skills/skills/env-secrets-guard/): Find leaked API keys and secrets before they hit GitHub
+- [facebook-page-manager](https://milad-ahmd.github.io/agent-skills/skills/facebook-page-manager/): Facebook Pages and Groups: setup, posts, Reels, Messenger replies, reviews and boosting
+- [google-business-profile-manager](https://milad-ahmd.github.io/agent-skills/skills/google-business-profile-manager/): Rank on Google Maps: Google Business Profile optimization, posts, reviews and local SEO
+- [hook-generator](https://milad-ahmd.github.io/agent-skills/skills/hook-generator/): Scroll-stopping hooks for videos, posts, emails and ads, scored and ranked
+- [incident-commander](https://milad-ahmd.github.io/agent-skills/skills/incident-commander/): Run a production outage from triage to mitigation, status updates and a blameless postmortem
+- [influencer-outreach](https://milad-ahmd.github.io/agent-skills/skills/influencer-outreach/): Influencer and UGC campaigns: vetting, outreach DMs, briefs and tracking
+- [instagram-growth-manager](https://milad-ahmd.github.io/agent-skills/skills/instagram-growth-manager/): Grow and manage Instagram with bio audits, Reels scripts, carousels, captions, hashtags and growth reviews
+- [landing-page-roaster](https://milad-ahmd.github.io/agent-skills/skills/landing-page-roaster/): Honest, funny, scored roast of your landing page plus copy rewrites
+- [launch-post-writer](https://milad-ahmd.github.io/agent-skills/skills/launch-post-writer/): Turn your repo into an X thread, Show HN, LinkedIn and Reddit launch posts
+- [linkedin-growth-manager](https://milad-ahmd.github.io/agent-skills/skills/linkedin-growth-manager/): LinkedIn profile rewrite, post writing, comment strategy and analytics for personal brands and company pages
+- [meeting-notes-to-tickets](https://milad-ahmd.github.io/agent-skills/skills/meeting-notes-to-tickets/): Meeting notes into de-duplicated GitHub, Linear or Jira tickets
+- [migration-wizard](https://milad-ahmd.github.io/agent-skills/skills/migration-wizard/): Safe, incremental codebase migrations: JS→TS, Jest→Vitest, Pages→App Router and more
+- [pinterest-growth-manager](https://milad-ahmd.github.io/agent-skills/skills/pinterest-growth-manager/): Pinterest SEO: keywords, boards, Pin titles and descriptions, and seasonal plans for traffic
+- [pr-reviewer-pro](https://milad-ahmd.github.io/agent-skills/skills/pr-reviewer-pro/): Senior-engineer PR reviews with severity levels, file:line evidence and suggested fixes
+- [readme-glow-up](https://milad-ahmd.github.io/agent-skills/skills/readme-glow-up/): Turn any README into a star magnet using only facts from your repo
+- [reddit-marketing-agent](https://milad-ahmd.github.io/agent-skills/skills/reddit-marketing-agent/): Authentic Reddit marketing: subreddit research and rules, value-first posts and launch posts
+- [roast-my-github](https://milad-ahmd.github.io/agent-skills/skills/roast-my-github/): Get your GitHub profile roasted with real data, then a scorecard and glow-up plan
+- [screenshot-to-component](https://milad-ahmd.github.io/agent-skills/skills/screenshot-to-component/): Screenshot or mockup to a component built with your design system
+- [seo-blog-writer](https://milad-ahmd.github.io/agent-skills/skills/seo-blog-writer/): SEO blog posts that rank: intent research, outline, meta tags, FAQ and schema
+- [skill-creator-pro](https://milad-ahmd.github.io/agent-skills/skills/skill-creator-pro/): Turn any workflow into a well-written SKILL.md, with a linter to validate it
+- [skills-doctor](https://milad-ahmd.github.io/agent-skills/skills/skills-doctor/): Audit your installed skills for broken frontmatter, vague triggers, conflicts and leaked secrets
+- [social-analytics-reporter](https://milad-ahmd.github.io/agent-skills/skills/social-analytics-reporter/): Social media analytics exports into a clear report with KPIs, reasons and next actions
+- [social-media-calendar](https://milad-ahmd.github.io/agent-skills/skills/social-media-calendar/): Monthly cross-platform content calendar, exported as CSV for Notion, Sheets, Buffer or Later
+- [social-media-manager](https://milad-ahmd.github.io/agent-skills/skills/social-media-manager/): All-in-one social media manager: picks platforms, sets KPIs, plans weekly and directs every platform skill
+- [sql-optimizer](https://milad-ahmd.github.io/agent-skills/skills/sql-optimizer/): Explain slow SQL queries and get index and rewrite fixes
+- [startup-idea-validator](https://milad-ahmd.github.io/agent-skills/skills/startup-idea-validator/): Stress-test a startup idea with a VC, customer and competitor panel, cheap experiments and a verdict
+- [telegram-channel-manager](https://milad-ahmd.github.io/agent-skills/skills/telegram-channel-manager/): Grow and run a Telegram channel or group: content, formatting, moderation and monetization
+- [test-gap-hunter](https://milad-ahmd.github.io/agent-skills/skills/test-gap-hunter/): Find the riskiest untested code and write real tests for it
+- [threads-growth-manager](https://milad-ahmd.github.io/agent-skills/skills/threads-growth-manager/): Grow on Meta Threads with conversation-starting posts, reply strategy and a content bank
+- [tiktok-viral-creator](https://milad-ahmd.github.io/agent-skills/skills/tiktok-viral-creator/): TikTok ideas, 2-second hooks, shot-by-shot scripts and retention analysis
+- [whatsapp-business-agent](https://milad-ahmd.github.io/agent-skills/skills/whatsapp-business-agent/): WhatsApp Business for sales and support: quick replies, broadcasts, API templates and chatbot flows
+- [x-twitter-growth-manager](https://milad-ahmd.github.io/agent-skills/skills/x-twitter-growth-manager/): Grow on X/Twitter with profile, daily posts, threads, a reply strategy and analytics
+- [youtube-script-writer](https://milad-ahmd.github.io/agent-skills/skills/youtube-script-writer/): High-retention YouTube and Shorts scripts with hooks, open loops and B-roll cues
+- [youtube-seo-optimizer](https://milad-ahmd.github.io/agent-skills/skills/youtube-seo-optimizer/): YouTube titles, thumbnails, descriptions, chapters and channel audits for more views

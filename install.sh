@@ -43,14 +43,18 @@ done
 mkdir -p "$DEST"
 tmp="$(mktemp -d)"; trap 'rm -rf "$tmp"' EXIT
 
+# Fetch the whole collection once (all skills live in this repo under skills/)
+REPO_DIR="$tmp/agent-skills"
+git clone -q --depth 1 "https://github.com/$USER_NAME/agent-skills.git" "$REPO_DIR" || { echo "Download failed" >&2; exit 1; }
+
 ok=0
 for s in "${SKILLS[@]}"; do
   if ! printf '%s\n' "${ALL[@]}" | grep -qx "$s"; then
     echo "✗ unknown skill: $s (available: ${ALL[*]})" >&2; continue
   fi
-  if git clone -q --depth 1 "https://github.com/$USER_NAME/$s.git" "$tmp/$s" 2>/dev/null; then
+  if [[ -d "$REPO_DIR/skills/$s" ]]; then
     rm -rf "${DEST:?}/$s"
-    cp -R "$tmp/$s/skills/$s" "$DEST/$s"
+    cp -R "$REPO_DIR/skills/$s" "$DEST/$s"
     echo "✓ $s"; ok=$((ok+1))
   else
     echo "✗ failed to download $s" >&2

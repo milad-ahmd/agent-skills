@@ -1,0 +1,64 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ai-slop-detector: Free Agent Skill for Claude Code, Cursor &amp; Codex</title><meta name="description" content="Score text for AI-sounding writing and rewrite it to sound human, keeping the author&#x27;s voice. Free open-source SKILL.md for Claude Code, Cursor, Codex and Cline.">
+<link rel="canonical" href="https://milad-ahmd.github.io/agent-skills/skills/ai-slop-detector/"><meta name="robots" content="index,follow">
+<meta property="og:type" content="website"><meta property="og:title" content="ai-slop-detector: Free Agent Skill for Claude Code, Cursor &amp; Codex"><meta property="og:description" content="Score text for AI-sounding writing and rewrite it to sound human, keeping the author&#x27;s voice. Free open-source SKILL.md for Claude Code, Cursor, Codex and Cline.">
+<meta property="og:url" content="https://milad-ahmd.github.io/agent-skills/skills/ai-slop-detector/"><meta property="og:image" content="https://milad-ahmd.github.io/agent-skills/assets/og.png"><meta property="og:site_name" content="Agent Skills by Milad Ahmadi">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="ai-slop-detector: Free Agent Skill for Claude Code, Cursor &amp; Codex"><meta name="twitter:description" content="Score text for AI-sounding writing and rewrite it to sound human, keeping the author&#x27;s voice. Free open-source SKILL.md for Claude Code, Cursor, Codex and Cline."><meta name="twitter:image" content="https://milad-ahmd.github.io/agent-skills/assets/og.png">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧰</text></svg>">
+<style>
+:root{--bg:#0f1117;--card:#171a23;--fg:#e8e9ee;--dim:#9aa0ad;--acc:#8b5cf6;--acc2:#22d3ee;--line:#262a36}
+*{box-sizing:border-box}body{margin:0;font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--fg)}
+a{color:var(--acc2);text-decoration:none}a:hover{text-decoration:underline}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+header.top{border-bottom:1px solid var(--line);padding:14px 0}header.top .wrap{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.logo{font-weight:800;color:var(--fg);font-size:18px}.nav a{margin-left:16px;color:var(--dim)}
+.hero{padding:56px 0 28px;text-align:center}.hero h1{font-size:clamp(30px,5vw,48px);line-height:1.15;margin:0 0 14px}
+.hero p{color:var(--dim);font-size:19px;max-width:760px;margin:0 auto 22px}
+.btn{display:inline-block;background:var(--acc);color:#fff;padding:12px 20px;border-radius:10px;font-weight:700;margin:4px}
+.btn.alt{background:transparent;border:1px solid var(--line);color:var(--fg)}
+pre{background:#0b0d12;border:1px solid var(--line);border-radius:10px;padding:14px;overflow:auto;font-size:14px}
+code{font-family:ui-monospace,Menlo,monospace}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;display:block;color:var(--fg)}
+.card:hover{border-color:var(--acc);text-decoration:none}.card h3{margin:0 0 6px;font-size:17px}.card p{margin:0;color:var(--dim);font-size:14px}
+h2{margin-top:44px}.tag{display:inline-block;font-size:12px;color:var(--acc2);border:1px solid var(--line);border-radius:999px;padding:2px 10px;margin-bottom:8px}
+.demo{max-width:100%;height:auto;border-radius:10px;border:1px solid var(--line)}
+.crumbs{color:var(--dim);font-size:14px;margin:20px 0 0}article{max-width:820px}
+article h1{font-size:clamp(28px,4vw,40px);margin:8px 0}.lead{font-size:19px;color:var(--dim)}
+.skillmd h2,.skillmd h3{margin-top:28px}.skillmd table{border-collapse:collapse;width:100%;font-size:14px;display:block;overflow:auto}
+.skillmd td,.skillmd th{border:1px solid var(--line);padding:6px 8px;text-align:left}
+footer{border-top:1px solid var(--line);margin-top:60px;padding:24px 0;color:var(--dim);font-size:14px}
+</style><script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareSourceCode", "name": "ai-slop-detector", "description": "Finds \"AI slop\" writing patterns, such as cliché phrases (\"delve\", \"in today's fast-paced world\"), em-dash overload, uniform sentence rhythm, reflexive triads, and empty conclusions, using a scoring script, then rewrites the text to sound specific and human while keeping the author's meaning and voice. Use when the user asks to humanize text, remove AI-sounding phrasing, de-slop a draft, or check whether writing sounds robotic.", "codeRepository": "https://github.com/milad-ahmd/agent-skills/tree/main/skills/ai-slop-detector", "license": "https://opensource.org/licenses/MIT", "dateModified": "2026-10-25", "author": {"@type": "Person", "name": "Milad Ahmadi", "url": "https://github.com/milad-ahmd"}, "keywords": "agent skill, SKILL.md, claude code skill, cursor, codex, ai-slop-detector, Writing"}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Agent Skills", "item": "https://milad-ahmd.github.io/agent-skills/"}, {"@type": "ListItem", "position": 2, "name": "ai-slop-detector", "item": "https://milad-ahmd.github.io/agent-skills/skills/ai-slop-detector/"}]}</script></head><body>
+<header class="top"><div class="wrap"><a class="logo" href="../../">🧰 Agent Skills</a>
+<nav class="nav"><a href="../../#skills">Skills</a><a href="../../#packs">Packs</a><a href="../../#install">Install</a><a href="https://github.com/milad-ahmd/agent-skills">GitHub ⭐</a></nav></div></header>
+<main class="wrap"><p class="crumbs"><a href="../../">Agent Skills</a> › <a href="../../#skills">Writing</a> › ai-slop-detector</p>
+<article><span class="tag">Writing</span>
+<h1>🧹 ai-slop-detector</h1><p class="lead">Score text for AI-sounding writing and rewrite it to sound human, keeping the author&#x27;s voice. A free, open-source Agent Skill for Claude Code, Cline, Cursor, Codex and 75+ AI agents.</p><p><img class="demo" src="../../assets/demo-ai-slop-detector.gif" alt="ai-slop-detector demo with real terminal output" loading="lazy" width="760" height="502"></p>
+<h2>Install ai-slop-detector</h2>
+<pre><code># Claude Code (all 51 skills)
+/plugin install all-skills --marketplace milad-ahmd/agent-skills
+
+# Cursor, Codex, Cline, Windsurf, Copilot + 75 more agents
+npx skills add milad-ahmd/agent-skills --skill ai-slop-detector
+
+# Shell installer
+curl -fsSL https://raw.githubusercontent.com/milad-ahmd/agent-skills/main/install.sh | bash -s -- ai-slop-detector</code></pre><p>Included in packs: <code>creator-pack</code>, <code>fun-pack</code></p>
+<h2>What to say to your agent</h2><ul><li><code>De-slop this blog post</code></li><li><code>Does this sound like AI? Make it sound human</code></li></ul>
+<h2>When it triggers</h2><p>Finds &quot;AI slop&quot; writing patterns, such as cliché phrases (&quot;delve&quot;, &quot;in today&#x27;s fast-paced world&quot;), em-dash overload, uniform sentence rhythm, reflexive triads, and empty conclusions, using a scoring script, then rewrites the text to sound specific and human while keeping the author&#x27;s meaning and voice. Use when the user asks to humanize text, remove AI-sounding phrasing, de-slop a draft, or check whether writing sounds robotic.</p>
+<h2>Full skill instructions (SKILL.md)</h2><div class="skillmd"><h2>AI Slop Detector</h2>
+<p>Make writing sound like a specific human wrote it, not an average of the internet.</p>
+<h3>1. Scan</h3>
+<pre><code>python3 scripts/slop_scan.py draft.md          # file
+pbpaste | python3 scripts/slop_scan.py -       # stdin</code></pre>
+<p>The script prints a <strong>slop-signal score from 0 to 100</strong>, the flagged lines with line numbers, em-dash density and sentence-rhythm uniformity.</p>
+<h3>2. Diagnose the patterns the script can&#x27;t catch</h3>
+<ul><li>Generic claims with no specifics (no names, numbers, examples).</li><li>Reflexive &quot;X, Y, and Z&quot; triads, and &quot;It&#x27;s not just A, it&#x27;s B&quot; constructions.</li><li>Empty openers and closers (&quot;In conclusion&quot;, &quot;Ultimately&quot;, &quot;I hope this helps!&quot;).</li><li>Hedging stacks (&quot;may potentially help to&quot;), and bullet lists where prose would read better.</li><li>The same paragraph shape repeated over and over.</li></ul>
+<h3>3. Rewrite</h3>
+<ul><li>Keep the meaning, the facts and the author&#x27;s voice. Ask for a sample of their own writing if you can.</li><li>Replace abstractions with concrete details <strong>the author supplies</strong>. Never invent anecdotes or data. Mark the gaps as <code>[add a real example]</code>.</li><li>Vary sentence length, use plain verbs, and cut filler and most em-dashes.</li><li>Show the top 5 changes as before → after, then the full rewrite. Re-run the scanner to confirm the score dropped.</li></ul>
+<h3>Rules</h3>
+<ul><li>This measures <strong>style signals, not authorship</strong>. Never claim it proves text was written by AI, and don&#x27;t use it to accuse students, employees or writers.</li><li>Don&#x27;t strip technical terms that are correct in context (&quot;robust&quot; in statistics, &quot;leverage&quot; in finance).</li></ul></div>
+<p><a class="btn" href="https://github.com/milad-ahmd/agent-skills/tree/main/skills/ai-slop-detector">View source on GitHub</a> <a class="btn alt" href="https://github.com/milad-ahmd/agent-skills">⭐ Star the collection</a></p>
+</article></main>
+<footer><div class="wrap">Open source (MIT) by <a href="https://github.com/milad-ahmd">Milad Ahmadi</a> · <a href="https://github.com/milad-ahmd/agent-skills">GitHub</a> · Works with Claude Code, Cline, Cursor, Codex, Windsurf, Copilot and any agent that reads SKILL.md · Updated 2026-10-25</div></footer>
+</body></html>
