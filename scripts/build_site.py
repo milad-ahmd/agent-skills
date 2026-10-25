@@ -70,6 +70,9 @@ def main():
     key = open(os.path.join(ROOT, "scripts", "indexnow.key")).read().strip()
     write(os.path.join(OUT, f"{key}.txt"), key)
     write(os.path.join(OUT, "urls.txt"), "\n".join(urls) + "\n")
+    for v in os.listdir(os.path.join(ROOT, "scripts")):  # search-engine verification files
+        if re.match(r"^google[0-9a-f]+\.html$", v):
+            shutil.copy(os.path.join(ROOT, "scripts", v), os.path.join(OUT, v))
     print(f"built {len(skills)} skill pages + home -> docs/ ({len(urls)} URLs)")
 
 
