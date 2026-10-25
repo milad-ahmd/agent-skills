@@ -2,16 +2,18 @@
 
 # 🧰 Agent Skills
 
-### 17 battle-tested skills that make your AI coding agent work like a senior engineer.
+### 31 Agent Skills for developers & marketers. Code, ship, and grow on Instagram, TikTok & YouTube.
 
 **Works with Claude Code · Cline · Cursor · Codex · any agent that reads `SKILL.md`**
 
 [![Stars](https://img.shields.io/github/stars/milad-ahmd/agent-skills?style=social)](https://github.com/milad-ahmd/agent-skills)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE)
-![Skills](https://img.shields.io/badge/skills-17-orange)
+![Skills](https://img.shields.io/badge/skills-31-orange)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](#-contributing)
 
-[Install](#-install-in-10-seconds) · [All skills](#-the-skills) · [What is a skill?](#-what-is-a-skill) · [Awesome list](https://github.com/milad-ahmd/awesome-agent-skills)
+[Install](#-install-in-10-seconds) · [Marketing skills](#-marketing--social-media-skills-new) · [Developer skills](#-developer-skills) · [What is a skill?](#-what-is-a-skill) · [Awesome list](https://github.com/milad-ahmd/awesome-agent-skills)
+
+<img src="assets/demo-install.gif" alt="Installing agent-skills with one command" width="760"/>
 
 </div>
 
@@ -20,7 +22,7 @@
 ## ⚡ Install in 10 seconds
 
 ```bash
-# all 17 skills
+# all 31 skills
 curl -fsSL https://raw.githubusercontent.com/milad-ahmd/agent-skills/main/install.sh | bash
 
 # or only the ones you want
@@ -32,7 +34,30 @@ curl -fsSL https://raw.githubusercontent.com/milad-ahmd/agent-skills/main/instal
 
 Then just talk to your agent normally. It picks the right skill automatically.
 
-## 🎯 The skills
+## 📣 Marketing & Social Media Skills (new!)
+
+Your AI agent can also act as a social media manager, content strategist and growth marketer.
+
+| Skill | What it does | Try saying |
+|---|---|---|
+| 📸 [**instagram-growth-manager**](https://github.com/milad-ahmd/instagram-growth-manager) | Grow and manage Instagram with bio audits, Reels scripts, carousels, captions, hashtags and growth reviews | *"Audit my Instagram profile and plan next month"* |
+| 🎵 [**tiktok-viral-creator**](https://github.com/milad-ahmd/tiktok-viral-creator) | TikTok ideas, 2-second hooks, shot-by-shot scripts and retention analysis | *"Give me 10 TikTok ideas for my fitness app"* |
+| 📺 [**youtube-seo-optimizer**](https://github.com/milad-ahmd/youtube-seo-optimizer) | YouTube titles, thumbnails, descriptions, chapters and channel audits for more views | *"Optimize the title and description for this video"* |
+| 🎬 [**youtube-script-writer**](https://github.com/milad-ahmd/youtube-script-writer) | High-retention YouTube and Shorts scripts with hooks, open loops and B-roll cues | *"Write a 10-minute YouTube script about X"* |
+| ♻️ [**content-repurposer**](https://github.com/milad-ahmd/content-repurposer) | One video or podcast into 15+ posts: Shorts, Reels, threads, LinkedIn, carousel, newsletter | *"Repurpose this transcript into social posts"* |
+| 🗓️ [**social-media-calendar**](https://github.com/milad-ahmd/social-media-calendar) | Monthly cross-platform content calendar, exported as CSV for Notion, Sheets, Buffer or Later | *"Plan my social media calendar for November"* |
+| 🪝 [**hook-generator**](https://github.com/milad-ahmd/hook-generator) | Scroll-stopping hooks for videos, posts, emails and ads, scored and ranked | *"Give me hooks for a video about X"* |
+| 📣 [**ad-copy-generator**](https://github.com/milad-ahmd/ad-copy-generator) | Ad copy for Meta, TikTok, Google and YouTube within each platform's limits, plus an A/B test matrix | *"Write Meta ads for my product"* |
+| ✍️ [**seo-blog-writer**](https://github.com/milad-ahmd/seo-blog-writer) | SEO blog posts that rank: intent research, outline, meta tags, FAQ and schema | *"Write an SEO article for 'best budgeting apps'"* |
+| 📧 [**email-campaign-writer**](https://github.com/milad-ahmd/email-campaign-writer) | Welcome, launch, cart and newsletter email sequences with subject-line tests | *"Write a 5-email welcome sequence"* |
+| 🎨 [**brand-voice-guide**](https://github.com/milad-ahmd/brand-voice-guide) | A brand voice, positioning and personas guide, then rewrites copy on-brand | *"Create a brand voice guide from our website"* |
+| 🕵️ [**competitor-spy**](https://github.com/milad-ahmd/competitor-spy) | Competitor analysis of pricing, messaging, socials, ads and reviews, with a SWOT and opportunities | *"Analyze my top 3 competitors"* |
+| 🤝 [**influencer-outreach**](https://github.com/milad-ahmd/influencer-outreach) | Influencer and UGC campaigns: vetting, outreach DMs, briefs and tracking | *"Plan a micro-influencer campaign on TikTok"* |
+| 📊 [**social-analytics-reporter**](https://github.com/milad-ahmd/social-analytics-reporter) | Social media analytics exports into a clear report with KPIs, reasons and next actions | *"Analyze this Instagram Insights export"* |
+
+<div align="center"><img src="assets/demo-analytics.gif" alt="social-analytics-reporter summarizing an Instagram export" width="680"/></div>
+
+## 💻 Developer Skills
 
 ### 🔀 Git & Workflow
 | Skill | What it does | Try saying |
@@ -106,7 +131,7 @@ Every skill in this collection:
 
 ## 🗺️ Roadmap
 
-All 17 planned skills have shipped. Next up is your idea:
+All 31 skills have shipped. Next up is your idea:
 
 👉 [Request a skill](https://github.com/milad-ahmd/agent-skills/issues/new). Popular requests get built first.
 
