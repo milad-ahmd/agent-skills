@@ -30,6 +30,18 @@ H = 70 + MAX_LINES * LINE_H + PAD
 WRAP = 86
 
 
+EMOJI = {"👤": "@", "👥": "»", "📦": "■", "🧹": "~", "🪦": "†", "🗣": "»", "🏆": "★", "✍️": "✎", "✍": "✎",
+         "📜": "§", "🌱": "→", "📍": "→", "📈": "↑", "🎭": "»", "💥": "!", "👻": "†", "🌙": "…", "🌪": "↺",
+         "🔐": "▶", "🔴": "✗", "🟠": "!", "🟡": "•", "🟢": "✓", "➡️": "→", "➡": "→", "✅": "✓", "❌": "✗",
+         "⚠️": "!", "⚠": "!", "🔀": "⇄", "⭐": "*", "📊": "#"}
+
+
+def clean(text):
+    for k, v in EMOJI.items():
+        text = text.replace(k, v)
+    return "".join(ch for ch in text if ord(ch) < 0x1F000 and ch != "\ufe0f")
+
+
 def wrap(text, width=WRAP):
     if not text:
         return [""]
@@ -39,6 +51,12 @@ def wrap(text, width=WRAP):
 def color_for(line):
     s = line.lstrip()
     if s.startswith(("✓", "pushed", "TOP")):
+        return GREEN
+    if s.startswith("✗") or " ✗ " in s[:6]:
+        return RED
+    if s.startswith("!"):
+        return YELLOW
+    if s.startswith(("✓",)):
         return GREEN
     if s.startswith(("✗", "FAILED")):
         return RED
@@ -85,7 +103,7 @@ def main():
         with open(outfile, encoding="utf-8") as f:
             output = []
             for l in f:
-                l = l.rstrip("\n").replace("⭐", "*")
+                l = clean(l.rstrip("\n"))
                 output += wrap(l)
         lines.append(("cmd", ""))
         frames.append(frame(title, lines)); durations.append(500)

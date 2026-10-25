@@ -2,16 +2,16 @@
 
 # 🧰 Agent Skills
 
-### 41 Agent Skills for developers & marketers. An AI agent for every social platform: Instagram, TikTok, YouTube, LinkedIn, X & more.
+### 51 Agent Skills that give your AI superpowers: senior-engineer workflows, an agent for every social platform, and a few that are just fun.
 
 **Works with Claude Code · Cline · Cursor · Codex · any agent that reads `SKILL.md`**
 
 [![Stars](https://img.shields.io/github/stars/milad-ahmd/agent-skills?style=social)](https://github.com/milad-ahmd/agent-skills)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE)
-![Skills](https://img.shields.io/badge/skills-41-orange)
+![Skills](https://img.shields.io/badge/skills-51-orange)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](#-contributing)
 
-[Install](#-install-in-10-seconds) · [Platform agents](#-social-platform-agents-new) · [Marketing skills](#-marketing--content-skills) · [Developer skills](#-developer-skills) · [What is a skill?](#-what-is-a-skill) · [Awesome list](https://github.com/milad-ahmd/awesome-agent-skills)
+[Install](#-install-in-10-seconds) · [Demos](#-see-them-in-action-real-output-not-mockups) · [Packs](#-packs-install-by-who-you-are) · [Platform agents](#-social-platform-agents) · [Marketing skills](#-marketing--content-skills) · [Developer skills](#-developer-skills) · [What is a skill?](#-what-is-a-skill) · [Awesome list](https://github.com/milad-ahmd/awesome-agent-skills)
 
 <img src="assets/demo-install.gif" alt="Installing agent-skills with one command" width="760"/>
 
@@ -22,8 +22,11 @@
 ## ⚡ Install in 10 seconds
 
 ```bash
-# all 41 skills
+# all 51 skills
 curl -fsSL https://raw.githubusercontent.com/milad-ahmd/agent-skills/main/install.sh | bash
+
+# or a role-based pack
+curl -fsSL https://raw.githubusercontent.com/milad-ahmd/agent-skills/main/install.sh | bash -s -- --pack creator
 
 # or only the ones you want
 curl -fsSL https://raw.githubusercontent.com/milad-ahmd/agent-skills/main/install.sh | bash -s -- pr-reviewer-pro env-secrets-guard
@@ -34,7 +37,57 @@ curl -fsSL https://raw.githubusercontent.com/milad-ahmd/agent-skills/main/instal
 
 Then just talk to your agent normally. It picks the right skill automatically.
 
-## 🤖 Social Platform Agents (new!)
+### 🎒 Packs: install by who you are
+
+| Pack | For | Includes |
+|---|---|---|
+| `indie-hacker` | Solo founders | idea validation, landing page roast, launch posts, ASO, SEO, X & Reddit |
+| `creator` | Creators & influencers | Instagram, TikTok, YouTube, repurposing, hooks, calendar, analytics |
+| `marketer` | Marketing teams | brand voice, ads, email, SEO, competitors, influencers, analytics |
+| `local-business` | Shops, clinics, restaurants | Google Business Profile, WhatsApp, Facebook, Instagram |
+| `startup-cto` | Engineering leads | PR review, incidents, cost cutting, secrets, deps, migrations |
+| `developer` | Every dev | the 12 core dev workflow skills |
+| `skill-builder` | Skill authors | skill-creator-pro, skills-doctor, agent-memory-keeper |
+| `fun` | Everyone | roast-my-github, codebase-time-machine, landing-page-roaster, ai-slop-detector |
+
+Run `install.sh --list` to see every skill and pack.
+
+## 🎬 See them in action (real output, not mockups)
+
+| 🔥 roast-my-github | ⏳ codebase-time-machine |
+|---|---|
+| <img src="assets/demo-roast-my-github.gif" width="420"/> | <img src="assets/demo-codebase-time-machine.gif" width="420"/> |
+| **🔐 env-secrets-guard** | **🧹 ai-slop-detector** |
+| <img src="assets/demo-env-secrets-guard.gif" width="420"/> | <img src="assets/demo-ai-slop-detector.gif" width="420"/> |
+| **🩺 skills-doctor** | **📊 social-analytics-reporter** |
+| <img src="assets/demo-skills-doctor.gif" width="420"/> | <img src="assets/demo-analytics.gif" width="420"/> |
+
+## 🎉 Fun & Viral (new!)
+
+| Skill | What it does | Try saying |
+|---|---|---|
+| 🔥 [**roast-my-github**](https://github.com/milad-ahmd/roast-my-github) | Get your GitHub profile roasted with real data, then a scorecard and glow-up plan | *"Roast my GitHub: milad-ahmd"* |
+| 🦈 [**startup-idea-validator**](https://github.com/milad-ahmd/startup-idea-validator) | Stress-test a startup idea with a VC, customer and competitor panel, cheap experiments and a verdict | *"Validate my startup idea: ..."* |
+| ⏳ [**codebase-time-machine**](https://github.com/milad-ahmd/codebase-time-machine) | The story of your repo from git history, as a documentary: eras, cast, plot twists, cursed files | *"Tell me the story of this codebase"* |
+| 🧹 [**ai-slop-detector**](https://github.com/milad-ahmd/ai-slop-detector) | Score text for AI-sounding writing and rewrite it to sound human, keeping the author's voice | *"De-slop this blog post"* |
+
+## 🦸 Agent Superpowers (new!)
+
+| Skill | What it does | Try saying |
+|---|---|---|
+| 🧠 [**agent-memory-keeper**](https://github.com/milad-ahmd/agent-memory-keeper) | Persistent project memory (MEMORY.md) so your agent stops repeating the same mistakes | *"Remember that we use pnpm, not npm"* |
+| 🛠️ [**skill-creator-pro**](https://github.com/milad-ahmd/skill-creator-pro) | Turn any workflow into a well-written SKILL.md, with a linter to validate it | *"Create a skill for our release process"* |
+| 🩺 [**skills-doctor**](https://github.com/milad-ahmd/skills-doctor) | Audit your installed skills for broken frontmatter, vague triggers, conflicts and leaked secrets | *"Check my installed skills"* |
+
+## 🛠️ Ops & Growth (new!)
+
+| Skill | What it does | Try saying |
+|---|---|---|
+| 💸 [**cost-cutter**](https://github.com/milad-ahmd/cost-cutter) | Cut cloud, SaaS and LLM API bills with dollar estimates, effort, risk and exact fixes | *"Why is our AWS bill so high?"* |
+| 🚨 [**incident-commander**](https://github.com/milad-ahmd/incident-commander) | Run a production outage from triage to mitigation, status updates and a blameless postmortem | *"Production is down, help me"* |
+| 📱 [**app-store-optimizer**](https://github.com/milad-ahmd/app-store-optimizer) | App Store and Google Play ASO: keywords, titles, screenshot captions, review replies, A/B tests | *"Optimize my App Store listing"* |
+
+## 🤖 Social Platform Agents
 
 One complete agent skill per platform. Each one handles profile setup, content, engagement and analytics for its platform. Start with **social-media-manager**, which decides which platforms you need and coordinates the rest.
 
@@ -148,7 +201,7 @@ Every skill in this collection:
 
 ## 🗺️ Roadmap
 
-All 41 skills have shipped. Next up is your idea:
+All 51 skills have shipped. A new skill drops every Monday ([changelog](CHANGELOG.md)). Next up is your idea:
 
 👉 [Request a skill](https://github.com/milad-ahmd/agent-skills/issues/new). Popular requests get built first.
 
