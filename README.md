@@ -2,16 +2,16 @@
 
 # 🧰 Agent Skills
 
-### 31 Agent Skills for developers & marketers. Code, ship, and grow on Instagram, TikTok & YouTube.
+### 41 Agent Skills for developers & marketers. An AI agent for every social platform: Instagram, TikTok, YouTube, LinkedIn, X & more.
 
 **Works with Claude Code · Cline · Cursor · Codex · any agent that reads `SKILL.md`**
 
 [![Stars](https://img.shields.io/github/stars/milad-ahmd/agent-skills?style=social)](https://github.com/milad-ahmd/agent-skills)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE)
-![Skills](https://img.shields.io/badge/skills-31-orange)
+![Skills](https://img.shields.io/badge/skills-41-orange)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](#-contributing)
 
-[Install](#-install-in-10-seconds) · [Marketing skills](#-marketing--social-media-skills-new) · [Developer skills](#-developer-skills) · [What is a skill?](#-what-is-a-skill) · [Awesome list](https://github.com/milad-ahmd/awesome-agent-skills)
+[Install](#-install-in-10-seconds) · [Platform agents](#-social-platform-agents-new) · [Marketing skills](#-marketing--content-skills) · [Developer skills](#-developer-skills) · [What is a skill?](#-what-is-a-skill) · [Awesome list](https://github.com/milad-ahmd/awesome-agent-skills)
 
 <img src="assets/demo-install.gif" alt="Installing agent-skills with one command" width="760"/>
 
@@ -22,7 +22,7 @@
 ## ⚡ Install in 10 seconds
 
 ```bash
-# all 31 skills
+# all 41 skills
 curl -fsSL https://raw.githubusercontent.com/milad-ahmd/agent-skills/main/install.sh | bash
 
 # or only the ones you want
@@ -34,7 +34,24 @@ curl -fsSL https://raw.githubusercontent.com/milad-ahmd/agent-skills/main/instal
 
 Then just talk to your agent normally. It picks the right skill automatically.
 
-## 📣 Marketing & Social Media Skills (new!)
+## 🤖 Social Platform Agents (new!)
+
+One complete agent skill per platform. Each one handles profile setup, content, engagement and analytics for its platform. Start with **social-media-manager**, which decides which platforms you need and coordinates the rest.
+
+| Skill | What it does | Try saying |
+|---|---|---|
+| 🧠 [**social-media-manager**](https://github.com/milad-ahmd/social-media-manager) | All-in-one social media manager: picks platforms, sets KPIs, plans weekly and directs every platform skill | *"Manage my brand's social media"* |
+| 💼 [**linkedin-growth-manager**](https://github.com/milad-ahmd/linkedin-growth-manager) | LinkedIn profile rewrite, post writing, comment strategy and analytics for personal brands and company pages | *"Rewrite my LinkedIn headline and About"* |
+| 𝕏 [**x-twitter-growth-manager**](https://github.com/milad-ahmd/x-twitter-growth-manager) | Grow on X/Twitter with profile, daily posts, threads, a reply strategy and analytics | *"Write a thread about what I learned building X"* |
+| 👍 [**facebook-page-manager**](https://github.com/milad-ahmd/facebook-page-manager) | Facebook Pages and Groups: setup, posts, Reels, Messenger replies, reviews and boosting | *"Set up and plan content for my Facebook page"* |
+| 📌 [**pinterest-growth-manager**](https://github.com/milad-ahmd/pinterest-growth-manager) | Pinterest SEO: keywords, boards, Pin titles and descriptions, and seasonal plans for traffic | *"Create a Pinterest strategy for my blog"* |
+| 🧵 [**threads-growth-manager**](https://github.com/milad-ahmd/threads-growth-manager) | Grow on Meta Threads with conversation-starting posts, reply strategy and a content bank | *"Write 20 Threads posts for my brand"* |
+| 👽 [**reddit-marketing-agent**](https://github.com/milad-ahmd/reddit-marketing-agent) | Authentic Reddit marketing: subreddit research and rules, value-first posts and launch posts | *"Find subreddits where I can share my app"* |
+| ✈️ [**telegram-channel-manager**](https://github.com/milad-ahmd/telegram-channel-manager) | Grow and run a Telegram channel or group: content, formatting, moderation and monetization | *"Plan a content calendar for my Telegram channel"* |
+| 💬 [**whatsapp-business-agent**](https://github.com/milad-ahmd/whatsapp-business-agent) | WhatsApp Business for sales and support: quick replies, broadcasts, API templates and chatbot flows | *"Set up WhatsApp Business replies for my shop"* |
+| 📍 [**google-business-profile-manager**](https://github.com/milad-ahmd/google-business-profile-manager) | Rank on Google Maps: Google Business Profile optimization, posts, reviews and local SEO | *"Optimize my Google Business Profile"* |
+
+## 📣 Marketing & Content Skills
 
 Your AI agent can also act as a social media manager, content strategist and growth marketer.
 
@@ -131,7 +148,7 @@ Every skill in this collection:
 
 ## 🗺️ Roadmap
 
-All 31 skills have shipped. Next up is your idea:
+All 41 skills have shipped. Next up is your idea:
 
 👉 [Request a skill](https://github.com/milad-ahmd/agent-skills/issues/new). Popular requests get built first.
 
