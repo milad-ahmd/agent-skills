@@ -1,0 +1,103 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>How to Write a Claude Code Skill That Actually Triggers | Agent Skills Guide</title><meta name="description" content="A practical guide to writing SKILL.md files that Claude Code loads at the right time, with a description formula, before/after examples, a linter and a trigger test, based on building 51 real skills.">
+<link rel="canonical" href="https://milad-ahmd.github.io/agent-skills/guides/how-to-write-a-claude-code-skill-that-triggers/"><meta name="robots" content="index,follow">
+<meta property="og:type" content="website"><meta property="og:title" content="How to Write a Claude Code Skill That Actually Triggers | Agent Skills Guide"><meta property="og:description" content="A practical guide to writing SKILL.md files that Claude Code loads at the right time, with a description formula, before/after examples, a linter and a trigger test, based on building 51 real skills.">
+<meta property="og:url" content="https://milad-ahmd.github.io/agent-skills/guides/how-to-write-a-claude-code-skill-that-triggers/"><meta property="og:image" content="https://milad-ahmd.github.io/agent-skills/assets/og.png"><meta property="og:site_name" content="Agent Skills by Milad Ahmadi">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="How to Write a Claude Code Skill That Actually Triggers | Agent Skills Guide"><meta name="twitter:description" content="A practical guide to writing SKILL.md files that Claude Code loads at the right time, with a description formula, before/after examples, a linter and a trigger test, based on building 51 real skills."><meta name="twitter:image" content="https://milad-ahmd.github.io/agent-skills/assets/og.png">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧰</text></svg>">
+<style>
+:root{--bg:#0f1117;--card:#171a23;--fg:#e8e9ee;--dim:#9aa0ad;--acc:#8b5cf6;--acc2:#22d3ee;--line:#262a36}
+*{box-sizing:border-box}body{margin:0;font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--fg)}
+a{color:var(--acc2);text-decoration:none}a:hover{text-decoration:underline}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+header.top{border-bottom:1px solid var(--line);padding:14px 0}header.top .wrap{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.logo{font-weight:800;color:var(--fg);font-size:18px}.nav a{margin-left:16px;color:var(--dim)}
+.hero{padding:56px 0 28px;text-align:center}.hero h1{font-size:clamp(30px,5vw,48px);line-height:1.15;margin:0 0 14px}
+.hero p{color:var(--dim);font-size:19px;max-width:760px;margin:0 auto 22px}
+.btn{display:inline-block;background:var(--acc);color:#fff;padding:12px 20px;border-radius:10px;font-weight:700;margin:4px}
+.btn.alt{background:transparent;border:1px solid var(--line);color:var(--fg)}
+pre{background:#0b0d12;border:1px solid var(--line);border-radius:10px;padding:14px;overflow:auto;font-size:14px;white-space:pre-wrap;word-break:break-word}
+code{font-family:ui-monospace,Menlo,monospace}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;display:block;color:var(--fg)}
+.card:hover{border-color:var(--acc);text-decoration:none}.card h3{margin:0 0 6px;font-size:17px}.card p{margin:0;color:var(--dim);font-size:14px}
+h2{margin-top:44px}.tag{display:inline-block;font-size:12px;color:var(--acc2);border:1px solid var(--line);border-radius:999px;padding:2px 10px;margin-bottom:8px}
+.demo{max-width:100%;height:auto;border-radius:10px;border:1px solid var(--line)}
+.crumbs{color:var(--dim);font-size:14px;margin:20px 0 0}article{max-width:820px}
+article h1{font-size:clamp(28px,4vw,40px);margin:8px 0}.lead{font-size:19px;color:var(--dim)}
+.skillmd h2,.skillmd h3{margin-top:28px}.skillmd table{border-collapse:collapse;width:100%;font-size:14px;display:block;overflow:auto}
+.skillmd td,.skillmd th{border:1px solid var(--line);padding:6px 8px;text-align:left}
+footer{border-top:1px solid var(--line);margin-top:60px;padding:24px 0;color:var(--dim);font-size:14px}
+</style><script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "How to Write a Claude Code Skill That Actually Triggers", "description": "A practical guide to writing SKILL.md files that Claude Code loads at the right time, with a description formula, before/after examples, a linter and a trigger test, based on building 51 real skills.", "datePublished": "2026-10-26", "dateModified": "2026-10-26", "url": "https://milad-ahmd.github.io/agent-skills/guides/how-to-write-a-claude-code-skill-that-triggers/", "author": {"@type": "Person", "name": "Milad Ahmadi", "url": "https://github.com/milad-ahmd"}, "publisher": {"@type": "Person", "name": "Milad Ahmadi"}}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Agent Skills", "item": "https://milad-ahmd.github.io/agent-skills/"}, {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://milad-ahmd.github.io/agent-skills/guides/"}, {"@type": "ListItem", "position": 3, "name": "How to Write a Claude Code Skill That Actually Triggers", "item": "https://milad-ahmd.github.io/agent-skills/guides/how-to-write-a-claude-code-skill-that-triggers/"}]}</script></head><body>
+<header class="top"><div class="wrap"><a class="logo" href="../../">🧰 Agent Skills</a>
+<nav class="nav"><a href="../../#skills">Skills</a><a href="../../guides/">Guides</a><a href="../../#packs">Packs</a><a href="../../#install">Install</a><a href="https://github.com/milad-ahmd/agent-skills">GitHub ⭐</a></nav></div></header>
+<main class="wrap"><p class="crumbs"><a href="../../">Agent Skills</a> › <a href="../">Guides</a> › How to Write a Claude Code Skill That Actually Triggers</p>
+<article><span class="tag">Guide · 2026-10-26</span>
+<h1>How to Write a Claude Code Skill That Actually Triggers</h1><p class="lead">A practical guide to writing SKILL.md files that Claude Code loads at the right time, with a description formula, before/after examples, a linter and a trigger test, based on building 51 real skills.</p>
+<p style="color:var(--dim);font-size:14px">By <a href="https://github.com/milad-ahmd">Milad Ahmadi</a></p>
+<div class="skillmd"><p>You wrote a skill, installed it in <code>~/.claude/skills/</code>, asked Claude to do the exact thing it&#x27;s for, and nothing happened. Or the opposite happens: it fires on unrelated requests and gets in the way.</p>
+<p>In almost every case the problem is not the instructions inside the skill. It&#x27;s <strong>one line</strong>: the <code>description</code>.</p>
+<p>I learned this while building <a href="https://github.com/milad-ahmd/agent-skills" rel="noopener">51 open-source skills</a>. This guide covers what actually makes a skill trigger, with examples you can copy.</p>
+<h3>How Claude decides to use a skill</h3>
+<p>A skill is a folder with a <code>SKILL.md</code> file:</p>
+<pre><code>---
+name: pr-reviewer-pro
+description: Reviews a pull request or branch diff like a senior engineer...
+---
+
+# PR Reviewer Pro
+(instructions the agent follows)</code></pre>
+<p>At the start of a session, Claude doesn&#x27;t read every skill. It only sees each skill&#x27;s <strong>name and description</strong>. When your request comes in, it compares the request against those descriptions and loads the full instructions only for the ones that match.</p>
+<p>So the description is the <strong>only thing</strong> Claude sees when it decides. A perfect workflow with a vague description will never run.</p>
+<blockquote>If you set <code>disable-model-invocation: true</code>, the skill only runs when you call it by hand, and the description matters much less. This guide is about skills Claude should pick up <strong>on its own</strong>.</blockquote>
+<h3>The description formula</h3>
+<p>Every one of my 51 skills uses the same two-part structure:</p>
+<pre><code>&lt;What it does, concretely, with the key nouns&gt;. Use when the user asks to &lt;trigger phrase 1&gt;, &lt;trigger phrase 2&gt;, or &lt;trigger phrase 3&gt;.</code></pre>
+<p><strong>Part 1: what it does.</strong> Name the concrete objects and outputs: &quot;pull request&quot;, &quot;Dockerfile&quot;, &quot;git history&quot;, &quot;Instagram captions&quot;. Abstract words like &quot;helps&quot;, &quot;assists&quot; or &quot;improves&quot; give the model nothing to match.</p>
+<p><strong>Part 2: when to use it.</strong> List the phrases people actually type. Users don&#x27;t say &quot;perform a dependency vulnerability assessment&quot;. They say &quot;update my packages&quot; or &quot;fix npm audit warnings&quot;.</p>
+<h3>Before and after</h3>
+<h4>❌ Too vague: never triggers</h4>
+<pre><code>description: Helps with code quality.</code></pre>
+<p>It matches nothing specific, or everything at once. Claude can&#x27;t tell when &quot;code quality&quot; means this skill.</p>
+<h4>❌ Accurate but missing triggers</h4>
+<pre><code>description: Analyzes project dependencies for vulnerabilities and outdated versions.</code></pre>
+<p>Better, but it describes what the skill <em>is</em>, not when to <em>use</em> it. &quot;Can you update my packages?&quot; may not match.</p>
+<h4>✅ Concrete, with real trigger phrases</h4>
+<pre><code>description: Audits project dependencies for vulnerabilities, outdated and unused packages, and produces a safe, ordered upgrade plan with breaking-change notes. Use when the user asks to update dependencies, fix npm/pip audit warnings, check for vulnerable packages, or plan a major-version upgrade.</code></pre>
+<p>This is the real description of <a href="https://milad-ahmd.github.io/agent-skills/skills/dependency-doctor/" rel="noopener">dependency-doctor</a>. It names the objects (dependencies, packages, audit warnings) and lists four ways people actually ask.</p>
+<h3>How long should the description be?</h3>
+<p>Across my 51 skills, descriptions run from <strong>254 to 526 characters, with a median of 376</strong>. That&#x27;s two to four sentences.</p>
+<ul><li><strong>Under about 80 characters:</strong> almost always too vague to trigger reliably.</li><li><strong>Around 250–500:</strong> room for what it does plus three or four trigger phrases.</li><li><strong>Over 1024:</strong> too long. Trim it and move details into the body.</li></ul>
+<h3>Avoid overlapping skills</h3>
+<p>Two skills with similar descriptions compete, and Claude may load the wrong one or both. This shows up quickly once you have more than about ten skills.</p>
+<p>For example, a &quot;write marketing posts&quot; skill and a &quot;write social media content&quot; skill will fight over every request. Fix it by giving each a <strong>distinct trigger zone</strong>:</p>
+<ul><li><code>content-repurposer</code>: &quot;Use when the user asks to repurpose, recycle, or turn a video, podcast, or article into social posts.&quot;</li><li><code>hook-generator</code>: &quot;Use when the user asks for hooks, opening lines, headlines, or how to start a video or post.&quot;</li></ul>
+<p>Same broad area, but no shared trigger phrases.</p>
+<h3>Keep the body short and procedural</h3>
+<p>Once the skill triggers, the body takes over. What works best:</p>
+<ol><li><strong>One line of purpose</strong>, then a <strong>numbered workflow</strong>: investigate, then act, then verify.</li><li><strong>An output template</strong>, so results look the same every time.</li><li><strong>A Rules section</strong> with guardrails: never invent facts, cite evidence, ask before destructive or public actions.</li><li><strong>Scripts for deterministic work.</strong> Parsing, API calls and scanning belong in <code>scripts/</code>, not in prose the model has to re-interpret every time.</li></ol>
+<p>My skills have a median of <strong>47 lines</strong> and a maximum of 69. Long background material belongs in a separate <code>references/</code> file that the skill reads only when needed.</p>
+<h3>Lint your skills automatically</h3>
+<p>I got tired of checking these rules by hand, so I wrote <a href="https://milad-ahmd.github.io/agent-skills/skills/skills-doctor/" rel="noopener">skills-doctor</a>, a small Python script with no dependencies. It checks every installed skill for:</p>
+<ul><li>missing or broken frontmatter</li><li>a <code>name</code> that doesn&#x27;t match its folder or isn&#x27;t kebab-case</li><li>descriptions that are too short, too long, or missing &quot;Use when&quot; language</li><li>referenced scripts that don&#x27;t exist</li><li>likely leaked secrets</li><li>pairs of skills whose descriptions overlap heavily</li></ul>
+<pre><code>python3 scripts/skills_doctor.py ~/.claude/skills</code></pre>
+<pre><code>❌ my-skill
+     ❌ referenced file missing: scripts/do_it.sh
+     ⚠️  description is short (16 chars): may never trigger
+     ⚠️  description lacks &#x27;Use when…&#x27; trigger language
+✅ roast-my-github
+
+5 skills · 3 errors · 2 warnings · 0 overlaps</code></pre>
+<p>Install it with <code>npx skills add milad-ahmd/agent-skills --skill skills-doctor</code>.</p>
+<h3>Test triggering before you ship</h3>
+<p>For every skill, write <strong>three prompts that should trigger it and two that shouldn&#x27;t</strong>:</p>
+<table><thead><tr><th>Prompt</th><th>Should trigger dependency-doctor?</th></tr></thead><tbody><tr><td>&quot;update my npm packages&quot;</td><td>✅ yes</td></tr><tr><td>&quot;npm audit shows 12 vulnerabilities, fix them&quot;</td><td>✅ yes</td></tr><tr><td>&quot;plan our upgrade to React 19&quot;</td><td>✅ yes</td></tr><tr><td>&quot;review this pull request&quot;</td><td>❌ no</td></tr><tr><td>&quot;add a dependency injection container&quot;</td><td>❌ no</td></tr></tbody></table>
+<p>Run each one in a fresh session. If a &quot;yes&quot; prompt doesn&#x27;t trigger, add its wording to the description. If a &quot;no&quot; prompt triggers, the description is too broad.</p>
+<h3>Checklist</h3>
+<ul><li>The description starts with what the skill does, using concrete nouns</li><li>It includes &quot;Use when the user asks to&quot; with three or four real phrases</li><li>It&#x27;s roughly 250 to 500 characters</li><li>No other installed skill uses the same trigger phrases</li><li>The body is a short numbered workflow, with an output format and rules</li><li>Deterministic steps are scripts, not prose</li><li>skills-doctor passes with no errors</li><li>It passed the 3-yes / 2-no trigger test</li></ul>
+<h3>Copy a working example</h3>
+<p>All 51 skills in <a href="https://github.com/milad-ahmd/agent-skills" rel="noopener">milad-ahmd/agent-skills</a> follow this structure and are MIT licensed, so use any of them as a template. To start from scratch, <a href="https://milad-ahmd.github.io/agent-skills/skills/skill-creator-pro/" rel="noopener">skill-creator-pro</a> interviews you about your workflow and writes the SKILL.md for you.</p></div>
+<p><a class="btn" href="../../">Browse all 51 skills</a> <a class="btn alt" href="https://github.com/milad-ahmd/agent-skills">⭐ Star on GitHub</a></p></article></main>
+<footer><div class="wrap">Open source (MIT) by <a href="https://github.com/milad-ahmd">Milad Ahmadi</a> · <a href="https://github.com/milad-ahmd/agent-skills">GitHub</a> · Works with Claude Code, Cline, Cursor, Codex, Windsurf, Copilot and any agent that reads SKILL.md · Updated 2026-10-26</div></footer>
+</body></html>

@@ -19,7 +19,7 @@ header.top{border-bottom:1px solid var(--line);padding:14px 0}header.top .wrap{d
 .hero p{color:var(--dim);font-size:19px;max-width:760px;margin:0 auto 22px}
 .btn{display:inline-block;background:var(--acc);color:#fff;padding:12px 20px;border-radius:10px;font-weight:700;margin:4px}
 .btn.alt{background:transparent;border:1px solid var(--line);color:var(--fg)}
-pre{background:#0b0d12;border:1px solid var(--line);border-radius:10px;padding:14px;overflow:auto;font-size:14px}
+pre{background:#0b0d12;border:1px solid var(--line);border-radius:10px;padding:14px;overflow:auto;font-size:14px;white-space:pre-wrap;word-break:break-word}
 code{font-family:ui-monospace,Menlo,monospace}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
 .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;display:block;color:var(--fg)}
@@ -49,7 +49,7 @@ def page(title, desc, path, body, jsonld=None, image="assets/og.png"):
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧰</text></svg>">
 <style>{CSS}</style>{ld}</head><body>
 <header class="top"><div class="wrap"><a class="logo" href="{pre or './'}">🧰 Agent Skills</a>
-<nav class="nav"><a href="{pre}#skills">Skills</a><a href="{pre}#packs">Packs</a><a href="{pre}#install">Install</a><a href="{REPO}">GitHub ⭐</a></nav></div></header>
+<nav class="nav"><a href="{pre}#skills">Skills</a><a href="{pre}guides/">Guides</a><a href="{pre}#packs">Packs</a><a href="{pre}#install">Install</a><a href="{REPO}">GitHub ⭐</a></nav></div></header>
 <main class="wrap">{body}</main>
 <footer><div class="wrap">Open source (MIT) by <a href="https://github.com/milad-ahmd">Milad Ahmadi</a> · <a href="{REPO}">GitHub</a> · Works with Claude Code, Cline, Cursor, Codex, Windsurf, Copilot and any agent that reads SKILL.md · Updated {TODAY}</div></footer>
 </body></html>"""

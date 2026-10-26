@@ -19,7 +19,7 @@ def slug(c):
     return re.sub(r"[^a-z]+", "-", c.lower()).strip("-")
 
 
-def build_home(skills, packs):
+def build_home(skills, packs, guides=()):
     cats = {}
     for n, s in skills.items():
         cats.setdefault(s["category"], []).append(n)
@@ -30,6 +30,10 @@ def build_home(skills, packs):
     packrows = "".join(
         f'<div class="card"><h3>🎒 {p}-pack</h3><p>{E(", ".join(v[:6]))}{"…" if len(v) > 6 else ""}</p>'
         f'<p><code>/plugin install {p}-pack --marketplace milad-ahmd/agent-skills</code></p></div>' for p, v in packs.items())
+    guides_html = ""
+    if guides:
+        gcards = "".join(f'<a class="card" href="guides/{g["slug"]}/"><h3>📘 {E(g["title"])}</h3><p>{E(g["description"][:140])}…</p></a>' for g in guides)
+        guides_html = f'<h2 id="guides">Guides</h2><div class="grid">{gcards}</div>'
     faqhtml = "".join(f"<h3>{E(q)}</h3><p>{E(a)}</p>" for q, a in FAQ)
     body = f"""<section class="hero"><h1>51 Agent Skills for Claude Code, Cursor &amp; Codex</h1>
 <p>Free, open-source SKILL.md workflows: an AI agent for every social platform (Instagram, TikTok, YouTube, LinkedIn, X), senior-engineer dev workflows, and fun ones like roast-my-github.</p>
@@ -44,6 +48,7 @@ npx skills add milad-ahmd/agent-skills
 
 # Shell (any agent that reads ~/.claude/skills)
 curl -fsSL https://raw.githubusercontent.com/milad-ahmd/agent-skills/main/install.sh | bash</code></pre>
+{guides_html}
 <h2 id="packs">Packs: install by who you are</h2><div class="grid">{packrows}</div>
 <div id="skills"></div>{secs}
 <h2>FAQ</h2><div class="faq">{faqhtml}</div>"""

@@ -1,4 +1,6 @@
 https://milad-ahmd.github.io/agent-skills/
+https://milad-ahmd.github.io/agent-skills/guides/
+https://milad-ahmd.github.io/agent-skills/guides/how-to-write-a-claude-code-skill-that-triggers/
 https://milad-ahmd.github.io/agent-skills/skills/a11y-fixer/
 https://milad-ahmd.github.io/agent-skills/skills/ad-copy-generator/
 https://milad-ahmd.github.io/agent-skills/skills/agent-memory-keeper/

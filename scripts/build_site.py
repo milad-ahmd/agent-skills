@@ -14,6 +14,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from site_home import build_home  # noqa: E402
 from site_layout import SITE, TODAY, page  # noqa: E402
 from site_skill import skill_page  # noqa: E402
+from site_guides import guide_page, guides_index, load_guides  # noqa: E402
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = os.path.join(ROOT, "docs")
@@ -54,12 +55,17 @@ def main():
         shutil.copy(os.path.join(ROOT, "assets", g), os.path.join(OUT, "assets", g))
     for name, s in skills.items():
         write(os.path.join(OUT, "skills", name, "index.html"), skill_page(name, s, skills, packs, OUT))
-    write(os.path.join(OUT, "index.html"), build_home(skills, packs))
+    guides = load_guides(ROOT)
+    for g in guides:
+        write(os.path.join(OUT, "guides", g["slug"], "index.html"), guide_page(g))
+    if guides:
+        write(os.path.join(OUT, "guides", "index.html"), guides_index(guides))
+    write(os.path.join(OUT, "index.html"), build_home(skills, packs, guides))
     write(os.path.join(OUT, "404.html"), page("Page not found | Agent Skills", "Page not found.", "404.html",
           '<section class="hero"><h1>404</h1><p><a href="/agent-skills/">Browse all 51 agent skills →</a></p></section>'))
     write(os.path.join(OUT, ".nojekyll"), "")
     write(os.path.join(OUT, "robots.txt"), f"User-agent: *\nAllow: /\n\nSitemap: {SITE}/sitemap.xml\n")
-    urls = [SITE + "/"] + [f"{SITE}/skills/{n}/" for n in skills]
+    urls = [SITE + "/"] + ([SITE + "/guides/"] + [f"{SITE}/guides/{g['slug']}/" for g in guides] if guides else []) + [f"{SITE}/skills/{n}/" for n in skills]
     write(os.path.join(OUT, "sitemap.xml"), '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
           + "".join(f"  <url><loc>{u}</loc><lastmod>{TODAY}</lastmod><changefreq>weekly</changefreq></url>\n" for u in urls) + "</urlset>\n")
     llms = ["# Agent Skills by Milad Ahmadi", "",
