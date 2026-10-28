@@ -1,6 +1,6 @@
 # Changelog
 
-A new skill ships **every Monday** ("Skill of the Week"). ⭐ Star or watch the repo to get notified, and [request a skill](https://github.com/milad-ahmd/agent-skills/issues/new).
+⭐ Star or watch the repo to get notified about new skills, and [request a skill](https://github.com/milad-ahmd/agent-skills/issues/new). Popular requests get built first.
 
 ## 2026-10-27: v4.3 · overlap as a reading, not a claim
 Follow-up from **Wisp**, who re-ran f54e669: all four fixes held, but "0 overlaps" only meant "nothing crossed 0.20".

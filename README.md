@@ -2,7 +2,7 @@
 
 # 🧰 Agent Skills
 
-### 51 Agent Skills that give your AI superpowers: senior-engineer workflows, an agent for every social platform, and a few that are just fun.
+### Roast your GitHub with real data. Strip AI slop from your writing. Turn your git history into a documentary. Plus 48 more skills for developers and marketers.
 
 **Works with Claude Code · Cline · Cursor · Codex · any agent that reads `SKILL.md`**
 
@@ -11,11 +11,35 @@
 ![Skills](https://img.shields.io/badge/skills-51-orange)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](#-contributing)
 
-[🌐 Website](https://milad-ahmd.github.io/agent-skills/) · [Install](#-install-in-10-seconds) · [Demos](#-see-them-in-action-real-output-not-mockups) · [Packs](#-packs-install-by-who-you-are) · [Platform agents](#-social-platform-agents) · [Marketing skills](#-marketing--content-skills) · [Developer skills](#-developer-skills) · [What is a skill?](#-what-is-a-skill) · [Awesome list](https://github.com/milad-ahmd/awesome-agent-skills)
+[🌐 Website](https://milad-ahmd.github.io/agent-skills/) · [Start here](#-start-with-these-three) · [Install](#-install-in-10-seconds) · [Packs](#-packs-install-by-who-you-are) · [Platform agents](#-social-platform-agents) · [Marketing skills](#-marketing--content-skills) · [Developer skills](#-developer-skills) · [What is a skill?](#-what-is-a-skill) · [Awesome list](https://github.com/milad-ahmd/awesome-agent-skills)
 
 <img src="assets/demo-install.gif" alt="Installing agent-skills with one command" width="760"/>
 
 </div>
+
+---
+
+## ⭐ Start with these three
+
+Each one runs a real script first, so the agent works from facts about *your* profile, text or repo instead of guessing.
+
+### 🔥 [roast-my-github](skills/roast-my-github)
+Pulls your public GitHub stats, roasts the habits (never the person), then gives you a scorecard and a five-step glow-up plan.
+Try: *"Roast my GitHub: your-username"*
+
+<img src="assets/demo-roast-my-github.gif" alt="roast-my-github scoring a GitHub profile" width="680"/>
+
+### 🧹 [ai-slop-detector](skills/ai-slop-detector)
+Scores text for AI-sounding phrases and patterns, shows where they are, and rewrites them to sound human while keeping your voice.
+Try: *"De-slop this blog post"*
+
+<img src="assets/demo-ai-slop-detector.gif" alt="ai-slop-detector scoring and rewriting a paragraph" width="680"/>
+
+### ⏳ [codebase-time-machine](skills/codebase-time-machine)
+Reads your git history and tells the story of the repo as a documentary: its eras, cast, plot twists and cursed files.
+Try: *"Tell me the story of this codebase"*
+
+<img src="assets/demo-codebase-time-machine.gif" alt="codebase-time-machine narrating a repository's history" width="680"/>
 
 ---
 
@@ -82,40 +106,40 @@ Then just talk to your agent normally. It picks the right skill automatically.
 
 Run `install.sh --list` to see every skill and pack.
 
-## 🎬 See them in action (real output, not mockups)
+## 🎬 More demos (real output, not mockups)
 
-| 🔥 roast-my-github | ⏳ codebase-time-machine |
+| 🔐 env-secrets-guard | 🩺 skills-doctor |
 |---|---|
-| <img src="assets/demo-roast-my-github.gif" width="420"/> | <img src="assets/demo-codebase-time-machine.gif" width="420"/> |
-| **🔐 env-secrets-guard** | **🧹 ai-slop-detector** |
-| <img src="assets/demo-env-secrets-guard.gif" width="420"/> | <img src="assets/demo-ai-slop-detector.gif" width="420"/> |
-| **🩺 skills-doctor** | **📊 social-analytics-reporter** |
-| <img src="assets/demo-skills-doctor.gif" width="420"/> | <img src="assets/demo-analytics.gif" width="420"/> |
+| <img src="assets/demo-env-secrets-guard.gif" width="420"/> | <img src="assets/demo-skills-doctor.gif" width="420"/> |
 
-## 🎉 Fun & Viral (new!)
+## 📚 All 51 skills
 
-| Skill | What it does | Try saying |
-|---|---|---|
-| 🔥 [**roast-my-github**](https://github.com/milad-ahmd/roast-my-github) | Get your GitHub profile roasted with real data, then a scorecard and glow-up plan | *"Roast my GitHub: milad-ahmd"* |
-| 🦈 [**startup-idea-validator**](https://github.com/milad-ahmd/startup-idea-validator) | Stress-test a startup idea with a VC, customer and competitor panel, cheap experiments and a verdict | *"Validate my startup idea: ..."* |
-| ⏳ [**codebase-time-machine**](https://github.com/milad-ahmd/codebase-time-machine) | The story of your repo from git history, as a documentary: eras, cast, plot twists, cursed files | *"Tell me the story of this codebase"* |
-| 🧹 [**ai-slop-detector**](https://github.com/milad-ahmd/ai-slop-detector) | Score text for AI-sounding writing and rewrite it to sound human, keeping the author's voice | *"De-slop this blog post"* |
+⚙️ = ships a script that collects real data (git history, API results, files) before the agent writes anything.
 
-## 🦸 Agent Superpowers (new!)
+## 🎉 Fun & Viral
 
 | Skill | What it does | Try saying |
 |---|---|---|
-| 🧠 [**agent-memory-keeper**](https://github.com/milad-ahmd/agent-memory-keeper) | Persistent project memory (MEMORY.md) so your agent stops repeating the same mistakes | *"Remember that we use pnpm, not npm"* |
-| 🛠️ [**skill-creator-pro**](https://github.com/milad-ahmd/skill-creator-pro) | Turn any workflow into a well-written SKILL.md, with a linter to validate it | *"Create a skill for our release process"* |
-| 🩺 [**skills-doctor**](https://github.com/milad-ahmd/skills-doctor) | Audit your installed skills for broken frontmatter, vague triggers, conflicts and leaked secrets | *"Check my installed skills"* |
+| 🔥 [**roast-my-github**](skills/roast-my-github) ⚙️ | Get your GitHub profile roasted with real data, then a scorecard and glow-up plan | *"Roast my GitHub: milad-ahmd"* |
+| 🦈 [**startup-idea-validator**](skills/startup-idea-validator) | Stress-test a startup idea with a VC, customer and competitor panel, cheap experiments and a verdict | *"Validate my startup idea: ..."* |
+| ⏳ [**codebase-time-machine**](skills/codebase-time-machine) ⚙️ | The story of your repo from git history, as a documentary: eras, cast, plot twists, cursed files | *"Tell me the story of this codebase"* |
+| 🧹 [**ai-slop-detector**](skills/ai-slop-detector) ⚙️ | Score text for AI-sounding writing and rewrite it to sound human, keeping the author's voice | *"De-slop this blog post"* |
 
-## 🛠️ Ops & Growth (new!)
+## 🦸 Agent Superpowers
 
 | Skill | What it does | Try saying |
 |---|---|---|
-| 💸 [**cost-cutter**](https://github.com/milad-ahmd/cost-cutter) | Cut cloud, SaaS and LLM API bills with dollar estimates, effort, risk and exact fixes | *"Why is our AWS bill so high?"* |
-| 🚨 [**incident-commander**](https://github.com/milad-ahmd/incident-commander) | Run a production outage from triage to mitigation, status updates and a blameless postmortem | *"Production is down, help me"* |
-| 📱 [**app-store-optimizer**](https://github.com/milad-ahmd/app-store-optimizer) | App Store and Google Play ASO: keywords, titles, screenshot captions, review replies, A/B tests | *"Optimize my App Store listing"* |
+| 🧠 [**agent-memory-keeper**](skills/agent-memory-keeper) | Persistent project memory (MEMORY.md) so your agent stops repeating the same mistakes | *"Remember that we use pnpm, not npm"* |
+| 🛠️ [**skill-creator-pro**](skills/skill-creator-pro) ⚙️ | Turn any workflow into a well-written SKILL.md, with a linter to validate it | *"Create a skill for our release process"* |
+| 🩺 [**skills-doctor**](skills/skills-doctor) ⚙️ | Audit your installed skills for broken frontmatter, vague triggers, conflicts and leaked secrets | *"Check my installed skills"* |
+
+## 🛠️ Ops & Growth
+
+| Skill | What it does | Try saying |
+|---|---|---|
+| 💸 [**cost-cutter**](skills/cost-cutter) | Cut cloud, SaaS and LLM API bills with dollar estimates, effort, risk and exact fixes | *"Why is our AWS bill so high?"* |
+| 🚨 [**incident-commander**](skills/incident-commander) | Run a production outage from triage to mitigation, status updates and a blameless postmortem | *"Production is down, help me"* |
+| 📱 [**app-store-optimizer**](skills/app-store-optimizer) | App Store and Google Play ASO: keywords, titles, screenshot captions, review replies, A/B tests | *"Optimize my App Store listing"* |
 
 ## 🤖 Social Platform Agents
 
@@ -123,16 +147,16 @@ One complete agent skill per platform. Each one handles profile setup, content, 
 
 | Skill | What it does | Try saying |
 |---|---|---|
-| 🧠 [**social-media-manager**](https://github.com/milad-ahmd/social-media-manager) | All-in-one social media manager: picks platforms, sets KPIs, plans weekly and directs every platform skill | *"Manage my brand's social media"* |
-| 💼 [**linkedin-growth-manager**](https://github.com/milad-ahmd/linkedin-growth-manager) | LinkedIn profile rewrite, post writing, comment strategy and analytics for personal brands and company pages | *"Rewrite my LinkedIn headline and About"* |
-| 𝕏 [**x-twitter-growth-manager**](https://github.com/milad-ahmd/x-twitter-growth-manager) | Grow on X/Twitter with profile, daily posts, threads, a reply strategy and analytics | *"Write a thread about what I learned building X"* |
-| 👍 [**facebook-page-manager**](https://github.com/milad-ahmd/facebook-page-manager) | Facebook Pages and Groups: setup, posts, Reels, Messenger replies, reviews and boosting | *"Set up and plan content for my Facebook page"* |
-| 📌 [**pinterest-growth-manager**](https://github.com/milad-ahmd/pinterest-growth-manager) | Pinterest SEO: keywords, boards, Pin titles and descriptions, and seasonal plans for traffic | *"Create a Pinterest strategy for my blog"* |
-| 🧵 [**threads-growth-manager**](https://github.com/milad-ahmd/threads-growth-manager) | Grow on Meta Threads with conversation-starting posts, reply strategy and a content bank | *"Write 20 Threads posts for my brand"* |
-| 👽 [**reddit-marketing-agent**](https://github.com/milad-ahmd/reddit-marketing-agent) | Authentic Reddit marketing: subreddit research and rules, value-first posts and launch posts | *"Find subreddits where I can share my app"* |
-| ✈️ [**telegram-channel-manager**](https://github.com/milad-ahmd/telegram-channel-manager) | Grow and run a Telegram channel or group: content, formatting, moderation and monetization | *"Plan a content calendar for my Telegram channel"* |
-| 💬 [**whatsapp-business-agent**](https://github.com/milad-ahmd/whatsapp-business-agent) | WhatsApp Business for sales and support: quick replies, broadcasts, API templates and chatbot flows | *"Set up WhatsApp Business replies for my shop"* |
-| 📍 [**google-business-profile-manager**](https://github.com/milad-ahmd/google-business-profile-manager) | Rank on Google Maps: Google Business Profile optimization, posts, reviews and local SEO | *"Optimize my Google Business Profile"* |
+| 🧠 [**social-media-manager**](skills/social-media-manager) | All-in-one social media manager: picks platforms, sets KPIs, plans weekly and directs every platform skill | *"Manage my brand's social media"* |
+| 💼 [**linkedin-growth-manager**](skills/linkedin-growth-manager) | LinkedIn profile rewrite, post writing, comment strategy and analytics for personal brands and company pages | *"Rewrite my LinkedIn headline and About"* |
+| 𝕏 [**x-twitter-growth-manager**](skills/x-twitter-growth-manager) | Grow on X/Twitter with profile, daily posts, threads, a reply strategy and analytics | *"Write a thread about what I learned building X"* |
+| 👍 [**facebook-page-manager**](skills/facebook-page-manager) | Facebook Pages and Groups: setup, posts, Reels, Messenger replies, reviews and boosting | *"Set up and plan content for my Facebook page"* |
+| 📌 [**pinterest-growth-manager**](skills/pinterest-growth-manager) | Pinterest SEO: keywords, boards, Pin titles and descriptions, and seasonal plans for traffic | *"Create a Pinterest strategy for my blog"* |
+| 🧵 [**threads-growth-manager**](skills/threads-growth-manager) | Grow on Meta Threads with conversation-starting posts, reply strategy and a content bank | *"Write 20 Threads posts for my brand"* |
+| 👽 [**reddit-marketing-agent**](skills/reddit-marketing-agent) | Authentic Reddit marketing: subreddit research and rules, value-first posts and launch posts | *"Find subreddits where I can share my app"* |
+| ✈️ [**telegram-channel-manager**](skills/telegram-channel-manager) | Grow and run a Telegram channel or group: content, formatting, moderation and monetization | *"Plan a content calendar for my Telegram channel"* |
+| 💬 [**whatsapp-business-agent**](skills/whatsapp-business-agent) | WhatsApp Business for sales and support: quick replies, broadcasts, API templates and chatbot flows | *"Set up WhatsApp Business replies for my shop"* |
+| 📍 [**google-business-profile-manager**](skills/google-business-profile-manager) | Rank on Google Maps: Google Business Profile optimization, posts, reviews and local SEO | *"Optimize my Google Business Profile"* |
 
 ## 📣 Marketing & Content Skills
 
@@ -140,20 +164,20 @@ Your AI agent can also act as a social media manager, content strategist and gro
 
 | Skill | What it does | Try saying |
 |---|---|---|
-| 📸 [**instagram-growth-manager**](https://github.com/milad-ahmd/instagram-growth-manager) | Grow and manage Instagram with bio audits, Reels scripts, carousels, captions, hashtags and growth reviews | *"Audit my Instagram profile and plan next month"* |
-| 🎵 [**tiktok-viral-creator**](https://github.com/milad-ahmd/tiktok-viral-creator) | TikTok ideas, 2-second hooks, shot-by-shot scripts and retention analysis | *"Give me 10 TikTok ideas for my fitness app"* |
-| 📺 [**youtube-seo-optimizer**](https://github.com/milad-ahmd/youtube-seo-optimizer) | YouTube titles, thumbnails, descriptions, chapters and channel audits for more views | *"Optimize the title and description for this video"* |
-| 🎬 [**youtube-script-writer**](https://github.com/milad-ahmd/youtube-script-writer) | High-retention YouTube and Shorts scripts with hooks, open loops and B-roll cues | *"Write a 10-minute YouTube script about X"* |
-| ♻️ [**content-repurposer**](https://github.com/milad-ahmd/content-repurposer) | One video or podcast into 15+ posts: Shorts, Reels, threads, LinkedIn, carousel, newsletter | *"Repurpose this transcript into social posts"* |
-| 🗓️ [**social-media-calendar**](https://github.com/milad-ahmd/social-media-calendar) | Monthly cross-platform content calendar, exported as CSV for Notion, Sheets, Buffer or Later | *"Plan my social media calendar for November"* |
-| 🪝 [**hook-generator**](https://github.com/milad-ahmd/hook-generator) | Scroll-stopping hooks for videos, posts, emails and ads, scored and ranked | *"Give me hooks for a video about X"* |
-| 📣 [**ad-copy-generator**](https://github.com/milad-ahmd/ad-copy-generator) | Ad copy for Meta, TikTok, Google and YouTube within each platform's limits, plus an A/B test matrix | *"Write Meta ads for my product"* |
-| ✍️ [**seo-blog-writer**](https://github.com/milad-ahmd/seo-blog-writer) | SEO blog posts that rank: intent research, outline, meta tags, FAQ and schema | *"Write an SEO article for 'best budgeting apps'"* |
-| 📧 [**email-campaign-writer**](https://github.com/milad-ahmd/email-campaign-writer) | Welcome, launch, cart and newsletter email sequences with subject-line tests | *"Write a 5-email welcome sequence"* |
-| 🎨 [**brand-voice-guide**](https://github.com/milad-ahmd/brand-voice-guide) | A brand voice, positioning and personas guide, then rewrites copy on-brand | *"Create a brand voice guide from our website"* |
-| 🕵️ [**competitor-spy**](https://github.com/milad-ahmd/competitor-spy) | Competitor analysis of pricing, messaging, socials, ads and reviews, with a SWOT and opportunities | *"Analyze my top 3 competitors"* |
-| 🤝 [**influencer-outreach**](https://github.com/milad-ahmd/influencer-outreach) | Influencer and UGC campaigns: vetting, outreach DMs, briefs and tracking | *"Plan a micro-influencer campaign on TikTok"* |
-| 📊 [**social-analytics-reporter**](https://github.com/milad-ahmd/social-analytics-reporter) | Social media analytics exports into a clear report with KPIs, reasons and next actions | *"Analyze this Instagram Insights export"* |
+| 📸 [**instagram-growth-manager**](skills/instagram-growth-manager) | Grow and manage Instagram with bio audits, Reels scripts, carousels, captions, hashtags and growth reviews | *"Audit my Instagram profile and plan next month"* |
+| 🎵 [**tiktok-viral-creator**](skills/tiktok-viral-creator) | TikTok ideas, 2-second hooks, shot-by-shot scripts and retention analysis | *"Give me 10 TikTok ideas for my fitness app"* |
+| 📺 [**youtube-seo-optimizer**](skills/youtube-seo-optimizer) | YouTube titles, thumbnails, descriptions, chapters and channel audits for more views | *"Optimize the title and description for this video"* |
+| 🎬 [**youtube-script-writer**](skills/youtube-script-writer) | High-retention YouTube and Shorts scripts with hooks, open loops and B-roll cues | *"Write a 10-minute YouTube script about X"* |
+| ♻️ [**content-repurposer**](skills/content-repurposer) | One video or podcast into 15+ posts: Shorts, Reels, threads, LinkedIn, carousel, newsletter | *"Repurpose this transcript into social posts"* |
+| 🗓️ [**social-media-calendar**](skills/social-media-calendar) | Monthly cross-platform content calendar, exported as CSV for Notion, Sheets, Buffer or Later | *"Plan my social media calendar for November"* |
+| 🪝 [**hook-generator**](skills/hook-generator) | Scroll-stopping hooks for videos, posts, emails and ads, scored and ranked | *"Give me hooks for a video about X"* |
+| 📣 [**ad-copy-generator**](skills/ad-copy-generator) | Ad copy for Meta, TikTok, Google and YouTube within each platform's limits, plus an A/B test matrix | *"Write Meta ads for my product"* |
+| ✍️ [**seo-blog-writer**](skills/seo-blog-writer) | SEO blog posts that rank: intent research, outline, meta tags, FAQ and schema | *"Write an SEO article for 'best budgeting apps'"* |
+| 📧 [**email-campaign-writer**](skills/email-campaign-writer) | Welcome, launch, cart and newsletter email sequences with subject-line tests | *"Write a 5-email welcome sequence"* |
+| 🎨 [**brand-voice-guide**](skills/brand-voice-guide) | A brand voice, positioning and personas guide, then rewrites copy on-brand | *"Create a brand voice guide from our website"* |
+| 🕵️ [**competitor-spy**](skills/competitor-spy) | Competitor analysis of pricing, messaging, socials, ads and reviews, with a SWOT and opportunities | *"Analyze my top 3 competitors"* |
+| 🤝 [**influencer-outreach**](skills/influencer-outreach) | Influencer and UGC campaigns: vetting, outreach DMs, briefs and tracking | *"Plan a micro-influencer campaign on TikTok"* |
+| 📊 [**social-analytics-reporter**](skills/social-analytics-reporter) ⚙️ | Social media analytics exports into a clear report with KPIs, reasons and next actions | *"Analyze this Instagram Insights export"* |
 
 <div align="center"><img src="assets/demo-analytics.gif" alt="social-analytics-reporter summarizing an Instagram export" width="680"/></div>
 
@@ -162,51 +186,51 @@ Your AI agent can also act as a social media manager, content strategist and gro
 ### 🔀 Git & Workflow
 | Skill | What it does | Try saying |
 |---|---|---|
-| 🔎 [**pr-reviewer-pro**](https://github.com/milad-ahmd/pr-reviewer-pro) | Senior-engineer PR reviews: severities, `file:line` evidence, suggested fixes | *"Review PR #123"* |
-| 🧱 [**commit-craft**](https://github.com/milad-ahmd/commit-craft) | Messy changes → clean, atomic Conventional Commits | *"Commit my changes"* |
-| 📋 [**meeting-notes-to-tickets**](https://github.com/milad-ahmd/meeting-notes-to-tickets) | Meeting notes → de-duplicated GitHub/Linear/Jira tickets | *"Turn these notes into issues"* |
-| 📝 [**changelog-from-git**](https://github.com/milad-ahmd/changelog-from-git) | Human-readable release notes from git history | *"Write release notes since v1.2"* |
+| 🔎 [**pr-reviewer-pro**](skills/pr-reviewer-pro) ⚙️ | Senior-engineer PR reviews: severities, `file:line` evidence, suggested fixes | *"Review PR #123"* |
+| 🧱 [**commit-craft**](skills/commit-craft) | Messy changes → clean, atomic Conventional Commits | *"Commit my changes"* |
+| 📋 [**meeting-notes-to-tickets**](skills/meeting-notes-to-tickets) | Meeting notes → de-duplicated GitHub/Linear/Jira tickets | *"Turn these notes into issues"* |
+| 📝 [**changelog-from-git**](skills/changelog-from-git) | Human-readable release notes from git history | *"Write release notes since v1.2"* |
 
 ### 🧪 Testing & Quality
 | Skill | What it does | Try saying |
 |---|---|---|
-| 🧪 [**test-gap-hunter**](https://github.com/milad-ahmd/test-gap-hunter) | Finds the riskiest untested code and writes real tests | *"Find test gaps and fix the top 3"* |
+| 🧪 [**test-gap-hunter**](skills/test-gap-hunter) | Finds the riskiest untested code and writes real tests | *"Find test gaps and fix the top 3"* |
 
 ### 🎨 Frontend
 | Skill | What it does | Try saying |
 |---|---|---|
-| 🖼️ [**screenshot-to-component**](https://github.com/milad-ahmd/screenshot-to-component) | Screenshot → component in *your* design system | *"Build this screenshot as a component"* |
-| ♿ [**a11y-fixer**](https://github.com/milad-ahmd/a11y-fixer) | WCAG 2.2 AA audit that fixes issues in code | *"Make this app accessible"* |
+| 🖼️ [**screenshot-to-component**](skills/screenshot-to-component) | Screenshot → component in *your* design system | *"Build this screenshot as a component"* |
+| ♿ [**a11y-fixer**](skills/a11y-fixer) | WCAG 2.2 AA audit that fixes issues in code | *"Make this app accessible"* |
 
 ### 🧙 Refactoring
 | Skill | What it does | Try saying |
 |---|---|---|
-| 🧙 [**migration-wizard**](https://github.com/milad-ahmd/migration-wizard) | Safe, phased migrations: JS→TS, Jest→Vitest, Pages→App Router | *"Migrate this project to TypeScript"* |
+| 🧙 [**migration-wizard**](skills/migration-wizard) | Safe, phased migrations: JS→TS, Jest→Vitest, Pages→App Router | *"Migrate this project to TypeScript"* |
 
 ### 🔐 Security & Maintenance
 | Skill | What it does | Try saying |
 |---|---|---|
-| 🔐 [**env-secrets-guard**](https://github.com/milad-ahmd/env-secrets-guard) | Catches leaked API keys before you push | *"Scan for leaked secrets"* |
-| 🩺 [**dependency-doctor**](https://github.com/milad-ahmd/dependency-doctor) | Vulnerable, outdated and unused packages with a safe upgrade plan | *"Check my dependencies"* |
+| 🔐 [**env-secrets-guard**](skills/env-secrets-guard) ⚙️ | Catches leaked API keys before you push | *"Scan for leaked secrets"* |
+| 🩺 [**dependency-doctor**](skills/dependency-doctor) | Vulnerable, outdated and unused packages with a safe upgrade plan | *"Check my dependencies"* |
 
 ### 🐳 DevOps & Backend
 | Skill | What it does | Try saying |
 |---|---|---|
-| 🐳 [**dockerize-anything**](https://github.com/milad-ahmd/dockerize-anything) | Small, secure, multi-stage Dockerfile and compose | *"Dockerize this project"* |
-| 🔌 [**api-to-sdk**](https://github.com/milad-ahmd/api-to-sdk) | Typed, idiomatic SDK from OpenAPI or your routes | *"Generate a TS SDK from openapi.yaml"* |
-| ⚡ [**sql-optimizer**](https://github.com/milad-ahmd/sql-optimizer) | Explains slow queries and suggests indexes and rewrites | *"Why is this query slow?"* |
+| 🐳 [**dockerize-anything**](skills/dockerize-anything) | Small, secure, multi-stage Dockerfile and compose | *"Dockerize this project"* |
+| 🔌 [**api-to-sdk**](skills/api-to-sdk) | Typed, idiomatic SDK from OpenAPI or your routes | *"Generate a TS SDK from openapi.yaml"* |
+| ⚡ [**sql-optimizer**](skills/sql-optimizer) | Explains slow queries and suggests indexes and rewrites | *"Why is this query slow?"* |
 
 ### 📚 Documentation
 | Skill | What it does | Try saying |
 |---|---|---|
-| ✨ [**readme-glow-up**](https://github.com/milad-ahmd/readme-glow-up) | Turns any README into a star magnet | *"Glow up my README"* |
-| 🗺️ [**codebase-explainer**](https://github.com/milad-ahmd/codebase-explainer) | Onboarding guide with Mermaid architecture diagrams | *"Explain this codebase"* |
+| ✨ [**readme-glow-up**](skills/readme-glow-up) | Turns any README into a star magnet | *"Glow up my README"* |
+| 🗺️ [**codebase-explainer**](skills/codebase-explainer) | Onboarding guide with Mermaid architecture diagrams | *"Explain this codebase"* |
 
 ### 🚀 Growth
 | Skill | What it does | Try saying |
 |---|---|---|
-| 🚀 [**launch-post-writer**](https://github.com/milad-ahmd/launch-post-writer) | X thread, Show HN, LinkedIn and Reddit posts from your repo | *"Write launch posts for this repo"* |
-| 🔥 [**landing-page-roaster**](https://github.com/milad-ahmd/landing-page-roaster) | Scored, funny, honest roast of your landing page plus rewrites | *"Roast my landing page"* |
+| 🚀 [**launch-post-writer**](skills/launch-post-writer) | X thread, Show HN, LinkedIn and Reddit posts from your repo | *"Write launch posts for this repo"* |
+| 🔥 [**landing-page-roaster**](skills/landing-page-roaster) | Scored, funny, honest roast of your landing page plus rewrites | *"Roast my landing page"* |
 
 ## 🤔 What is a skill?
 
@@ -231,13 +255,15 @@ Every skill in this collection:
 
 ## 🗺️ Roadmap
 
-All 51 skills have shipped. A new skill drops every Monday ([changelog](CHANGELOG.md)). Next up is your idea:
+All 51 skills have shipped ([changelog](CHANGELOG.md)). Next up is your idea:
 
 👉 [Request a skill](https://github.com/milad-ahmd/agent-skills/issues/new). Popular requests get built first.
 
+💬 Questions, show-and-tell and ideas go in [Discussions](https://github.com/milad-ahmd/agent-skills/discussions).
+
 ## 🤝 Contributing
 
-Ideas, bug reports and new skills are welcome. Each skill lives in its own repo, so open issues there. You can also browse community skills in [awesome-agent-skills](https://github.com/milad-ahmd/awesome-agent-skills).
+Ideas, bug reports and new skills are welcome, and all of them belong **in this repo**: every skill lives in [`skills/<name>/`](skills), and the per-skill repos are read-only mirrors. [CONTRIBUTING.md](CONTRIBUTING.md) explains how to add or change a skill and run the checks. You can also browse community skills in [awesome-agent-skills](https://github.com/milad-ahmd/awesome-agent-skills).
 
 ## 📄 License
 
