@@ -12,9 +12,20 @@ Diagnose why skills don't trigger, trigger at the wrong time or conflict with ea
 ```bash
 python3 scripts/skills_doctor.py                          # ~/.claude/skills + ./.claude/skills
 python3 scripts/skills_doctor.py path/to/skills-dir ...   # custom locations
+python3 scripts/skills_doctor.py --strict skills/         # CI: also fail on warnings/overlaps
 ```
 
-The checks: frontmatter present and valid, `name` matches its folder and is kebab-case, the description exists, isn't too short or too long, and contains "when to use" trigger language; the file size; scripts that are referenced but missing; likely secrets; and pairs of skills whose descriptions overlap heavily (conflict risk).
+Exit codes: `0` clean · `1` errors · `2` warnings or overlaps (only with `--strict`).
+
+The checks:
+- **Frontmatter:** present and valid, including folded (`>`), literal (`|`) and quoted multi-line descriptions.
+- **Name:** matches its folder and is kebab-case.
+- **Description:** exists, isn't too short or too long, and has "Use when…" trigger language.
+- **File size,** and scripts that are referenced but missing.
+- **Secrets:** both known key shapes (AKIA…, sk-…, ghp_…, private keys) and generic assignments like `*_SECRET*=`, `*PASSWORD*=`, `*TOKEN*=`, `*API_KEY*=`, plus credentials inside URLs (`scheme://user:pass@host`).
+- **Overlap:** pairs of skills whose whole descriptions (Jaccard ≥ 0.20) or "Use when…" clauses (≥ 0.30) overlap. The trigger clause is where conflicts actually happen.
+
+**Limits:** the secret scan is heuristic. It catches common leak patterns but not every secret format, so it never proves a skill is safe. For anything you'll publish, also run a dedicated scanner (`gitleaks`, `trufflehog`) and read the scripts yourself.
 
 ## 2. Interpret
 
@@ -24,7 +35,9 @@ The checks: frontmatter present and valid, `name` matches its folder and is keba
 
 ## 3. Fix (with user approval)
 
-Propose exact edits: rewritten descriptions (`<what it does>. Use when the user asks to …`), renames, splitting oversized skills into `references/`, and removing secrets (then **rotate** them). Re-run the doctor until it reports no errors.
+Propose exact edits: rewritten descriptions (`<what it does>. Use when the user asks to …`), renames, splitting oversized skills into `references/`, and removing secrets (then **rotate** them).
+
+Re-run with `--strict` until it exits `0`, meaning **no errors, no warnings and no overlaps**. "No errors" alone is not a clean bill of health. Read every warning, and if you believe one is a false positive, tell the user why instead of silently ignoring it.
 
 ## 4. Trigger test
 

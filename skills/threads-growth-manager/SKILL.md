@@ -1,6 +1,6 @@
 ---
 name: threads-growth-manager
-description: Grows a Meta Threads account through conversational short posts, covering profile setup linked to Instagram, conversation-starting posts, multi-post threads, topic tags, reply engagement, cross-posting from X and Instagram, and performance reviews. Use when the user asks to grow on Threads, write Threads posts, or plan Threads content.
+description: Grows a Meta Threads account through conversational short posts, covering profile setup linked to Instagram, conversation-starting posts, multi-post threads, topic tags, reply engagement, cross-posting from X and Instagram, and performance reviews. Use when the user asks about Meta's Threads app (threads.net) specifically: growing a Threads account, writing Threads posts, or cross-posting from Instagram to Threads.
 ---
 
 # Threads Growth Manager

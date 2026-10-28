@@ -1,6 +1,6 @@
 ---
 name: instagram-growth-manager
-description: Manages an Instagram account end to end, covering profile and bio audits, content pillars, Reels, carousel and Story plans, captions with hooks and CTAs, hashtag sets, posting schedules, DM and comment reply templates, and monthly growth reviews from Insights data. Use when the user asks to grow, manage, audit, or plan content for Instagram, or to write Instagram captions, Reels ideas, carousels, or hashtags.
+description: Manages an Instagram account end to end, covering profile and bio audits, content pillars, Reels, carousel and Story plans, captions with hooks and CTAs, hashtag sets, posting schedules, DM and comment reply templates, and monthly growth reviews from Insights data. Use when the user asks for Instagram captions, Reels scripts, carousels, hashtags, an Instagram bio or grid audit, or Instagram Insights review.
 ---
 
 # Instagram Growth Manager

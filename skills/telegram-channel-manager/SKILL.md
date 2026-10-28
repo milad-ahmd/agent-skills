@@ -1,6 +1,6 @@
 ---
 name: telegram-channel-manager
-description: Manages and grows a Telegram channel or group, covering setup, positioning, post formatting, content calendars, polls and engagement, pinned posts, moderation rules, bots and automation ideas, cross-promotion, monetization options, and analytics reviews. Use when the user asks to manage, grow, write posts for, or plan content for a Telegram channel or group.
+description: Manages and grows a Telegram channel or group, covering setup, positioning, post formatting, content calendars, polls and engagement, pinned posts, moderation rules, bots and automation ideas, cross-promotion, monetization options, and analytics reviews. Use when the user mentions a Telegram channel, Telegram group, Telegram bot posting, or channel subscribers on Telegram.
 ---
 
 # Telegram Channel Manager

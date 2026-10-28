@@ -1,6 +1,6 @@
 ---
 name: facebook-page-manager
-description: Manages a Facebook Page and Facebook Groups for a brand or local business, covering page setup and audit, content plans, Reels and post copy, community and group moderation, Messenger reply templates, events, reviews, basic boosting strategy, and Insights reviews. Use when the user asks to manage, grow, or post on Facebook, run a Facebook Group, or reply to Facebook comments or messages.
+description: Manages a Facebook Page and Facebook Groups for a brand or local business, covering page setup and audit, content plans, Reels and post copy, community and group moderation, Messenger reply templates, events, reviews, basic boosting strategy, and Insights reviews. Use when the user asks to run a Facebook Page or Facebook Group, reply on Messenger, handle Facebook reviews, or boost Facebook posts.
 ---
 
 # Facebook Page Manager

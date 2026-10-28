@@ -1,6 +1,6 @@
 ---
 name: x-twitter-growth-manager
-description: Manages and grows an X (Twitter) account, covering profile optimization, niche positioning, daily posts, threads, reply strategy, build-in-public content, Spaces and community ideas, a content bank, scheduling, and analytics reviews. Use when the user asks to grow on X or Twitter, write tweets or threads, or plan an X content strategy.
+description: Manages and grows an X (Twitter) account, covering profile optimization, niche positioning, daily posts, threads, reply strategy, build-in-public content, Spaces and community ideas, a content bank, scheduling, and analytics reviews. Use when the user asks to grow an X/Twitter account, write tweets or tweetstorms, reply-guy strategy, X Spaces, or plan an X/Twitter content calendar.
 ---
 
 # X / Twitter Growth Manager

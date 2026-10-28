@@ -1,6 +1,6 @@
 ---
 name: linkedin-growth-manager
-description: Manages a LinkedIn personal brand or company page end to end, covering profile optimization (headline, About, Featured), content strategy, text, carousel (PDF) and video posts, comment strategy, connection and DM templates, newsletters, and analytics reviews. Use when the user asks to grow on LinkedIn, write LinkedIn posts, optimize a LinkedIn profile, or plan LinkedIn content for B2B, a job search, or thought leadership.
+description: Manages a LinkedIn personal brand or company page end to end, covering profile optimization (headline, About, Featured), content strategy, text, carousel (PDF) and video posts, comment strategy, connection and DM templates, newsletters, and analytics reviews. Use when the user asks to rewrite a LinkedIn headline or About section, write LinkedIn posts or carousels, or build a B2B, job-search or thought-leadership presence on LinkedIn.
 ---
 
 # LinkedIn Growth Manager
