@@ -17,6 +17,8 @@ from skill_checks import NAME_RX, find_secrets, jaccard, parse_frontmatter, trig
 
 
 SELF_FILES = {"skill_checks.py", "test_skill_checks.py"}
+SKIP_DIRS = {"__pycache__", ".git", "node_modules", ".venv", "venv", ".mypy_cache", ".pytest_cache"}
+SKIP_EXT = (".pyc", ".pyo", ".so", ".dylib", ".png", ".jpg", ".jpeg", ".gif", ".webp", ".ico", ".pdf", ".zip", ".gz", ".woff", ".woff2")
 
 
 def check(skill_dir):
@@ -50,8 +52,11 @@ def check(skill_dir):
     for ref in set(re.findall(r"\b(scripts/[\w./-]+\.(?:py|sh|js|ts|rb))", body)):
         if not os.path.exists(os.path.join(skill_dir, ref)):
             errs.append(f"referenced file missing: {ref}")
-    for root, _, files in os.walk(skill_dir):
+    for root, dirs, files in os.walk(skill_dir):
+        dirs[:] = [x for x in dirs if x not in SKIP_DIRS]
         for f in files:
+            if f.endswith(SKIP_EXT):
+                continue
             p = os.path.join(root, f)
             if f in SELF_FILES or os.path.getsize(p) > 2_000_000:
                 continue  # the detector's own patterns/fixtures are intentional
