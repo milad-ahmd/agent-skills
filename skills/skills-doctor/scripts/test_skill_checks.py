@@ -100,6 +100,15 @@ class DoctorCLI(unittest.TestCase):
             r = run_doctor("--strict", t)
             self.assertEqual(r.returncode, 0, r.stdout)
 
+    def test_reports_closest_pair_as_reading(self):  # review follow-up: "0 overlaps" must show how close it was
+        with tempfile.TemporaryDirectory() as t:
+            make_skill(t, "a-skill", f"description: {GOOD_DESC}")
+            make_skill(t, "b-skill", "description: Writes Instagram captions and hashtags for posts. Use when the user asks for captions.")
+            out = run_doctor(t).stdout
+            self.assertIn("overlaps at or above threshold", out)
+            self.assertRegex(out, r"closest description\s+\d\.\d\d / threshold 0\.20")
+            self.assertRegex(out, r"closest trigger clause\s+\d\.\d\d / threshold 0\.30")
+
     def test_own_collection_is_strict_clean(self):
         skills = os.path.abspath(os.path.join(HERE, "..", ".."))
         if os.path.isdir(skills) and len(os.listdir(skills)) > 10:

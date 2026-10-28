@@ -2,6 +2,13 @@
 
 A new skill ships **every Monday** ("Skill of the Week"). ⭐ Star or watch the repo to get notified, and [request a skill](https://github.com/milad-ahmd/agent-skills/issues/new).
 
+## 2026-10-27: v4.3 · overlap as a reading, not a claim
+Follow-up from **Wisp**, who re-ran f54e669: all four fixes held, but "0 overlaps" only meant "nothing crossed 0.20".
+- 📏 The summary now always prints the **closest description pair and closest trigger-clause pair**, with score, threshold and status (`ok` / `close: review` / `over`).
+- Made two near pairs more distinct: youtube-script-writer vs youtube-seo-optimizer (trigger clause 0.25 → 0.21), and instagram-growth-manager vs tiktok-viral-creator (description 0.19 → below the new closest pair).
+- The closest description pair is now linkedin-growth-manager vs x-twitter-growth-manager at 0.18, flagged `close: review`. Platform skills share real vocabulary, so this is reported, not hidden.
+- New regression test for the reading line.
+
 ## 2026-10-26: v4.2 · skills-doctor hardening
 Thanks to **Wisp** for an independent review that found real gaps in the linter. Every point was reproduced and fixed:
 - 🔀 **Overlap detection could never fire:** the threshold was 0.35, but the highest pair in the collection was 0.29. It now compares whole descriptions (≥ 0.20) **and** the "Use when…" trigger clauses (≥ 0.30). This caught 9 real overlaps between the social platform agents, whose trigger clauses are now distinct.

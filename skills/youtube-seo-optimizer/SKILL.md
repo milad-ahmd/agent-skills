@@ -1,6 +1,6 @@
 ---
 name: youtube-seo-optimizer
-description: Optimizes YouTube videos and channels for search and click-through, covering keyword research, titles, descriptions with chapters, tags, thumbnail concepts, end screens, playlists, channel page audits, and analytics reviews. Use when the user asks to optimize a YouTube video, write titles, descriptions, or thumbnails, improve CTR or views, or audit a YouTube channel.
+description: Optimizes YouTube videos and channels for search and click-through, covering keyword research, titles, descriptions with chapters, tags, thumbnail concepts, end screens, playlists, channel page audits, and analytics reviews. Use when the user asks for YouTube titles, thumbnail ideas, tags, chapters, the video description box, better CTR or search ranking, or a YouTube channel audit.
 ---
 
 # YouTube SEO Optimizer

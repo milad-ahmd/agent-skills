@@ -1,6 +1,6 @@
 ---
 name: youtube-script-writer
-description: Writes high-retention YouTube scripts for long-form videos and Shorts, with a 30-second hook, structured outline, open loops, pattern interrupts, B-roll and graphics cues, sponsor segments, and CTAs, from a topic, notes, article, or research. Use when the user asks to write or improve a YouTube script, video outline, intro, or Shorts script.
+description: Writes high-retention YouTube scripts for long-form videos and Shorts, with a 30-second hook, structured outline, open loops, pattern interrupts, B-roll and graphics cues, sponsor segments, and CTAs, from a topic, notes, article, or research. Use when the user asks to write or rewrite what is said on camera: a YouTube script, talking points, a 30-second intro hook, a sponsor read, or a Shorts script.
 ---
 
 # YouTube Script Writer

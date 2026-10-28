@@ -93,15 +93,21 @@ def main():
         for w in warns:
             print(f"     ⚠️  {w}")
         ne, nw = ne + len(errs), nw + len(warns)
-    overlaps = []
+    overlaps, top_d, top_t = [], (0.0, "", ""), (0.0, "", "")
     for (x, dx, *_), (y, dy, *_) in itertools.combinations(results, 2):
         jd, jt = jaccard(dx, dy), jaccard(trigger_clause(dx), trigger_clause(dy))
+        top_d, top_t = max(top_d, (jd, x, y)), max(top_t, (jt, x, y))
         if jd >= a.overlap or jt >= a.trigger_overlap:
             overlaps.append((max(jd, jt), jd, jt, x, y))
     for _, jd, jt, x, y in sorted(overlaps, reverse=True)[:15]:
-        print(f"🔀 overlap {x} ↔ {y}: description {jd:.0%}, trigger clause {jt:.0%}. Give each distinct trigger phrases, or merge")
-    print(f"\n{len(results)} skills · {ne} errors · {nw} warnings · {len(overlaps)} overlaps"
-          f"  (thresholds: description {a.overlap:.2f}, trigger clause {a.trigger_overlap:.2f})")
+        print(f"🔀 overlap {x} ↔ {y}: description {jd:.2f}, trigger clause {jt:.2f}. Give each distinct trigger phrases, or merge")
+    print(f"\n{len(results)} skills · {ne} errors · {nw} warnings · {len(overlaps)} overlaps at or above threshold")
+    if len(results) > 1:
+        # Report the closest pair as a reading, not just a pass/fail claim: "0 overlaps" only means nothing crossed the line.
+        for label, (score, x, y), thr in (("description", top_d, a.overlap), ("trigger clause", top_t, a.trigger_overlap)):
+            gap = thr - score
+            note = "over" if gap <= 0 else ("close: review" if gap < 0.05 else "ok")
+            print(f"   closest {label:<15} {score:.2f} / threshold {thr:.2f}  ({note})  {x} ↔ {y}")
     if ne:
         sys.exit(1)
     if a.strict and (nw or overlaps):

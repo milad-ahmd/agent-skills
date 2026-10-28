@@ -32,6 +32,7 @@ The checks:
 - ❌ **Errors** break loading. Fix them first.
 - ⚠️ **Warnings** hurt triggering or quality.
 - 🔀 **Overlaps**: decide whether to merge the skills, sharpen both descriptions with distinct triggers, or uninstall one.
+- 📏 **Closest pairs**: the summary always shows the highest description and trigger-clause scores, with their distance to the threshold. "0 overlaps" only means nothing crossed the line. A pair marked `close: review` (within 0.05) is one new similar skill away from conflicting, so mention it to the user.
 
 ## 3. Fix (with user approval)
 

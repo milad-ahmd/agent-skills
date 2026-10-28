@@ -1,6 +1,6 @@
 ---
 name: tiktok-viral-creator
-description: Plans and scripts TikTok content built for retention, covering trend and niche research, scroll-stopping hooks, shot-by-shot scripts, on-screen text, captions, sounds, hashtags, series formats, posting plans, and analytics reviews. Use when the user asks for TikTok ideas, scripts, hooks, a TikTok strategy, or help growing a TikTok account or TikTok Shop.
+description: Plans and scripts TikTok videos built for watch time and rewatches: trend and niche research, 2-second openers, shot-by-shot shooting scripts with on-screen text, sound choices, series formats, a weekly upload schedule, and retention-curve analysis from TikTok Analytics. Use when the user asks for TikTok ideas, TikTok scripts or openers, a TikTok strategy, or help growing a TikTok account or TikTok Shop.
 ---
 
 # TikTok Viral Creator
