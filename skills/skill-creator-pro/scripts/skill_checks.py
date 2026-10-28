@@ -1,4 +1,6 @@
-"""Shared checks for skills-doctor and lint_skill (stdlib only, no PyYAML needed).
+"""KEEP IN SYNC: identical copy in skills/skills-doctor/ and skills/skill-creator-pro/ (CI enforces).
+
+Shared checks for skills-doctor and lint_skill (stdlib only, no PyYAML needed).
 
 Covers: YAML frontmatter incl. folded (>) / literal (|) / quoted scalars, trigger-clause
 extraction for overlap detection, and secret detection by key *shape* AND by *assignment*.
