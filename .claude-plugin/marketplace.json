@@ -5,13 +5,13 @@
     "email": "miladahmadi803@gmail.com"
   },
   "metadata": {
-    "description": "44 Agent Skills: roast-my-github, an AI slop detector, GitHub Actions and prompt-injection scanners, a social media manager for 9 platforms, and senior-engineer dev workflows",
-    "version": "5.0.0"
+    "description": "48 Agent Skills: roast-my-github, an AI slop detector, a bisecting bug detective, demo GIF recorder, Playwright e2e tests, spec grilling, GitHub Actions and prompt-injection scanners, and a social media manager",
+    "version": "5.1.0"
   },
   "plugins": [
     {
       "name": "all-skills",
-      "description": "All 44 skills: developer workflows, security scanners, marketing, social media and fun skills",
+      "description": "All 48 skills: developer workflows, debugging, e2e tests, security scanners, marketing, social media and fun skills",
       "source": "./",
       "strict": false,
       "skills": [
@@ -22,6 +22,7 @@
         "./skills/api-to-sdk",
         "./skills/app-store-optimizer",
         "./skills/brand-voice-guide",
+        "./skills/bug-detective",
         "./skills/changelog-from-git",
         "./skills/codebase-explainer",
         "./skills/codebase-time-machine",
@@ -29,8 +30,10 @@
         "./skills/competitor-spy",
         "./skills/content-repurposer",
         "./skills/cost-cutter",
+        "./skills/demo-recorder",
         "./skills/dependency-doctor",
         "./skills/dockerize-anything",
+        "./skills/e2e-flow-tester",
         "./skills/email-campaign-writer",
         "./skills/env-secrets-guard",
         "./skills/gh-actions-auditor",
@@ -42,6 +45,7 @@
         "./skills/launch-post-writer",
         "./skills/meeting-notes-to-tickets",
         "./skills/migration-wizard",
+        "./skills/plan-griller",
         "./skills/pr-reviewer-pro",
         "./skills/prompt-injection-scanner",
         "./skills/readme-glow-up",
@@ -63,7 +67,7 @@
     },
     {
       "name": "indie-hacker-pack",
-      "description": "Solo founder toolkit: idea validation, landing page roast, launch posts, ASO, SEO, X and Reddit growth",
+      "description": "Solo founder toolkit: idea validation, landing page roast, launch posts, demo GIFs, ASO, SEO, X and Reddit growth",
       "source": "./",
       "strict": false,
       "skills": [
@@ -75,7 +79,8 @@
         "./skills/seo-blog-writer",
         "./skills/social-media-manager",
         "./skills/cost-cutter",
-        "./skills/commit-craft"
+        "./skills/commit-craft",
+        "./skills/demo-recorder"
       ]
     },
     {
@@ -128,7 +133,7 @@
     },
     {
       "name": "startup-cto-pack",
-      "description": "Engineering lead toolkit: PR review, incidents, cost cutting, secret scanning, dependencies, migrations, GitHub Actions and agent-config security",
+      "description": "Engineering lead toolkit: specs, debugging, PR review, incidents, cost cutting, secret scanning, dependencies, migrations, GitHub Actions and agent-config security",
       "source": "./",
       "strict": false,
       "skills": [
@@ -143,12 +148,14 @@
         "./skills/codebase-explainer",
         "./skills/agent-memory-keeper",
         "./skills/gh-actions-auditor",
-        "./skills/prompt-injection-scanner"
+        "./skills/prompt-injection-scanner",
+        "./skills/plan-griller",
+        "./skills/bug-detective"
       ]
     },
     {
       "name": "developer-pack",
-      "description": "Core developer workflows: PR review, commits, tests, secrets, Docker, SQL, migrations, API SDKs, GitHub Actions security",
+      "description": "Core developer workflows: specs, debugging, PR review, commits, unit and e2e tests, secrets, Docker, SQL, migrations, API SDKs, GitHub Actions security",
       "source": "./",
       "strict": false,
       "skills": [
@@ -164,12 +171,15 @@
         "./skills/migration-wizard",
         "./skills/api-to-sdk",
         "./skills/agent-memory-keeper",
-        "./skills/gh-actions-auditor"
+        "./skills/gh-actions-auditor",
+        "./skills/bug-detective",
+        "./skills/e2e-flow-tester",
+        "./skills/plan-griller"
       ]
     },
     {
       "name": "skill-builder-pack",
-      "description": "Create, lint, audit and security-scan Agent Skills, plus persistent agent memory",
+      "description": "Create, lint, audit and security-scan Agent Skills, plus agent memory and session handoffs",
       "source": "./",
       "strict": false,
       "skills": [

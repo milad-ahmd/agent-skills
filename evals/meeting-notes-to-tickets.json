@@ -10,6 +10,7 @@
   "should_not_trigger": [
     "Prod is down, run the incident with me",
     "Write commit messages for my changes",
-    "Summarize what changed since v2 for the release"
+    "Summarize what changed since v2 for the release",
+    "Before we build bulk CSV import, grill me on the edge cases and write it up as a spec."
   ]
 }

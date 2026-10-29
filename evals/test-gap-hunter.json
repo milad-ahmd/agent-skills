@@ -10,6 +10,7 @@
   "should_not_trigger": [
     "Review my PR and point out missing tests",
     "Migrate from Jest to Vitest",
-    "Explain what this codebase does"
+    "Explain what this codebase does",
+    "This TypeError only happens sometimes when I save a draft. Help me track down why."
   ]
 }

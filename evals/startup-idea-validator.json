@@ -10,6 +10,7 @@
   "should_not_trigger": [
     "Analyze our three main competitors' pricing",
     "Write our brand positioning and messaging pillars",
-    "Write Product Hunt launch posts for our app"
+    "Write Product Hunt launch posts for our app",
+    "Question me about this refund feature until the requirements are concrete, then write SPEC.md."
   ]
 }

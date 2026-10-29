@@ -4,7 +4,7 @@ dependency-doctor	🩺	Audit vulnerable, outdated and unused packages with a saf
 env-secrets-guard	🔐	Find leaked API keys and secrets before they hit GitHub	Security & Maintenance	Scan this repo for leaked secrets before I push|I'm open-sourcing this repo, is it safe?
 dockerize-anything	🐳	Production-ready, small, secure Dockerfile and compose for any repo	DevOps	Dockerize this project|Make my Docker image smaller
 changelog-from-git	📝	Polished release notes and CHANGELOG entries from git history	Git & Workflow	Write release notes since the last tag|Draft the GitHub release for v2.0
-codebase-explainer	🗺️	Onboarding guide for any repo, with Mermaid architecture diagrams	Documentation	Explain this codebase|Where do I start in this repo?
+codebase-explainer	🗺️	Onboarding guide built from a real import graph: entry points, hubs, cycles, Mermaid and an interactive map	Documentation	Explain this codebase|Map how the modules in this repo depend on each other
 a11y-fixer	♿	WCAG 2.2 AA audit that fixes accessibility issues in your code	Frontend	Audit this app for accessibility and fix the issues|Make the signup form screen-reader friendly
 sql-optimizer	⚡	Explain slow SQL queries and get index and rewrite fixes	Backend & Data	Why is this query slow?|Find N+1 queries in this API
 launch-post-writer	🚀	Turn your repo into an X thread, Show HN, LinkedIn and Reddit launch posts	Growth	Write launch posts for this repo|Write a Show HN post for v1.0
@@ -32,7 +32,7 @@ roast-my-github	🔥	Get your GitHub profile roasted with real data, then a scor
 startup-idea-validator	🦈	Stress-test a startup idea with a VC, customer and competitor panel, cheap experiments and a verdict	Founders	Validate my startup idea: ...|What could kill this idea?
 codebase-time-machine	⏳	The story of your repo from git history, as a documentary: eras, cast, plot twists, cursed files	Fun & Viral	Tell me the story of this codebase|Who built what in this repo, and when?
 ai-slop-detector	🧹	Score text for AI-sounding writing and rewrite it to sound human, keeping the author's voice	Writing	De-slop this blog post|Does this sound like AI? Make it sound human
-agent-memory-keeper	🧠	Persistent project memory (MEMORY.md) so your agent stops repeating the same mistakes	Agent Productivity	Remember that we use pnpm, not npm|What do you remember about this project?
+agent-memory-keeper	🧠	Project memory (MEMORY.md) plus session handoffs (HANDOFF.md) so the next session picks up where this one stopped	Agent Productivity	Remember that we use pnpm, not npm|Write a handoff, I'm running out of context
 skill-creator-pro	🛠️	Turn any workflow into a well-written SKILL.md, with a linter to validate it	Agent Productivity	Create a skill for our release process|Turn this checklist into an agent skill
 cost-cutter	💸	Cut cloud, SaaS and LLM API bills with dollar estimates, effort, risk and exact fixes	DevOps	Why is our AWS bill so high?|Cut our OpenAI API costs
 incident-commander	🚨	Run a production outage from triage to mitigation, status updates and a blameless postmortem	DevOps	Production is down, help me|Write a postmortem for yesterday's outage
@@ -42,3 +42,7 @@ readme-glow-up	✨	Turn any README into a star magnet using only facts from your
 pr-reviewer-pro	🔎	Senior-engineer PR reviews with severity levels, file:line evidence and suggested fixes	Git & Workflow	Review PR #123|Review my changes before I push
 gh-actions-auditor	🛡️	Find pwn requests, script injection and unpinned actions in GitHub Actions, then fix them	Security & Maintenance	Audit our GitHub Actions workflows for security issues|Pin all our actions to commit SHAs
 prompt-injection-scanner	🪤	Scan skills, CLAUDE.md, hooks and MCP configs for prompt injection and hidden instructions	Security & Maintenance	Check the skills I just installed for anything malicious|Is this repo's .claude and .mcp.json safe to trust?
+bug-detective	🕵️	Debug by reproducing first, logging hypotheses and auto-bisecting the commit that broke it	Testing & Quality	This test passed last week and fails now, find the commit that broke it|The cart total is sometimes wrong, help me find out why
+e2e-flow-tester	🎭	Find your app's critical user flows and write Playwright end-to-end tests for them	Testing & Quality	Write e2e tests for our signup and checkout flows|Set up Playwright for this Next.js app
+plan-griller	📐	Grill you on a feature plan against your real code, then write a testable SPEC.md	Git & Workflow	Grill me on this feature before we build it|Turn this feature request into a spec with acceptance criteria
+demo-recorder	🎬	Record a real demo GIF or video of your CLI or web app for the README and launch posts	Growth	Make a demo GIF of this CLI for the README|Record the signup flow as a short video

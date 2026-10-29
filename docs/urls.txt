@@ -9,6 +9,7 @@ https://milad-ahmd.github.io/agent-skills/skills/ai-slop-detector/
 https://milad-ahmd.github.io/agent-skills/skills/api-to-sdk/
 https://milad-ahmd.github.io/agent-skills/skills/app-store-optimizer/
 https://milad-ahmd.github.io/agent-skills/skills/brand-voice-guide/
+https://milad-ahmd.github.io/agent-skills/skills/bug-detective/
 https://milad-ahmd.github.io/agent-skills/skills/changelog-from-git/
 https://milad-ahmd.github.io/agent-skills/skills/codebase-explainer/
 https://milad-ahmd.github.io/agent-skills/skills/codebase-time-machine/
@@ -16,8 +17,10 @@ https://milad-ahmd.github.io/agent-skills/skills/commit-craft/
 https://milad-ahmd.github.io/agent-skills/skills/competitor-spy/
 https://milad-ahmd.github.io/agent-skills/skills/content-repurposer/
 https://milad-ahmd.github.io/agent-skills/skills/cost-cutter/
+https://milad-ahmd.github.io/agent-skills/skills/demo-recorder/
 https://milad-ahmd.github.io/agent-skills/skills/dependency-doctor/
 https://milad-ahmd.github.io/agent-skills/skills/dockerize-anything/
+https://milad-ahmd.github.io/agent-skills/skills/e2e-flow-tester/
 https://milad-ahmd.github.io/agent-skills/skills/email-campaign-writer/
 https://milad-ahmd.github.io/agent-skills/skills/env-secrets-guard/
 https://milad-ahmd.github.io/agent-skills/skills/gh-actions-auditor/
@@ -29,6 +32,7 @@ https://milad-ahmd.github.io/agent-skills/skills/landing-page-roaster/
 https://milad-ahmd.github.io/agent-skills/skills/launch-post-writer/
 https://milad-ahmd.github.io/agent-skills/skills/meeting-notes-to-tickets/
 https://milad-ahmd.github.io/agent-skills/skills/migration-wizard/
+https://milad-ahmd.github.io/agent-skills/skills/plan-griller/
 https://milad-ahmd.github.io/agent-skills/skills/pr-reviewer-pro/
 https://milad-ahmd.github.io/agent-skills/skills/prompt-injection-scanner/
 https://milad-ahmd.github.io/agent-skills/skills/readme-glow-up/

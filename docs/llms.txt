@@ -1,25 +1,28 @@
 # Agent Skills by Milad Ahmadi
 
-> 44 open-source Agent Skills (SKILL.md) for Claude Code, Cursor, Codex, Cline and other AI agents. Install: `/plugin install all-skills --marketplace milad-ahmd/agent-skills` or `npx skills add milad-ahmd/agent-skills`.
+> 48 open-source Agent Skills (SKILL.md) for Claude Code, Cursor, Codex, Cline and other AI agents. Install: `/plugin install all-skills --marketplace milad-ahmd/agent-skills` or `npx skills add milad-ahmd/agent-skills`.
 
 ## Skills
 
 - [a11y-fixer](https://milad-ahmd.github.io/agent-skills/skills/a11y-fixer/): WCAG 2.2 AA audit that fixes accessibility issues in your code
 - [ad-copy-generator](https://milad-ahmd.github.io/agent-skills/skills/ad-copy-generator/): Ad copy for Meta, TikTok, Google and YouTube within each platform's limits, plus an A/B test matrix
-- [agent-memory-keeper](https://milad-ahmd.github.io/agent-skills/skills/agent-memory-keeper/): Persistent project memory (MEMORY.md) so your agent stops repeating the same mistakes
+- [agent-memory-keeper](https://milad-ahmd.github.io/agent-skills/skills/agent-memory-keeper/): Project memory (MEMORY.md) plus session handoffs (HANDOFF.md) so the next session picks up where this one stopped
 - [ai-slop-detector](https://milad-ahmd.github.io/agent-skills/skills/ai-slop-detector/): Score text for AI-sounding writing and rewrite it to sound human, keeping the author's voice
 - [api-to-sdk](https://milad-ahmd.github.io/agent-skills/skills/api-to-sdk/): Typed, idiomatic client SDK from an OpenAPI spec or your backend routes
 - [app-store-optimizer](https://milad-ahmd.github.io/agent-skills/skills/app-store-optimizer/): App Store and Google Play ASO: keywords, titles, screenshot captions, review replies, A/B tests
 - [brand-voice-guide](https://milad-ahmd.github.io/agent-skills/skills/brand-voice-guide/): A brand voice, positioning and personas guide, then rewrites copy on-brand
+- [bug-detective](https://milad-ahmd.github.io/agent-skills/skills/bug-detective/): Debug by reproducing first, logging hypotheses and auto-bisecting the commit that broke it
 - [changelog-from-git](https://milad-ahmd.github.io/agent-skills/skills/changelog-from-git/): Polished release notes and CHANGELOG entries from git history
-- [codebase-explainer](https://milad-ahmd.github.io/agent-skills/skills/codebase-explainer/): Onboarding guide for any repo, with Mermaid architecture diagrams
+- [codebase-explainer](https://milad-ahmd.github.io/agent-skills/skills/codebase-explainer/): Onboarding guide built from a real import graph: entry points, hubs, cycles, Mermaid and an interactive map
 - [codebase-time-machine](https://milad-ahmd.github.io/agent-skills/skills/codebase-time-machine/): The story of your repo from git history, as a documentary: eras, cast, plot twists, cursed files
 - [commit-craft](https://milad-ahmd.github.io/agent-skills/skills/commit-craft/): Turn messy changes into clean, atomic Conventional Commits
 - [competitor-spy](https://milad-ahmd.github.io/agent-skills/skills/competitor-spy/): Competitor analysis of pricing, messaging, socials, ads and reviews, with a SWOT and opportunities
 - [content-repurposer](https://milad-ahmd.github.io/agent-skills/skills/content-repurposer/): One video or podcast into 15+ posts: Shorts, Reels, threads, LinkedIn, carousel, newsletter
 - [cost-cutter](https://milad-ahmd.github.io/agent-skills/skills/cost-cutter/): Cut cloud, SaaS and LLM API bills with dollar estimates, effort, risk and exact fixes
+- [demo-recorder](https://milad-ahmd.github.io/agent-skills/skills/demo-recorder/): Record a real demo GIF or video of your CLI or web app for the README and launch posts
 - [dependency-doctor](https://milad-ahmd.github.io/agent-skills/skills/dependency-doctor/): Audit vulnerable, outdated and unused packages with a safe upgrade plan
 - [dockerize-anything](https://milad-ahmd.github.io/agent-skills/skills/dockerize-anything/): Production-ready, small, secure Dockerfile and compose for any repo
+- [e2e-flow-tester](https://milad-ahmd.github.io/agent-skills/skills/e2e-flow-tester/): Find your app's critical user flows and write Playwright end-to-end tests for them
 - [email-campaign-writer](https://milad-ahmd.github.io/agent-skills/skills/email-campaign-writer/): Welcome, launch, cart and newsletter email sequences with subject-line tests
 - [env-secrets-guard](https://milad-ahmd.github.io/agent-skills/skills/env-secrets-guard/): Find leaked API keys and secrets before they hit GitHub
 - [gh-actions-auditor](https://milad-ahmd.github.io/agent-skills/skills/gh-actions-auditor/): Find pwn requests, script injection and unpinned actions in GitHub Actions, then fix them
@@ -31,6 +34,7 @@
 - [launch-post-writer](https://milad-ahmd.github.io/agent-skills/skills/launch-post-writer/): Turn your repo into an X thread, Show HN, LinkedIn and Reddit launch posts
 - [meeting-notes-to-tickets](https://milad-ahmd.github.io/agent-skills/skills/meeting-notes-to-tickets/): Meeting notes into de-duplicated GitHub, Linear or Jira tickets
 - [migration-wizard](https://milad-ahmd.github.io/agent-skills/skills/migration-wizard/): Safe, incremental codebase migrations: JS→TS, Jest→Vitest, Pages→App Router and more
+- [plan-griller](https://milad-ahmd.github.io/agent-skills/skills/plan-griller/): Grill you on a feature plan against your real code, then write a testable SPEC.md
 - [pr-reviewer-pro](https://milad-ahmd.github.io/agent-skills/skills/pr-reviewer-pro/): Senior-engineer PR reviews with severity levels, file:line evidence and suggested fixes
 - [prompt-injection-scanner](https://milad-ahmd.github.io/agent-skills/skills/prompt-injection-scanner/): Scan skills, CLAUDE.md, hooks and MCP configs for prompt injection and hidden instructions
 - [readme-glow-up](https://milad-ahmd.github.io/agent-skills/skills/readme-glow-up/): Turn any README into a star magnet using only facts from your repo

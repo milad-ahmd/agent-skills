@@ -8,17 +8,17 @@
 set -euo pipefail
 
 USER_NAME="milad-ahmd"
-ALL=(readme-glow-up pr-reviewer-pro commit-craft test-gap-hunter dependency-doctor env-secrets-guard dockerize-anything changelog-from-git codebase-explainer a11y-fixer sql-optimizer launch-post-writer landing-page-roaster migration-wizard api-to-sdk screenshot-to-component meeting-notes-to-tickets instagram-growth-manager tiktok-viral-creator youtube-seo-optimizer youtube-script-writer content-repurposer social-media-calendar hook-generator ad-copy-generator seo-blog-writer email-campaign-writer brand-voice-guide competitor-spy influencer-outreach social-analytics-reporter social-media-manager roast-my-github startup-idea-validator codebase-time-machine ai-slop-detector agent-memory-keeper skill-creator-pro cost-cutter incident-commander app-store-optimizer skills-doctor gh-actions-auditor prompt-injection-scanner)
+ALL=(readme-glow-up pr-reviewer-pro commit-craft test-gap-hunter dependency-doctor env-secrets-guard dockerize-anything changelog-from-git codebase-explainer a11y-fixer sql-optimizer launch-post-writer landing-page-roaster migration-wizard api-to-sdk screenshot-to-component meeting-notes-to-tickets instagram-growth-manager tiktok-viral-creator youtube-seo-optimizer youtube-script-writer content-repurposer social-media-calendar hook-generator ad-copy-generator seo-blog-writer email-campaign-writer brand-voice-guide competitor-spy influencer-outreach social-analytics-reporter social-media-manager roast-my-github startup-idea-validator codebase-time-machine ai-slop-detector agent-memory-keeper skill-creator-pro cost-cutter incident-commander app-store-optimizer skills-doctor gh-actions-auditor prompt-injection-scanner bug-detective demo-recorder e2e-flow-tester plan-griller)
 
 # Role-based packs
 pack_skills() {
   case "$1" in
-    indie-hacker)   echo "startup-idea-validator landing-page-roaster launch-post-writer readme-glow-up app-store-optimizer seo-blog-writer social-media-manager cost-cutter commit-craft" ;;
+    indie-hacker)   echo "startup-idea-validator landing-page-roaster launch-post-writer readme-glow-up app-store-optimizer seo-blog-writer social-media-manager cost-cutter commit-craft demo-recorder" ;;
     creator)        echo "social-media-manager instagram-growth-manager tiktok-viral-creator youtube-seo-optimizer youtube-script-writer content-repurposer hook-generator social-media-calendar social-analytics-reporter ai-slop-detector" ;;
     marketer)       echo "social-media-manager brand-voice-guide ad-copy-generator email-campaign-writer seo-blog-writer competitor-spy influencer-outreach social-analytics-reporter hook-generator landing-page-roaster" ;;
     local-business) echo "social-media-manager instagram-growth-manager social-media-calendar brand-voice-guide" ;;
-    startup-cto)    echo "pr-reviewer-pro incident-commander cost-cutter env-secrets-guard dependency-doctor migration-wizard test-gap-hunter dockerize-anything codebase-explainer agent-memory-keeper gh-actions-auditor prompt-injection-scanner" ;;
-    developer)      echo "pr-reviewer-pro commit-craft test-gap-hunter env-secrets-guard dependency-doctor dockerize-anything changelog-from-git codebase-explainer sql-optimizer migration-wizard api-to-sdk agent-memory-keeper gh-actions-auditor" ;;
+    startup-cto)    echo "pr-reviewer-pro incident-commander cost-cutter env-secrets-guard dependency-doctor migration-wizard test-gap-hunter dockerize-anything codebase-explainer agent-memory-keeper gh-actions-auditor prompt-injection-scanner plan-griller bug-detective" ;;
+    developer)      echo "pr-reviewer-pro commit-craft test-gap-hunter env-secrets-guard dependency-doctor dockerize-anything changelog-from-git codebase-explainer sql-optimizer migration-wizard api-to-sdk agent-memory-keeper gh-actions-auditor bug-detective e2e-flow-tester plan-griller" ;;
     skill-builder)  echo "skill-creator-pro skills-doctor agent-memory-keeper prompt-injection-scanner" ;;
     fun)            echo "roast-my-github codebase-time-machine landing-page-roaster ai-slop-detector" ;;
     *) return 1 ;;

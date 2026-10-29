@@ -10,6 +10,7 @@
   "should_not_trigger": [
     "Generate release notes since the last tag",
     "Make our README star-worthy",
-    "Repurpose my conference talk into social posts"
+    "Repurpose my conference talk into social posts",
+    "Make a 20-second screen recording of the signup flow so I can attach it to the Product Hunt launch."
   ]
 }

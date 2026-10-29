@@ -10,6 +10,7 @@
   "should_not_trigger": [
     "Write an onboarding architecture doc for new engineers",
     "Write a Show HN post for the repo",
-    "Roast my GitHub profile"
+    "Roast my GitHub profile",
+    "Record a short terminal GIF of our CLI running for the top of the README."
   ]
 }

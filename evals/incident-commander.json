@@ -10,6 +10,7 @@
   "should_not_trigger": [
     "Why is our AWS bill so high?",
     "This query is slow in staging, here's the EXPLAIN",
-    "Turn this meeting transcript into Jira tickets"
+    "Turn this meeting transcript into Jira tickets",
+    "The login test passed two weeks ago and fails on main now. Which commit broke it?"
   ]
 }
