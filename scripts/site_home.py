@@ -1,7 +1,7 @@
 """Home page for the agent-skills site."""
 import re
 
-from site_layout import E, REPO, SITE, page
+from site_layout import COUNT, E, REPO, SITE, page
 
 ORDER = ["Fun & Viral", "Social Platforms", "Marketing", "Agent Productivity", "Founders", "Growth", "Writing", "DevOps",
          "Git & Workflow", "Testing & Quality", "Security & Maintenance", "Backend & Data", "Frontend", "Refactoring", "Documentation", "Other"]
@@ -10,8 +10,8 @@ FAQ = [
     ("What are Agent Skills?", "Agent Skills are folders with a SKILL.md file: a YAML name and description, then instructions and optional scripts. AI agents like Claude Code load a skill automatically when your request matches its description, so they follow a proven workflow instead of improvising."),
     ("Which AI agents do these skills work with?", "Claude Code natively, through its plugin marketplace. Cursor, Codex, Cline, Windsurf, GitHub Copilot, Gemini CLI, OpenCode and 75+ other agents work through npx skills. Any agent can also use a SKILL.md pasted into its rules file."),
     ("How do I install all skills in Claude Code?", "Run /plugin install all-skills --marketplace milad-ahmd/agent-skills inside Claude Code, or install a role pack such as creator-pack or startup-cto-pack."),
-    ("Is there an AI agent skill for Instagram, TikTok and YouTube?", "Yes: instagram-growth-manager, tiktok-viral-creator, youtube-seo-optimizer and youtube-script-writer. social-media-manager coordinates them along with the LinkedIn, X, Facebook, Pinterest, Threads, Reddit, Telegram, WhatsApp and Google Business Profile agents."),
-    ("Are the skills free?", "Yes. All 51 skills are open source under the MIT license. They are plain Markdown with optional Python scripts that use only the standard library, and they need no paid API."),
+    ("Is there an AI agent skill for Instagram, TikTok and YouTube?", "Yes: instagram-growth-manager, tiktok-viral-creator, youtube-seo-optimizer and youtube-script-writer. social-media-manager coordinates them and handles LinkedIn, X, Facebook, Pinterest, Threads, Reddit, Telegram, WhatsApp and Google Business Profile itself."),
+    ("Are the skills free?", f"Yes. All {COUNT} skills are open source under the MIT license. They are plain Markdown with optional Python scripts that use only the standard library, and they need no paid API."),
 ]
 
 
@@ -35,9 +35,9 @@ def build_home(skills, packs, guides=()):
         gcards = "".join(f'<a class="card" href="guides/{g["slug"]}/"><h3>📘 {E(g["title"])}</h3><p>{E(g["description"][:140])}…</p></a>' for g in guides)
         guides_html = f'<h2 id="guides">Guides</h2><div class="grid">{gcards}</div>'
     faqhtml = "".join(f"<h3>{E(q)}</h3><p>{E(a)}</p>" for q, a in FAQ)
-    body = f"""<section class="hero"><h1>51 Agent Skills for Claude Code, Cursor &amp; Codex</h1>
+    body = f"""<section class="hero"><h1>{COUNT} Agent Skills for Claude Code, Cursor &amp; Codex</h1>
 <p>Free, open-source SKILL.md workflows: an AI agent for every social platform (Instagram, TikTok, YouTube, LinkedIn, X), senior-engineer dev workflows, and fun ones like roast-my-github.</p>
-<a class="btn" href="#install">Install in 10 seconds</a><a class="btn alt" href="{REPO}">⭐ Star on GitHub</a>
+<a class="btn" href="#install">Install in 10 seconds</a><a class="btn alt" href="roast/">🔥 Roast my GitHub</a><a class="btn alt" href="{REPO}">⭐ Star on GitHub</a>
 <p style="margin-top:26px"><img class="demo" src="assets/demo-install.gif" alt="Installing agent skills with one command" width="760" height="502"></p></section>
 <h2 id="install">Install</h2>
 <pre><code># Claude Code
@@ -54,13 +54,13 @@ curl -fsSL https://raw.githubusercontent.com/milad-ahmd/agent-skills/main/instal
 <h2>FAQ</h2><div class="faq">{faqhtml}</div>"""
     jsonld = [
         {"@context": "https://schema.org", "@type": "SoftwareSourceCode", "name": "Agent Skills", "url": SITE + "/", "codeRepository": REPO,
-         "description": "51 open-source Agent Skills (SKILL.md) for Claude Code, Cursor, Codex and Cline", "license": "https://opensource.org/licenses/MIT",
+         "description": f"{COUNT} open-source Agent Skills (SKILL.md) for Claude Code, Cursor, Codex and Cline", "license": "https://opensource.org/licenses/MIT",
          "author": {"@type": "Person", "name": "Milad Ahmadi", "url": "https://github.com/milad-ahmd"}},
         {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
             {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in FAQ]},
         {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [
             {"@type": "ListItem", "position": i + 1, "url": f"{SITE}/skills/{n}/", "name": n} for i, n in enumerate(skills)]},
     ]
-    return page("51 Agent Skills for Claude Code, Cursor & Codex (Free SKILL.md Collection)",
+    return page(f"{COUNT} Agent Skills for Claude Code, Cursor & Codex (Free SKILL.md Collection)",
                 "Free open-source Agent Skills (SKILL.md) for Claude Code, Cursor, Codex and Cline: Instagram, TikTok, YouTube and LinkedIn agents, PR review, secret scanning, roast-my-github and more.",
                 "", body, jsonld)

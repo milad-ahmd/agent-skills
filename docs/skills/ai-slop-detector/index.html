@@ -7,7 +7,8 @@
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="ai-slop-detector: Free Agent Skill for Claude Code, Cursor &amp; Codex"><meta name="twitter:description" content="Score text for AI-sounding writing and rewrite it to sound human, keeping the author&#x27;s voice. Free open-source SKILL.md for Claude Code, Cursor, Codex and Cline."><meta name="twitter:image" content="https://milad-ahmd.github.io/agent-skills/assets/og.png">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧰</text></svg>">
 <style>
-:root{--bg:#0f1117;--card:#171a23;--fg:#e8e9ee;--dim:#9aa0ad;--acc:#8b5cf6;--acc2:#22d3ee;--line:#262a36}
+:root{--bg:#0f1117;--card:#171a23;--fg:#e8e9ee;--dim:#9aa0ad;--acc:#8b5cf6;--acc2:#22d3ee;--line:#262a36;--pre:#0b0d12;color-scheme:dark}
+@media (prefers-color-scheme:light){:root{--bg:#f7f7fb;--card:#fff;--fg:#15171e;--dim:#5b6170;--acc:#7c3aed;--acc2:#0e7490;--line:#e1e3ea;--pre:#f0f1f6;color-scheme:light}}
 *{box-sizing:border-box}body{margin:0;font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--fg)}
 a{color:var(--acc2);text-decoration:none}a:hover{text-decoration:underline}
 .wrap{max-width:1080px;margin:0 auto;padding:0 20px}
@@ -17,7 +18,7 @@ header.top{border-bottom:1px solid var(--line);padding:14px 0}header.top .wrap{d
 .hero p{color:var(--dim);font-size:19px;max-width:760px;margin:0 auto 22px}
 .btn{display:inline-block;background:var(--acc);color:#fff;padding:12px 20px;border-radius:10px;font-weight:700;margin:4px}
 .btn.alt{background:transparent;border:1px solid var(--line);color:var(--fg)}
-pre{background:#0b0d12;border:1px solid var(--line);border-radius:10px;padding:14px;overflow:auto;font-size:14px;white-space:pre-wrap;word-break:break-word}
+pre{background:var(--pre);border:1px solid var(--line);border-radius:10px;padding:14px;overflow:auto;font-size:14px;white-space:pre-wrap;word-break:break-word}
 code{font-family:ui-monospace,Menlo,monospace}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
 .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;display:block;color:var(--fg)}
@@ -29,14 +30,14 @@ article h1{font-size:clamp(28px,4vw,40px);margin:8px 0}.lead{font-size:19px;colo
 .skillmd h2,.skillmd h3{margin-top:28px}.skillmd table{border-collapse:collapse;width:100%;font-size:14px;display:block;overflow:auto}
 .skillmd td,.skillmd th{border:1px solid var(--line);padding:6px 8px;text-align:left}
 footer{border-top:1px solid var(--line);margin-top:60px;padding:24px 0;color:var(--dim);font-size:14px}
-</style><script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareSourceCode", "name": "ai-slop-detector", "description": "Finds \"AI slop\" writing patterns, such as cliché phrases (\"delve\", \"in today's fast-paced world\"), em-dash overload, uniform sentence rhythm, reflexive triads, and empty conclusions, using a scoring script, then rewrites the text to sound specific and human while keeping the author's meaning and voice. Use when the user asks to humanize text, remove AI-sounding phrasing, de-slop a draft, or check whether writing sounds robotic.", "codeRepository": "https://github.com/milad-ahmd/agent-skills/tree/main/skills/ai-slop-detector", "license": "https://opensource.org/licenses/MIT", "dateModified": "2026-10-28", "author": {"@type": "Person", "name": "Milad Ahmadi", "url": "https://github.com/milad-ahmd"}, "keywords": "agent skill, SKILL.md, claude code skill, cursor, codex, ai-slop-detector, Writing"}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Agent Skills", "item": "https://milad-ahmd.github.io/agent-skills/"}, {"@type": "ListItem", "position": 2, "name": "ai-slop-detector", "item": "https://milad-ahmd.github.io/agent-skills/skills/ai-slop-detector/"}]}</script></head><body>
+</style><script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareSourceCode", "name": "ai-slop-detector", "description": "Finds \"AI slop\" writing patterns, such as cliché phrases (\"delve\", \"in today's fast-paced world\"), \"not just X, it's Y\" frames, sycophancy, emoji bullets, em-dash overload, uniform sentence rhythm and empty conclusions, using a scoring script with a 120-pattern catalog, then rewrites the text to sound specific and human while keeping the author's meaning and voice. Use when the user asks to humanize text, remove AI-sounding phrasing, de-slop a draft, check whether writing sounds robotic, or flag AI-sounding prose in docs or pull requests in CI.", "codeRepository": "https://github.com/milad-ahmd/agent-skills/tree/main/skills/ai-slop-detector", "license": "https://opensource.org/licenses/MIT", "dateModified": "2026-10-29", "author": {"@type": "Person", "name": "Milad Ahmadi", "url": "https://github.com/milad-ahmd"}, "keywords": "agent skill, SKILL.md, claude code skill, cursor, codex, ai-slop-detector, Writing"}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Agent Skills", "item": "https://milad-ahmd.github.io/agent-skills/"}, {"@type": "ListItem", "position": 2, "name": "ai-slop-detector", "item": "https://milad-ahmd.github.io/agent-skills/skills/ai-slop-detector/"}]}</script></head><body>
 <header class="top"><div class="wrap"><a class="logo" href="../../">🧰 Agent Skills</a>
-<nav class="nav"><a href="../../#skills">Skills</a><a href="../../guides/">Guides</a><a href="../../#packs">Packs</a><a href="../../#install">Install</a><a href="https://github.com/milad-ahmd/agent-skills">GitHub ⭐</a></nav></div></header>
+<nav class="nav"><a href="../../#skills">Skills</a><a href="../../roast/">Roast 🔥</a><a href="../../guides/">Guides</a><a href="../../#packs">Packs</a><a href="../../#install">Install</a><a href="https://github.com/milad-ahmd/agent-skills">GitHub ⭐</a></nav></div></header>
 <main class="wrap"><p class="crumbs"><a href="../../">Agent Skills</a> › <a href="../../#skills">Writing</a> › ai-slop-detector</p>
 <article><span class="tag">Writing</span>
 <h1>🧹 ai-slop-detector</h1><p class="lead">Score text for AI-sounding writing and rewrite it to sound human, keeping the author&#x27;s voice. A free, open-source Agent Skill for Claude Code, Cline, Cursor, Codex and 75+ AI agents.</p><p><img class="demo" src="../../assets/demo-ai-slop-detector.gif" alt="ai-slop-detector demo with real terminal output" loading="lazy" width="760" height="502"></p>
 <h2>Install ai-slop-detector</h2>
-<pre><code># Claude Code (all 51 skills)
+<pre><code># Claude Code (all 44 skills)
 /plugin install all-skills --marketplace milad-ahmd/agent-skills
 
 # Cursor, Codex, Cline, Windsurf, Copilot + 75 more agents
@@ -45,20 +46,44 @@ npx skills add milad-ahmd/agent-skills --skill ai-slop-detector
 # Shell installer
 curl -fsSL https://raw.githubusercontent.com/milad-ahmd/agent-skills/main/install.sh | bash -s -- ai-slop-detector</code></pre><p>Included in packs: <code>creator-pack</code>, <code>fun-pack</code></p>
 <h2>What to say to your agent</h2><ul><li><code>De-slop this blog post</code></li><li><code>Does this sound like AI? Make it sound human</code></li></ul>
-<h2>When it triggers</h2><p>Finds &quot;AI slop&quot; writing patterns, such as cliché phrases (&quot;delve&quot;, &quot;in today&#x27;s fast-paced world&quot;), em-dash overload, uniform sentence rhythm, reflexive triads, and empty conclusions, using a scoring script, then rewrites the text to sound specific and human while keeping the author&#x27;s meaning and voice. Use when the user asks to humanize text, remove AI-sounding phrasing, de-slop a draft, or check whether writing sounds robotic.</p>
+<h2>When it triggers</h2><p>Finds &quot;AI slop&quot; writing patterns, such as cliché phrases (&quot;delve&quot;, &quot;in today&#x27;s fast-paced world&quot;), &quot;not just X, it&#x27;s Y&quot; frames, sycophancy, emoji bullets, em-dash overload, uniform sentence rhythm and empty conclusions, using a scoring script with a 120-pattern catalog, then rewrites the text to sound specific and human while keeping the author&#x27;s meaning and voice. Use when the user asks to humanize text, remove AI-sounding phrasing, de-slop a draft, check whether writing sounds robotic, or flag AI-sounding prose in docs or pull requests in CI.</p>
 <h2>Full skill instructions (SKILL.md)</h2><div class="skillmd"><h2>AI Slop Detector</h2>
 <p>Make writing sound like a specific human wrote it, not an average of the internet.</p>
 <h3>1. Scan</h3>
-<pre><code>python3 scripts/slop_scan.py draft.md          # file
-pbpaste | python3 scripts/slop_scan.py -       # stdin</code></pre>
-<p>The script prints a <strong>slop-signal score from 0 to 100</strong>, the flagged lines with line numbers, em-dash density and sentence-rhythm uniformity.</p>
-<h3>2. Diagnose the patterns the script can&#x27;t catch</h3>
-<ul><li>Generic claims with no specifics (no names, numbers, examples).</li><li>Reflexive &quot;X, Y, and Z&quot; triads, and &quot;It&#x27;s not just A, it&#x27;s B&quot; constructions.</li><li>Empty openers and closers (&quot;In conclusion&quot;, &quot;Ultimately&quot;, &quot;I hope this helps!&quot;).</li><li>Hedging stacks (&quot;may potentially help to&quot;), and bullet lists where prose would read better.</li><li>The same paragraph shape repeated over and over.</li></ul>
-<h3>3. Rewrite</h3>
-<ul><li>Keep the meaning, the facts and the author&#x27;s voice. Ask for a sample of their own writing if you can.</li><li>Replace abstractions with concrete details <strong>the author supplies</strong>. Never invent anecdotes or data. Mark the gaps as <code>[add a real example]</code>.</li><li>Vary sentence length, use plain verbs, and cut filler and most em-dashes.</li><li>Show the top 5 changes as before → after, then the full rewrite. Re-run the scanner to confirm the score dropped.</li></ul>
+<pre><code>python3 scripts/slop_scan.py draft.md                       # one file
+python3 scripts/slop_scan.py &#x27;docs/**/*.md&#x27; --exclude &#x27;docs/archive/**&#x27;
+pbpaste | python3 scripts/slop_scan.py -                    # stdin
+python3 scripts/slop_scan.py --json draft.md                # machine-readable
+python3 scripts/slop_scan.py --format github --fail-above 50 &#x27;**/*.md&#x27;   # CI annotations + exit code</code></pre>
+<p>Stdlib only, Python 3.10+. Texts under 50 words are skipped (<code>--min-words</code>). Code blocks, inline code, URLs and front matter are ignored.</p>
+<p>For each text the script prints a <strong>slop-signal score from 0 to 100</strong> (low &lt; 20, moderate 20-29, high &gt;= 30), six component signals, and every pattern hit with its line number, id and a plainer alternative. The score is a weighted sum:</p>
+<table><thead><tr><th>signal</th><th>weight</th><th>what it measures</th></tr></thead><tbody><tr><td>patterns</td><td>0.70</td><td>weighted hits per 1,000 words from the catalog, <code>patterns.json</code> in <code>scripts/</code></td></tr><tr><td>lists</td><td>0.10</td><td>share of lines that are bullets or headings</td></tr><tr><td>paragraphs</td><td>0.06</td><td>same-length paragraphs (low length variation)</td></tr><tr><td>triads</td><td>0.06</td><td>&quot;X, Y, and Z&quot; lists per 1,000 words</td></tr><tr><td>rhythm</td><td>0.04</td><td>same-length sentences (low length variation)</td></tr><tr><td>em-dashes</td><td>0.04</td><td>em-dashes per 1,000 words</td></tr></tbody></table>
+<p>The exact formula is in the script&#x27;s docstring. The 120 patterns, with why each reads as AI and what to write instead, are in <code>references/patterns.md</code>. Single words weigh 0.3-1.5; templates such as &quot;It&#x27;s not about X. It&#x27;s about Y.&quot; weigh 3.</p>
+<p>Benchmark: on a small held-out set (15 LLM-written vs 15 pre-2022 human passages) it scored ROC-AUC 0.98 and precision/recall 0.93 at 30, but one model wrote both the LLM samples and the patterns, so expect less on real text (<code>bench/README.md</code>).</p>
+<h3>2. Read the result</h3>
+<ul><li><strong>The hits are the evidence; the score is a summary.</strong> Start with the heaviest hits, not the number.</li><li>A high score means &quot;reads like default assistant prose&quot;. A low score does not mean a human wrote it: casual or edited LLM text often scores low.</li><li>Formal or corporate human writing (mission statements, press releases) can score moderate. Lists and checklists raise the score even when they are the right format.</li><li>Short texts are noisy: one heavy hit in 150 words can push a score past 30.</li></ul>
+<h3>3. Diagnose what the script can&#x27;t catch</h3>
+<ul><li>Generic claims with no specifics (no names, numbers, examples).</li><li>Reflexive &quot;X, Y, and Z&quot; triads that pad rather than list.</li><li>Hedging stacks (&quot;may potentially help to&quot;) and bullet lists where prose would read better.</li><li>The same paragraph shape repeated over and over: claim, explanation, &quot;This means...&quot;.</li><li>Praise words standing in for evidence (&quot;powerful&quot;, &quot;robust&quot;, &quot;seamless&quot;).</li></ul>
+<h3>4. Rewrite</h3>
+<ul><li>Keep the meaning, the facts and the author&#x27;s voice. Ask for a sample of their own writing if you can.</li><li>Replace abstractions with concrete details <strong>the author supplies</strong>. Never invent anecdotes or data. Mark the gaps as <code>[add a real example]</code>.</li><li>Vary sentence length, use plain verbs, and cut filler, sign-offs and most em-dashes.</li><li>Show the top 5 changes as before -&gt; after, then the full rewrite.</li><li>Re-run the scanner and report both scores. Don&#x27;t chase zero: a rewrite that reads well at 15 beats a contorted one at 0.</li></ul>
+<p>See <code>examples/</code> for three before -&gt; after pairs (LinkedIn post, README intro, cover letter) with real scanner output.</p>
+<h3>5. Use it in CI</h3>
+<p>The standalone mirror <a href="https://github.com/milad-ahmd/ai-slop-detector" rel="noopener">milad-ahmd/ai-slop-detector</a> is a GitHub Action that annotates pull requests:</p>
+<pre><code>- uses: actions/checkout@v4
+- uses: milad-ahmd/ai-slop-detector@main
+  with:
+    files: &quot;docs/**/*.md README.md&quot;
+    pr-body: true        # also scan the PR description
+    fail-above: &quot;&quot;       # empty = annotate only; e.g. 50 to fail the job</code></pre>
+<p>Prefer annotate-only. If you set <code>fail-above</code>, use it as a nudge on docs, never as a gate on people.</p>
+<h3>6. Change the catalog</h3>
+<p>Edit <code>patterns.json</code> in <code>scripts/</code> (each pattern needs <code>id</code>, <code>category</code>, <code>weight</code>, <code>regex</code>, <code>why</code>, <code>instead</code> and a matching <code>example</code>), then:</p>
+<pre><code>python3 scripts/gen_patterns_md.py                     # regenerate references/patterns.md
+python3 -m unittest discover -s scripts                # every example must match; false-positive guards must not
+python3 scripts/bench.py --split dev                   # tune on dev; quote test numbers only</code></pre>
 <h3>Rules</h3>
-<ul><li>This measures <strong>style signals, not authorship</strong>. Never claim it proves text was written by AI, and don&#x27;t use it to accuse students, employees or writers.</li><li>Don&#x27;t strip technical terms that are correct in context (&quot;robust&quot; in statistics, &quot;leverage&quot; in finance).</li></ul></div>
+<ul><li>This measures <strong>style signals, not authorship</strong>. Never claim it proves text was written by AI, and don&#x27;t use it to accuse students, employees or writers.</li><li>Don&#x27;t strip technical terms that are correct in context (&quot;robust&quot; in statistics, &quot;leverage&quot; in finance). The catalog already skips the common ones.</li><li>Never fabricate specifics during a rewrite; leave a visible placeholder instead.</li></ul></div>
 <p><a class="btn" href="https://github.com/milad-ahmd/agent-skills/tree/main/skills/ai-slop-detector">View source on GitHub</a> <a class="btn alt" href="https://github.com/milad-ahmd/agent-skills">⭐ Star the collection</a></p>
 </article></main>
-<footer><div class="wrap">Open source (MIT) by <a href="https://github.com/milad-ahmd">Milad Ahmadi</a> · <a href="https://github.com/milad-ahmd/agent-skills">GitHub</a> · Works with Claude Code, Cline, Cursor, Codex, Windsurf, Copilot and any agent that reads SKILL.md · Updated 2026-10-28</div></footer>
+<footer><div class="wrap">Open source (MIT) by <a href="https://github.com/milad-ahmd">Milad Ahmadi</a> · <a href="https://github.com/milad-ahmd/agent-skills">GitHub</a> · Works with Claude Code, Cline, Cursor, Codex, Windsurf, Copilot and any agent that reads SKILL.md · Updated 2026-10-29</div></footer>
 </body></html>

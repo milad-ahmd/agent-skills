@@ -2,7 +2,7 @@
 import os
 import re
 
-from site_layout import E, REPO, SITE, page
+from site_layout import COUNT, E, REPO, SITE, page
 from site_md import md_to_html
 
 
@@ -27,7 +27,7 @@ def guide_page(g):
 <h1>{E(g['title'])}</h1><p class="lead">{E(g['description'])}</p>
 <p style="color:var(--dim);font-size:14px">By <a href="https://github.com/milad-ahmd">Milad Ahmadi</a></p>
 <div class="skillmd">{md_to_html(g['body'])}</div>
-<p><a class="btn" href="../../">Browse all 51 skills</a> <a class="btn alt" href="{REPO}">⭐ Star on GitHub</a></p></article>"""
+<p><a class="btn" href="../../">Browse all {COUNT} skills</a> <a class="btn alt" href="{REPO}">⭐ Star on GitHub</a></p></article>"""
     jsonld = [{"@context": "https://schema.org", "@type": "TechArticle", "headline": g["title"], "description": g["description"],
                "datePublished": g["date"], "dateModified": g["date"], "url": f"{SITE}/guides/{g['slug']}/",
                "author": {"@type": "Person", "name": "Milad Ahmadi", "url": "https://github.com/milad-ahmd"},

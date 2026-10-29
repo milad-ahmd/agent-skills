@@ -1,0 +1,78 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>gh-actions-auditor: Free Agent Skill for Claude Code, Cursor &amp; Codex</title><meta name="description" content="Find pwn requests, script injection and unpinned actions in GitHub Actions, then fix them. Free open-source SKILL.md for Claude Code, Cursor, Codex and Cline.">
+<link rel="canonical" href="https://milad-ahmd.github.io/agent-skills/skills/gh-actions-auditor/"><meta name="robots" content="index,follow">
+<meta property="og:type" content="website"><meta property="og:title" content="gh-actions-auditor: Free Agent Skill for Claude Code, Cursor &amp; Codex"><meta property="og:description" content="Find pwn requests, script injection and unpinned actions in GitHub Actions, then fix them. Free open-source SKILL.md for Claude Code, Cursor, Codex and Cline.">
+<meta property="og:url" content="https://milad-ahmd.github.io/agent-skills/skills/gh-actions-auditor/"><meta property="og:image" content="https://milad-ahmd.github.io/agent-skills/assets/og.png"><meta property="og:site_name" content="Agent Skills by Milad Ahmadi">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="gh-actions-auditor: Free Agent Skill for Claude Code, Cursor &amp; Codex"><meta name="twitter:description" content="Find pwn requests, script injection and unpinned actions in GitHub Actions, then fix them. Free open-source SKILL.md for Claude Code, Cursor, Codex and Cline."><meta name="twitter:image" content="https://milad-ahmd.github.io/agent-skills/assets/og.png">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧰</text></svg>">
+<style>
+:root{--bg:#0f1117;--card:#171a23;--fg:#e8e9ee;--dim:#9aa0ad;--acc:#8b5cf6;--acc2:#22d3ee;--line:#262a36;--pre:#0b0d12;color-scheme:dark}
+@media (prefers-color-scheme:light){:root{--bg:#f7f7fb;--card:#fff;--fg:#15171e;--dim:#5b6170;--acc:#7c3aed;--acc2:#0e7490;--line:#e1e3ea;--pre:#f0f1f6;color-scheme:light}}
+*{box-sizing:border-box}body{margin:0;font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--fg)}
+a{color:var(--acc2);text-decoration:none}a:hover{text-decoration:underline}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+header.top{border-bottom:1px solid var(--line);padding:14px 0}header.top .wrap{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.logo{font-weight:800;color:var(--fg);font-size:18px}.nav a{margin-left:16px;color:var(--dim)}
+.hero{padding:56px 0 28px;text-align:center}.hero h1{font-size:clamp(30px,5vw,48px);line-height:1.15;margin:0 0 14px}
+.hero p{color:var(--dim);font-size:19px;max-width:760px;margin:0 auto 22px}
+.btn{display:inline-block;background:var(--acc);color:#fff;padding:12px 20px;border-radius:10px;font-weight:700;margin:4px}
+.btn.alt{background:transparent;border:1px solid var(--line);color:var(--fg)}
+pre{background:var(--pre);border:1px solid var(--line);border-radius:10px;padding:14px;overflow:auto;font-size:14px;white-space:pre-wrap;word-break:break-word}
+code{font-family:ui-monospace,Menlo,monospace}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;display:block;color:var(--fg)}
+.card:hover{border-color:var(--acc);text-decoration:none}.card h3{margin:0 0 6px;font-size:17px}.card p{margin:0;color:var(--dim);font-size:14px}
+h2{margin-top:44px}.tag{display:inline-block;font-size:12px;color:var(--acc2);border:1px solid var(--line);border-radius:999px;padding:2px 10px;margin-bottom:8px}
+.demo{max-width:100%;height:auto;border-radius:10px;border:1px solid var(--line)}
+.crumbs{color:var(--dim);font-size:14px;margin:20px 0 0}article{max-width:820px}
+article h1{font-size:clamp(28px,4vw,40px);margin:8px 0}.lead{font-size:19px;color:var(--dim)}
+.skillmd h2,.skillmd h3{margin-top:28px}.skillmd table{border-collapse:collapse;width:100%;font-size:14px;display:block;overflow:auto}
+.skillmd td,.skillmd th{border:1px solid var(--line);padding:6px 8px;text-align:left}
+footer{border-top:1px solid var(--line);margin-top:60px;padding:24px 0;color:var(--dim);font-size:14px}
+</style><script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareSourceCode", "name": "gh-actions-auditor", "description": "Audits GitHub Actions workflows and composite actions for CI/CD supply-chain and injection risks (actions not pinned to a commit SHA, missing or write-all GITHUB_TOKEN permissions, pull_request_target \"pwn request\" checkouts, script injection from issue and PR titles, secrets inherit and curl-to-shell installs), then pins SHAs and hardens the YAML with the user's approval. Use when the user asks to secure, harden or audit GitHub Actions or .github/workflows, pin actions to SHAs, or check a CI workflow for injection.", "codeRepository": "https://github.com/milad-ahmd/agent-skills/tree/main/skills/gh-actions-auditor", "license": "https://opensource.org/licenses/MIT", "dateModified": "2026-10-29", "author": {"@type": "Person", "name": "Milad Ahmadi", "url": "https://github.com/milad-ahmd"}, "keywords": "agent skill, SKILL.md, claude code skill, cursor, codex, gh-actions-auditor, Security & Maintenance"}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Agent Skills", "item": "https://milad-ahmd.github.io/agent-skills/"}, {"@type": "ListItem", "position": 2, "name": "gh-actions-auditor", "item": "https://milad-ahmd.github.io/agent-skills/skills/gh-actions-auditor/"}]}</script></head><body>
+<header class="top"><div class="wrap"><a class="logo" href="../../">🧰 Agent Skills</a>
+<nav class="nav"><a href="../../#skills">Skills</a><a href="../../roast/">Roast 🔥</a><a href="../../guides/">Guides</a><a href="../../#packs">Packs</a><a href="../../#install">Install</a><a href="https://github.com/milad-ahmd/agent-skills">GitHub ⭐</a></nav></div></header>
+<main class="wrap"><p class="crumbs"><a href="../../">Agent Skills</a> › <a href="../../#skills">Security &amp; Maintenance</a> › gh-actions-auditor</p>
+<article><span class="tag">Security &amp; Maintenance</span>
+<h1>🛡️ gh-actions-auditor</h1><p class="lead">Find pwn requests, script injection and unpinned actions in GitHub Actions, then fix them. A free, open-source Agent Skill for Claude Code, Cline, Cursor, Codex and 75+ AI agents.</p>
+<h2>Install gh-actions-auditor</h2>
+<pre><code># Claude Code (all 44 skills)
+/plugin install all-skills --marketplace milad-ahmd/agent-skills
+
+# Cursor, Codex, Cline, Windsurf, Copilot + 75 more agents
+npx skills add milad-ahmd/agent-skills --skill gh-actions-auditor
+
+# Shell installer
+curl -fsSL https://raw.githubusercontent.com/milad-ahmd/agent-skills/main/install.sh | bash -s -- gh-actions-auditor</code></pre><p>Included in packs: <code>startup-cto-pack</code>, <code>developer-pack</code></p>
+<h2>What to say to your agent</h2><ul><li><code>Audit our GitHub Actions workflows for security issues</code></li><li><code>Pin all our actions to commit SHAs</code></li></ul>
+<h2>When it triggers</h2><p>Audits GitHub Actions workflows and composite actions for CI/CD supply-chain and injection risks (actions not pinned to a commit SHA, missing or write-all GITHUB_TOKEN permissions, pull_request_target &quot;pwn request&quot; checkouts, script injection from issue and PR titles, secrets inherit and curl-to-shell installs), then pins SHAs and hardens the YAML with the user&#x27;s approval. Use when the user asks to secure, harden or audit GitHub Actions or .github/workflows, pin actions to SHAs, or check a CI workflow for injection.</p>
+<h2>Full skill instructions (SKILL.md)</h2><div class="skillmd"><h2>GitHub Actions Auditor</h2>
+<p>Find the ways a workflow can be hijacked (a moved tag, a crafted PR title, a fork PR running with your secrets) and fix them with the user&#x27;s OK.</p>
+<h3>1. Scan</h3>
+<pre><code>python3 scripts/audit_workflows.py                       # .github/workflows/*.yml|yaml + every action.yml in the repo
+python3 scripts/audit_workflows.py .github/workflows/release.yml
+python3 scripts/audit_workflows.py --resolve             # also look up the commit SHA for each tag via the GitHub API
+python3 scripts/audit_workflows.py --json --fail-on high # for CI or tooling</code></pre>
+<p>Exit codes: <code>0</code> nothing at or above <code>--fail-on</code> (default <code>medium</code>) · <code>1</code> findings at or above it · <code>2</code> nothing to audit. <code>--resolve</code> is the only network access. It uses <code>GITHUB_TOKEN</code> or <code>GH_TOKEN</code> if set (unauthenticated calls are limited to 60 an hour).</p>
+<table><thead><tr><th>Rule</th><th>Severity</th><th>What it catches</th></tr></thead><tbody><tr><td><code>pwn-request</code></td><td>critical</td><td><code>pull_request_target</code>, <code>workflow_run</code> or <code>issue_comment</code> job checks out the PR head (<code>head.sha</code>, <code>head.ref</code>, <code>refs/pull/…</code>, <code>gh pr checkout</code>) and then runs commands</td></tr><tr><td><code>script-injection</code></td><td>critical/high</td><td><code>${{ github.event.issue.title }}</code>, <code>pull_request.body</code>, <code>comment.body</code>, <code>review.body</code>, <code>head_ref</code>, <code>commits.<em>.message</code>, <code>head_commit.author.</em></code>, <code>pages.*.page_name</code> and similar pasted into <code>run:</code> or <code>github-script</code></td></tr><tr><td><code>unpinned-action</code></td><td>high → low</td><td><code>uses:</code> not pinned to a 40-char SHA. Third-party on a branch (<code>@main</code>) is high, third-party tag medium, <code>actions/<em></code> and <code>github/</em></code> low</td></tr><tr><td><code>write-all</code>, <code>missing-permissions</code>, <code>broad-write-scope</code></td><td>high/medium/low</td><td>token permissions that are too wide, or left to the repo default</td></tr><tr><td><code>secrets-in-privileged-pr</code>, <code>secrets-inherit</code></td><td>high/medium</td><td>secrets reachable from fork-triggered jobs, or every secret passed to someone else&#x27;s reusable workflow</td></tr><tr><td><code>unsecure-commands</code>, <code>curl-pipe-shell</code>, <code>unpinned-image</code></td><td>high/medium</td><td><code>ACTIONS_ALLOW_UNSECURE_COMMANDS</code>, downloads piped into a shell, <code>docker://</code> images without a digest</td></tr><tr><td><code>self-hosted-pr</code></td><td>medium (check)</td><td>PR-triggered jobs on self-hosted runners</td></tr><tr><td><code>persist-credentials</code></td><td>info</td><td>checkout leaves the token in <code>.git/config</code> in a PR-triggered job that runs more steps</td></tr></tbody></table>
+<p><strong>Limits:</strong> the script has its own small YAML reader for block-style workflows. It skips anchors and aliases, multi-document files and multi-line flow collections. It can&#x27;t see repo visibility, org default token settings, branch protection or what a third-party action does inside. A clean run is not proof. If they&#x27;re installed, also run <a href="https://github.com/woodruffw/zizmor" rel="noopener"><code>zizmor</code></a> and <code>actionlint</code>.</p>
+<h3>2. Explain</h3>
+<p>Start with critical and high. For each one, say in a sentence or two what an attacker would do: &quot;anyone can open a PR titled <code>x&quot;; curl … </code> and it runs with your <code>NPM_TOKEN</code>&quot;. Group all unpinned actions into one item with a count. Findings marked <em>check</em> depend on things only the user knows (is the repo public, are the runners ephemeral), so ask instead of asserting.</p>
+<h3>3. Propose a patch (don&#x27;t apply yet)</h3>
+<p>Show the diff. The usual fixes:</p>
+<ul><li><strong>Pin SHAs:</strong> <code>uses: actions/checkout@&lt;sha&gt; # v4.2.2</code>. Get the SHA from <code>--resolve</code> or <code>gh api repos/OWNER/REPO/commits/TAG -H &#x27;Accept: application/vnd.github.sha&#x27;</code>. Never make one up. Offer a Dependabot entry (<code>package-ecosystem: github-actions</code>) so pins get bumped.</li><li><strong>Permissions:</strong> <code>permissions: { contents: read }</code> at the top, and each write scope only on the job that needs it.</li><li><strong>Injection:</strong> move the expression into <code>env</code> and quote the variable:</li></ul>
+<p>  ```yaml</p>
+<ul><li>env:</li></ul>
+<p>      PR_TITLE: ${{ github.event.pull_request.title }}     run: echo &quot;$PR_TITLE&quot;   ``<code>   In </code>github-script<code>, read </code>process.env.PR_TITLE<code> or </code>context.payload` instead of interpolating.</p>
+<ul><li><strong>Pwn request:</strong> build and test PR code under <code>on: pull_request</code>. If something needs write access (labels, comments), split it: the <code>pull_request</code> workflow uploads an artifact, and a <code>workflow_run</code> workflow reads it as data and never executes it.</li><li><strong>Secrets:</strong> replace <code>secrets: inherit</code> with the named secrets the called workflow declares. Move secrets from workflow-level <code>env</code> to the one step that uses them.</li><li><strong>Downloads:</strong> fetch to a file, verify a checksum or signature, then run it. Or use a pinned action.</li><li><strong>Checkout:</strong> <code>persist-credentials: false</code> unless a later step pushes.</li></ul>
+<h3>4. Apply with approval</h3>
+<p>Only after the user agrees. Keep the edit minimal and keep their comments and formatting. Changing triggers changes behaviour (a labeler on <code>pull_request</code> loses write access for forks), so explain that trade-off before switching <code>pull_request_target</code>.</p>
+<h3>5. Re-run</h3>
+<p>Run the script again and show before and after counts. Anything left should be a deliberate, explained choice.</p>
+<h3>Rules</h3>
+<ul><li>Never invent commit SHAs. Resolve them or leave a placeholder the user fills in.</li><li>Don&#x27;t commit, push, open PRs or change repository settings without explicit confirmation.</li><li>Never print secret values from workflow logs or env files.</li><li>Treat <em>check</em> findings as questions for the user, not verdicts.</li></ul></div>
+<p><a class="btn" href="https://github.com/milad-ahmd/agent-skills/tree/main/skills/gh-actions-auditor">View source on GitHub</a> <a class="btn alt" href="https://github.com/milad-ahmd/agent-skills">⭐ Star the collection</a></p>
+<h2>Related skills</h2><div class="grid"><a class="card" href="../dependency-doctor/"><h3>🩺 dependency-doctor</h3><p>Audit vulnerable, outdated and unused packages with a safe upgrade plan</p></a><a class="card" href="../env-secrets-guard/"><h3>🔐 env-secrets-guard</h3><p>Find leaked API keys and secrets before they hit GitHub</p></a><a class="card" href="../prompt-injection-scanner/"><h3>🪤 prompt-injection-scanner</h3><p>Scan skills, CLAUDE.md, hooks and MCP configs for prompt injection and hidden instructions</p></a></div></article></main>
+<footer><div class="wrap">Open source (MIT) by <a href="https://github.com/milad-ahmd">Milad Ahmadi</a> · <a href="https://github.com/milad-ahmd/agent-skills">GitHub</a> · Works with Claude Code, Cline, Cursor, Codex, Windsurf, Copilot and any agent that reads SKILL.md · Updated 2026-10-29</div></footer>
+</body></html>

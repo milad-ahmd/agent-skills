@@ -1,7 +1,7 @@
 """Per-skill page for the agent-skills site."""
 import os
 
-from site_layout import E, REPO, SITE, TODAY, page
+from site_layout import COUNT, E, REPO, SITE, TODAY, page
 from site_md import md_to_html
 
 
@@ -22,7 +22,7 @@ def skill_page(name, s, skills, packs, out_dir):
 <article><span class="tag">{E(s['category'])}</span>
 <h1>{s['emoji']} {name}</h1><p class="lead">{E(s['tagline'])}. A free, open-source Agent Skill for Claude Code, Cline, Cursor, Codex and 75+ AI agents.</p>{img}
 <h2>Install {name}</h2>
-<pre><code># Claude Code (all 51 skills)
+<pre><code># Claude Code (all {COUNT} skills)
 /plugin install all-skills --marketplace milad-ahmd/agent-skills
 
 # Cursor, Codex, Cline, Windsurf, Copilot + 75 more agents

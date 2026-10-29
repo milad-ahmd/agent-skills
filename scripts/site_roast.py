@@ -1,0 +1,350 @@
+"""Browser-only "Roast my GitHub" page: public GitHub API + deterministic roast, scorecard and share card."""
+import json
+
+from site_layout import E, REPO, SITE, page
+
+RUBRIC = [("Profile", "Bio, display name, website, and a profile README repo (<code>&lt;user&gt;/&lt;user&gt;</code>, or <code>.github</code> for orgs)"),
+          ("Repo hygiene", "Share of your own repos with a description, a license and topics"),
+          ("Activity", "How recently you pushed, how many repos are stale, and output vs account age"),
+          ("Impact", "Stars, forks and followers, log-scaled so you don't need to be famous"),
+          ("Focus", "How concentrated your languages are, and originals vs forks"),
+          ("Commit craft", "Share of recent commit messages that actually say something (not \"fix\", \"wip\", \"update\")")]
+
+FAQ = [
+    ("How does Roast My GitHub work?", "It reads your public profile and your 100 most recently pushed repos from the GitHub API, right in your browser, then scores six areas out of 10 and writes roast lines that each point at a real number from your profile. No login, no server, no AI guessing."),
+    ("Is it okay to roast someone else's GitHub?", "It only uses public data, but keep it friendly: roast yourself, or friends who are in on the joke."),
+    ("Why does it say I hit the rate limit?", "GitHub allows 60 anonymous API requests per hour per IP address, and a roast uses 3 or 4. Wait for the reset, or install the roast-my-github skill and set GITHUB_TOKEN for unlimited roasts."),
+    ("How do I improve my GitHub profile score?", "Write a profile README, give every repo a one-line description, a license and a few topics, archive repos you no longer touch, pin your best work, and write commit messages that say what changed and why."),
+]
+
+CSS = """
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.rg-form{display:flex;align-items:center;max-width:560px;margin:0 auto;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:6px}
+.rg-form:focus-within{border-color:var(--acc)}.rg-pre{color:var(--dim);padding-left:10px;font-family:ui-monospace,Menlo,monospace;font-size:15px}
+.rg-form input{flex:1;min-width:0;background:transparent;border:0;color:var(--fg);font:inherit;font-size:17px;padding:10px 4px;outline:0}
+.rg-form .btn,.rg-actions .btn{margin:0;border:0;font:inherit;font-weight:700;cursor:pointer}.rg-form .btn:disabled{opacity:.6;cursor:wait}
+.hero p.rg-small{font-size:14px;margin-top:12px}
+.rg-status{text-align:center;color:var(--dim);min-height:1.6em;margin:0 0 8px}
+.rg-err{max-width:680px;margin:0 auto;text-align:left;color:var(--fg);background:var(--card);border:1px solid var(--line);border-left:4px solid #ef4444;border-radius:10px;padding:14px 16px}
+.rg-result{max-width:820px;margin:0 auto}.rg-head{display:flex;gap:16px;align-items:center;flex-wrap:wrap;margin-top:12px}
+.rg-head img{width:72px;height:72px;border-radius:50%;border:2px solid var(--line)}.rg-head h2{margin:0;font-size:26px;word-break:break-all}
+.rg-head p{margin:2px 0 0;color:var(--dim);font-size:14px}.rg-total{margin-left:auto;text-align:right}
+.rg-total b{font-size:56px;line-height:1;color:var(--acc)}.rg-total small{color:var(--dim);font-size:20px}.rg-total div{color:var(--dim);font-size:14px}
+.rg-roast{list-style:none;padding:0;margin:18px 0}.rg-roast li{background:var(--card);border:1px solid var(--line);border-left:4px solid #f97316;border-radius:10px;padding:12px 14px;margin:10px 0;font-size:17px}
+.rg-roast li.good{border-left-color:#22c55e}
+.rg-areas{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px}
+.rg-area{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px}.rg-area span{display:block;color:var(--dim);font-size:13px}
+.rg-area b{font-size:24px}.rg-area b small{font-size:14px;color:var(--dim);font-weight:400}
+.rg-bar{height:6px;background:var(--line);border-radius:3px;margin-top:6px;overflow:hidden}.rg-bar i{display:block;height:100%;background:linear-gradient(90deg,var(--acc),var(--acc2))}
+.rg-fixes{padding-left:22px}.rg-fixes li{margin:10px 0}.rg-fixes code{display:inline-block;font-size:13px;background:var(--card);border:1px solid var(--line);border-radius:6px;padding:0 6px;margin:2px 4px 2px 0;word-break:break-all}
+.rg-actions{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}.rg-card{max-width:100%;height:auto;border-radius:10px;border:1px solid var(--line)}
+.rg-note{color:var(--dim);font-size:14px}
+.rg-cta{background:var(--card);border:1px solid var(--acc);border-radius:14px;padding:20px;margin:44px auto 0;max-width:820px}.rg-cta h2{margin-top:0}
+.rg-rubric{max-width:820px;margin:0 auto}
+@media (max-width:480px){.rg-pre{display:none}.rg-form input{padding-left:8px}.rg-total{margin-left:0;text-align:left;width:100%}}
+"""
+
+# Pure logic: facts -> scores -> roast lines -> fixes. No DOM; exercised under node in testing.
+CORE_JS = r'''
+const Roast=(()=>{
+const LAZY=/^(update|fix|wip|changes?|stuff|test|asdf+|\.+|minor|misc|commit|final( final)?|ok|done|tmp|temp)\b\.?$/i;
+const SILLY=/^(test(ing)?\d*|demo|hello[-_. ]?world|untitled\d*|my[-_]?(app|project|repo)|new[-_]?(repo|project)|project[-_]?\d*|temp|tmp|practice|sandbox|playground|first[-_]?(repo|project)|asdf+|foo|bar|sample)$/i;
+const AREAS=[['profile','Profile'],['hygiene','Repo hygiene'],['activity','Activity'],['impact','Impact'],['focus','Focus'],['craft','Commit craft']];
+const DAY=864e5,days=(iso,now)=>Math.floor((now-Date.parse(iso))/DAY),nf=n=>Number(n).toLocaleString('en-US');
+const pct=(a,b)=>b?Math.round(100*a/b):0,pl=(n,w,p)=>n===1?w:(p||w+'s'),cl=x=>Math.max(0,Math.min(10,x));
+const q=m=>'"'+(m.length>40?m.slice(0,39)+'…':m)+'"',of=(k,n)=>k===n?(n===2?'Both':'All '+n):k+' of '+n;
+function hash(s){let h=2166136261;for(const c of s){h^=c.codePointAt(0);h=Math.imul(h,16777619)}return h>>>0}
+
+function facts(u,repos,msgs,o){
+  o=o||{};const now=o.now||Date.now(),own=repos.filter(r=>!r.fork),pushed=r=>days(r.pushed_at||r.created_at,now);
+  const lazy=msgs.filter(m=>LAZY.test(m.trim())||m.trim().length<6);
+  const lc={};own.forEach(r=>{if(r.language)lc[r.language]=(lc[r.language]||0)+1});
+  const byStars=[...own].sort((a,b)=>b.stargazers_count-a.stargazers_count),names=fn=>byStars.filter(fn).map(r=>r.name);
+  const isOrg=u.type==='Organization',ageY=days(u.created_at,now)/365;
+  return {login:u.login,isOrg,name:u.name||'',bio:u.bio||'',blog:u.blog||'',avatar:u.avatar_url||'',
+    followers:u.followers||0,following:u.following||0,age:Math.round(ageY*10)/10,year:new Date(u.created_at).getUTCFullYear(),
+    public_repos:u.public_repos||0,own_repos:own.length,forks:repos.length-own.length,truncated:!!o.truncated,
+    total_stars:own.reduce((s,r)=>s+r.stargazers_count,0),total_forks:own.reduce((s,r)=>s+(r.forks_count||0),0),
+    top_repos:byStars.slice(0,5).map(r=>({name:r.name,stars:r.stargazers_count,desc:r.description})),
+    languages:Object.entries(lc).sort((a,b)=>b[1]-a[1]),
+    no_description:names(r=>!r.description),no_license:names(r=>!r.license),no_topics:names(r=>!(r.topics&&r.topics.length)),
+    stale:names(r=>pushed(r)>365&&!r.archived),archived:own.filter(r=>r.archived).length,
+    zero_star:own.filter(r=>!r.stargazers_count).length,silly:names(r=>SILLY.test(r.name)),
+    has_profile_readme_repo:own.some(r=>r.name.toLowerCase()===(isOrg?'.github':u.login.toLowerCase())),
+    last_push_days:own.length?Math.min(...own.map(pushed)):null,
+    msgs:msgs.length,lazy:lazy.length,lazy_examples:[...new Set(lazy.map(m=>m.trim()))].slice(0,5),
+    avg_msg_len:msgs.length?msgs.reduce((s,m)=>s+m.trim().length,0)/msgs.length:0,commit_repo:o.commitRepo||''};
+}
+
+function score(f){
+  const n=f.own_repos,s={},ln=Math.log10;
+  s.profile=(f.name?2:0)+(f.bio?3:0)+(f.blog?2:0)+(f.has_profile_readme_repo?3:0);
+  s.hygiene=n?4*(1-f.no_description.length/n)+3*(1-f.no_license.length/n)+3*(1-f.no_topics.length/n):0;
+  const d=f.last_push_days,rec=d==null?0:d<=30?4:d<=90?3:d<=180?2:d<=365?1:0;
+  s.activity=n?rec+3*(1-f.stale.length/n)+3*Math.min(1,n/Math.max(1,f.age)/3):0;
+  s.impact=4*Math.min(1,ln(f.total_stars+1)/3)+4*Math.min(1,ln(f.followers+1)/3)+2*Math.min(1,ln(f.total_forks+1)/2);
+  const tot=f.languages.reduce((a,l)=>a+l[1],0),top=k=>f.languages.slice(0,k).reduce((a,l)=>a+l[1],0)/tot;
+  s.focus=!n?0:!tot?3:5*top(1)+3*top(3)+2*(n/(n+f.forks));
+  s.craft=f.msgs>=3?10*(1-f.lazy/f.msgs)-(f.avg_msg_len<12?1:0):null;
+  const out={};AREAS.forEach(([k])=>{out[k]=s[k]==null?null:Math.round(cl(s[k]))});
+  const vals=AREAS.map(([k])=>out[k]).filter(v=>v!=null);
+  out.overall=Math.round(10*vals.reduce((a,b)=>a+b,0)/vals.length)/10;
+  out.label=out.overall>=8?'Glowing':out.overall>=6.5?'Solid, with fixable sins':out.overall>=4.5?'Needs a glow-up':'Extra crispy';
+  return out;
+}
+
+function ages(f){return f.age>=2?Math.round(f.age)+' years':f.age>=1?'over a year':'under a year'}
+function ago(d){return d>=730?'over '+Math.floor(d/365)+' years':Math.round(d/30)+' months'}
+
+// Roast templates: [id, group, f => [severity, variants] | falsy]. One line per group, highest severity first.
+const T=[
+['empty','size',f=>!f.own_repos&&[100,[`Zero public repos${f.age>=1?' in '+ages(f):''}. The cleanest codebase is the one that doesn't exist.`,`0 public repos. You showed up to a roast with an empty plate.`]]],
+['nodesc','desc',f=>{const k=f.no_description.length,r=k/f.own_repos;return k>=3&&r>=.4&&[60+40*r,[`${of(k,f.own_repos)} repos have no description. Your projects are in witness protection.`,`${k} repos with no description. Every one is a mystery box, and not the fun kind.`]]}],
+['famous','desc',f=>{const k=f.no_description.length;return f.total_stars>=1000&&k>=1&&[55,[`${nf(f.total_stars)} stars and still ${k} ${pl(k,'repo')} without a description. Fame is not documentation.`]]}],
+['org','desc',f=>{const k=f.no_description.length;return f.isOrg&&k>=1&&[58,[`An org with ${f.own_repos} repos and ${k===1?'one':k} without ${pl(k,'a description','descriptions')}. Somebody in a meeting said "we'll document it later".`]]}],
+['nolicense','license',f=>{const k=f.no_license.length,r=k/f.own_repos;return k>=3&&r>=.5&&[45+35*r,[`${k} repos with no license. Legally nobody can use your code, which is a bold strategy for open source.`,`No license on ${k===f.own_repos?'any of the '+k:k+' of '+f.own_repos} repos. Open source, but make it legally closed.`]]}],
+['notopics','topics',f=>{const k=f.no_topics.length,r=k/f.own_repos;return f.own_repos>=3&&r>=.7&&[35+30*r,[`${of(k,f.own_repos)} repos have zero topics. GitHub search can't find them, and neither can anyone else.`].concat(k<f.own_repos?[`Topics on ${f.own_repos-k} of ${f.own_repos} repos. The rest are hiding from search like it owes them money.`]:[])]}],
+['stale','stale',f=>{const k=f.stale.length,r=k/f.own_repos;return k>=3&&r>=.3&&[50+40*r,[`${k} repos untouched for over a year and not archived. That's not a portfolio, that's a graveyard without headstones.`,`${k} repos haven't seen a push in a year. They're not finished, they're just quiet.`]]}],
+['cold','stale',f=>f.last_push_days>365&&[75,[`Last push was ${ago(f.last_push_days)} ago. Your contribution graph is a winter landscape.`,`Nothing pushed in ${ago(f.last_push_days)}. The repos are still up, but nobody's home.`]]],
+['zerostar','stars',f=>{const r=f.zero_star/f.own_repos;return f.own_repos>=5&&r>=.7&&[40+30*r,[`${of(f.zero_star,f.own_repos)} repos have zero stars. Not even a pity star from the author.`,`${f.zero_star} repos with zero stars each. Your best work is clearly in stealth mode.`]]}],
+['onehit','stars',f=>{const t=f.top_repos[0],p=t?pct(t.stars,f.total_stars):0;return f.total_stars>=20&&f.own_repos>=5&&p>=80&&[45,[`${t.name} holds ${p}% of your stars. The other ${f.own_repos-1} repos are backup dancers.`]]}],
+['fewstars','stars',f=>f.own_repos>=3&&f.total_stars<10&&[22,[`${f.total_stars} ${pl(f.total_stars,'star')} across ${f.own_repos} repos. Your bookmarks folder gets more visits.`]]],
+['forks','forks',f=>f.forks>=5&&f.forks>f.own_repos&&[55,[`${f.forks} forks and ${f.own_repos} originals. You collect repos the way some people collect browser tabs.`]]],
+['lazymany','commits',f=>{const r=f.lazy/f.msgs,e=f.lazy_examples;return f.lazy>=3&&r>=.25&&[60+40*r,e.length>=2?[`Recent commits include ${q(e[0])} and ${q(e[1])}. Future you will read these during an outage and weep.`,`${f.lazy} of your last ${f.msgs} commit messages say almost nothing, like ${q(e[0])}. Git blame is going to be a short conversation.`]:[`${f.lazy} of your last ${f.msgs} commit messages say almost nothing, like ${q(e[0])}. Git blame is going to be a short conversation.`]]}],
+['lazyone','commits',f=>f.lazy>=1&&[30,[`${q(f.lazy_examples[0])} made it into a commit message. Bold to assume you'll remember what that meant.`]]],
+['nobio','bio',f=>!f.bio&&[f.followers>=100?40:30,f.isOrg?[`No org description. Visitors have to read ${f.own_repos} repo names and guess what you build.`]:[f.own_repos?`No bio. Visitors have to read ${f.own_repos} repo names and guess what you do.`:`No bio either. The profile is a blank page with a username on it.`,`Empty bio. Your profile is a front door with no house number.`]]],
+['noreadme','readme',f=>!f.isOrg&&!f.has_profile_readme_repo&&f.own_repos>=3&&[35,[`No profile README. People land on your page and get a repo list and a shrug.`,`You've made ${f.own_repos} repos but not the one named ${f.login}, which is the only README everyone sees.`]]],
+['noname','name',f=>!f.isOrg&&!f.name&&[20,[`No display name, just a handle. Very "mysterious hacker in a 2003 movie".`]]],
+['nosite','site',f=>!f.blog&&f.own_repos>=3&&[15,[`No website linked. You built ${f.own_repos} things and left no forwarding address.`]]],
+['sprawl','focus',f=>{const k=f.languages.length;return k>=6&&[25+3*k,[`${k} languages across ${f.own_repos} repos. That's not a tech stack, that's a tasting menu.`,`${k} languages. Commitment issues, but make it polyglot.`]]}],
+['mono','focus',f=>{const l=f.languages[0],t=f.languages.reduce((a,x)=>a+x[1],0);return l&&f.own_repos>=5&&l[1]/t>=.9&&[25,[`${pct(l[1],t)}% ${l[0]}. You found a hammer in ${f.year} and everything has been a nail since.`]]}],
+['samelang','focus',f=>{const l=f.languages[0],t=f.languages.reduce((a,x)=>a+x[1],0);return l&&f.own_repos>=3&&l[1]/t>=.5&&[8,[`Mostly ${l[0]} again. Branch out sometime, the other languages don't bite.`]]}],
+['ratio','social',f=>!f.isOrg&&f.following>=30&&f.following>=3*Math.max(1,f.followers)&&[30,[`You follow ${nf(f.following)} people and ${nf(f.followers)} follow back. GitHub isn't Instagram, but the math still stings.`]]],
+['aloof','social',f=>!f.isOrg&&f.following===0&&f.followers>=100&&[35,[`${nf(f.followers)} followers, following 0. Main character energy, compiled with -O3.`]]],
+['hoard','size',f=>f.own_repos>=50&&[30+Math.min(30,f.own_repos/10),[`${f.own_repos} public repos. Somewhere along the way this stopped being a portfolio and became a storage unit.`]]],
+['sparse','size',f=>f.age>=4&&f.own_repos>=1&&f.own_repos<=3&&[40,[`${ages(f)} on GitHub and ${f.own_repos} public ${pl(f.own_repos,'repo')}. Playing hard to get, or just very selective?`]]],
+['silly','names',f=>{const s=f.silly;return s.length&&[30+5*Math.min(4,s.length),s.length>=2?[`Repos called "${s[0]}" and "${s[1]}" are public. On purpose.`,`You have a repo called "${s[0]}". We all do. Most of us keep it private.`]:[`You have a repo called "${s[0]}". We all do. Most of us keep it private.`]]}],
+['tidy','tidy',f=>f.own_repos>=3&&f.no_description.length/f.own_repos<.2&&f.no_license.length/f.own_repos<.3&&[6,[`Descriptions, licenses, the works. Suspiciously tidy. What's going on in the private repos?`]]],
+];
+
+const GOOD=[
+f=>f.total_stars>=500&&f.top_repos[0]&&`${nf(f.total_stars)} stars means people actually depend on your work. ${f.top_repos[0].name} alone has ${nf(f.top_repos[0].stars)}.`,
+f=>f.top_repos[0]&&f.top_repos[0].stars>=10&&`${f.top_repos[0].name} has ${nf(f.top_repos[0].stars)} stars. Somebody needed that, and you built it.`,
+f=>f.msgs>=5&&f.lazy/f.msgs<.1&&`${pct(f.msgs-f.lazy,f.msgs)}% of your recent commit messages actually explain the change. Reviewers notice that.`,
+f=>f.last_push_days!=null&&f.last_push_days<=14&&`You pushed code ${f.last_push_days<1?'today':f.last_push_days===1?'yesterday':f.last_push_days+' days ago'}. You're still shipping, and that beats any score.`,
+f=>f.has_profile_readme_repo&&`You have a profile README, which already puts you ahead of most of GitHub.`,
+f=>f.own_repos>=3&&f.no_license.length/f.own_repos<=.2&&`${pct(f.own_repos-f.no_license.length,f.own_repos)}% of your repos have a license. That's more legal hygiene than most startups.`,
+f=>f.archived>=3&&`You archive old repos instead of letting them rot. That's a grown-up habit.`,
+f=>f.followers>=50&&`${nf(f.followers)} people follow you on purpose. That's an audience, so give them a README to land on.`,
+f=>f.age>=8&&f.last_push_days!=null&&f.last_push_days<=365&&`${ages(f)} on GitHub and still pushing. That kind of staying power is rare.`,
+f=>f.own_repos&&`You put ${f.own_repos} ${pl(f.own_repos,'project')} out in public. Most people never ship one.`,
+f=>`Clean slate: no legacy code, no tech debt. Your first repo can be your best one.`,
+];
+
+function roast(f){
+  const h=hash(f.login.toLowerCase()),seen=new Set(),out=[];
+  T.map(([id,g,fn],i)=>{const r=f.own_repos||id==='empty'||['nobio','noname','aloof','ratio'].includes(id)?fn(f):null;return r&&{g,sev:r[0]+((h>>>(i%24))&1)*.5,text:r[1][(h+i)%r[1].length]}})
+   .filter(Boolean).sort((a,b)=>b.sev-a.sev).forEach(r=>{if(!seen.has(r.g)&&out.length<6){seen.add(r.g);out.push(r.text)}});
+  return {lines:out,good:GOOD.map(g=>g(f)).find(Boolean)};
+}
+
+function names(a,max){max=max||6;return {names:a.slice(0,max),more:Math.max(0,a.length-max)}}
+function fixes(f){
+  const n=f.own_repos,x=[],add=(w,text,list)=>x.push(Object.assign({w,text},list||{}));
+  const nd=f.no_description.length,nl=f.no_license.length,nt=f.no_topics.length,st=f.stale.length,these=(k,w)=>k===1?'this '+w:`these ${k} ${w}s`;
+  if(!n)add(100,'Push one small, finished project with a README, a one-line description and a license. One good repo beats ten empty ones.');
+  if(!f.has_profile_readme_repo)add(f.isOrg?40:60+Math.min(20,f.followers/10),f.isOrg?'Add an org profile: create a public ".github" repo with profile/README.md saying what the org builds and where to start.':`Create a profile README: a public repo named "${f.login}" with a README.md that says what you build, your stack, and links to your 3 best repos.`);
+  if(nd)add(Math.min(70,10+nd*3),`Add a one-line description to ${these(nd,'repo')}, most-starred first:`,names(f.no_description));
+  if(st)add(Math.min(60,10+st*3),`Archive ${these(st,'repo')} you haven't touched in over a year (Settings, then Archive). Archived reads as finished; untouched reads as abandoned:`,names(f.stale));
+  if(nl)add(Math.min(55,8+nl*2),`Add a LICENSE to ${these(nl,'repo')} (Add file, name it LICENSE, pick MIT from the template list):`,names(f.no_license));
+  if(nt&&nt/n>=.3)add(Math.min(50,8+nt*2),`Add 3 to 5 topics (language, framework, what it does) to ${these(nt,'repo')} so they show up in GitHub search:`,names(f.no_topics));
+  const miss=[!f.bio&&(f.isOrg?'a one-line description':'a one-line bio (what you build, with what)'),!f.isOrg&&!f.name&&'a display name',!f.blog&&'a website or LinkedIn link'].filter(Boolean);
+  if(miss.length)add(15+10*miss.length,`Fill in the profile sidebar: add ${miss.length>1?miss.slice(0,-1).join(', ')+' and '+miss[miss.length-1]:miss[0]}.`);
+  if(f.lazy)add(Math.min(55,15+f.lazy*4),`Write commit messages that say what and why, like "fix: handle empty repo list in scorer" instead of ${q(f.lazy_examples[0])}.`);
+  if(f.forks>=5&&f.forks>n)add(35,`Archive or delete the forks you never changed (${f.forks} of them) so your own work isn't buried under them.`);
+  if(n&&f.last_push_days>180)add(50,`Ship something small this month. Even a README fix on ${f.top_repos[0].name} restarts your activity graph.`);
+  if(f.silly.length)add(20,'Rename or make private the throwaway repos:',names(f.silly));
+  if(n>=4)add(25,'Pin your best work so visitors see it first. Check these are pinned:',{names:f.top_repos.slice(0,4).map(r=>r.name)});
+  if(f.languages.length>=6)add(15,`Pick a lane: polish and pin your ${f.languages[0][0]} work so the profile tells one story.`);
+  return x.sort((a,b)=>b.w-a.w).slice(0,5);
+}
+return {AREAS,LAZY,facts,score,roast,fixes,T,GOOD};
+})();
+'''
+
+UI_JS = r'''
+(()=>{
+const $=id=>document.getElementById(id),API='https://api.github.com',PAGE=CFG.site+'/roast/',TTL=36e5;
+const form=$('rf'),inp=$('ru'),btn=$('rb'),st=$('rs'),out=$('rr');
+const el=(tag,cls,text)=>{const e=document.createElement(tag);if(cls)e.className=cls;if(text!=null)e.textContent=text;return e};
+const parse=v=>{v=String(v||'').trim().replace(/^@/,'');const m=v.match(/github\.com\/([^\/?#\s]+)/i);if(m)v=m[1];return /^[A-Za-z0-9][A-Za-z0-9-]{0,38}$/.test(v)?v:null};
+const cget=k=>{try{const c=JSON.parse(localStorage.getItem('rmg:'+k));return c&&Date.now()-c.t<TTL?c:null}catch(e){return null}};
+const cset=(k,v)=>{try{localStorage.setItem('rmg:'+k,JSON.stringify(Object.assign({t:Date.now()},v)))}catch(e){}};
+const slim=r=>({name:r.name,fork:r.fork,archived:r.archived,description:r.description,license:r.license?1:null,topics:r.topics||[],language:r.language,stargazers_count:r.stargazers_count,forks_count:r.forks_count,pushed_at:r.pushed_at,created_at:r.created_at,size:r.size});
+
+async function gh(path){
+  let r;try{r=await fetch(API+path,{headers:{Accept:'application/vnd.github+json'}})}catch(e){throw {kind:'net'}}
+  if(r.ok)return r.json();
+  if(r.status===404)throw {kind:'404'};
+  if(r.status===403||r.status===429)throw {kind:'rate',reset:+r.headers.get('x-ratelimit-reset')||0,remaining:r.headers.get('x-ratelimit-remaining')};
+  throw {kind:'http',status:r.status};
+}
+
+async function load(login){
+  const hit=cget(login.toLowerCase());if(hit)return hit;
+  let u=await gh('/users/'+encodeURIComponent(login));
+  if(u.type==='Organization')try{u=Object.assign({},u,await gh('/orgs/'+encodeURIComponent(u.login)),{type:'Organization'})}catch(e){}
+  const repos=(await gh(`/users/${encodeURIComponent(u.login)}/repos?per_page=100&sort=pushed&type=owner`)).map(slim);
+  // PushEvent payloads in /events no longer carry commit lists, so sample commits from the latest pushed repo instead.
+  let msgs=[],commitRepo='';
+  const cand=repos.filter(r=>!r.fork&&r.size>0).sort((a,b)=>Date.parse(b.pushed_at)-Date.parse(a.pushed_at))[0];
+  if(cand)try{
+    const cs=await gh(`/repos/${encodeURIComponent(u.login)}/${encodeURIComponent(cand.name)}/commits?per_page=50`+(u.type==='Organization'?'':'&author='+encodeURIComponent(u.login)));
+    msgs=cs.map(c=>String(c.commit&&c.commit.message||'').split('\n')[0]);commitRepo=cand.name;
+  }catch(e){}
+  const user={login:u.login,type:u.type,name:u.name,bio:u.bio||u.description,blog:u.blog,avatar_url:u.avatar_url,followers:u.followers,following:u.following,public_repos:u.public_repos,created_at:u.created_at};
+  const d={user,repos,msgs,commitRepo,truncated:u.public_repos>100};
+  cset(u.login.toLowerCase(),d);if(u.login.toLowerCase()!==login.toLowerCase())cset(login.toLowerCase(),d);
+  return d;
+}
+
+function err(lines){st.textContent='';const b=el('div','rg-err');lines.forEach((l,i)=>b.appendChild(el(i?'p':'strong',null,l)));st.appendChild(b)}
+function fail(e,login){
+  if(e.kind==='404')return err([`No GitHub user or organization called "${login}".`,'Check the spelling. It has to be the username (the part after github.com/), not the display name.']);
+  if(e.kind==='rate'){
+    const t=e.reset?new Date(e.reset*1000):null,mins=t?Math.max(1,Math.ceil((t-Date.now())/6e4)):null;
+    return err(['GitHub rate limit reached.',`GitHub allows 60 anonymous API requests per hour from your IP address, and each roast uses 3 or 4.${t?` The limit resets at ${t.toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'})} (in ${mins} min).`:' Try again in a few minutes.'}`,'Need unlimited roasts? Install the roast-my-github skill below and set GITHUB_TOKEN.']);
+  }
+  if(e.kind==='net')return err(["Couldn't reach GitHub.",'Check your connection, or a browser extension blocking api.github.com, and try again.']);
+  err(['Something went wrong talking to GitHub'+(e.status?` (HTTP ${e.status})`:'')+'.','Try again in a minute.']);
+}
+
+function wrap(x,text,maxW,maxLines){
+  const lines=[];let cur='';
+  for(const w of text.split(/\s+/)){const t=cur?cur+' '+w:w;if(cur&&x.measureText(t).width>maxW){lines.push(cur);cur=w}else cur=t}
+  if(cur)lines.push(cur);
+  if(lines.length>maxLines){lines.length=maxLines;let l=lines[maxLines-1];while(l&&x.measureText(l+'…').width>maxW)l=l.slice(0,-1);lines[maxLines-1]=l.replace(/\s+\S*$/,'')+'…'}
+  return lines;
+}
+function card(f,sc,best){
+  const c=document.createElement('canvas');c.width=1200;c.height=630;const x=c.getContext('2d'),F='-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif';
+  const g=x.createLinearGradient(0,0,1200,630);g.addColorStop(0,'#0f1117');g.addColorStop(1,'#1d1535');x.fillStyle=g;x.fillRect(0,0,1200,630);
+  const a=x.createLinearGradient(0,0,1200,0);a.addColorStop(0,'#8b5cf6');a.addColorStop(1,'#22d3ee');x.fillStyle=a;x.fillRect(0,0,1200,8);
+  x.textBaseline='alphabetic';x.fillStyle='#9aa0ad';x.font=`600 26px ${F}`;x.fillText('🔥 ROAST MY GITHUB',60,78);
+  x.fillStyle='#e8e9ee';x.font=`800 56px ${F}`;let who='@'+f.login;while(x.measureText(who).width>760)who=who.slice(0,-2)+'…';x.fillText(who,60,150);
+  x.textAlign='right';x.fillStyle='#8b5cf6';x.font=`800 128px ${F}`;const ov=sc.overall.toFixed(1);x.fillText(ov,1060,160);
+  x.fillStyle='#9aa0ad';x.font=`600 40px ${F}`;x.fillText('/10',1140,160);x.font=`600 22px ${F}`;x.fillText(sc.label,1140,196);
+  x.textAlign='left';x.fillStyle='#e8e9ee';x.font=`italic 500 34px ${F}`;
+  wrap(x,'“'+best+'”',1080,3).forEach((l,i)=>x.fillText(l,60,262+i*46));
+  Roast.AREAS.forEach(([k,label],i)=>{
+    const cx=60+(i%3)*370,cy=420+Math.floor(i/3)*82,v=sc[k];
+    x.fillStyle='#171a23';x.fillRect(cx,cy,340,66);x.fillStyle='#9aa0ad';x.font=`600 20px ${F}`;x.fillText(label,cx+16,cy+28);
+    x.textAlign='right';x.fillStyle='#e8e9ee';x.font=`800 26px ${F}`;x.fillText(v==null?'n/a':v+'/10',cx+324,cy+30);x.textAlign='left';
+    x.fillStyle='#262a36';x.fillRect(cx+16,cy+44,308,8);if(v){x.fillStyle=a;x.fillRect(cx+16,cy+44,308*v/10,8)}
+  });
+  x.fillStyle='#22d3ee';x.font=`600 24px ${F}`;x.fillText('Roast yours → milad-ahmd.github.io/agent-skills/roast',60,604);
+  return c;
+}
+
+function render(f){
+  const sc=Roast.score(f),r=Roast.roast(f),fx=Roast.fixes(f),best=r.lines[0]||r.good,link=PAGE+'?u='+encodeURIComponent(f.login);
+  out.textContent='';
+  const head=el('div','rg-head');
+  if(/^https:\/\/avatars\.githubusercontent\.com\//.test(f.avatar)){const im=el('img');im.src=f.avatar+(f.avatar.includes('?')?'&':'?')+'s=144';im.alt='';im.width=72;im.height=72;head.appendChild(im)}
+  const who=el('div');who.appendChild(el('h2',null,(f.name?f.name+' ':'')+'@'+f.login));
+  who.appendChild(el('p',null,`${f.isOrg?'Organization · ':''}${f.own_repos} ${f.own_repos===1?'repo':'repos'} · ${f.total_stars.toLocaleString('en-US')} stars · ${f.followers.toLocaleString('en-US')} followers · on GitHub since ${f.year}`));
+  head.appendChild(who);
+  const tot=el('div','rg-total'),b=el('b',null,sc.overall.toFixed(1));tot.appendChild(b);tot.appendChild(el('small',null,'/10'));tot.appendChild(el('div',null,sc.label));head.appendChild(tot);
+  out.appendChild(head);
+  out.appendChild(el('h3',null,'🔥 The roast'));
+  const ul=el('ul','rg-roast'),gl=el('li','good');r.lines.forEach(l=>ul.appendChild(el('li',null,l)));gl.appendChild(el('strong',null,'The good news: '));gl.appendChild(document.createTextNode(r.good));ul.appendChild(gl);out.appendChild(ul);
+  out.appendChild(el('h3',null,'📊 Scorecard'));
+  const ar=el('div','rg-areas');
+  Roast.AREAS.forEach(([k,label])=>{const v=sc[k],d=el('div','rg-area');d.appendChild(el('span',null,label));const s=el('b',null,v==null?'n/a':String(v));if(v!=null)s.appendChild(el('small',null,'/10'));d.appendChild(s);
+    const bar=el('div','rg-bar'),i=el('i');i.style.width=(v||0)*10+'%';bar.appendChild(i);d.appendChild(bar);ar.appendChild(d)});
+  out.appendChild(ar);
+  out.appendChild(el('h3',null,'✨ Glow-up plan: top '+fx.length+' fixes'));
+  const ol=el('ol','rg-fixes');fx.forEach(z=>{const li=el('li',null,z.text);if(z.names){li.appendChild(el('br'));z.names.forEach(n=>li.appendChild(el('code',null,n)));if(z.more)li.appendChild(el('span','rg-note',`and ${z.more} more`))}ol.appendChild(li)});
+  out.appendChild(ol);
+  const notes=[`Based on public data: ${f.truncated?`the 100 most recently pushed of ${f.public_repos} repos`:'all public repos'}, forks excluded from hygiene stats.`];
+  notes.push(f.msgs?`Commit craft sampled from the last ${f.msgs} commits in ${f.commit_repo}.`:'Commit craft is n/a: no recent commits found to sample, so it is left out of the overall score.');
+  out.appendChild(el('p','rg-note',notes.join(' ')));
+  out.appendChild(el('h3',null,'📣 Share it'));
+  const cv=card(f,sc,best),im=el('img','rg-card');im.alt=`Roast scorecard for @${f.login}: ${sc.overall}/10`;im.width=1200;im.height=630;
+  try{im.src=cv.toDataURL('image/png')}catch(e){}
+  out.appendChild(im);
+  const acts=el('div','rg-actions');
+  const dl=el('button','btn','⬇ Download scorecard');dl.type='button';
+  dl.onclick=()=>cv.toBlob(bl=>{const a=el('a');a.href=URL.createObjectURL(bl);a.download=`github-roast-${f.login}.png`;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),4e3)},'image/png');
+  const tw=el('a','btn alt','Share on X');tw.target='_blank';tw.rel='noopener';
+  const tx=`🔥 My GitHub just got roasted: ${sc.overall.toFixed(1)}/10\n"${best.length>170?best.slice(0,169)+'…':best}"\nRoast yours →`;
+  tw.href='https://twitter.com/intent/tweet?text='+encodeURIComponent(tx)+'&url='+encodeURIComponent(link);
+  const cp=el('button','btn alt','🔗 Copy link');cp.type='button';
+  cp.onclick=async()=>{let ok=false;try{await navigator.clipboard.writeText(link);ok=true}catch(e){const t=el('textarea');t.value=link;document.body.appendChild(t);t.select();try{ok=document.execCommand('copy')}catch(_){}t.remove()}cp.textContent=ok?'✓ Copied':link};
+  [dl,tw,cp].forEach(z=>acts.appendChild(z));out.appendChild(acts);
+  out.appendChild(el('p','rg-note','Roasting a friend? Keep it friendly, and only roast people who are in on the joke.'));
+  out.hidden=false;
+  document.title=`@${f.login}${/s$/i.test(f.login)?"'":"'s"} GitHub roast: ${sc.overall.toFixed(1)}/10 | Roast My GitHub`;
+}
+
+let busy=false;
+async function run(raw){
+  const login=parse(raw);
+  if(!login)return err(["That doesn't look like a GitHub username.",'Use the part after github.com/, for example torvalds.']);
+  if(busy)return;busy=true;btn.disabled=true;out.hidden=true;st.textContent=`Reading @${login}${/s$/i.test(login)?"'":"'s"} public repos…`;
+  try{const d=await load(login),f=Roast.facts(d.user,d.repos,d.msgs,{truncated:d.truncated,commitRepo:d.commitRepo});
+    render(f);st.textContent='';inp.value=f.login;history.replaceState(null,'','?u='+encodeURIComponent(f.login));out.scrollIntoView({behavior:'smooth',block:'start'})}
+  catch(e){out.hidden=true;fail(e,login)}
+  finally{busy=false;btn.disabled=false}
+}
+form.addEventListener('submit',e=>{e.preventDefault();run(inp.value)});
+const q=new URLSearchParams(location.search).get('u');if(q){inp.value=q;run(q)}
+})();
+'''
+
+
+def roast_page():
+    rubric = "".join(f"<tr><td><strong>{a}</strong></td><td>{b}</td></tr>" for a, b in RUBRIC)
+    faq = "".join(f"<h3>{E(q)}</h3><p>{E(a)}</p>" for q, a in FAQ)
+    cfg = json.dumps({"site": SITE, "repo": REPO})
+    body = f"""<style>{CSS}</style>
+<section class="hero"><span class="tag">Free · No login · Runs in your browser</span>
+<h1>Roast My GitHub 🔥</h1>
+<p>Type a GitHub username. Get roasted with real numbers from the public profile, a /10 scorecard, and a glow-up plan you can actually act on.</p>
+<form id="rf" class="rg-form" action="./" method="get" autocomplete="off" role="search"><label for="ru" class="sr">GitHub username</label>
+<span class="rg-pre" aria-hidden="true">github.com/</span><input id="ru" name="u" placeholder="your-username" required maxlength="100" spellcheck="false" autocapitalize="off" autocorrect="off">
+<button id="rb" class="btn" type="submit">Roast me</button></form>
+<p class="rg-small">Calls GitHub's public API straight from your browser. No login, no server, no AI making things up.</p>
+<noscript><p>This roast runs in JavaScript. Turn it on, or install the skill below.</p></noscript></section>
+<div id="rs" class="rg-status" role="status" aria-live="polite"></div>
+<section id="rr" class="rg-result" hidden></section>
+<section class="rg-cta"><h2>Get the full roast in your AI agent</h2>
+<p>Want the full roast with a written glow-up plan and a profile README draft? Install the skill. Your agent pulls the same data, writes the roast in its own words, and drafts the fixes for you.</p>
+<pre><code># Claude Code
+/plugin install fun-pack --marketplace milad-ahmd/agent-skills
+
+# Cursor, Codex, Cline, Windsurf, Copilot + 75 more agents
+npx skills add milad-ahmd/agent-skills --skill roast-my-github</code></pre>
+<p>Then ask: <code>Roast my GitHub: your-username</code></p>
+<a class="btn" href="{REPO}">⭐ Star on GitHub</a><a class="btn alt" href="../skills/roast-my-github/">How the skill works</a></section>
+<div class="rg-rubric"><h2>How the GitHub score works</h2>
+<p>Six areas, each scored out of 10 from public data, using the same rubric as the <a href="../skills/roast-my-github/">roast-my-github</a> agent skill. The overall score is the average.</p>
+<div class="skillmd"><table><tr><th>Area</th><th>Based on</th></tr>{rubric}</table></div>
+<p>Every roast line points at a real number from the profile. It roasts code and habits, never the person, and always ends on something good.</p>
+<h2>FAQ</h2>{faq}</div>
+<script>const CFG={cfg};{CORE_JS}{UI_JS}</script>"""
+    jsonld = [
+        {"@context": "https://schema.org", "@type": "WebApplication", "name": "Roast My GitHub", "url": f"{SITE}/roast/",
+         "applicationCategory": "DeveloperApplication", "operatingSystem": "Any (runs in the browser)",
+         "description": "Free GitHub profile roast: a funny, data-backed roast, a /10 scorecard and a glow-up plan from public GitHub data.",
+         "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+         "author": {"@type": "Person", "name": "Milad Ahmadi", "url": "https://github.com/milad-ahmd"}},
+        {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
+            {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in FAQ]},
+        {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Agent Skills", "item": SITE + "/"},
+            {"@type": "ListItem", "position": 2, "name": "Roast My GitHub", "item": f"{SITE}/roast/"}]},
+    ]
+    return page("Roast My GitHub: Free GitHub Profile Roast, Score & Glow-Up Plan",
+                "Roast my GitHub: type a username and get a funny, data-backed roast of the profile, a /10 scorecard and a glow-up plan. Free, no login, runs in your browser.",
+                "roast/", body, jsonld)

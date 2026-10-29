@@ -152,4 +152,4 @@ Run each one in a fresh session. If a "yes" prompt doesn't trigger, add its word
 
 ## Copy a working example
 
-All 51 skills in [milad-ahmd/agent-skills](https://github.com/milad-ahmd/agent-skills) follow this structure and are MIT licensed, so use any of them as a template. To start from scratch, [skill-creator-pro](https://milad-ahmd.github.io/agent-skills/skills/skill-creator-pro/) interviews you about your workflow and writes the SKILL.md for you.
+Every skill in [milad-ahmd/agent-skills](https://github.com/milad-ahmd/agent-skills) follow this structure and are MIT licensed, so use any of them as a template. To start from scratch, [skill-creator-pro](https://milad-ahmd.github.io/agent-skills/skills/skill-creator-pro/) interviews you about your workflow and writes the SKILL.md for you.

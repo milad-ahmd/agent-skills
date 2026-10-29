@@ -7,7 +7,8 @@
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="How to Write a Claude Code Skill That Actually Triggers | Agent Skills Guide"><meta name="twitter:description" content="A practical guide to writing SKILL.md files that Claude Code loads at the right time, with a description formula, before/after examples, a linter and a trigger test, based on building 51 real skills."><meta name="twitter:image" content="https://milad-ahmd.github.io/agent-skills/assets/og.png">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧰</text></svg>">
 <style>
-:root{--bg:#0f1117;--card:#171a23;--fg:#e8e9ee;--dim:#9aa0ad;--acc:#8b5cf6;--acc2:#22d3ee;--line:#262a36}
+:root{--bg:#0f1117;--card:#171a23;--fg:#e8e9ee;--dim:#9aa0ad;--acc:#8b5cf6;--acc2:#22d3ee;--line:#262a36;--pre:#0b0d12;color-scheme:dark}
+@media (prefers-color-scheme:light){:root{--bg:#f7f7fb;--card:#fff;--fg:#15171e;--dim:#5b6170;--acc:#7c3aed;--acc2:#0e7490;--line:#e1e3ea;--pre:#f0f1f6;color-scheme:light}}
 *{box-sizing:border-box}body{margin:0;font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--fg)}
 a{color:var(--acc2);text-decoration:none}a:hover{text-decoration:underline}
 .wrap{max-width:1080px;margin:0 auto;padding:0 20px}
@@ -17,7 +18,7 @@ header.top{border-bottom:1px solid var(--line);padding:14px 0}header.top .wrap{d
 .hero p{color:var(--dim);font-size:19px;max-width:760px;margin:0 auto 22px}
 .btn{display:inline-block;background:var(--acc);color:#fff;padding:12px 20px;border-radius:10px;font-weight:700;margin:4px}
 .btn.alt{background:transparent;border:1px solid var(--line);color:var(--fg)}
-pre{background:#0b0d12;border:1px solid var(--line);border-radius:10px;padding:14px;overflow:auto;font-size:14px;white-space:pre-wrap;word-break:break-word}
+pre{background:var(--pre);border:1px solid var(--line);border-radius:10px;padding:14px;overflow:auto;font-size:14px;white-space:pre-wrap;word-break:break-word}
 code{font-family:ui-monospace,Menlo,monospace}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
 .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;display:block;color:var(--fg)}
@@ -31,7 +32,7 @@ article h1{font-size:clamp(28px,4vw,40px);margin:8px 0}.lead{font-size:19px;colo
 footer{border-top:1px solid var(--line);margin-top:60px;padding:24px 0;color:var(--dim);font-size:14px}
 </style><script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "How to Write a Claude Code Skill That Actually Triggers", "description": "A practical guide to writing SKILL.md files that Claude Code loads at the right time, with a description formula, before/after examples, a linter and a trigger test, based on building 51 real skills.", "datePublished": "2026-10-26", "dateModified": "2026-10-26", "url": "https://milad-ahmd.github.io/agent-skills/guides/how-to-write-a-claude-code-skill-that-triggers/", "author": {"@type": "Person", "name": "Milad Ahmadi", "url": "https://github.com/milad-ahmd"}, "publisher": {"@type": "Person", "name": "Milad Ahmadi"}}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Agent Skills", "item": "https://milad-ahmd.github.io/agent-skills/"}, {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://milad-ahmd.github.io/agent-skills/guides/"}, {"@type": "ListItem", "position": 3, "name": "How to Write a Claude Code Skill That Actually Triggers", "item": "https://milad-ahmd.github.io/agent-skills/guides/how-to-write-a-claude-code-skill-that-triggers/"}]}</script></head><body>
 <header class="top"><div class="wrap"><a class="logo" href="../../">🧰 Agent Skills</a>
-<nav class="nav"><a href="../../#skills">Skills</a><a href="../../guides/">Guides</a><a href="../../#packs">Packs</a><a href="../../#install">Install</a><a href="https://github.com/milad-ahmd/agent-skills">GitHub ⭐</a></nav></div></header>
+<nav class="nav"><a href="../../#skills">Skills</a><a href="../../roast/">Roast 🔥</a><a href="../../guides/">Guides</a><a href="../../#packs">Packs</a><a href="../../#install">Install</a><a href="https://github.com/milad-ahmd/agent-skills">GitHub ⭐</a></nav></div></header>
 <main class="wrap"><p class="crumbs"><a href="../../">Agent Skills</a> › <a href="../">Guides</a> › How to Write a Claude Code Skill That Actually Triggers</p>
 <article><span class="tag">Guide · 2026-10-26</span>
 <h1>How to Write a Claude Code Skill That Actually Triggers</h1><p class="lead">A practical guide to writing SKILL.md files that Claude Code loads at the right time, with a description formula, before/after examples, a linter and a trigger test, based on building 51 real skills.</p>
@@ -97,7 +98,7 @@ description: Reviews a pull request or branch diff like a senior engineer...
 <h3>Checklist</h3>
 <ul><li>The description starts with what the skill does, using concrete nouns</li><li>It includes &quot;Use when the user asks to&quot; with three or four real phrases</li><li>It&#x27;s roughly 250 to 500 characters</li><li>No other installed skill uses the same trigger phrases</li><li>The body is a short numbered workflow, with an output format and rules</li><li>Deterministic steps are scripts, not prose</li><li>skills-doctor passes with no errors</li><li>It passed the 3-yes / 2-no trigger test</li></ul>
 <h3>Copy a working example</h3>
-<p>All 51 skills in <a href="https://github.com/milad-ahmd/agent-skills" rel="noopener">milad-ahmd/agent-skills</a> follow this structure and are MIT licensed, so use any of them as a template. To start from scratch, <a href="https://milad-ahmd.github.io/agent-skills/skills/skill-creator-pro/" rel="noopener">skill-creator-pro</a> interviews you about your workflow and writes the SKILL.md for you.</p></div>
-<p><a class="btn" href="../../">Browse all 51 skills</a> <a class="btn alt" href="https://github.com/milad-ahmd/agent-skills">⭐ Star on GitHub</a></p></article></main>
-<footer><div class="wrap">Open source (MIT) by <a href="https://github.com/milad-ahmd">Milad Ahmadi</a> · <a href="https://github.com/milad-ahmd/agent-skills">GitHub</a> · Works with Claude Code, Cline, Cursor, Codex, Windsurf, Copilot and any agent that reads SKILL.md · Updated 2026-10-28</div></footer>
+<p>Every skill in <a href="https://github.com/milad-ahmd/agent-skills" rel="noopener">milad-ahmd/agent-skills</a> follow this structure and are MIT licensed, so use any of them as a template. To start from scratch, <a href="https://milad-ahmd.github.io/agent-skills/skills/skill-creator-pro/" rel="noopener">skill-creator-pro</a> interviews you about your workflow and writes the SKILL.md for you.</p></div>
+<p><a class="btn" href="../../">Browse all 44 skills</a> <a class="btn alt" href="https://github.com/milad-ahmd/agent-skills">⭐ Star on GitHub</a></p></article></main>
+<footer><div class="wrap">Open source (MIT) by <a href="https://github.com/milad-ahmd">Milad Ahmadi</a> · <a href="https://github.com/milad-ahmd/agent-skills">GitHub</a> · Works with Claude Code, Cline, Cursor, Codex, Windsurf, Copilot and any agent that reads SKILL.md · Updated 2026-10-29</div></footer>
 </body></html>

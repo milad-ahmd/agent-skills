@@ -1,15 +1,19 @@
 """Page layout + CSS for the agent-skills static site."""
 import html
 import json
+import os
 from datetime import date
 
 SITE = "https://milad-ahmd.github.io/agent-skills"
 REPO = "https://github.com/milad-ahmd/agent-skills"
 TODAY = date.today().isoformat()
+_SKILLS = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "skills")
+COUNT = sum(os.path.isfile(os.path.join(_SKILLS, d, "SKILL.md")) for d in os.listdir(_SKILLS))
 E = html.escape
 
 CSS = """
-:root{--bg:#0f1117;--card:#171a23;--fg:#e8e9ee;--dim:#9aa0ad;--acc:#8b5cf6;--acc2:#22d3ee;--line:#262a36}
+:root{--bg:#0f1117;--card:#171a23;--fg:#e8e9ee;--dim:#9aa0ad;--acc:#8b5cf6;--acc2:#22d3ee;--line:#262a36;--pre:#0b0d12;color-scheme:dark}
+@media (prefers-color-scheme:light){:root{--bg:#f7f7fb;--card:#fff;--fg:#15171e;--dim:#5b6170;--acc:#7c3aed;--acc2:#0e7490;--line:#e1e3ea;--pre:#f0f1f6;color-scheme:light}}
 *{box-sizing:border-box}body{margin:0;font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--fg)}
 a{color:var(--acc2);text-decoration:none}a:hover{text-decoration:underline}
 .wrap{max-width:1080px;margin:0 auto;padding:0 20px}
@@ -19,7 +23,7 @@ header.top{border-bottom:1px solid var(--line);padding:14px 0}header.top .wrap{d
 .hero p{color:var(--dim);font-size:19px;max-width:760px;margin:0 auto 22px}
 .btn{display:inline-block;background:var(--acc);color:#fff;padding:12px 20px;border-radius:10px;font-weight:700;margin:4px}
 .btn.alt{background:transparent;border:1px solid var(--line);color:var(--fg)}
-pre{background:#0b0d12;border:1px solid var(--line);border-radius:10px;padding:14px;overflow:auto;font-size:14px;white-space:pre-wrap;word-break:break-word}
+pre{background:var(--pre);border:1px solid var(--line);border-radius:10px;padding:14px;overflow:auto;font-size:14px;white-space:pre-wrap;word-break:break-word}
 code{font-family:ui-monospace,Menlo,monospace}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
 .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;display:block;color:var(--fg)}
@@ -49,7 +53,7 @@ def page(title, desc, path, body, jsonld=None, image="assets/og.png"):
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧰</text></svg>">
 <style>{CSS}</style>{ld}</head><body>
 <header class="top"><div class="wrap"><a class="logo" href="{pre or './'}">🧰 Agent Skills</a>
-<nav class="nav"><a href="{pre}#skills">Skills</a><a href="{pre}guides/">Guides</a><a href="{pre}#packs">Packs</a><a href="{pre}#install">Install</a><a href="{REPO}">GitHub ⭐</a></nav></div></header>
+<nav class="nav"><a href="{pre}#skills">Skills</a><a href="{pre}roast/">Roast 🔥</a><a href="{pre}guides/">Guides</a><a href="{pre}#packs">Packs</a><a href="{pre}#install">Install</a><a href="{REPO}">GitHub ⭐</a></nav></div></header>
 <main class="wrap">{body}</main>
 <footer><div class="wrap">Open source (MIT) by <a href="https://github.com/milad-ahmd">Milad Ahmadi</a> · <a href="{REPO}">GitHub</a> · Works with Claude Code, Cline, Cursor, Codex, Windsurf, Copilot and any agent that reads SKILL.md · Updated {TODAY}</div></footer>
 </body></html>"""
