@@ -3,7 +3,7 @@ name: Build site & notify search engines
 on:
   push:
     branches: [main]
-    paths: ["skills/**", "scripts/**", "assets/**", "install.sh"]
+    paths: ["skills/**", "scripts/**", "assets/**", "evals/**", "install.sh"]
   workflow_dispatch:
 
 permissions:
@@ -21,10 +21,14 @@ jobs:
         run: |
           diff -u skills/skills-doctor/scripts/skill_checks.py skills/skill-creator-pro/scripts/skill_checks.py \
             || { echo "::error::skill_checks.py differs. Edit skills-doctor's copy, then: cp skills/skills-doctor/scripts/skill_checks.py skills/skill-creator-pro/scripts/"; exit 1; }
-      - name: Test the linter
-        run: python3 -m unittest discover -s skills/skills-doctor/scripts -p 'test_*.py'
+      - name: Test every skill's scripts
+        run: for d in skills/*/scripts; do ls "$d"/test_*.py >/dev/null 2>&1 || continue; echo "== $d"; python3 -m unittest discover -s "$d" -p 'test_*.py' || exit 1; done
       - name: "Lint all skills (strict mode: errors, warnings and overlaps fail CI)"
         run: python3 skills/skills-doctor/scripts/skills_doctor.py --strict skills
+      - name: Test the trigger-eval runner
+        run: python3 -m unittest discover -s scripts -p 'test_run_trigger_evals.py'
+      - name: "Skill trigger evals (offline lexical proxy, report only)"
+        run: python3 scripts/run_trigger_evals.py --summary "$GITHUB_STEP_SUMMARY"
       - name: Build site
         run: python3 scripts/build_site.py
       - name: Commit docs/ if changed

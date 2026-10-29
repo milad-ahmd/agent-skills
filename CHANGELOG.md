@@ -2,6 +2,16 @@
 
 ⭐ Star or watch the repo to get notified about new skills, and [request a skill](https://github.com/milad-ahmd/agent-skills/issues/new). Popular requests get built first.
 
+## 2026-10-29: v5 · fewer, deeper skills
+- 🔥 **Roast your GitHub in the browser:** [milad-ahmd.github.io/agent-skills/roast](https://milad-ahmd.github.io/agent-skills/roast/). No install, no login, no AI: real numbers from GitHub's public API, a /10 scorecard, a concrete glow-up plan and a downloadable scorecard image.
+- 🧹 **ai-slop-detector is now a measurable tool:** 120 documented patterns in 9 categories, a weighted 0–100 score, `--json`, `--format github` and `--fail-above` for CI, before/after examples, and a small benchmark (62 passages; ROC-AUC 0.98 on the held-out half, with the caveats spelled out in `bench/README.md`). New [GitHub Action](https://github.com/milad-ahmd/ai-slop-detector#-use-it-in-ci) flags AI-sounding docs and PR descriptions.
+- 🩺 **skills-doctor in CI:** `--format github` puts problems on the PR as annotations with file and line, plus a job summary. New [Skills Doctor Action](https://github.com/milad-ahmd/skills-doctor#-use-it-in-ci) for any repo with skills.
+- 🛡️ **New: gh-actions-auditor.** Finds pwn requests, script injection, unpinned actions and over-broad permissions in workflows, then fixes them.
+- 🪤 **New: prompt-injection-scanner.** Checks skills, CLAUDE.md/AGENTS.md, hooks and MCP configs for hidden Unicode, injection phrasing, exfiltration and unsafe settings before you trust them.
+- 🧠 **9 platform skills merged into social-media-manager:** LinkedIn, X, Facebook, Pinterest, Threads, Reddit, Telegram, WhatsApp Business and Google Business Profile now live in `skills/social-media-manager/references/`, loaded one at a time. Less generic advice, more platform facts. Old names still work with `install.sh`, and their web pages redirect.
+- 🧪 **Trigger evals:** `evals/` has prompts that should and shouldn't load each skill. CI runs a free offline check (hit@3 95%); `scripts/run_trigger_evals.py --live` runs them against Claude Code.
+- CI now runs every skill's unit tests. 44 skills in total.
+
 ## 2026-10-27: v4.3 · overlap as a reading, not a claim
 Follow-up from **Wisp**, who re-ran f54e669: all four fixes held, but "0 overlaps" only meant "nothing crossed 0.20".
 - 📏 The summary now always prints the **closest description pair and closest trigger-clause pair**, with score, threshold and status (`ok` / `close: review` / `over`).

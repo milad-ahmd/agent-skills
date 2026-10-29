@@ -2,16 +2,16 @@
 
 # 🧰 Agent Skills
 
-### Roast your GitHub with real data. Strip AI slop from your writing. Turn your git history into a documentary. Plus 48 more skills for developers and marketers.
+### Roast your GitHub with real data. Strip AI slop from your writing. Turn your git history into a documentary. Plus 41 more skills for developers and marketers.
 
 **Works with Claude Code · Cline · Cursor · Codex · any agent that reads `SKILL.md`**
 
 [![Stars](https://img.shields.io/github/stars/milad-ahmd/agent-skills?style=social)](https://github.com/milad-ahmd/agent-skills)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE)
-![Skills](https://img.shields.io/badge/skills-51-orange)
+![Skills](https://img.shields.io/badge/skills-44-orange)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](#-contributing)
 
-[🌐 Website](https://milad-ahmd.github.io/agent-skills/) · [Start here](#-start-with-these-three) · [Install](#-install-in-10-seconds) · [Packs](#-packs-install-by-who-you-are) · [Platform agents](#-social-platform-agents) · [Marketing skills](#-marketing--content-skills) · [Developer skills](#-developer-skills) · [What is a skill?](#-what-is-a-skill) · [Awesome list](https://github.com/milad-ahmd/awesome-agent-skills)
+[🌐 Website](https://milad-ahmd.github.io/agent-skills/) · [Start here](#-start-with-these-three) · [Install](#-install-in-10-seconds) · [Packs](#-packs-install-by-who-you-are) · [Social media](#-social-media-manager) · [Marketing skills](#-marketing--content-skills) · [Developer skills](#-developer-skills) · [What is a skill?](#-what-is-a-skill) · [Awesome list](https://github.com/milad-ahmd/awesome-agent-skills)
 
 <img src="assets/demo-install.gif" alt="Installing agent-skills with one command" width="760"/>
 
@@ -25,13 +25,13 @@ Each one runs a real script first, so the agent works from facts about *your* pr
 
 ### 🔥 [roast-my-github](skills/roast-my-github)
 Pulls your public GitHub stats, roasts the habits (never the person), then gives you a scorecard and a five-step glow-up plan.
-Try: *"Roast my GitHub: your-username"*
+Try: *"Roast my GitHub: your-username"*, or **[roast yourself in the browser](https://milad-ahmd.github.io/agent-skills/roast/)** with nothing to install.
 
 <img src="assets/demo-roast-my-github.gif" alt="roast-my-github scoring a GitHub profile" width="680"/>
 
 ### 🧹 [ai-slop-detector](skills/ai-slop-detector)
 Scores text for AI-sounding phrases and patterns, shows where they are, and rewrites them to sound human while keeping your voice.
-Try: *"De-slop this blog post"*
+Try: *"De-slop this blog post"*, or add the [AI Slop Detector Action](https://github.com/milad-ahmd/ai-slop-detector#-use-it-in-ci) to flag AI-sounding docs and PR descriptions in CI.
 
 <img src="assets/demo-ai-slop-detector.gif" alt="ai-slop-detector scoring and rewriting a paragraph" width="680"/>
 
@@ -76,7 +76,7 @@ npx skills add milad-ahmd/agent-skills --skill roast-my-github  # one skill
 ### Option 3: shell installer
 
 ```bash
-# all 51 skills
+# all 44 skills
 curl -fsSL https://raw.githubusercontent.com/milad-ahmd/agent-skills/main/install.sh | bash
 
 # or a role-based pack
@@ -112,7 +112,7 @@ Run `install.sh --list` to see every skill and pack.
 |---|---|
 | <img src="assets/demo-env-secrets-guard.gif" width="420"/> | <img src="assets/demo-skills-doctor.gif" width="420"/> |
 
-## 📚 All 51 skills
+## 📚 All 44 skills
 
 ⚙️ = ships a script that collects real data (git history, API results, files) before the agent writes anything.
 
@@ -141,22 +141,13 @@ Run `install.sh --list` to see every skill and pack.
 | 🚨 [**incident-commander**](skills/incident-commander) | Run a production outage from triage to mitigation, status updates and a blameless postmortem | *"Production is down, help me"* |
 | 📱 [**app-store-optimizer**](skills/app-store-optimizer) | App Store and Google Play ASO: keywords, titles, screenshot captions, review replies, A/B tests | *"Optimize my App Store listing"* |
 
-## 🤖 Social Platform Agents
+## 🤖 Social Media Manager
 
-One complete agent skill per platform. Each one handles profile setup, content, engagement and analytics for its platform. Start with **social-media-manager**, which decides which platforms you need and coordinates the rest.
+One skill runs your whole social presence. It picks the platforms, sets KPIs and plans the week, then loads a detailed guide for each platform only when the task needs it, and hands Instagram, TikTok and YouTube work to their own skills.
 
 | Skill | What it does | Try saying |
 |---|---|---|
-| 🧠 [**social-media-manager**](skills/social-media-manager) | All-in-one social media manager: picks platforms, sets KPIs, plans weekly and directs every platform skill | *"Manage my brand's social media"* |
-| 💼 [**linkedin-growth-manager**](skills/linkedin-growth-manager) | LinkedIn profile rewrite, post writing, comment strategy and analytics for personal brands and company pages | *"Rewrite my LinkedIn headline and About"* |
-| 𝕏 [**x-twitter-growth-manager**](skills/x-twitter-growth-manager) | Grow on X/Twitter with profile, daily posts, threads, a reply strategy and analytics | *"Write a thread about what I learned building X"* |
-| 👍 [**facebook-page-manager**](skills/facebook-page-manager) | Facebook Pages and Groups: setup, posts, Reels, Messenger replies, reviews and boosting | *"Set up and plan content for my Facebook page"* |
-| 📌 [**pinterest-growth-manager**](skills/pinterest-growth-manager) | Pinterest SEO: keywords, boards, Pin titles and descriptions, and seasonal plans for traffic | *"Create a Pinterest strategy for my blog"* |
-| 🧵 [**threads-growth-manager**](skills/threads-growth-manager) | Grow on Meta Threads with conversation-starting posts, reply strategy and a content bank | *"Write 20 Threads posts for my brand"* |
-| 👽 [**reddit-marketing-agent**](skills/reddit-marketing-agent) | Authentic Reddit marketing: subreddit research and rules, value-first posts and launch posts | *"Find subreddits where I can share my app"* |
-| ✈️ [**telegram-channel-manager**](skills/telegram-channel-manager) | Grow and run a Telegram channel or group: content, formatting, moderation and monetization | *"Plan a content calendar for my Telegram channel"* |
-| 💬 [**whatsapp-business-agent**](skills/whatsapp-business-agent) | WhatsApp Business for sales and support: quick replies, broadcasts, API templates and chatbot flows | *"Set up WhatsApp Business replies for my shop"* |
-| 📍 [**google-business-profile-manager**](skills/google-business-profile-manager) | Rank on Google Maps: Google Business Profile optimization, posts, reviews and local SEO | *"Optimize my Google Business Profile"* |
+| 🧠 [**social-media-manager**](skills/social-media-manager) | Strategy and hands-on work for LinkedIn, X, Facebook, Pinterest, Threads, Reddit, Telegram, WhatsApp Business and Google Business Profile | *"Manage my brand's social media"* · *"Rewrite my LinkedIn headline"* · *"Find subreddits where I can share my app"* |
 
 ## 📣 Marketing & Content Skills
 
@@ -212,6 +203,8 @@ Your AI agent can also act as a social media manager, content strategist and gro
 |---|---|---|
 | 🔐 [**env-secrets-guard**](skills/env-secrets-guard) ⚙️ | Catches leaked API keys before you push | *"Scan for leaked secrets"* |
 | 🩺 [**dependency-doctor**](skills/dependency-doctor) | Vulnerable, outdated and unused packages with a safe upgrade plan | *"Check my dependencies"* |
+| 🛡️ [**gh-actions-auditor**](skills/gh-actions-auditor) ⚙️ | Finds pwn requests, script injection, unpinned actions and over-broad permissions in GitHub Actions, then fixes them | *"Audit our GitHub Actions for security issues"* |
+| 🪤 [**prompt-injection-scanner**](skills/prompt-injection-scanner) ⚙️ | Scans skills, CLAUDE.md, hooks and MCP configs for hidden instructions, exfiltration and unsafe settings | *"Check the skills I just installed for anything malicious"* |
 
 ### 🐳 DevOps & Backend
 | Skill | What it does | Try saying |
@@ -245,6 +238,12 @@ A skill is a folder with a `SKILL.md` file: YAML frontmatter (`name`, `descripti
 
 **Agent without native skill support?** Paste any `SKILL.md` into your rules file (`.clinerules`, `.cursor/rules`, `AGENTS.md`, `CLAUDE.md`).
 
+## 🧪 How the skills are tested
+
+- **Linted on every push** with [skills-doctor](skills/skills-doctor): frontmatter, trigger language, overlapping descriptions, missing scripts, leaked secrets. Lint your own skills in CI with the [Skills Doctor Action](https://github.com/milad-ahmd/skills-doctor#-use-it-in-ci).
+- **Trigger evals** in [`evals/`](evals): every skill has prompts that should load it and prompts that belong to a neighbor. CI runs a free offline check on every push; `python3 scripts/run_trigger_evals.py --live` runs them against Claude Code itself.
+- **Unit tests** for every skill script, run in CI.
+
 ## 🧠 Design principles
 
 Every skill in this collection:
@@ -255,7 +254,7 @@ Every skill in this collection:
 
 ## 🗺️ Roadmap
 
-All 51 skills have shipped ([changelog](CHANGELOG.md)). Next up is your idea:
+All 44 skills have shipped ([changelog](CHANGELOG.md)). Next up is your idea:
 
 👉 [Request a skill](https://github.com/milad-ahmd/agent-skills/issues/new). Popular requests get built first.
 

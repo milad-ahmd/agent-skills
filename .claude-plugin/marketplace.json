@@ -5,13 +5,13 @@
     "email": "miladahmadi803@gmail.com"
   },
   "metadata": {
-    "description": "51 Agent Skills: an agent for every social platform, senior-engineer dev workflows, and fun ones like roast-my-github",
-    "version": "4.1.0"
+    "description": "44 Agent Skills: roast-my-github, an AI slop detector, GitHub Actions and prompt-injection scanners, a social media manager for 9 platforms, and senior-engineer dev workflows",
+    "version": "5.0.0"
   },
   "plugins": [
     {
       "name": "all-skills",
-      "description": "All 51 skills: developer workflows, marketing, social platform agents and fun skills",
+      "description": "All 44 skills: developer workflows, security scanners, marketing, social media and fun skills",
       "source": "./",
       "strict": false,
       "skills": [
@@ -33,21 +33,18 @@
         "./skills/dockerize-anything",
         "./skills/email-campaign-writer",
         "./skills/env-secrets-guard",
-        "./skills/facebook-page-manager",
-        "./skills/google-business-profile-manager",
+        "./skills/gh-actions-auditor",
         "./skills/hook-generator",
         "./skills/incident-commander",
         "./skills/influencer-outreach",
         "./skills/instagram-growth-manager",
         "./skills/landing-page-roaster",
         "./skills/launch-post-writer",
-        "./skills/linkedin-growth-manager",
         "./skills/meeting-notes-to-tickets",
         "./skills/migration-wizard",
-        "./skills/pinterest-growth-manager",
         "./skills/pr-reviewer-pro",
+        "./skills/prompt-injection-scanner",
         "./skills/readme-glow-up",
-        "./skills/reddit-marketing-agent",
         "./skills/roast-my-github",
         "./skills/screenshot-to-component",
         "./skills/seo-blog-writer",
@@ -58,12 +55,8 @@
         "./skills/social-media-manager",
         "./skills/sql-optimizer",
         "./skills/startup-idea-validator",
-        "./skills/telegram-channel-manager",
         "./skills/test-gap-hunter",
-        "./skills/threads-growth-manager",
         "./skills/tiktok-viral-creator",
-        "./skills/whatsapp-business-agent",
-        "./skills/x-twitter-growth-manager",
         "./skills/youtube-script-writer",
         "./skills/youtube-seo-optimizer"
       ]
@@ -80,8 +73,7 @@
         "./skills/readme-glow-up",
         "./skills/app-store-optimizer",
         "./skills/seo-blog-writer",
-        "./skills/x-twitter-growth-manager",
-        "./skills/reddit-marketing-agent",
+        "./skills/social-media-manager",
         "./skills/cost-cutter",
         "./skills/commit-craft"
       ]
@@ -124,13 +116,11 @@
     },
     {
       "name": "local-business-pack",
-      "description": "Local business toolkit: Google Business Profile, WhatsApp, Facebook and Instagram",
+      "description": "Local business toolkit: Google Business Profile, WhatsApp, Facebook (via social-media-manager) and Instagram",
       "source": "./",
       "strict": false,
       "skills": [
-        "./skills/google-business-profile-manager",
-        "./skills/whatsapp-business-agent",
-        "./skills/facebook-page-manager",
+        "./skills/social-media-manager",
         "./skills/instagram-growth-manager",
         "./skills/social-media-calendar",
         "./skills/brand-voice-guide"
@@ -138,7 +128,7 @@
     },
     {
       "name": "startup-cto-pack",
-      "description": "Engineering lead toolkit: PR review, incidents, cost cutting, secret scanning, dependencies, migrations",
+      "description": "Engineering lead toolkit: PR review, incidents, cost cutting, secret scanning, dependencies, migrations, GitHub Actions and agent-config security",
       "source": "./",
       "strict": false,
       "skills": [
@@ -151,12 +141,14 @@
         "./skills/test-gap-hunter",
         "./skills/dockerize-anything",
         "./skills/codebase-explainer",
-        "./skills/agent-memory-keeper"
+        "./skills/agent-memory-keeper",
+        "./skills/gh-actions-auditor",
+        "./skills/prompt-injection-scanner"
       ]
     },
     {
       "name": "developer-pack",
-      "description": "Core developer workflows: PR review, commits, tests, secrets, Docker, SQL, migrations, API SDKs",
+      "description": "Core developer workflows: PR review, commits, tests, secrets, Docker, SQL, migrations, API SDKs, GitHub Actions security",
       "source": "./",
       "strict": false,
       "skills": [
@@ -171,18 +163,20 @@
         "./skills/sql-optimizer",
         "./skills/migration-wizard",
         "./skills/api-to-sdk",
-        "./skills/agent-memory-keeper"
+        "./skills/agent-memory-keeper",
+        "./skills/gh-actions-auditor"
       ]
     },
     {
       "name": "skill-builder-pack",
-      "description": "Create, lint and audit Agent Skills, plus persistent agent memory",
+      "description": "Create, lint, audit and security-scan Agent Skills, plus persistent agent memory",
       "source": "./",
       "strict": false,
       "skills": [
         "./skills/skill-creator-pro",
         "./skills/skills-doctor",
-        "./skills/agent-memory-keeper"
+        "./skills/agent-memory-keeper",
+        "./skills/prompt-injection-scanner"
       ]
     },
     {
