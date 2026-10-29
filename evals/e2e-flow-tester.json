@@ -1,0 +1,15 @@
+{
+  "skill": "e2e-flow-tester",
+  "should_trigger": [
+    "Set up Playwright for our Next.js app and write end-to-end tests for login and checkout.",
+    "Signup broke in prod twice this month even though all our unit tests passed. Can you write something that actually clicks through it like a real user would?",
+    "Our Cypress suite only checks that the homepage loads. Which user journeys should we cover next? Write those specs too.",
+    "Add a smoke test to GitHub Actions that logs in as a test user and creates a project, so a deploy can't break the main flow without us noticing.",
+    "write e2e tests for the password reset flow"
+  ],
+  "should_not_trigger": [
+    "Find the untested functions in our billing module and write unit tests for them before I refactor it.",
+    "Run an accessibility audit on the signup form and fix the missing labels and the low contrast.",
+    "Here's a screenshot of our new login page from Figma. Build it as a React component with Tailwind."
+  ]
+}

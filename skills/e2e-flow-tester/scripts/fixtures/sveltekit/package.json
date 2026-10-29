@@ -1,0 +1,1 @@
+{ "name": "sk", "scripts": { "dev": "vite dev" }, "devDependencies": { "@sveltejs/kit": "2.8.0" } }

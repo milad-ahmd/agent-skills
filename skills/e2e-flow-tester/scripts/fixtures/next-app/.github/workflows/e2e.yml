@@ -1,0 +1,9 @@
+name: e2e
+on: pull_request
+permissions:
+  contents: read
+jobs:
+  e2e:
+    runs-on: ubuntu-latest
+    steps:
+      - run: npx playwright test

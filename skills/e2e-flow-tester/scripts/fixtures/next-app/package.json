@@ -1,0 +1,6 @@
+{
+  "name": "next-app",
+  "scripts": { "dev": "next dev", "test:e2e": "playwright test" },
+  "dependencies": { "next": "15.0.0", "react": "19.0.0" },
+  "devDependencies": { "@playwright/test": "1.48.2" }
+}
