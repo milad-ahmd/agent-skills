@@ -1,6 +1,6 @@
 ---
 name: skills-doctor
-description: Audits installed Agent Skills (SKILL.md) for problems that stop them from working, such as invalid or missing frontmatter, name and folder mismatches, vague or overlapping descriptions that never trigger or trigger wrongly, oversized files, missing referenced scripts, and possible embedded secrets, using a linter script, then proposes fixes. Use when the user asks to check, debug, clean up, or audit their skills, or asks why a skill isn't triggering.
+description: Audits installed Agent Skills (SKILL.md) for problems that stop them from working, such as invalid or missing frontmatter, name and folder mismatches, vague or overlapping descriptions that never trigger or trigger wrongly, oversized files, missing referenced scripts, and possible embedded secrets, using a linter script, then proposes fixes. Use when the user asks to lint, check, debug, clean up, or audit their skills, or asks why a skill isn't triggering.
 ---
 
 # Skills Doctor 🩺
@@ -24,6 +24,13 @@ The checks:
 - **File size,** and scripts that are referenced but missing.
 - **Secrets:** both known key shapes (AKIA…, sk-…, ghp_…, private keys) and generic assignments like `*_SECRET*=`, `*PASSWORD*=`, `*TOKEN*=`, `*API_KEY*=`, plus credentials inside URLs (`scheme://user:pass@host`).
 - **Overlap:** pairs of skills whose whole descriptions (Jaccard ≥ 0.20) or "Use when…" clauses (≥ 0.30) overlap. The trigger clause is where conflicts actually happen.
+
+**CI:** `--format github` turns each issue into a PR annotation (`file`, `line`) and, when `$GITHUB_STEP_SUMMARY` is set, appends a summary table. In a GitHub workflow, use the Action instead of copying the script:
+
+```yaml
+- uses: actions/checkout@v4
+- uses: milad-ahmd/skills-doctor@v1   # auto-detects skills/, .claude/skills, .agents/skills
+```
 
 **Limits:** the secret scan is heuristic. It catches common leak patterns but not every secret format, so it never proves a skill is safe. For anything you'll publish, also run a dedicated scanner (`gitleaks`, `trufflehog`) and read the scripts yourself.
 

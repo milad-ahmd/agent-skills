@@ -1,6 +1,6 @@
 ---
 name: skill-creator-pro
-description: Designs and writes new Agent Skills (SKILL.md) from a described workflow. It produces a precise trigger description, a step-by-step workflow, rules, an output format, optional helper scripts, and a README, then validates the result with a linter. Use when the user wants to create, write, improve, or package an agent skill, SKILL.md, Claude skill, or reusable agent workflow.
+description: Designs and writes new Agent Skills (SKILL.md) from a described workflow. It produces a precise trigger description, a step-by-step workflow, rules, an output format, optional helper scripts, and a README, then checks the new skill before handing it over. Use when the user wants to create, write, improve, or package an agent skill, SKILL.md, Claude skill, or reusable agent workflow.
 ---
 
 # Skill Creator Pro

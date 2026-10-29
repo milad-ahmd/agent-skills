@@ -13,6 +13,7 @@ import unittest
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 from skill_checks import find_secrets, jaccard, parse_frontmatter, trigger_clause  # noqa: E402
+from skills_doctor import gh_escape  # noqa: E402
 
 DOCTOR = os.path.join(HERE, "skills_doctor.py")
 GOOD_DESC = "Deploys the app to production with health checks and rollback steps. Use when the user asks to deploy, release, or ship."
@@ -26,8 +27,8 @@ def make_skill(root, name, desc_block, body="# x\n## Rules\n- ok\n"):
     return d
 
 
-def run_doctor(*args):
-    return subprocess.run([sys.executable, DOCTOR, *args], capture_output=True, text=True)
+def run_doctor(*args, env=None):
+    return subprocess.run([sys.executable, DOCTOR, *args], capture_output=True, text=True, env=env)
 
 
 class Frontmatter(unittest.TestCase):
@@ -114,6 +115,68 @@ class DoctorCLI(unittest.TestCase):
         if os.path.isdir(skills) and len(os.listdir(skills)) > 10:
             r = run_doctor("--strict", skills)
             self.assertEqual(r.returncode, 0, r.stdout[-2000:])
+
+
+class GitHubFormat(unittest.TestCase):
+    def test_escaping(self):
+        self.assertEqual(gh_escape("50% done\nnext\r"), "50%25 done%0Anext%0D")
+        self.assertEqual(gh_escape("a: b, c", prop=True), "a%3A b%2C c")
+
+    def run_gh(self, t, *args):
+        summary = os.path.join(t, "summary.md")
+        env = dict(os.environ, GITHUB_STEP_SUMMARY=summary, GITHUB_WORKSPACE=t, PYTHONIOENCODING="utf-8")
+        r = run_doctor("--format", "github", *args, os.path.join(t, "skills"), env=env)
+        if not os.path.exists(summary):
+            return r, ""
+        with open(summary, encoding="utf-8") as f:
+            return r, f.read()
+
+    def test_annotations_lines_and_summary(self):
+        with tempfile.TemporaryDirectory() as t:
+            root = os.path.join(t, "skills")
+            os.makedirs(root)
+            make_skill(root, "Bad_Name", f"description: {GOOD_DESC}")
+            make_skill(root, "no-desc", "license: MIT")
+            make_skill(root, "leaky", f"description: {GOOD_DESC.replace('deploy', 'publish')}", "# x\n\nkey = " + "AKIA" + "Q" * 16 + "\n")
+            r, summary = self.run_gh(t, "--strict")
+            self.assertEqual(r.returncode, 1, r.stdout)
+            out = r.stdout.splitlines()
+            self.assertIn("::error file=skills/Bad_Name/SKILL.md,line=2,title=skills-doctor%3A Bad_Name::"
+                          "name `Bad_Name` must be kebab-case and ≤ 64 chars", out)
+            self.assertIn("::error file=skills/no-desc/SKILL.md,line=1,title=skills-doctor%3A no-desc::frontmatter has no `description`", out)
+            secret = [ln for ln in out if ln.startswith("::error file=skills/leaky/SKILL.md,line=7,")]
+            self.assertEqual(len(secret), 1, r.stdout)
+            self.assertNotIn("Q" * 16, r.stdout + summary)  # never the full value
+            self.assertTrue(any(ln.startswith("::warning file=skills/Bad_Name/SKILL.md,line=3,title=skills-doctor%3A overlap::") for ln in out))
+            self.assertFalse(any("❌ name" in ln for ln in out))  # issues become annotations, not text lines
+            self.assertIn("| Skills checked | Errors | Warnings | Overlaps |", summary)
+            self.assertIn("| 3 | 3 | 0 | 1 |", summary)
+            self.assertIn("`skills/leaky/SKILL.md:7`", summary)
+            self.assertRegex(summary, r"\| description \| \d\.\d\d \| 0\.20 \| over \|")
+
+    def test_clean_run_and_text_default_untouched(self):
+        with tempfile.TemporaryDirectory() as t:
+            make_skill(os.path.join(t, "skills"), "deployer", f"description: {GOOD_DESC}")
+            r, summary = self.run_gh(t, "--strict")
+            self.assertEqual(r.returncode, 0, r.stdout)
+            self.assertNotIn("::", r.stdout)
+            self.assertIn("**✅ clean**", summary)
+            self.assertIn("| 1 | 0 | 0 | 0 |", summary)
+            env = dict(os.environ, GITHUB_STEP_SUMMARY=os.path.join(t, "text.md"))
+            r = run_doctor(os.path.join(t, "skills"), env=env)
+            self.assertIn("✅ deployer", r.stdout)
+            self.assertFalse(os.path.exists(os.path.join(t, "text.md")))  # text mode never writes the summary
+
+    def test_warning_exit_code_and_no_skills(self):
+        with tempfile.TemporaryDirectory() as t:
+            make_skill(os.path.join(t, "skills"), "warn-only", "description: does stuff")
+            r, summary = self.run_gh(t, "--strict")
+            self.assertEqual(r.returncode, 2, r.stdout)
+            self.assertIn("::warning file=skills/warn-only/SKILL.md,line=3,", r.stdout)
+            self.assertIn("⚠️ warnings or overlaps", summary)
+            r = run_doctor("--format", "github", os.path.join(t, "nowhere"))
+            self.assertEqual(r.returncode, 1)
+            self.assertTrue(r.stdout.startswith("::error title=skills-doctor::No skills found"), r.stdout)
 
 
 if __name__ == "__main__":
