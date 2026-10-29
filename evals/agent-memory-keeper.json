@@ -5,11 +5,15 @@
     "You ran the tests with jest again even though I told you it's vitest. Don't forget it this time",
     "What do you remember about this project from last time?",
     "Forget the note about the staging database, it's been shut down",
-    "Keep a running file of the gotchas we hit so the next session doesn't repeat them"
+    "I'm running out of context, write a handoff so a fresh session can finish the migration",
+    "Let's pick up where we left off yesterday",
+    "I have to switch laptops. Save where we are so I can continue this in a new session over there",
+    "Hand this over to Sara tomorrow: what's done, what's left, what you already tried that didn't work"
   ],
   "should_not_trigger": [
-    "Explain how this codebase is structured, I just joined the team",
-    "Write a skill that teaches the agent our deploy process",
-    "Tell me the story of how this repo evolved over the years"
+    "Turn the notes from today's standup into Linear tickets",
+    "Write the release notes for everything since v2.3",
+    "Split my working tree into clean conventional commits",
+    "Checkout is throwing 500s in production, help me coordinate the response"
   ]
 }
