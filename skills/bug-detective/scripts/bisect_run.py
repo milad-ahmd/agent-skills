@@ -32,7 +32,8 @@ import tempfile
 import time
 
 GIT_ENV = dict(os.environ, LC_ALL="C", LANG="C", GIT_TERMINAL_PROMPT="0")
-SHA_RX = re.compile(r"^([0-9a-f]{40,64}) is the first bad commit", re.M)
+# older git prints "is the first bad commit", newer git quotes the term: "is the first 'bad' commit"
+SHA_RX = re.compile(r"^([0-9a-f]{40,64}) is the first '?bad'? commit", re.M)
 NOT_FOUND = {126, 127}
 
 

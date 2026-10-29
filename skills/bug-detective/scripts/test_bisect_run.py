@@ -16,7 +16,7 @@ import unittest
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
-from bisect_run import run_once, verdict_of  # noqa: E402
+from bisect_run import SHA_RX, run_once, verdict_of  # noqa: E402
 
 SCRIPT = os.path.join(HERE, "bisect_run.py")
 ENV = dict(os.environ, GIT_CONFIG_GLOBAL=os.devnull, GIT_CONFIG_NOSYSTEM="1", LC_ALL="C",
@@ -269,6 +269,12 @@ class Interrupt(Base):
 
 
 class Units(unittest.TestCase):
+    def test_result_line_from_old_and_new_git(self):
+        sha = "892b5076c34226c2725637091a011fc7d3613e01"
+        for line in ("%s is the first bad commit" % sha, "%s is the first 'bad' commit" % sha):
+            m = SHA_RX.search("Bisecting: 0 revisions left\n%s\ncommit %s\n" % (line, sha))
+            self.assertEqual(m and m.group(1), sha, line)
+
     def test_verdicts(self):
         def v(code, timed_out=False, skip=(), means="skip"):
             return verdict_of({"exit": code, "timed_out": timed_out}, set(skip), means)
