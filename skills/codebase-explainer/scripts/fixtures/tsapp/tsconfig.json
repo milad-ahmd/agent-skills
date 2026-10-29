@@ -1,0 +1,12 @@
+{
+  // comments and trailing commas are allowed here
+  "compilerOptions": {
+    "target": "es2022",
+    "baseUrl": ".",
+    /* path aliases */
+    "paths": {
+      "@/*": ["src/*"],
+      "@lib": ["src/lib/index.ts"],
+    },
+  },
+}

@@ -5,11 +5,11 @@
     "Write an ARCHITECTURE.md with diagrams of how a request flows through the backend",
     "Explain this codebase to me like I'm the new hire",
     "Map out the modules in this monorepo and which files are risky to touch",
-    "how does data get from the API down to the database here?"
+    "Draw me an interactive graph of which files import which, I want to click around it"
   ],
   "should_not_trigger": [
     "Who built what in this repo and when? Give me the timeline",
     "Make our README look polished with badges and a quickstart",
-    "Review the diff on this branch"
+    "Which of our npm packages are outdated or have known CVEs?"
   ]
 }

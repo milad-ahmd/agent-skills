@@ -1,0 +1,7 @@
+{
+  "name": "tsapp",
+  "main": "src/index.ts",
+  "bin": {"tsapp": "bin/cli.js"},
+  "scripts": {"dev": "tsx watch src/server.ts"},
+  "dependencies": {"react": "^18.3.1", "@tanstack/query": "^5.0.0"}
+}
