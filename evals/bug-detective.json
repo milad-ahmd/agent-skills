@@ -1,0 +1,15 @@
+{
+  "skill": "bug-detective",
+  "should_trigger": [
+    "cart total is wrong when a discount code is applied and I can't figure out why. can you debug it?",
+    "The login test passed two weeks ago and fails on main now. Which commit broke it?",
+    "Run git bisect for me. v2.3.0 is good, HEAD is bad, and npm test -- parser shows the problem.",
+    "TypeError: cannot read properties of undefined (reading 'id') when I save a draft, but only sometimes. What's going on?",
+    "I've tried three fixes for this pagination off-by-one and each one breaks something else. Can we track down what's actually wrong?"
+  ],
+  "should_not_trigger": [
+    "Production is throwing 500s on every checkout since the deploy ten minutes ago, help me run the response.",
+    "Find the parts of the billing module that have no tests and write some.",
+    "Review my PR #88 before I merge it and leave comments."
+  ]
+}
