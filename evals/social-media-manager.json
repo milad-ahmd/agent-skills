@@ -1,0 +1,19 @@
+{
+  "skill": "social-media-manager",
+  "should_trigger": [
+    "I run a small accounting firm and have no idea which social platforms are worth my time. Can you pick two and give me a weekly plan with KPIs?",
+    "Rewrite my LinkedIn headline and About section. I'm a fractional CFO for Series A SaaS startups and want more inbound leads.",
+    "Write me a 7-post X thread about what I learned bootstrapping my dev tool to its first 100 customers, plus a few replies I could leave on bigger accounts.",
+    "We're launching an open-source CLI next week. Which subreddits allow self-promotion, and can you draft a launch post that won't get removed?",
+    "Our bakery's Google Maps listing is stuck below competitors. Audit our Google Business Profile and give me reply templates for a couple of angry reviews.",
+    "Set up WhatsApp Business for my clothing shop: greeting and away messages, quick replies, and a Cloud API template for order-shipped notifications.",
+    "I have a Telegram channel with 3k subscribers about crypto tax tips, but views keep dropping. Plan a weekly content calendar and suggest how to grow it.",
+    "Write 10 Pinterest Pin titles and descriptions for my vegan recipe blog and suggest a board structure for search."
+  ],
+  "should_not_trigger": [
+    "Write five Instagram Reels captions with hashtags for my yoga studio and audit my Instagram bio and grid.",
+    "Give me TikTok video ideas with 2-second openers and shot-by-shot scripts for my skincare brand's TikTok Shop.",
+    "Suggest better YouTube titles, tags and a thumbnail concept for my video on home espresso machines to improve CTR.",
+    "Here's a CSV export from Instagram Insights and Meta Ads for last month. Summarise what's working and turn it into a performance report."
+  ]
+}
