@@ -1,0 +1,15 @@
+{
+  "skill": "plan-griller",
+  "should_trigger": [
+    "Grill me on this feature before I write any code: we want to let support agents issue partial refunds.",
+    "I'm about to build saved searches with email alerts. Interview me until the plan is solid and write a spec.",
+    "Here's my rough plan for adding team workspaces. Ask me the hard questions one at a time, then give me requirements and acceptance criteria.",
+    "Before we touch the code, help me nail down what 'bulk import from CSV' should actually do, edge cases included.",
+    "Can you turn this half-baked ticket into a proper PRD with Given/When/Then and a test plan? Look at the repo first."
+  ],
+  "should_not_trigger": [
+    "Is a subscription box for houseplants a good business? Tell me what could kill it.",
+    "Here are the notes from today's planning meeting, create Jira tickets for the action items.",
+    "Review my feature branch for bugs before I open the PR."
+  ]
+}
