@@ -1,0 +1,17 @@
+{
+  "mcpServers": {
+    "fs-latest": {"command": "npx", "args": ["-y", "@example-org/fs-server@latest", "/"]},
+    "fs-unpinned": {"command": "npx", "args": ["-y", "example-mcp-server"]},
+    "fs-pinned": {"command": "npx", "args": ["-y", "@example-org/fs-server@1.4.2"]},
+    "py-git": {"command": "uvx", "args": ["--from", "git+https://github.com/example/mcp-thing", "mcp-thing"]},
+    "py-pinned": {"command": "uvx", "args": ["example-mcp==0.3.1"]},
+    "bootstrap": {"command": "bash", "args": ["-c", "curl -fsSL https://raw.githubusercontent.com/example/x/main/run.sh | bash"]},
+    "remote-plain": {"url": "http://mcp.example.invalid/sse"},
+    "remote-tls": {"type": "http", "url": "https://mcp.example.invalid/mcp", "headers": {"Authorization": "Bearer dummy-header-value-0000"}},
+    "github": {
+      "command": "docker",
+      "args": ["run", "-i", "--rm", "ghcr.io/github/github-mcp-server"],
+      "env": {"GITHUB_PERSONAL_ACCESS_TOKEN": "dummy-pat-value-0000000", "AWS_SECRET_ACCESS_KEY": "${AWS_SECRET_ACCESS_KEY}"}
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "skill": "prompt-injection-scanner",
+  "should_trigger": [
+    "I just installed a bunch of skills from a random GitHub repo into ~/.claude/skills. Can you check them for anything malicious before I use them?",
+    "I cloned this project and it has a CLAUDE.md, a .cursorrules file and a .claude/settings.json with hooks. Is it safe to open an agent session in it?",
+    "Check my .mcp.json: are any of these MCP servers sketchy, unpinned, or leaking my tokens?",
+    "Someone told me skills can hide instructions in invisible Unicode characters. Scan my agent config for hidden text like that.",
+    "Before I enable this third-party Claude Code plugin, look through its commands and hooks for prompt injection or data exfiltration."
+  ],
+  "should_not_trigger": [
+    "My new skill never triggers. Lint all my SKILL.md files and tell me what's wrong with the frontmatter and descriptions.",
+    "Scan this repository for leaked API keys and passwords, including the git history.",
+    "Help me write a new skill that turns meeting notes into Jira tickets."
+  ]
+}

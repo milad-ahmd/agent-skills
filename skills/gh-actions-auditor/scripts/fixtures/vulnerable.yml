@@ -1,0 +1,47 @@
+# Planted-vulnerable workflow for tests. Inert: GitHub only runs files in the repo's root .github/workflows/.
+name: PR bot
+on:
+  pull_request_target:
+    types: [opened, synchronize]
+  issue_comment:
+    types: [created]
+
+env:
+  ACTIONS_ALLOW_UNSECURE_COMMANDS: true
+
+jobs:
+  build:
+    runs-on: [self-hosted, linux]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+      - uses: tj-actions/changed-files@v45
+      - uses: some-org/setup-thing@main
+      - name: Install and test
+        run: |
+          npm ci
+          npm test
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Greet
+        run: |
+          echo "Thanks for the PR"
+          echo "Title: ${{ github.event.pull_request.title }}"
+      - run: curl -fsSL https://example.invalid/install.sh | sudo bash
+      - uses: actions/github-script@v7
+        with:
+          script: |
+            const body = `${{ github.event.comment.body }}`
+            console.log(body)
+      - uses: docker://alpine:latest
+
+  release:
+    permissions: write-all
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "${{ github.head_ref }}"
+
+  shared:
+    uses: other-org/workflows/.github/workflows/deploy.yml@v1
+    secrets: inherit

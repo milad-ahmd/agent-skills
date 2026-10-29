@@ -1,0 +1,15 @@
+{
+  "skill": "gh-actions-auditor",
+  "should_trigger": [
+    "Can you audit our .github/workflows folder for security problems? We just read about the tj-actions compromise and I'm nervous.",
+    "Pin every GitHub Action in this repo to a commit SHA instead of tags like @v4, and keep the version as a comment.",
+    "Our PR labeler workflow uses pull_request_target and checks out the PR branch. Is that exploitable by a fork?",
+    "Is it safe to put ${{ github.event.issue.title }} directly in a run step? Check all our workflows for that kind of thing.",
+    "Harden the GitHub Actions CI before we make the repo public: token permissions, secrets, third-party actions, the lot."
+  ],
+  "should_not_trigger": [
+    "Scan this repo and its git history for leaked AWS keys before I push it to GitHub.",
+    "Review my open pull request #42 for bugs and missing tests before I merge.",
+    "Check our npm dependencies for known vulnerabilities and plan the upgrades."
+  ]
+}
