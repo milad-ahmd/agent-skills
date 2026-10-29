@@ -1,0 +1,15 @@
+{
+  "skill": "content-repurposer",
+  "should_trigger": [
+    "Turn this 40-minute podcast transcript into posts for all our channels",
+    "I just published a YouTube video. Pull out Shorts clips with timestamps, plus an X thread and a newsletter",
+    "Atomize this blog post into a LinkedIn post, an Instagram carousel and some quote graphics",
+    "Get as much mileage as possible out of my conference talk recording",
+    "Recycle our webinar into two weeks of social content"
+  ],
+  "should_not_trigger": [
+    "Build our social media content calendar for March",
+    "Write a YouTube script about home espresso",
+    "Write launch posts for our open-source CLI"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "skill": "screenshot-to-component",
+  "should_trigger": [
+    "Here's a screenshot of the design, build it in React with Tailwind",
+    "Recreate this mockup as a SwiftUI view",
+    "Implement this Figma export as a Vue component using our existing Button and Card",
+    "Can you code up this UI? Image attached",
+    "Turn this Dribbble shot into a Flutter widget"
+  ],
+  "should_not_trigger": [
+    "Fix the contrast and keyboard issues in our components",
+    "Critique this landing page screenshot",
+    "Review the frontend PR"
+  ]
+}

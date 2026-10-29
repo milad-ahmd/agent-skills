@@ -1,0 +1,15 @@
+{
+  "skill": "social-analytics-reporter",
+  "should_trigger": [
+    "Here's our TikTok analytics CSV, what's working?",
+    "Write the monthly social media report from these exports",
+    "Our YouTube Studio numbers dropped in September. Why?",
+    "Summarize KPIs across IG, LinkedIn and X for the board deck",
+    "Which posts did best last quarter, and what should we do more of?"
+  ],
+  "should_not_trigger": [
+    "Plan next month's posts across all platforms",
+    "Analyze our competitors' social media presence",
+    "Give me YouTube titles that will get a better CTR"
+  ]
+}

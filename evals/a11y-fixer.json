@@ -1,0 +1,15 @@
+{
+  "skill": "a11y-fixer",
+  "should_trigger": [
+    "Our signup form is useless with VoiceOver, it just says 'edit text' for every field. Can you fix it?",
+    "Run an accessibility audit on the components in src/ui and fix whatever you find",
+    "Can keyboard-only users actually use this modal? Tab seems to escape it",
+    "A customer complained the checkout isn't WCAG compliant. Make it pass AA",
+    "the light grey text on our buttons is probably too faint to read, check the contrast and fix it"
+  ],
+  "should_not_trigger": [
+    "Turn this Figma screenshot of the pricing card into a React component",
+    "Roast our homepage, the conversion rate is terrible",
+    "Review my frontend PR before I merge it"
+  ]
+}

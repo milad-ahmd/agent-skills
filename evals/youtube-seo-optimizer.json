@@ -1,0 +1,15 @@
+{
+  "skill": "youtube-seo-optimizer",
+  "should_trigger": [
+    "Write the title, a description with chapters and tags for my new video",
+    "My CTR is 2.1%. Give me better thumbnail ideas",
+    "Audit my YouTube channel page",
+    "How do I get my videos to show up in YouTube search?",
+    "Keyword research for a video about home espresso machines"
+  ],
+  "should_not_trigger": [
+    "Write the script for my espresso video",
+    "Write an SEO blog post about espresso machines",
+    "Plan our App Store keywords"
+  ]
+}

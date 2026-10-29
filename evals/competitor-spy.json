@@ -1,0 +1,15 @@
+{
+  "skill": "competitor-spy",
+  "should_trigger": [
+    "Do a competitive analysis of Notion, Coda and Obsidian against our note app",
+    "What are our competitors charging, and where's the gap?",
+    "Look at which ads our rivals are running and what their customers complain about in reviews",
+    "SWOT us against the other three meal kit brands in Germany",
+    "Who else is doing AI bookkeeping for freelancers, and how do we stand out?"
+  ],
+  "should_not_trigger": [
+    "Is my idea for an AI bookkeeping app worth building?",
+    "Analyze last month's Instagram and TikTok numbers",
+    "Define our brand voice and messaging"
+  ]
+}

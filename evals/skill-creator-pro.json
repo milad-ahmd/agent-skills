@@ -1,0 +1,15 @@
+{
+  "skill": "skill-creator-pro",
+  "should_trigger": [
+    "Create a skill that writes our weekly status report",
+    "Turn my deploy checklist into a SKILL.md",
+    "I keep explaining the same review rules to Claude. Package them as something reusable",
+    "Help me write an agent skill for triaging Sentry errors",
+    "Write a Claude skill with a helper script that generates invoices"
+  ],
+  "should_not_trigger": [
+    "Why isn't my commit-craft skill triggering?",
+    "Remember that we deploy with fly.io",
+    "Lint all the skills in ~/.claude/skills"
+  ]
+}

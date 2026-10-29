@@ -1,0 +1,15 @@
+{
+  "skill": "app-store-optimizer",
+  "should_trigger": [
+    "Our meditation app is buried in App Store search. Help with keywords and the subtitle",
+    "Rewrite our Google Play short description and full description",
+    "What captions should go on our five iPhone screenshots?",
+    "Draft replies to these 1-star reviews on the Play Store",
+    "ASO audit for my habit tracker app please"
+  ],
+  "should_not_trigger": [
+    "Write a blog post that ranks for 'best habit tracker'",
+    "Plan our TikTok videos for the app launch",
+    "Roast our app's marketing website"
+  ]
+}

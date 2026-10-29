@@ -1,0 +1,15 @@
+{
+  "skill": "meeting-notes-to-tickets",
+  "should_trigger": [
+    "Here are the notes from today's sprint planning. Create Linear issues for the action items",
+    "Turn this Zoom transcript into Jira tickets with acceptance criteria",
+    "Pull the to-dos out of this Slack thread and file GitHub issues",
+    "Who agreed to do what in this meeting? Make tasks for them",
+    "Convert these standup notes into tickets, but check for duplicates first"
+  ],
+  "should_not_trigger": [
+    "Prod is down, run the incident with me",
+    "Write commit messages for my changes",
+    "Summarize what changed since v2 for the release"
+  ]
+}

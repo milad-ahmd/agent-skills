@@ -1,0 +1,15 @@
+{
+  "skill": "tiktok-viral-creator",
+  "should_trigger": [
+    "Give me 15 TikTok ideas for a plant shop",
+    "Script a TikTok about budgeting with a shot list and on-screen text",
+    "Why do people swipe away from my videos after 2 seconds? Here's my retention curve",
+    "Help me grow my TikTok Shop for handmade candles",
+    "plan a weekly upload schedule and a recurring series for my faceless TikTok"
+  ],
+  "should_not_trigger": [
+    "Write the script for our paid TikTok ad",
+    "Find TikTok creators to promote our product",
+    "Cut my YouTube video into Shorts and Reels clips"
+  ]
+}

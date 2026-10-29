@@ -1,0 +1,15 @@
+{
+  "skill": "social-media-calendar",
+  "should_trigger": [
+    "Make a content calendar for November across Instagram, TikTok and LinkedIn",
+    "Plan a month of posts for our coffee shop and export it as a CSV for Buffer",
+    "What should we post each day next month? We have a launch on the 15th",
+    "Posting schedule for Q1 with holiday hooks",
+    "I need a 30-day social plan our two-person team can actually produce"
+  ],
+  "should_not_trigger": [
+    "Repurpose this webinar into social clips",
+    "Analyze last month's social media performance",
+    "Plan a week of Reels for my Instagram"
+  ]
+}

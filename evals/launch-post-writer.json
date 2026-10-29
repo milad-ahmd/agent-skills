@@ -1,0 +1,15 @@
+{
+  "skill": "launch-post-writer",
+  "should_trigger": [
+    "Write a Show HN post for my repo",
+    "Help me announce v1.0 of my CLI on X and Reddit",
+    "We're launching on Product Hunt Tuesday. Taglines and a launch thread please",
+    "promote this open-source library, write the posts",
+    "Draft a dev.to article outline about the feature we just shipped"
+  ],
+  "should_not_trigger": [
+    "Generate release notes since the last tag",
+    "Make our README star-worthy",
+    "Repurpose my conference talk into social posts"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "skill": "brand-voice-guide",
+  "should_trigger": [
+    "Define a tone of voice for our fintech startup. Friendly, but not childish",
+    "Here's our website copy and our 10 best tweets. Put together a messaging guide the whole team can use",
+    "Our ads, emails and support replies all sound like different companies. Fix that",
+    "Make this product announcement sound like us, using our voice doc",
+    "Who are our personas and what's our positioning statement? Here are five customer interview notes"
+  ],
+  "should_not_trigger": [
+    "Remove the AI-sounding phrases from this paragraph",
+    "Analyze how our competitors price and position themselves",
+    "Write captions and hashtags for our next three Instagram posts"
+  ]
+}

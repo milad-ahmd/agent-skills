@@ -1,0 +1,15 @@
+{
+  "skill": "dependency-doctor",
+  "should_trigger": [
+    "npm audit shows 23 vulnerabilities, sort it out",
+    "Update our dependencies, but safely",
+    "Which packages in requirements.txt are outdated or not even used?",
+    "Dependabot opened 30 PRs. Which ones are safe to merge first?",
+    "Is anything in our go.mod known to be vulnerable?"
+  ],
+  "should_not_trigger": [
+    "Migrate our tests from Jest to Vitest",
+    "Scan the git history for leaked tokens",
+    "Dockerize this Node app"
+  ]
+}

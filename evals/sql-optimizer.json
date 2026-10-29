@@ -1,0 +1,15 @@
+{
+  "skill": "sql-optimizer",
+  "should_trigger": [
+    "Why is this Postgres query so slow? SELECT * FROM orders o JOIN users u ON u.id = o.user_id WHERE o.status = 'paid' ORDER BY o.created_at DESC",
+    "Here's the EXPLAIN ANALYZE output. What index do I need?",
+    "Our Django admin page fires 400 queries, fix the N+1",
+    "This MySQL report takes 12 seconds to load",
+    "Should I add a composite index on (user_id, created_at)?"
+  ],
+  "should_not_trigger": [
+    "Our database costs are too high, help cut spend",
+    "The production database is down and the site returns 500s",
+    "Migrate our ORM from Sequelize to Prisma"
+  ]
+}

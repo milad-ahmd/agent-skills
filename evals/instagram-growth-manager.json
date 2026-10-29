@@ -1,0 +1,15 @@
+{
+  "skill": "instagram-growth-manager",
+  "should_trigger": [
+    "Rewrite my Instagram bio, I'm a personal trainer in Austin",
+    "Plan a week of Reels and carousels for my bakery's IG",
+    "Hashtag sets for a travel photography account?",
+    "My insta has been stuck at 2k followers for months. Audit my grid and strategy",
+    "Captions for these 3 posts, with a CTA to book a call"
+  ],
+  "should_not_trigger": [
+    "Build a monthly content calendar across Instagram, TikTok and LinkedIn",
+    "Here are our Meta Business Suite and YouTube Studio exports, build the monthly performance report",
+    "Script five TikToks for my bakery"
+  ]
+}

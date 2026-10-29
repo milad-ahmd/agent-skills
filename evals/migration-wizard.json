@@ -1,0 +1,15 @@
+{
+  "skill": "migration-wizard",
+  "should_trigger": [
+    "Convert this project from JavaScript to TypeScript",
+    "Move us from Jest to Vitest",
+    "Upgrade from the Next.js Pages Router to the App Router, step by step",
+    "Port the Vue 2 app to Vue 3 without breaking everything",
+    "We're still on CommonJS. Switch the whole codebase to ESM"
+  ],
+  "should_not_trigger": [
+    "Bump our outdated packages and fix the audit warnings",
+    "Add tests before I refactor the payments module",
+    "Generate an SDK from our OpenAPI spec"
+  ]
+}

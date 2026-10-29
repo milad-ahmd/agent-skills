@@ -1,0 +1,15 @@
+{
+  "skill": "youtube-script-writer",
+  "should_trigger": [
+    "Write a script for a 10-minute YouTube video about intermittent fasting",
+    "I need talking points and an intro for my video on budget travel in Japan",
+    "Script a 45-second Short explaining compound interest",
+    "Rewrite what I say on camera, it's boring and people drop off at 1:30",
+    "Write a natural-sounding sponsor read for a VPN in my tech video"
+  ],
+  "should_not_trigger": [
+    "Give me 5 YouTube title options and a thumbnail concept",
+    "Turn my existing YouTube video into a blog post and a thread",
+    "Give me 20 hooks for my Reel"
+  ]
+}

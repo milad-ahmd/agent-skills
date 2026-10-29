@@ -1,0 +1,15 @@
+{
+  "skill": "pr-reviewer-pro",
+  "should_trigger": [
+    "Review PR #482",
+    "Check my changes before I push",
+    "Can you look over this diff like a senior engineer would?",
+    "Is there anything wrong with my feature branch? Security, performance, naming",
+    "give me review comments for https://github.com/acme/api/pull/77"
+  ],
+  "should_not_trigger": [
+    "Split these changes into atomic commits",
+    "Find the untested code and write tests for it",
+    "Explain how this codebase works"
+  ]
+}

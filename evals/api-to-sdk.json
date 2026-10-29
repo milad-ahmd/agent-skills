@@ -1,0 +1,15 @@
+{
+  "skill": "api-to-sdk",
+  "should_trigger": [
+    "Generate a typed TypeScript client from our openapi.yaml",
+    "We have a Postman collection for the payments API. Turn it into a Python SDK with retries",
+    "I'm tired of hand-writing fetch calls for every endpoint in our Express backend. Make a proper client library",
+    "Wrap the REST API documented in docs/api.md in a Go package with pagination helpers",
+    "build a Dart client for our backend so the Flutter app stops using raw http calls"
+  ],
+  "should_not_trigger": [
+    "Migrate this project from JavaScript to TypeScript",
+    "Write tests for the untested parts of our API layer",
+    "npm audit shows 14 vulnerabilities, fix them"
+  ]
+}

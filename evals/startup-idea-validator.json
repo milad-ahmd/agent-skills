@@ -1,0 +1,15 @@
+{
+  "skill": "startup-idea-validator",
+  "should_trigger": [
+    "Is an app for splitting rent with roommates a good business?",
+    "Poke holes in my SaaS idea before I quit my job",
+    "How do I validate demand for a dog-walking marketplace cheaply?",
+    "What would kill this idea: an AI tutor for nursing students?",
+    "Go or no-go on my side project? Here's the pitch"
+  ],
+  "should_not_trigger": [
+    "Analyze our three main competitors' pricing",
+    "Write our brand positioning and messaging pillars",
+    "Write Product Hunt launch posts for our app"
+  ]
+}

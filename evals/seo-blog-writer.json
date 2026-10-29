@@ -1,0 +1,15 @@
+{
+  "skill": "seo-blog-writer",
+  "should_trigger": [
+    "Write a blog post that ranks for 'best project management software for small teams'",
+    "We need an SEO article about cold brew ratios, around 1500 words",
+    "Outline and write a genuinely helpful guide on how to file taxes as a freelancer in Germany",
+    "Write an article with a meta description, FAQ and schema markup for our pricing guide",
+    "our blog gets zero Google traffic, write the next article properly"
+  ],
+  "should_not_trigger": [
+    "Write YouTube titles and tags for my video",
+    "Get our app ranking higher in the App Store",
+    "Turn this blog post into an X thread and a carousel"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "skill": "ai-slop-detector",
+  "should_trigger": [
+    "Does this cover letter sound like ChatGPT wrote it? Make it sound like me",
+    "humanize this blog intro, it's full of 'delve' and 'in today's fast-paced world'",
+    "Way too many em dashes and every paragraph ends with a neat little moral. Can you de-slop it?",
+    "My manager said my project update reads robotic. Here's the text, fix it",
+    "Score this draft for AI-sounding phrasing before I publish it"
+  ],
+  "should_not_trigger": [
+    "Write a brand voice guide for our coffee company",
+    "Write an SEO article targeting 'compost bin for apartment'",
+    "Rewrite our README so it gets more GitHub stars"
+  ]
+}

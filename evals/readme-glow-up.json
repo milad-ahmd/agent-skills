@@ -1,0 +1,15 @@
+{
+  "skill": "readme-glow-up",
+  "should_trigger": [
+    "Our README is just a title and 'npm install'. Make it good",
+    "Glow up the README",
+    "Add badges, a quickstart and a demo GIF section to the README",
+    "Make the repo's front page on GitHub look professional so people star it",
+    "Rewrite README.md, it's outdated and confusing"
+  ],
+  "should_not_trigger": [
+    "Write an onboarding architecture doc for new engineers",
+    "Write a Show HN post for the repo",
+    "Roast my GitHub profile"
+  ]
+}

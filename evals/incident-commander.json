@@ -1,0 +1,15 @@
+{
+  "skill": "incident-commander",
+  "should_trigger": [
+    "Production is down!! 500s everywhere since the last deploy",
+    "Checkout error rate just jumped to 30%, what do we do first?",
+    "The site is crawling for EU users right now",
+    "Help me write the postmortem for yesterday's outage",
+    "We're mid-incident. Draft a status page update and run the investigation with me"
+  ],
+  "should_not_trigger": [
+    "Why is our AWS bill so high?",
+    "This query is slow in staging, here's the EXPLAIN",
+    "Turn this meeting transcript into Jira tickets"
+  ]
+}

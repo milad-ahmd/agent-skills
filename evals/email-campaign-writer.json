@@ -1,0 +1,15 @@
+{
+  "skill": "email-campaign-writer",
+  "should_trigger": [
+    "Write a 5-email welcome series for people who download our ebook",
+    "Abandoned cart emails for our Shopify store please",
+    "Give me 10 subject lines for our Black Friday newsletter",
+    "We have 8k subscribers who haven't opened anything in 6 months. Write a win-back sequence",
+    "Draft this month's newsletter for Klaviyo"
+  ],
+  "should_not_trigger": [
+    "Write Facebook ad copy for our Black Friday sale",
+    "Write outreach DMs to creators about our product",
+    "Turn this podcast episode into a thread, Reels clips and a carousel"
+  ]
+}

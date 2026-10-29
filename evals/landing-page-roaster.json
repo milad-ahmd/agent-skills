@@ -1,0 +1,15 @@
+{
+  "skill": "landing-page-roaster",
+  "should_trigger": [
+    "Roast my landing page: https://example.com",
+    "Why isn't our homepage converting? Screenshot attached",
+    "Critique the copy and CTAs on our pricing page",
+    "Be brutally honest about our SaaS homepage, then give me better headlines",
+    "Review the hero section in app/page.tsx for conversion"
+  ],
+  "should_not_trigger": [
+    "Fix the accessibility problems on our homepage",
+    "Roast my GitHub profile",
+    "Write Google ads that point to our landing page"
+  ]
+}

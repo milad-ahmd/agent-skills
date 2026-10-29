@@ -1,0 +1,15 @@
+{
+  "skill": "test-gap-hunter",
+  "should_trigger": [
+    "Our coverage is 38%. Write tests where it matters most",
+    "Find the untested code in the payments module and cover it",
+    "I'm about to refactor auth. Add tests first so I don't break it",
+    "Which parts of this project are risky because nothing tests them?",
+    "add pytest tests for the CSV parser"
+  ],
+  "should_not_trigger": [
+    "Review my PR and point out missing tests",
+    "Migrate from Jest to Vitest",
+    "Explain what this codebase does"
+  ]
+}

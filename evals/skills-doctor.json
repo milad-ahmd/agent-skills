@@ -1,0 +1,15 @@
+{
+  "skill": "skills-doctor",
+  "should_trigger": [
+    "Why doesn't my skill ever trigger?",
+    "Audit the skills in ~/.claude/skills",
+    "Two of my skills keep loading for the same prompts. Figure out the overlap",
+    "Check my SKILL.md files for broken frontmatter",
+    "clean up my installed agent skills, something's off with them"
+  ],
+  "should_not_trigger": [
+    "Write a new skill for our release process",
+    "Check the repo for leaked secrets",
+    "Audit our npm dependencies"
+  ]
+}

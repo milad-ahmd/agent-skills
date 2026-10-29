@@ -1,0 +1,15 @@
+{
+  "skill": "changelog-from-git",
+  "should_trigger": [
+    "Write release notes for v2.4.0",
+    "What changed since v1.8? Summarize it for users",
+    "Draft the GitHub release text for the tag I just pushed",
+    "Update CHANGELOG.md with everything merged since the last release",
+    "Users keep asking what's new. Turn the last 60 commits into something people can read"
+  ],
+  "should_not_trigger": [
+    "Split my working changes into atomic commits",
+    "Write an X thread and a Show HN post announcing our release",
+    "Tell the history of this repository like a documentary"
+  ]
+}

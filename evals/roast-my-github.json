@@ -1,0 +1,15 @@
+{
+  "skill": "roast-my-github",
+  "should_trigger": [
+    "Roast my GitHub, username octocat",
+    "What does my GitHub profile say about me to recruiters?",
+    "Rate my GitHub account honestly and tell me how to improve it",
+    "Be mean about my repos, then help me fix them: github.com/jdoe",
+    "my github looks abandoned, give me a glow-up plan"
+  ],
+  "should_not_trigger": [
+    "Roast my landing page",
+    "Rewrite my repo's README",
+    "Tell me the history of this repo"
+  ]
+}

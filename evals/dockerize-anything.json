@@ -1,0 +1,15 @@
+{
+  "skill": "dockerize-anything",
+  "should_trigger": [
+    "Dockerize this Flask app",
+    "Add a docker-compose file with Postgres and Redis for local dev",
+    "Our image is 2.3 GB, can you get it smaller?",
+    "Write a production Dockerfile for this Go service, multi-stage please",
+    "how do I containerize this Next.js project?"
+  ],
+  "should_not_trigger": [
+    "Cut our AWS costs",
+    "Audit and upgrade our npm dependencies",
+    "Explain this codebase's architecture"
+  ]
+}

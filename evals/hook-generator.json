@@ -1,0 +1,15 @@
+{
+  "skill": "hook-generator",
+  "should_trigger": [
+    "Give me 20 opening lines for a Reel about saving money on groceries",
+    "How should I start my video about quitting my job?",
+    "I need a stronger first sentence for this post",
+    "Scroll-stopping hooks for a thread about Rust vs Go",
+    "What do I say in the first 3 seconds of my TikTok about sourdough so people don't swipe?"
+  ],
+  "should_not_trigger": [
+    "Write a full YouTube script about sourdough",
+    "Write Google Search ads for our bakery",
+    "Give me YouTube title and thumbnail ideas"
+  ]
+}

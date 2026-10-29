@@ -1,0 +1,15 @@
+{
+  "skill": "ad-copy-generator",
+  "should_trigger": [
+    "Write me 5 Facebook ad variations for our meal-prep subscription, first box is $9.99",
+    "I need Google Search ad headlines for a CRM for plumbers, 30 characters max each",
+    "Give me a 20-second UGC-style script for a paid TikTok ad for our sleep gummies",
+    "We're starting paid campaigns on LinkedIn for our B2B analytics tool. Draft the copy and an A/B test plan",
+    "what should our Meta creatives say? we sell refurbished laptops to students"
+  ],
+  "should_not_trigger": [
+    "Write a welcome email sequence for new newsletter subscribers",
+    "Give me 20 opening lines for my next TikTok about budgeting",
+    "Find micro-influencers who could promote our skincare line"
+  ]
+}

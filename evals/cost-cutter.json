@@ -1,0 +1,15 @@
+{
+  "skill": "cost-cutter",
+  "should_trigger": [
+    "Our AWS bill went from $4k to $11k this month. Why?",
+    "Here's our GCP billing export. Where can we save money?",
+    "We're spending way too much on OpenAI API calls, how do I bring that down?",
+    "Go through our Terraform and find wasted spend",
+    "Vercel keeps charging us bandwidth overages, help"
+  ],
+  "should_not_trigger": [
+    "This Postgres query takes 8 seconds, how do I speed it up?",
+    "Make our Docker image smaller",
+    "The API is down and errors are spiking, help!"
+  ]
+}

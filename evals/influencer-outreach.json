@@ -1,0 +1,15 @@
+{
+  "skill": "influencer-outreach",
+  "should_trigger": [
+    "Find micro-influencers in the vegan cooking space and write outreach DMs",
+    "Plan a UGC campaign with 10 TikTok creators, budget $5k",
+    "Write a follow-up email to a YouTuber who didn't reply about a sponsorship",
+    "What should we pay a 50k-follower Instagram creator for one Reel?",
+    "Draft a creator brief plus the disclosure rules for our sponsored posts"
+  ],
+  "should_not_trigger": [
+    "Write Instagram captions and hashtags for our account",
+    "Write the script for our paid TikTok ad",
+    "Write a sponsor read for my YouTube video"
+  ]
+}

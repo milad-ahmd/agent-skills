@@ -1,0 +1,15 @@
+{
+  "skill": "commit-craft",
+  "should_trigger": [
+    "commit this",
+    "I've got a pile of unrelated changes in my working tree, split them into clean commits",
+    "Write a good commit message for what's staged",
+    "Tidy up my history before I open the PR, it's 14 'wip' commits",
+    "Use conventional commits for these changes"
+  ],
+  "should_not_trigger": [
+    "Write the changelog for our 3.2 release",
+    "Review my branch before I push",
+    "Check the repo for leaked API keys before I push"
+  ]
+}

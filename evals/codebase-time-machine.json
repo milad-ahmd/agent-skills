@@ -1,0 +1,15 @@
+{
+  "skill": "codebase-time-machine",
+  "should_trigger": [
+    "Tell me the story of this repo from the first commit to today",
+    "We're doing a 5-year anniversary retro. How has this project evolved?",
+    "Narrate our git history like a nature documentary",
+    "Which files are cursed? The ones that changed the most and keep breaking",
+    "Who were the main contributors in each era of this codebase?"
+  ],
+  "should_not_trigger": [
+    "Generate release notes from the commits since v3.0",
+    "Roast my GitHub profile",
+    "Explain the architecture of this repo for onboarding"
+  ]
+}
