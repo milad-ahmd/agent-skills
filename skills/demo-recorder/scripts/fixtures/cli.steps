@@ -1,0 +1,15 @@
+# Setup the viewer should not see
+# hide
+cd "$(mktemp -d)"
+git init -q demo && cd demo
+# show
+# type-speed 40ms
+ls -la
+echo "it's done"
+# sleep 1s
+# Comment about the next step
+echo 'say "hi"'
+# key Ctrl+L
+# wait /ready/
+# type-speed default
+grep -c ok `which python3` || true

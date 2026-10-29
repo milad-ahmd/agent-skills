@@ -1,0 +1,12 @@
+# Demo for a CLI called "mytool". One task, about 20 seconds.
+# Setup runs hidden: a throwaway HOME and a sample project, so no real config or tokens show up.
+# hide
+export HOME="$(mktemp -d)"
+cp -r examples/sample-project /tmp/sample-project && cd /tmp/sample-project
+# show
+mytool --version
+mytool scan .
+# sleep 1s
+mytool scan . --fix
+# The payoff: the second scan is clean.
+mytool scan .

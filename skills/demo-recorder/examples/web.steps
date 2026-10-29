@@ -1,0 +1,10 @@
+# Demo for a web app running on localhost: create a project and see it appear.
+# Run the app with seeded demo data first; never record a real account.
+goto /
+click text=New project
+type "input[name=name]" Launch checklist
+press Enter
+wait-for text=Launch checklist
+wait 800
+scroll 400
+hover .project-card:first-child

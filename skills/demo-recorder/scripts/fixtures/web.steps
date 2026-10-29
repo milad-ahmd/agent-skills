@@ -1,0 +1,11 @@
+# Sign in and create a project
+goto /login
+fill #email demo@example.com
+type "input[name=password]" correct horse
+click button[type=submit]
+wait-for text=Dashboard
+// scroll the list
+scroll 600
+wait 500
+press Enter
+hover .card:first-child

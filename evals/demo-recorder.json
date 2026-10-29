@@ -1,0 +1,15 @@
+{
+  "skill": "demo-recorder",
+  "should_trigger": [
+    "Record a demo GIF of my CLI for the README, something like 15 seconds showing the scan command.",
+    "Can you make a VHS tape for this tool so I can regenerate the terminal recording after each release?",
+    "I want a quick screencast of the web app: log in with the demo account, create a project, show it on the dashboard. Playwright is fine.",
+    "Our README gif is 18MB and GitHub won't show it, shrink it please",
+    "The animation at the top of the readme still shows the old flags. Re-shoot it against the current build."
+  ],
+  "should_not_trigger": [
+    "Write a Show HN post and an X thread announcing the 1.0 release of this repo.",
+    "Rewrite our README so it looks professional, with badges, a quickstart and a features section.",
+    "Write the script for a 6-minute YouTube video walking through how this library works."
+  ]
+}
