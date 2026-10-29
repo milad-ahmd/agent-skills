@@ -1,0 +1,63 @@
+id,label,split,hard,genre,topic
+h01,human,dev,0,encyclopedia,hurricanes
+h02,human,test,0,encyclopedia,coral reefs
+h03,human,dev,0,encyclopedia,photosynthesis
+h04,human,test,0,encyclopedia,sourdough bread
+h05,human,dev,0,encyclopedia,remote work
+h06,human,test,0,encyclopedia,git version control
+h07,human,dev,0,encyclopedia,EV batteries
+h08,human,test,0,encyclopedia,Mount St. Helens
+h09,human,dev,0,encyclopedia,honey bees
+h10,human,test,0,encyclopedia,cycling to work
+h11,human,dev,0,encyclopedia,coffee roasting
+h12,human,test,0,encyclopedia,plate tectonics
+h13,human,dev,0,encyclopedia,public libraries
+h14,human,test,0,encyclopedia,marathon running
+h15,human,dev,0,encyclopedia,composting
+h16,human,test,0,encyclopedia,chess openings
+h17,human,dev,0,encyclopedia,Hubble telescope
+h18,human,test,1,encyclopedia,digital transformation
+h19,human,dev,1,encyclopedia,agile development
+h20,human,test,0,government web page,Yellowstone geysers
+h21,human,dev,0,government web page,lightning
+h22,human,test,1,government web page,hurricane preparedness
+h23,human,dev,0,government web page,handwashing
+h24,human,test,0,encyclopedia,Mars rover mission
+h25,human,dev,0,encyclopedia,EV battery chemistry
+h26,human,test,0,government web page,Mount St. Helens geology
+h27,human,dev,1,government web page,Library of Congress
+h28,human,test,1,government web page,government digital services
+h29,human,dev,0,essay (pre-1927),idleness
+h30,human,test,0,essay (pre-1927),opening a bank account
+h31,human,dev,0,essay (pre-1927),everyday inconveniences
+a01,ai,dev,0,"LLM, default assistant style",hurricanes
+a02,ai,test,0,"LLM, default assistant style",coral reefs
+a03,ai,dev,0,"LLM, default assistant style",photosynthesis
+a04,ai,test,1,"LLM, prompted to sound casual",sourdough bread
+a05,ai,dev,0,"LLM, default assistant style",remote work
+a06,ai,test,0,"LLM, default assistant style",git version control
+a07,ai,dev,0,"LLM, default assistant style",EV batteries
+a08,ai,test,0,"LLM, default assistant style",Mount St. Helens
+a09,ai,dev,0,"LLM, default assistant style",honey bees
+a10,ai,test,1,"LLM, prompted to sound casual",cycling to work
+a11,ai,dev,0,"LLM, default assistant style",coffee roasting
+a12,ai,test,0,"LLM, default assistant style",plate tectonics
+a13,ai,dev,0,"LLM, default assistant style",public libraries
+a14,ai,test,1,"LLM, prompted to sound casual",marathon running
+a15,ai,dev,1,"LLM, prompted to sound casual",composting
+a16,ai,test,0,"LLM, default assistant style",chess openings
+a17,ai,dev,0,"LLM, default assistant style",Hubble telescope
+a18,ai,test,0,"LLM, default assistant style",digital transformation
+a19,ai,dev,0,"LLM, default assistant style",agile development
+a20,ai,test,0,"LLM, default assistant style",Yellowstone geysers
+a21,ai,dev,0,"LLM, default assistant style",lightning
+a22,ai,test,0,"LLM, default assistant style",hurricane preparedness
+a23,ai,dev,0,"LLM, default assistant style",handwashing
+a24,ai,test,0,"LLM, default assistant style",Mars rover mission
+a25,ai,dev,0,"LLM, default assistant style",EV battery chemistry
+a26,ai,test,0,"LLM, default assistant style",Mount St. Helens geology
+a27,ai,dev,0,"LLM, default assistant style",Library of Congress
+a28,ai,test,0,"LLM, default assistant style",government digital services
+a29,ai,dev,1,"LLM, prompted to sound casual",idleness
+a30,ai,test,0,"LLM, default assistant style",opening a bank account
+a31,ai,dev,0,"LLM, default assistant style",everyday inconveniences

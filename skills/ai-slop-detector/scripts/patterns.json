@@ -1,0 +1,1087 @@
+{
+ "version": 1,
+ "about": "Pattern catalog for slop_scan.py. Weights: single words 0.3-1.5, stock phrases ~2, structures/frames 2-3. Matching is per line, case-insensitive unless case_sensitive is true. Overlapping matches on one line keep only the highest weight. references/patterns.md is generated from this file by gen_patterns_md.py.",
+ "patterns": [
+  {
+   "id": "delve",
+   "category": "vocabulary",
+   "weight": 1.5,
+   "regex": "\\bdelv(?:e|es|ed|ing)\\b",
+   "why": "Rare in everyday prose but heavily over-used by chat models.",
+   "instead": "look at, dig into, cover",
+   "example": "Let's delve into the details."
+  },
+  {
+   "id": "tapestry",
+   "category": "vocabulary",
+   "weight": 1.5,
+   "regex": "\\b(?:rich |vibrant |intricate |complex )?tapestry\\b",
+   "why": "Decorative metaphor stretched over anything complicated.",
+   "instead": "mix, range; or name the actual parts",
+   "example": "The city is a rich tapestry of cultures."
+  },
+  {
+   "id": "testament-to",
+   "category": "vocabulary",
+   "weight": 1.5,
+   "regex": "\\b(?:stands as |is |a )?(?:a )?testament to\\b",
+   "why": "Ceremonial phrasing that praises instead of showing.",
+   "instead": "shows, proves; or state the evidence",
+   "example": "The bridge stands as a testament to human ingenuity."
+  },
+  {
+   "id": "landscape-figurative",
+   "category": "vocabulary",
+   "weight": 1,
+   "regex": "\\b(?:today'?s|digital|business|competitive|(?:ever[- ])?(?:evolving|changing)|tech(?:nology|nological)?|media|regulatory|work|marketing|AI|security|threat|startup|political|development|software|job|career) landscape\\b",
+   "why": "Figurative 'landscape' stands in for a field the writer never describes.",
+   "instead": "market, field; or say what actually changed",
+   "example": "Startups must adapt to the evolving landscape."
+  },
+  {
+   "id": "navigate-complexities",
+   "category": "vocabulary",
+   "weight": 1.5,
+   "regex": "\\bnavigat(?:e|es|ed|ing) (?:the |these |this )?(?:complexities|complexity|challenges|intricacies|landscape|world|waters|nuances|ups and downs)\\b",
+   "why": "Vague motion metaphor for 'deal with'.",
+   "instead": "handle, deal with, work through",
+   "example": "We help teams navigate the complexities of compliance."
+  },
+  {
+   "id": "seamless",
+   "category": "vocabulary",
+   "weight": 1,
+   "regex": "\\bseamless(?:ly)?\\b",
+   "why": "Marketing adjective; rarely true and never specific.",
+   "instead": "say what step it removes",
+   "example": "Enjoy a seamless onboarding experience."
+  },
+  {
+   "id": "leverage",
+   "category": "vocabulary",
+   "weight": 0.5,
+   "regex": "(?<!financial )(?<!operating )\\bleverag(?:e|es|ed|ing)\\b",
+   "why": "Corporate verb for 'use'. Fine as a finance term, which this pattern tries to skip.",
+   "instead": "use",
+   "example": "We leverage AI to improve outcomes."
+  },
+  {
+   "id": "unlock-potential",
+   "category": "vocabulary",
+   "weight": 2,
+   "regex": "\\bunlock(?:s|ed|ing)? (?:the |your |its |their |new |a )?(?:full |true |hidden )?(?:power|potential|possibilities|value|insights|secrets|world)\\b",
+   "why": "Promise without content: what exactly gets better?",
+   "instead": "state the concrete result",
+   "example": "This course will unlock your full potential."
+  },
+  {
+   "id": "game-changer",
+   "category": "vocabulary",
+   "weight": 1.5,
+   "regex": "\\bgame[- ]?chang(?:er|ers|ing)\\b",
+   "why": "Hype word that replaces evidence.",
+   "instead": "say what changed and by how much",
+   "example": "Dark mode is a game-changer."
+  },
+  {
+   "id": "elevate",
+   "category": "vocabulary",
+   "weight": 1,
+   "regex": "\\belevat(?:e|es|ing) (?:your|the|our|their|its|any|every)\\b",
+   "why": "Aspirational filler verb.",
+   "instead": "improve, raise; or say how",
+   "example": "These tips will elevate your writing."
+  },
+  {
+   "id": "robust-generic",
+   "category": "vocabulary",
+   "weight": 1,
+   "regex": "\\brobust (?:solution|solutions|framework|frameworks|platform|ecosystem|ecosystems|community|set of|strategy|strategies|understanding|foundation|approach|features?)\\b",
+   "why": "'Robust' as generic praise. Correct technical uses (robust statistics, robust estimator) are not matched.",
+   "instead": "reliable, well-tested; or give the failure case it handles",
+   "example": "We built a robust framework for growth."
+  },
+  {
+   "id": "cutting-edge",
+   "category": "vocabulary",
+   "weight": 1,
+   "regex": "\\b(?:cutting|leading|bleeding)[- ]edge\\b",
+   "why": "Stock praise that dates instantly.",
+   "instead": "new; name the technique",
+   "example": "Our cutting-edge platform does it all."
+  },
+  {
+   "id": "harness-power",
+   "category": "vocabulary",
+   "weight": 2,
+   "regex": "\\bharness(?:es|ed|ing)? the (?:full |true )?(?:power|potential|capabilities)\\b",
+   "why": "Stock phrase for 'use'.",
+   "instead": "use",
+   "example": "Harness the power of data."
+  },
+  {
+   "id": "realm",
+   "category": "vocabulary",
+   "weight": 1.5,
+   "regex": "\\b(?:in|within|into|across) the realms? of\\b",
+   "why": "Inflated way to say 'in'.",
+   "instead": "in",
+   "example": "In the realm of software, change is constant."
+  },
+  {
+   "id": "foster",
+   "category": "vocabulary",
+   "weight": 1,
+   "regex": "\\bfoster(?:s|ed|ing)? (?:a |an )?(?:culture|sense|environment|innovation|collaboration|growth|community|creativity|engagement|connection|trust|inclusion|love)\\b",
+   "why": "Abstract nurturing verb attached to an abstract noun.",
+   "instead": "build, encourage; or describe the practice",
+   "example": "Retros foster a culture of trust."
+  },
+  {
+   "id": "paramount",
+   "category": "vocabulary",
+   "weight": 1,
+   "regex": "\\bparamount\\b",
+   "why": "Formal intensifier ('safety is paramount').",
+   "instead": "most important; or just say it first",
+   "case_sensitive": true,
+   "example": "Security is paramount."
+  },
+  {
+   "id": "vibrant",
+   "category": "vocabulary",
+   "weight": 0.5,
+   "regex": "\\bvibrant\\b",
+   "why": "Default positive adjective for places, communities and colors.",
+   "instead": "a specific detail",
+   "example": "A vibrant community of makers."
+  },
+  {
+   "id": "resonate",
+   "category": "vocabulary",
+   "weight": 1,
+   "regex": "\\bresonat(?:e|es|ed|ing) (?:with|deeply|strongly)\\b",
+   "why": "Vague claim about emotional impact.",
+   "instead": "say who it convinced and why",
+   "example": "This message will resonate with readers."
+  },
+  {
+   "id": "embark",
+   "category": "vocabulary",
+   "weight": 1,
+   "regex": "\\bembark(?:s|ed|ing)? (?:on|upon)\\b",
+   "why": "Ceremonial verb for 'start'.",
+   "instead": "start, begin",
+   "example": "Before you embark on this project, plan ahead."
+  },
+  {
+   "id": "journey-figurative",
+   "category": "vocabulary",
+   "weight": 1.5,
+   "regex": "\\b(?:learning|growth|career|coding|fitness|healing|transformation(?:al)?|wellness|customer|personal|entrepreneurial|leadership|data|cloud|AI|sobriety|parenting) journey\\b",
+   "why": "Turns any process into a 'journey'.",
+   "instead": "process, path; or describe the steps",
+   "example": "Wherever you are in your learning journey, start small."
+  },
+  {
+   "id": "pivotal",
+   "category": "vocabulary",
+   "weight": 1,
+   "regex": "\\bpivotal\\b",
+   "why": "Inflated importance word.",
+   "instead": "key, important; or explain the consequence",
+   "example": "It was a pivotal moment for the company."
+  },
+  {
+   "id": "unparalleled",
+   "category": "vocabulary",
+   "weight": 0.5,
+   "regex": "\\b(?:unparalleled|unprecedented|unmatched|unrivall?ed)\\b",
+   "why": "Superlative claim without comparison.",
+   "instead": "compare to something specific",
+   "example": "It offers unparalleled flexibility."
+  },
+  {
+   "id": "underscore",
+   "category": "vocabulary",
+   "weight": 1,
+   "regex": "\\bunderscor(?:es|ed|ing) (?:the|a|an|its|their|how|why|our|that|this)\\b",
+   "why": "Formal verb chat models use for 'shows'.",
+   "instead": "shows",
+   "example": "This underscores the importance of testing."
+  },
+  {
+   "id": "treasure-trove",
+   "category": "vocabulary",
+   "weight": 1.5,
+   "regex": "\\btreasure[- ]trove\\b",
+   "why": "Stock metaphor.",
+   "instead": "collection; say what's in it",
+   "example": "The archive is a treasure trove of letters."
+  },
+  {
+   "id": "beacon-of",
+   "category": "vocabulary",
+   "weight": 1.5,
+   "regex": "\\b(?:a |as a |the )beacon of\\b",
+   "why": "Ceremonial metaphor.",
+   "instead": "say what it actually does",
+   "example": "The library is a beacon of hope."
+  },
+  {
+   "id": "enduring-legacy",
+   "category": "vocabulary",
+   "weight": 1,
+   "regex": "\\b(?:enduring|lasting|indelible|rich) (?:legacy|impact|mark)\\b",
+   "why": "Eulogy phrasing.",
+   "instead": "say what remains and where",
+   "example": "Her work leaves an enduring legacy."
+  },
+  {
+   "id": "delicate-interplay",
+   "category": "vocabulary",
+   "weight": 1,
+   "regex": "\\b(?:a |the )?(?:delicate |intricate |complex |fascinating |dynamic )?(?:symphony|dance|interplay) (?:of|between)\\b",
+   "why": "Decorative metaphor for 'interaction'.",
+   "instead": "say how A affects B",
+   "example": "It depends on a delicate interplay of heat and pressure."
+  },
+  {
+   "id": "ever-evolving",
+   "category": "vocabulary",
+   "weight": 1.5,
+   "regex": "\\bever[- ](?:evolving|changing|growing|expanding|shifting|increasing)\\b",
+   "why": "Stock intensifier.",
+   "instead": "changing; say what changes",
+   "example": "In this ever-evolving field, keep learning."
+  },
+  {
+   "id": "forefront",
+   "category": "vocabulary",
+   "weight": 1,
+   "regex": "\\bat the (?:very )?forefront of\\b",
+   "why": "Stock positioning phrase.",
+   "instead": "leading; give the evidence",
+   "example": "We are at the forefront of innovation."
+  },
+  {
+   "id": "invaluable",
+   "category": "vocabulary",
+   "weight": 0.5,
+   "regex": "\\b(?:invaluable|commendable|noteworthy)\\b",
+   "why": "Praise word that skips the reason.",
+   "instead": "say why it is worth it",
+   "example": "Mentors are invaluable."
+  },
+  {
+   "id": "cornerstone",
+   "category": "vocabulary",
+   "weight": 0.5,
+   "regex": "\\b(?:cornerstone|linchpin|hallmark)s?\\b",
+   "why": "Architectural metaphor for 'important part'.",
+   "instead": "core, main; or explain the dependency",
+   "example": "Trust is the cornerstone of any team."
+  },
+  {
+   "id": "breathtaking",
+   "category": "vocabulary",
+   "weight": 0.5,
+   "regex": "\\b(?:captivat(?:e|es|ed|ing)|breathtaking|awe[- ]inspiring|mesmeri[sz]ing|stunning)\\b",
+   "why": "Generic wonder adjectives.",
+   "instead": "a concrete detail the reader can picture",
+   "example": "The view is breathtaking."
+  },
+  {
+   "id": "actionable-insights",
+   "category": "vocabulary",
+   "weight": 1.5,
+   "regex": "\\bactionable (?:insights|takeaways|steps|tips|advice)\\b",
+   "why": "Consulting cliché.",
+   "instead": "name the action",
+   "example": "Get actionable insights from your data."
+  },
+  {
+   "id": "deep-dive",
+   "category": "vocabulary",
+   "weight": 1,
+   "regex": "\\bdeep[- ]dive\\b",
+   "why": "Stock signpost noun.",
+   "instead": "detailed look; or just start",
+   "example": "Today we take a deep dive into caching."
+  },
+  {
+   "id": "supercharge",
+   "category": "vocabulary",
+   "weight": 1,
+   "regex": "\\b(?:supercharg(?:e|es|ed|ing)|unleash(?:es|ed|ing)?|take (?:it|your \\w+|things) to the next level|level up)\\b",
+   "why": "Hype verbs.",
+   "instead": "improve, speed up; give a number",
+   "example": "Supercharge your workflow with these tools."
+  },
+  {
+   "id": "meticulous",
+   "category": "vocabulary",
+   "weight": 1,
+   "regex": "\\bmeticulous(?:ly)?\\b",
+   "why": "Praise adjective chat models over-use.",
+   "instead": "careful; show the care",
+   "example": "Each detail was meticulously crafted."
+  },
+  {
+   "id": "heart-of",
+   "category": "vocabulary",
+   "weight": 1,
+   "regex": "\\bin the (?:very )?heart of\\b",
+   "why": "Travel-brochure phrase.",
+   "instead": "in, in the center of",
+   "example": "The hotel sits in the heart of the old town."
+  },
+  {
+   "id": "rich-history",
+   "category": "vocabulary",
+   "weight": 1,
+   "regex": "\\b(?:rich|storied|fascinating|vibrant) (?:history|heritage|tradition|culture)\\b",
+   "why": "Stock praise for any place or field.",
+   "instead": "one real fact from that history",
+   "example": "The town has a rich history."
+  },
+  {
+   "id": "remarkable",
+   "category": "vocabulary",
+   "weight": 0.5,
+   "regex": "\\b(?:remarkabl[ey]|fascinating)\\b",
+   "why": "Default enthusiasm adjective.",
+   "instead": "say what is surprising",
+   "example": "The results were remarkable."
+  },
+  {
+   "id": "truly",
+   "category": "vocabulary",
+   "weight": 0.5,
+   "regex": "\\btruly\\b",
+   "why": "Intensifier that adds sincerity, not information.",
+   "instead": "delete it",
+   "example": "It is truly a special place."
+  },
+  {
+   "id": "deeply-intertwined",
+   "category": "vocabulary",
+   "weight": 1.5,
+   "regex": "\\b(?:deeply|inextricably|intimately) (?:intertwined|interconnected|linked|connected)\\b",
+   "why": "Abstract connection claim.",
+   "instead": "say how one affects the other",
+   "example": "Health and wealth are deeply intertwined."
+  },
+  {
+   "id": "crucial",
+   "category": "vocabulary",
+   "weight": 0.3,
+   "regex": "\\b(?:crucial|vital|essential)\\b",
+   "why": "Importance adjectives; individually harmless, slop in bulk.",
+   "instead": "say what breaks without it",
+   "example": "Testing is crucial."
+  },
+  {
+   "id": "important-to-note",
+   "category": "filler",
+   "weight": 2,
+   "regex": "\\b(?:it(?:'s| is) (?:important|worth|crucial|essential|vital|key|critical|helpful|useful) (?:to )?(?:note|noting|remember|mention|mentioning|understand|recognize|consider|keep in mind|highlight|emphasi[sz]e)|worth (?:noting|mentioning|highlighting|pointing out|emphasi[sz]ing))\\b",
+   "why": "Throat-clearing before the actual point.",
+   "instead": "delete it and state the point",
+   "example": "It's important to note that results may vary."
+  },
+  {
+   "id": "plays-a-role",
+   "category": "filler",
+   "weight": 2,
+   "regex": "\\bplay(?:s|ed|ing)? (?:a|an) (?:(?:increasingly|more|truly|very|particularly|especially) )?(?:crucial|pivotal|vital|key|critical|significant|important|essential|integral|major) role\\b",
+   "why": "Vague importance claim.",
+   "instead": "say what it does",
+   "example": "Sleep plays a crucial role in memory."
+  },
+  {
+   "id": "hedge-stack",
+   "category": "filler",
+   "weight": 2,
+   "regex": "\\b(?:may|might|could|can) (?:potentially|possibly|perhaps|conceivably)\\b",
+   "why": "Stacked hedges.",
+   "instead": "pick one: may, or nothing",
+   "example": "This may potentially reduce costs."
+  },
+  {
+   "id": "when-it-comes-to",
+   "category": "filler",
+   "weight": 1.5,
+   "regex": "\\bwhen it comes to\\b",
+   "why": "Wordy topic shift.",
+   "instead": "for, with, in",
+   "example": "When it comes to pricing, less is more."
+  },
+  {
+   "id": "wide-range",
+   "category": "filler",
+   "weight": 1,
+   "regex": "\\ba (?:wide|broad|diverse|vast|rich) (?:range|array|variety|spectrum|selection) of\\b",
+   "why": "Padding quantifier.",
+   "instead": "list two or three, or give the number",
+   "example": "We offer a wide range of services."
+  },
+  {
+   "id": "serves-as",
+   "category": "filler",
+   "weight": 2,
+   "regex": "\\bserv(?:es|ed|ing) as (?:a |an )?(?:powerful |key |vital |crucial |stark |poignant |valuable |constant |gentle )?(?:reminder|testament|catalyst|cornerstone|bridge|gateway|foundation|beacon|springboard)\\b",
+   "why": "Inflated copula for 'is'.",
+   "instead": "is; or what it does",
+   "example": "The story serves as a powerful reminder of what matters."
+  },
+  {
+   "id": "stands-as",
+   "category": "filler",
+   "weight": 1.5,
+   "regex": "\\bstands as (?:a|an|the)\\b",
+   "why": "Ceremonial copula.",
+   "instead": "is",
+   "example": "The tower stands as a symbol of the city."
+  },
+  {
+   "id": "at-its-core",
+   "category": "filler",
+   "weight": 1,
+   "regex": "\\b(?:in essence|at (?:its|their|the) (?:very )?core|fundamentally,|essentially,)",
+   "why": "Fake depth marker before a plain definition.",
+   "instead": "delete it",
+   "example": "At its core, the idea is simple."
+  },
+  {
+   "id": "transition-adverb",
+   "category": "filler",
+   "weight": 1,
+   "regex": "(?:^|[.!?]\\s+)(?:Additionally|Furthermore|Moreover|Notably|Importantly|Crucially|Consequently|Interestingly),",
+   "why": "Sentence-initial connective used as rhythm filler.",
+   "instead": "and, also; or no connective",
+   "example": "It is fast. Additionally, it is cheap."
+  },
+  {
+   "id": "power-of",
+   "category": "filler",
+   "weight": 1,
+   "regex": "\\bthe (?:true |real |sheer |incredible )?power of\\b",
+   "why": "Abstract hype noun phrase.",
+   "instead": "say what it does",
+   "example": "Never underestimate the power of habit."
+  },
+  {
+   "id": "make-a-difference",
+   "category": "filler",
+   "weight": 1.5,
+   "regex": "\\bmakes? (?:all the|a (?:big|real|huge|significant|world of|meaningful)) difference\\b",
+   "why": "Vague impact claim.",
+   "instead": "say what changes",
+   "example": "Small habits make a big difference."
+  },
+  {
+   "id": "whether-youre",
+   "category": "filler",
+   "weight": 2,
+   "regex": "\\bwhether you(?:'re| are) (?:a |an )?[\\w' ,-]{1,60}?,? or (?:a |an )?\\w+",
+   "why": "Audience-widening clause that targets no one.",
+   "instead": "pick the reader you are writing for",
+   "example": "Whether you're a beginner, a hobbyist, or a pro, this guide is for you."
+  },
+  {
+   "id": "in-todays-world",
+   "category": "opener",
+   "weight": 3,
+   "regex": "\\bin today'?s (?:(?:fast[- ]paced|digital|ever[- ](?:changing|evolving)|rapidly (?:evolving|changing)|modern|interconnected|data[- ]driven|hyper[- ]connected|competitive|always[- ]on|tech[- ]driven) (?:[\\w-]+ )?)?(?:world|era|age|landscape|environment|society|economy|business world)\\b|\\bin (?:the modern|our|an increasingly|this) (?:(?:fast[- ]paced|digital|ever[- ](?:changing|evolving)|rapidly (?:evolving|changing)|modern|interconnected|data[- ]driven|hyper[- ]connected|competitive|always[- ]on|tech[- ]driven) ){1,2}(?:world|era|age|landscape|environment|society|economy|business world)\\b",
+   "why": "The archetypal empty opener.",
+   "instead": "start with the specific claim",
+   "example": "In today's fast-paced digital world, time is money."
+  },
+  {
+   "id": "in-an-era",
+   "category": "opener",
+   "weight": 2,
+   "regex": "\\bin an? (?:era|age|world|time) (?:where|when|of|in which)\\b",
+   "why": "Scene-setting opener.",
+   "instead": "start with the claim",
+   "example": "In an era where attention is scarce, brevity wins."
+  },
+  {
+   "id": "in-a-world",
+   "category": "opener",
+   "weight": 2,
+   "regex": "^\\s*in a world (?:where|of|that|full)\\b",
+   "why": "Movie-trailer opener.",
+   "instead": "start with the claim",
+   "example": "In a world where everything is online, privacy matters."
+  },
+  {
+   "id": "have-you-ever",
+   "category": "opener",
+   "weight": 2,
+   "regex": "^\\s*(?:have you ever (?:wondered|thought|asked|felt|noticed|struggled)|ever wondered)\\b",
+   "why": "Rhetorical-question hook.",
+   "instead": "start with the answer",
+   "example": "Have you ever wondered why the sky is blue?"
+  },
+  {
+   "id": "imagine",
+   "category": "opener",
+   "weight": 2,
+   "regex": "^\\s*imagine (?:a world|if|being|waking|having|this)\\b|\\bpicture this\\b",
+   "why": "Hypothetical hook.",
+   "instead": "a real example",
+   "example": "Imagine a world without passwords."
+  },
+  {
+   "id": "lets-face-it",
+   "category": "opener",
+   "weight": 1.5,
+   "regex": "\\blet'?s face it\\b",
+   "why": "Faux-candid opener.",
+   "instead": "delete it",
+   "example": "Let's face it, meetings are too long."
+  },
+  {
+   "id": "as-an-ai",
+   "category": "opener",
+   "weight": 3,
+   "regex": "\\bas an (?:AI|artificial intelligence)(?: language model| assistant)?\\b",
+   "why": "Literal assistant boilerplate.",
+   "instead": "delete it",
+   "example": "As an AI language model, I cannot browse the web."
+  },
+  {
+   "id": "in-conclusion",
+   "category": "closer",
+   "weight": 2,
+   "regex": "\\b(?:in conclusion|in summary|to sum (?:it )?up|to summari[sz]e|to wrap (?:it|things) up|all in all|in a nutshell)\\b",
+   "why": "School-essay closer; the reader knows it's the end.",
+   "instead": "end on the last real point",
+   "example": "In conclusion, testing matters."
+  },
+  {
+   "id": "ultimately",
+   "category": "closer",
+   "weight": 1.5,
+   "regex": "(?:^|[.!?]\\s+)(?:Ultimately|Overall|In the end|At the end of the day|In short),",
+   "why": "Summary pivot that restates instead of adding.",
+   "instead": "cut the recap or make it a new point",
+   "example": "Ultimately, the choice is yours."
+  },
+  {
+   "id": "hope-this-helps",
+   "category": "closer",
+   "weight": 3,
+   "regex": "\\bI hope (?:this|that|these|the above) (?:helps|was helpful|is helpful|clarifies|gives you|answers)\\b",
+   "why": "Chat-assistant sign-off.",
+   "instead": "delete it",
+   "example": "I hope this helps!"
+  },
+  {
+   "id": "let-me-know",
+   "category": "closer",
+   "weight": 2,
+   "regex": "\\b(?:let me know if (?:you|there)|feel free to (?:ask|reach out|let me know|contact|share))\\b",
+   "why": "Chat-assistant sign-off.",
+   "instead": "delete it, or ask one specific question",
+   "example": "Let me know if you have any questions."
+  },
+  {
+   "id": "happy-x-ing",
+   "category": "closer",
+   "weight": 2,
+   "regex": "\\bhappy (?:coding|writing|reading|learning|baking|gardening|exploring|hacking|cooking|running|building|brewing|investing)!",
+   "why": "Cheerful assistant sign-off.",
+   "instead": "delete it",
+   "example": "Happy coding!"
+  },
+  {
+   "id": "by-following",
+   "category": "closer",
+   "weight": 2,
+   "regex": "\\bby (?:following|implementing|understanding|embracing|leveraging|taking|applying) (?:these|this|the above) (?:steps|tips|strategies|practices|principles|approach|insights|simple)\\b",
+   "why": "Recap closer that promises results.",
+   "instead": "end on the most useful step",
+   "example": "By following these steps, you can stay safe."
+  },
+  {
+   "id": "future-is-bright",
+   "category": "closer",
+   "weight": 3,
+   "regex": "\\b(?:the future (?:is|looks) (?:bright|promising|exciting)|the possibilities are (?:truly )?(?:endless|limitless)|only time will tell|the sky'?s the limit)\\b",
+   "why": "Fake-optimistic closer.",
+   "instead": "end on a concrete next step or open question",
+   "example": "The possibilities are endless."
+  },
+  {
+   "id": "stay-x",
+   "category": "closer",
+   "weight": 1.5,
+   "regex": "\\b(?:stay tuned|stay safe out there|stay curious|keep exploring|keep learning|stay prepared)\\b",
+   "why": "Cheerleading sign-off.",
+   "instead": "delete it",
+   "example": "Stay tuned for part two."
+  },
+  {
+   "id": "remember-comma",
+   "category": "closer",
+   "weight": 1.5,
+   "regex": "^\\s*(?:\\*\\*)?remember(?:,|:|\\*\\*)",
+   "why": "Moralizing recap opener.",
+   "instead": "delete it, or make the point once",
+   "example": "Remember, consistency beats intensity."
+  },
+  {
+   "id": "is-key",
+   "category": "closer",
+   "weight": 2,
+   "regex": "\\b(?:is|are) (?:the )?key[!.]",
+   "why": "Slogan closer ('preparation is key!').",
+   "instead": "say what to do",
+   "example": "Preparation is key!"
+  },
+  {
+   "id": "engagement-bait",
+   "category": "closer",
+   "weight": 3,
+   "regex": "(?:\\bagree\\?|\\bthoughts\\?|\\bwhat do you think\\?|\\bwhat(?:'s| is) your take\\?|\\bdrop (?:a|your) [\\w ]{1,30} (?:in|below)|\\blet me know in the comments|\\brepost if|♻)",
+   "why": "Social-media engagement bait.",
+   "instead": "ask a real, specific question or end",
+   "example": "Agree? Let me know in the comments."
+  },
+  {
+   "id": "not-just-x-its-y",
+   "category": "contrast",
+   "weight": 3,
+   "regex": "\\b(?:isn'?t|aren'?t|wasn'?t|is not|are not|was not|it'?s not|not) (?:just|merely|simply|only) (?:about )?[^.!?]{1,60}?[.,;—–-]\\s*(?:it'?s|they'?re|it is|this is|that'?s|but)\\b",
+   "why": "The 'not just X, it's Y' frame: sets up a strawman to sound profound.",
+   "instead": "state Y directly",
+   "example": "This isn't just a tool, it's a movement."
+  },
+  {
+   "id": "not-about-x-its-about-y",
+   "category": "contrast",
+   "weight": 3,
+   "regex": "\\b(?:it'?s|this is|that'?s|is|isn'?t) not (?:just |really )?about [^.!?]{1,60}[.,;—]\\s*(?:it'?s|it is) (?:about|really about)\\b",
+   "why": "'It's not about X, it's about Y' reframe.",
+   "instead": "state Y directly",
+   "example": "It's not about speed. It's about trust."
+  },
+  {
+   "id": "more-than-just",
+   "category": "contrast",
+   "weight": 2,
+   "regex": "\\bmore than (?:just|merely|simply) (?:a |an )?\\w+",
+   "why": "Inflation frame.",
+   "instead": "say what else it is",
+   "example": "Libraries are more than just books."
+  },
+  {
+   "id": "not-only-but-also",
+   "category": "contrast",
+   "weight": 1,
+   "regex": "\\bnot only\\b[^.!?]{1,80}\\bbut (?:also )?",
+   "why": "Formal correlative; normal English, but over-used in generated text.",
+   "instead": "two plain sentences",
+   "example": "It is not only faster but also cheaper."
+  },
+  {
+   "id": "rhetorical-reveal",
+   "category": "contrast",
+   "weight": 3,
+   "regex": "\\bthe (?:result|answer|catch|kicker|best part|secret|truth|problem|twist|reality|lesson|outcome|difference)\\?",
+   "why": "Q-and-A reveal ('The result? ...').",
+   "instead": "just state it",
+   "example": "The result? A 40% faster build."
+  },
+  {
+   "id": "heres-the-thing",
+   "category": "contrast",
+   "weight": 2,
+   "regex": "\\b(?:but )?here'?s the (?:thing|kicker|catch|deal|truth|secret|twist|best part)\\b",
+   "why": "Faux-candid pivot.",
+   "instead": "delete it and say the thing",
+   "example": "But here's the thing: nobody reads the docs."
+  },
+  {
+   "id": "no-x-no-y-just-z",
+   "category": "contrast",
+   "weight": 3,
+   "regex": "\\bno [\\w' -]{1,25}\\. no [\\w' -]{1,25}\\. (?:just|only) ",
+   "why": "Staccato slogan triad.",
+   "instead": "one plain sentence",
+   "example": "No fluff. No filler. Just results."
+  },
+  {
+   "id": "great-question",
+   "category": "sycophancy",
+   "weight": 3,
+   "regex": "\\b(?:great|good|excellent|fantastic|wonderful|interesting|thoughtful|awesome) question\\b|\\bwhat an? (?:great|fantastic|wonderful|excellent|lovely|brilliant) (?:idea|question|point|thought)\\b",
+   "why": "Praises the asker instead of answering.",
+   "instead": "answer directly",
+   "example": "Great question! Let me explain."
+  },
+  {
+   "id": "youre-right",
+   "category": "sycophancy",
+   "weight": 3,
+   "regex": "\\byou(?:'re| are) (?:absolutely|totally|completely|so|entirely) right\\b",
+   "why": "Reflexive agreement.",
+   "instead": "say what specifically was right, or skip",
+   "example": "You're absolutely right, I made a mistake."
+  },
+  {
+   "id": "certainly-opener",
+   "category": "sycophancy",
+   "weight": 3,
+   "regex": "^\\s*(?:certainly|absolutely|of course|sure thing|great)!",
+   "why": "Assistant-style eager opener.",
+   "instead": "start with the answer",
+   "example": "Certainly! Here is the code."
+  },
+  {
+   "id": "happy-to-help",
+   "category": "sycophancy",
+   "weight": 3,
+   "regex": "\\bI(?:'d| would|'m| am) (?:be )?(?:happy|glad|delighted|more than happy) to (?:help|assist|explain)\\b",
+   "why": "Assistant boilerplate.",
+   "instead": "delete it",
+   "example": "I'd be happy to help with that."
+  },
+  {
+   "id": "understand-concern",
+   "category": "sycophancy",
+   "weight": 2,
+   "regex": "\\bI (?:completely |totally )?understand (?:your|how) (?:concern|frustrat)",
+   "why": "Scripted empathy.",
+   "instead": "address the concern",
+   "example": "I completely understand your frustration."
+  },
+  {
+   "id": "lets-dive-in",
+   "category": "signposting",
+   "weight": 3,
+   "regex": "\\blet'?s (?:dive|jump|delve|dig) (?:right )?(?:in|into|deeper)\\b",
+   "why": "Signpost that delays the content.",
+   "instead": "delete it; start",
+   "example": "Let's dive in!"
+  },
+  {
+   "id": "lets-explore",
+   "category": "signposting",
+   "weight": 2,
+   "regex": "\\blet'?s (?:explore|break (?:it|this|that|things) down|take a (?:closer )?look|unpack|walk through|examine|get started)\\b",
+   "why": "Tour-guide signpost.",
+   "instead": "delete it",
+   "example": "Let's break it down."
+  },
+  {
+   "id": "heres-a-breakdown",
+   "category": "signposting",
+   "weight": 2,
+   "regex": "\\bhere(?:'s| is) (?:a|an) (?:quick |brief |short |detailed |comprehensive |step-by-step |simple |closer |high-level )?(?:breakdown|overview|guide|summary|look|rundown|explanation|comparison)\\b",
+   "why": "Announces a list instead of giving it.",
+   "instead": "delete it; give the list",
+   "example": "Here's a quick breakdown of the options."
+  },
+  {
+   "id": "what-you-need-to-know",
+   "category": "signposting",
+   "weight": 2,
+   "regex": "\\b(?:here'?s|this is) (?:everything |all )?(?:what )?you need to know\\b",
+   "why": "Clickbait signpost.",
+   "instead": "delete it",
+   "example": "Here's everything you need to know."
+  },
+  {
+   "id": "in-this-article",
+   "category": "signposting",
+   "weight": 2,
+   "regex": "\\bin this (?:article|post|blog post|guide|piece|tutorial|section),? (?:we|I)(?:'ll| will| are going to| am going to)\\b",
+   "why": "Table-of-contents prose.",
+   "instead": "delete it; start",
+   "example": "In this article, we'll cover the basics."
+  },
+  {
+   "id": "closer-look",
+   "category": "signposting",
+   "weight": 1,
+   "regex": "\\b(?:a )?closer look\\b",
+   "why": "Signpost phrase.",
+   "instead": "just look",
+   "example": "Let us take a closer look at the data."
+  },
+  {
+   "id": "step-label",
+   "category": "signposting",
+   "weight": 1,
+   "regex": "^\\s*(?:\\*\\*|#+\\s*)?step \\d+\\s*[:.]",
+   "why": "Numbered-step template; fine for real procedures.",
+   "instead": "a numbered list without labels",
+   "example": "**Step 1: Install the CLI**"
+  },
+  {
+   "id": "journey-not-destination",
+   "category": "profundity",
+   "weight": 3,
+   "regex": "\\bjourney,? not (?:just )?a destination\\b",
+   "why": "Fake-profound cliché.",
+   "instead": "delete it",
+   "example": "Learning is a journey, not a destination."
+  },
+  {
+   "id": "reminder-that",
+   "category": "profundity",
+   "weight": 2,
+   "regex": "\\b(?:a (?:powerful|gentle|stark|poignant|timely|humbling) reminder|reminds us that|serves as a reminder)\\b",
+   "why": "Moralizing beat.",
+   "instead": "say the point plainly, once",
+   "example": "It's a powerful reminder that we are all connected."
+  },
+  {
+   "id": "what-truly-matters",
+   "category": "profundity",
+   "weight": 2,
+   "regex": "\\bwhat (?:truly|really) matters\\b",
+   "why": "Fake-profound closer.",
+   "instead": "say what matters",
+   "example": "Focus on what truly matters."
+  },
+  {
+   "id": "in-the-end-its-about",
+   "category": "profundity",
+   "weight": 3,
+   "regex": "\\b(?:in the end|at the end of the day|ultimately),? (?:it'?s|it is|life is|success is|everything is) (?:not )?(?:about|the)\\b",
+   "why": "Fake-profound summary.",
+   "instead": "end on a specific point",
+   "example": "In the end, it's about people."
+  },
+  {
+   "id": "the-real-magic",
+   "category": "profundity",
+   "weight": 2,
+   "regex": "\\bthe (?:true|real) (?:measure|magic|power|value|secret|beauty) (?:of|lies|is|happens)\\b",
+   "why": "Mystifying phrase.",
+   "instead": "say what it is",
+   "example": "The real magic happens when teams trust each other."
+  },
+  {
+   "id": "embrace-the",
+   "category": "profundity",
+   "weight": 1.5,
+   "regex": "\\bembrac(?:e|es|ed|ing) (?:the|your|this|change|uncertainty|imperfection|failure|the journey|life'?s)\\b",
+   "why": "Self-help verb.",
+   "instead": "accept, use; or say what to do",
+   "example": "Embrace the uncertainty."
+  },
+  {
+   "id": "sometimes-the-simplest",
+   "category": "profundity",
+   "weight": 2,
+   "regex": "\\bsometimes,? the (?:simplest|smallest|best|hardest|most)\\b",
+   "why": "Aphorism template.",
+   "instead": "the concrete example",
+   "example": "Sometimes, the simplest solution is the best."
+  },
+  {
+   "id": "thats-the-power",
+   "category": "profundity",
+   "weight": 3,
+   "regex": "\\b(?:that'?s|this is) the (?:real |true )?(?:power|beauty|magic) of\\b",
+   "why": "Fake-profound closer.",
+   "instead": "delete it",
+   "example": "That's the power of community."
+  },
+  {
+   "id": "and-thats-okay",
+   "category": "profundity",
+   "weight": 2,
+   "regex": "\\band that'?s (?:okay|ok|fine|perfectly (?:okay|fine|normal))\\b",
+   "why": "Reassurance beat.",
+   "instead": "delete it",
+   "example": "You will fail sometimes, and that's okay."
+  },
+  {
+   "id": "cliche-closer",
+   "category": "profundity",
+   "weight": 2,
+   "regex": "\\b(?:one step at a time|the rest is history|only the beginning|just the beginning|stronger together|for generations to come|let that sink in)\\b",
+   "why": "Stock closing line.",
+   "instead": "end on a fact",
+   "example": "Take it one step at a time."
+  },
+  {
+   "id": "bold-lead-in-bullet",
+   "category": "structure",
+   "weight": 2,
+   "regex": "^\\s*(?:[-*+•]|\\d+[.)])\\s+\\*\\*[^*]{1,60}?(?::\\*\\*|\\*\\*\\s*[:—–-])",
+   "why": "Every bullet starts with a bold label and a colon: the house style of chat answers.",
+   "instead": "plain bullets, or prose",
+   "example": "- **Speed:** Builds finish in seconds."
+  },
+  {
+   "id": "colon-headed-bullet",
+   "category": "structure",
+   "weight": 1,
+   "regex": "^\\s*(?:[-*+•]|\\d+[.)])\\s+[A-Z][\\w'’ /&()-]{1,40}:\\s",
+   "why": "'Label: explanation' bullets; normal in references, slop when every list is built this way.",
+   "instead": "vary the list or use prose",
+   "example": "- Speed: Builds finish in seconds."
+  },
+  {
+   "id": "bold-as-heading",
+   "category": "structure",
+   "weight": 1.5,
+   "regex": "^\\s*\\*\\*[^*]{2,80}\\*\\*\\s*$",
+   "why": "Bold line used as a heading in a short answer.",
+   "instead": "a sentence that leads into the section",
+   "example": "**Why It Matters**"
+  },
+  {
+   "id": "bold-everywhere",
+   "category": "structure",
+   "weight": 2,
+   "regex": "(?:\\*\\*[^*\\n]+\\*\\*[^\\n]*?){3,}",
+   "why": "Three or more bold spans on one line: emphasis everywhere means emphasis nowhere.",
+   "instead": "bold at most one thing",
+   "example": "Use **clear** names, **short** functions and **small** files."
+  },
+  {
+   "id": "emoji-line-start",
+   "category": "structure",
+   "weight": 2.5,
+   "regex": "^\\s*(?:[-*+•]\\s*|#+\\s*|\\*\\*)?[\\U0001F300-\\U0001FAFF☀-➿⭐⭕←-⇿]",
+   "why": "Emoji as bullets or heading decorations.",
+   "instead": "plain bullets and headings",
+   "example": "🚀 Launching today!"
+  },
+  {
+   "id": "emoji-inline",
+   "category": "structure",
+   "weight": 1,
+   "regex": "[\\U0001F300-\\U0001FAFF☀-➿⭐⭕←-⇿]",
+   "why": "Decorative emoji in prose.",
+   "instead": "delete it",
+   "example": "We shipped it 🎉"
+  },
+  {
+   "id": "hashtag-block",
+   "category": "structure",
+   "weight": 3,
+   "regex": "(?:^|\\s)(?:#[A-Za-z]\\w+\\s*){3,}$",
+   "why": "Block of hashtags.",
+   "instead": "one or none",
+   "example": "Thanks all! #AI #Leadership #Growth"
+  },
+  {
+   "id": "arrow-bullet",
+   "category": "structure",
+   "weight": 2,
+   "regex": "^\\s*(?:→|->|➡|↳)\\s",
+   "why": "Arrow bullets (social-post style).",
+   "instead": "plain bullets or prose",
+   "example": "→ Ship small changes"
+  },
+  {
+   "id": "one-word-line",
+   "category": "structure",
+   "weight": 2,
+   "regex": "^\\s*(?:this|period|full stop|game over|boom|mic drop)[.!]\\s*$",
+   "why": "One-word dramatic paragraph.",
+   "instead": "fold it into a sentence",
+   "example": "Period."
+  },
+  {
+   "id": "faux-candid",
+   "category": "contrast",
+   "weight": 1.5,
+   "regex": "\\b(?:and )?honestly\\?|\\breal talk\\b|\\bnot gonna lie\\b",
+   "why": "Faux-candid beat typical of generated 'casual' text.",
+   "instead": "delete it",
+   "example": "And honestly? It changed everything."
+  },
+  {
+   "id": "ornate-quantifier",
+   "category": "vocabulary",
+   "weight": 1.5,
+   "regex": "\\b(?:a )?(?:myriad|plethora)(?: of)?\\b",
+   "why": "Ornate quantifiers.",
+   "instead": "many; or the number",
+   "example": "There is a myriad of options."
+  },
+  {
+   "id": "brochure-adjectives",
+   "category": "vocabulary",
+   "weight": 1.25,
+   "regex": "\\b(?:bustling|nestled)\\b",
+   "why": "Travel-brochure clichés.",
+   "instead": "a concrete detail or location",
+   "example": "A bustling market square."
+  },
+  {
+   "id": "complexity-adjectives",
+   "category": "vocabulary",
+   "weight": 0.75,
+   "regex": "\\b(?:intricate(?:ly)?|intricacies|nuanced|multi-?faceted)\\b",
+   "why": "Signal depth without supplying it.",
+   "instead": "show the detail",
+   "example": "A nuanced, multifaceted problem."
+  },
+  {
+   "id": "corporate-buzzwords",
+   "category": "vocabulary",
+   "weight": 0.75,
+   "regex": "\\b(?:holistic(?:ally)?|synerg(?:y|ies|istic|ize|ise)|empower(?:s|ed|ing|ment)?|streamlin(?:e|es|ed|ing))\\b",
+   "why": "Corporate buzzwords that replace the actual mechanism.",
+   "instead": "say who can now do what",
+   "example": "We empower teams with holistic solutions."
+  },
+  {
+   "id": "hype-change",
+   "category": "vocabulary",
+   "weight": 1,
+   "regex": "\\b(?:revolutioni[sz](?:e|es|ed|ing)|transformative|groundbreaking|trailblazing)\\b",
+   "why": "Hype words for change.",
+   "instead": "describe the before and after",
+   "example": "A groundbreaking, transformative product."
+  },
+  {
+   "id": "brochure-verbs",
+   "category": "vocabulary",
+   "weight": 0.75,
+   "regex": "\\bshowcas(?:e|es|ed|ing)\\b|\\bboasts? (?:a|an|over|more|some|stunning|impressive|several|numerous)\\b",
+   "why": "Brochure verbs for 'shows' and 'has'.",
+   "instead": "shows, has",
+   "example": "The hotel boasts a rooftop pool."
+  },
+  {
+   "id": "stock-idioms",
+   "category": "filler",
+   "weight": 1.25,
+   "regex": "\\b(?:one[- ]size[- ]fits[- ]all|best of both worlds)\\b",
+   "why": "Stock idioms.",
+   "instead": "say who it fits / name the two benefits",
+   "example": "Hybrid work offers the best of both worlds."
+  },
+  {
+   "id": "ornamental-signposts",
+   "category": "signposting",
+   "weight": 2,
+   "regex": "\\b(?:first and foremost|last but not least|without further ado|buckle up|grab a (?:coffee|cup)|strap in)\\b",
+   "why": "Ornamental signposts that delay content.",
+   "instead": "delete them",
+   "example": "Without further ado, here are the results."
+  },
+  {
+   "id": "template-headings",
+   "category": "signposting",
+   "weight": 2,
+   "regex": "^\\s*(?:#+\\s*|\\*\\*)(?:key takeaways?|the bottom line|final thoughts|wrapping up|conclusion|in conclusion|summary|why (?:it|this|that) matters)\\b",
+   "why": "Template section headings in a short text.",
+   "instead": "end on the last real point",
+   "example": "## Key Takeaways"
+  }
+ ]
+}

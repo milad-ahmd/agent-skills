@@ -1,0 +1,22 @@
+Agile software development is an iterative approach to building software that emphasizes flexibility, collaboration, and customer feedback. Rather than delivering a product all at once at the end of a long development cycle, agile teams work in small, incremental steps, continuously refining their work based on real-world input.
+
+### The Origins of Agile
+
+Agile emerged in the early 2000s as a response to the limitations of traditional "waterfall" methodologies, which often proved too rigid to accommodate changing requirements. In 2001, seventeen software practitioners gathered in Snowbird, Utah, and created the Agile Manifesto, which outlines four core values:
+
+1. Individuals and interactions over processes and tools
+2. Working software over comprehensive documentation
+3. Customer collaboration over contract negotiation
+4. Responding to change over following a plan
+
+### Popular Agile Frameworks
+
+- **Scrum:** Organizes work into fixed-length sprints, typically two weeks, with defined roles like Product Owner and Scrum Master.
+- **Kanban:** Visualizes work on a board and focuses on limiting work in progress to improve flow.
+- **Extreme Programming (XP):** Emphasizes technical practices such as pair programming and test-driven development.
+
+### Benefits of Agile
+
+Agile enables teams to deliver value faster, adapt to change more easily, and maintain closer alignment with customer needs. Regular retrospectives also foster a culture of continuous improvement.
+
+That said, agile is not a one-size-fits-all solution. Its success depends heavily on team buy-in, organizational support, and a willingness to embrace change. When implemented thoughtfully, however, agile can be a powerful catalyst for building better software.
