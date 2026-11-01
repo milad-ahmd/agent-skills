@@ -2,13 +2,13 @@
 
 # 🧰 Agent Skills
 
-### Roast your GitHub with real data. Strip AI slop from your writing. Turn your git history into a documentary. Plus 45 more skills for developers and marketers.
+### Roast your GitHub with real data. Strip AI slop from your writing. Turn your git history into a documentary. Plus 52 more skills for developers and marketers.
 
 **Works with Claude Code · Cline · Cursor · Codex · any agent that reads `SKILL.md`**
 
 [![Stars](https://img.shields.io/github/stars/milad-ahmd/agent-skills?style=social)](https://github.com/milad-ahmd/agent-skills)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE)
-![Skills](https://img.shields.io/badge/skills-48-orange)
+![Skills](https://img.shields.io/badge/skills-55-orange)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](#-contributing)
 
 [🌐 Website](https://milad-ahmd.github.io/agent-skills/) · [Start here](#-start-with-these-three) · [Install](#-install-in-10-seconds) · [Packs](#-packs-install-by-who-you-are) · [Social media](#-social-media-manager) · [Marketing skills](#-marketing--content-skills) · [Developer skills](#-developer-skills) · [What is a skill?](#-what-is-a-skill) · [Awesome list](https://github.com/milad-ahmd/awesome-agent-skills)
@@ -76,7 +76,7 @@ npx skills add milad-ahmd/agent-skills --skill roast-my-github  # one skill
 ### Option 3: shell installer
 
 ```bash
-# all 48 skills
+# all 55 skills
 curl -fsSL https://raw.githubusercontent.com/milad-ahmd/agent-skills/main/install.sh | bash
 
 # or a role-based pack
@@ -95,13 +95,13 @@ Then just talk to your agent normally. It picks the right skill automatically.
 
 | Pack | For | Includes |
 |---|---|---|
-| `indie-hacker` | Solo founders | idea validation, landing page roast, launch posts, demo GIFs, ASO, SEO, X & Reddit |
+| `indie-hacker` | Solo founders | idea validation, landing page roast, launch posts, demo GIFs, UI polish, ASO, SEO, X & Reddit |
 | `creator` | Creators & influencers | Instagram, TikTok, YouTube, repurposing, hooks, calendar, analytics |
 | `marketer` | Marketing teams | brand voice, ads, email, SEO, competitors, influencers, analytics |
 | `local-business` | Shops, clinics, restaurants | Google Business Profile, WhatsApp, Facebook, Instagram |
-| `startup-cto` | Engineering leads | specs, debugging, PR review, incidents, cost cutting, secrets, deps, migrations |
-| `developer` | Every dev | the 16 core dev workflow skills, from spec to debugging |
-| `skill-builder` | Skill authors | skill-creator-pro, skills-doctor, agent-memory-keeper |
+| `startup-cto` | Engineering leads | specs, debugging, architecture, PR review, incidents, cost cutting, secrets, deps, migrations, agent guardrails |
+| `developer` | Every dev | the 20 core dev workflow skills, from spec and TDD to merge conflicts and debugging |
+| `skill-builder` | Skill authors | skill-finder, skill-creator-pro, skills-doctor, agent-memory-keeper, prompt-injection-scanner |
 | `fun` | Everyone | roast-my-github, codebase-time-machine, landing-page-roaster, ai-slop-detector |
 
 Run `install.sh --list` to see every skill and pack.
@@ -112,7 +112,7 @@ Run `install.sh --list` to see every skill and pack.
 |---|---|
 | <img src="assets/demo-env-secrets-guard.gif" width="420"/> | <img src="assets/demo-skills-doctor.gif" width="420"/> |
 
-## 📚 All 48 skills
+## 📚 All 55 skills
 
 ⚙️ = ships a script that collects real data (git history, API results, files) before the agent writes anything.
 
@@ -132,6 +132,8 @@ Run `install.sh --list` to see every skill and pack.
 | 🧠 [**agent-memory-keeper**](skills/agent-memory-keeper) ⚙️ | Project memory (MEMORY.md) so your agent stops repeating mistakes, plus handoffs (HANDOFF.md) so a new session picks up exactly where this one stopped | *"Write a handoff, I'm running out of context"* |
 | 🛠️ [**skill-creator-pro**](skills/skill-creator-pro) ⚙️ | Turn any workflow into a well-written SKILL.md, with a linter to validate it | *"Create a skill for our release process"* |
 | 🩺 [**skills-doctor**](skills/skills-doctor) ⚙️ | Audit your installed skills for broken frontmatter, vague triggers, conflicts and leaked secrets | *"Check my installed skills"* |
+| 🧭 [**skill-finder**](skills/skill-finder) ⚙️ | Describe a task and get the right existing skill, why it fits and how to install it, from this collection or the wider skills.sh registry | *"Is there a skill for turning meeting notes into tickets?"* |
+| ✂️ [**terse-mode**](skills/terse-mode) ⚙️ | Shorter, denser replies that cut preamble, recaps and filler but never code, commands, numbers or safety warnings | *"terse on"* |
 
 ## 🛠️ Ops & Growth
 
@@ -179,6 +181,7 @@ Your AI agent can also act as a social media manager, content strategist and gro
 |---|---|---|
 | 📐 [**plan-griller**](skills/plan-griller) ⚙️ | Grills you on a feature plan against your real code, then writes a SPEC.md with testable acceptance criteria and lints it | *"Grill me on this feature before we build it"* |
 | 🔎 [**pr-reviewer-pro**](skills/pr-reviewer-pro) ⚙️ | Senior-engineer PR reviews: severities, `file:line` evidence, suggested fixes | *"Review PR #123"* |
+| 🔀 [**merge-conflict-resolver**](skills/merge-conflict-resolver) ⚙️ | Resolves merge, rebase and cherry-pick conflicts by reading what each side meant (base, both sides and their commits), regenerates lockfiles and checks no markers are left | *"My rebase stopped with conflicts in 4 files"* |
 | 🧱 [**commit-craft**](skills/commit-craft) | Messy changes → clean, atomic Conventional Commits | *"Commit my changes"* |
 | 📋 [**meeting-notes-to-tickets**](skills/meeting-notes-to-tickets) | Meeting notes → de-duplicated GitHub/Linear/Jira tickets | *"Turn these notes into issues"* |
 | 📝 [**changelog-from-git**](skills/changelog-from-git) | Human-readable release notes from git history | *"Write release notes since v1.2"* |
@@ -187,18 +190,21 @@ Your AI agent can also act as a social media manager, content strategist and gro
 | Skill | What it does | Try saying |
 |---|---|---|
 | 🕵️ [**bug-detective**](skills/bug-detective) ⚙️ | Reproduce first, log hypotheses, auto-bisect the commit that broke it, then fix with a failing test | *"This passed last week and fails now. Find the commit"* |
+| 🔴 [**tdd-loop**](skills/tdd-loop) ⚙️ | Red, green, refactor one behaviour at a time, with a guard that refuses a red that fails for the wrong reason and a green reached by editing or skipping the test | *"Build this test-first and don't touch my tests"* |
 | 🧪 [**test-gap-hunter**](skills/test-gap-hunter) | Finds the riskiest untested code and writes real tests | *"Find test gaps and fix the top 3"* |
 | 🎭 [**e2e-flow-tester**](skills/e2e-flow-tester) ⚙️ | Maps your app's routes and forms, then writes Playwright tests for the flows that make money | *"Write e2e tests for signup and checkout"* |
 
 ### 🎨 Frontend
 | Skill | What it does | Try saying |
 |---|---|---|
+| 💅 [**ui-taste**](skills/ui-taste) ⚙️ | Scores CSS and Tailwind 0-100 for one-off font sizes, near-duplicate colours, off-grid spacing and weak contrast, then folds them into tokens without a redesign | *"Our app looks amateur, tidy it up"* |
 | 🖼️ [**screenshot-to-component**](skills/screenshot-to-component) | Screenshot → component in *your* design system | *"Build this screenshot as a component"* |
 | ♿ [**a11y-fixer**](skills/a11y-fixer) | WCAG 2.2 AA audit that fixes issues in code | *"Make this app accessible"* |
 
 ### 🧙 Refactoring
 | Skill | What it does | Try saying |
 |---|---|---|
+| 🏛️ [**architecture-doctor**](skills/architecture-doctor) ⚙️ | Measures coupling, cycles, god files, layer violations and files that change together without importing each other, ranks them by git churn, and plans small safe refactors | *"What should we refactor first?"* |
 | 🧙 [**migration-wizard**](skills/migration-wizard) | Safe, phased migrations: JS→TS, Jest→Vitest, Pages→App Router | *"Migrate this project to TypeScript"* |
 
 ### 🔐 Security & Maintenance
@@ -208,6 +214,7 @@ Your AI agent can also act as a social media manager, content strategist and gro
 | 🩺 [**dependency-doctor**](skills/dependency-doctor) | Vulnerable, outdated and unused packages with a safe upgrade plan | *"Check my dependencies"* |
 | 🛡️ [**gh-actions-auditor**](skills/gh-actions-auditor) ⚙️ | Finds pwn requests, script injection, unpinned actions and over-broad permissions in GitHub Actions, then fixes them | *"Audit our GitHub Actions for security issues"* |
 | 🪤 [**prompt-injection-scanner**](skills/prompt-injection-scanner) ⚙️ | Scans skills, CLAUDE.md, hooks and MCP configs for hidden instructions, exfiltration and unsafe settings | *"Check the skills I just installed for anything malicious"* |
+| 🚧 [**agent-guardrails**](skills/agent-guardrails) ⚙️ | A tested Claude Code hook (also Cursor and Codex) that denies or asks before force pushes to main, `rm -rf` outside the project, reading `.env` and keys, `curl \| bash` and `DROP TABLE` | *"Stop Claude Code from force pushing to main"* |
 
 ### 🐳 DevOps & Backend
 | Skill | What it does | Try saying |
@@ -258,7 +265,7 @@ Every skill in this collection:
 
 ## 🗺️ Roadmap
 
-All 48 skills have shipped ([changelog](CHANGELOG.md)). Next up is your idea:
+All 55 skills have shipped ([changelog](CHANGELOG.md)). Next up is your idea:
 
 👉 [Request a skill](https://github.com/milad-ahmd/agent-skills/issues/new). Popular requests get built first.
 

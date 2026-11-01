@@ -5,22 +5,24 @@
     "email": "miladahmadi803@gmail.com"
   },
   "metadata": {
-    "description": "48 Agent Skills: roast-my-github, an AI slop detector, a bisecting bug detective, demo GIF recorder, Playwright e2e tests, spec grilling, GitHub Actions and prompt-injection scanners, and a social media manager",
-    "version": "5.1.0"
+    "description": "55 Agent Skills: roast-my-github, an AI slop detector, a bisecting bug detective, merge conflict resolver, agent guardrails, TDD loop, architecture doctor, UI taste lint, Playwright e2e tests, spec grilling and a social media manager",
+    "version": "5.2.0"
   },
   "plugins": [
     {
       "name": "all-skills",
-      "description": "All 48 skills: developer workflows, debugging, e2e tests, security scanners, marketing, social media and fun skills",
+      "description": "All 55 skills: developer workflows, debugging, TDD, merge conflicts, architecture, security scanners and guardrails, marketing, social media and fun skills",
       "source": "./",
       "strict": false,
       "skills": [
         "./skills/a11y-fixer",
         "./skills/ad-copy-generator",
+        "./skills/agent-guardrails",
         "./skills/agent-memory-keeper",
         "./skills/ai-slop-detector",
         "./skills/api-to-sdk",
         "./skills/app-store-optimizer",
+        "./skills/architecture-doctor",
         "./skills/brand-voice-guide",
         "./skills/bug-detective",
         "./skills/changelog-from-git",
@@ -44,6 +46,7 @@
         "./skills/landing-page-roaster",
         "./skills/launch-post-writer",
         "./skills/meeting-notes-to-tickets",
+        "./skills/merge-conflict-resolver",
         "./skills/migration-wizard",
         "./skills/plan-griller",
         "./skills/pr-reviewer-pro",
@@ -53,21 +56,25 @@
         "./skills/screenshot-to-component",
         "./skills/seo-blog-writer",
         "./skills/skill-creator-pro",
+        "./skills/skill-finder",
         "./skills/skills-doctor",
         "./skills/social-analytics-reporter",
         "./skills/social-media-calendar",
         "./skills/social-media-manager",
         "./skills/sql-optimizer",
         "./skills/startup-idea-validator",
+        "./skills/tdd-loop",
+        "./skills/terse-mode",
         "./skills/test-gap-hunter",
         "./skills/tiktok-viral-creator",
+        "./skills/ui-taste",
         "./skills/youtube-script-writer",
         "./skills/youtube-seo-optimizer"
       ]
     },
     {
       "name": "indie-hacker-pack",
-      "description": "Solo founder toolkit: idea validation, landing page roast, launch posts, demo GIFs, ASO, SEO, X and Reddit growth",
+      "description": "Solo founder toolkit: idea validation, landing page roast, launch posts, demo GIFs, UI polish, ASO, SEO, X and Reddit growth",
       "source": "./",
       "strict": false,
       "skills": [
@@ -80,7 +87,8 @@
         "./skills/social-media-manager",
         "./skills/cost-cutter",
         "./skills/commit-craft",
-        "./skills/demo-recorder"
+        "./skills/demo-recorder",
+        "./skills/ui-taste"
       ]
     },
     {
@@ -133,7 +141,7 @@
     },
     {
       "name": "startup-cto-pack",
-      "description": "Engineering lead toolkit: specs, debugging, PR review, incidents, cost cutting, secret scanning, dependencies, migrations, GitHub Actions and agent-config security",
+      "description": "Engineering lead toolkit: specs, debugging, architecture, PR review, incidents, cost cutting, secrets, dependencies, migrations, CI security and agent guardrails",
       "source": "./",
       "strict": false,
       "skills": [
@@ -150,12 +158,14 @@
         "./skills/gh-actions-auditor",
         "./skills/prompt-injection-scanner",
         "./skills/plan-griller",
-        "./skills/bug-detective"
+        "./skills/bug-detective",
+        "./skills/architecture-doctor",
+        "./skills/agent-guardrails"
       ]
     },
     {
       "name": "developer-pack",
-      "description": "Core developer workflows: specs, debugging, PR review, commits, unit and e2e tests, secrets, Docker, SQL, migrations, API SDKs, GitHub Actions security",
+      "description": "Core developer workflows: specs, TDD, debugging, merge conflicts, architecture, PR review, commits, unit and e2e tests, secrets, Docker, SQL, migrations, API SDKs, CI security, agent guardrails",
       "source": "./",
       "strict": false,
       "skills": [
@@ -174,19 +184,24 @@
         "./skills/gh-actions-auditor",
         "./skills/bug-detective",
         "./skills/e2e-flow-tester",
-        "./skills/plan-griller"
+        "./skills/plan-griller",
+        "./skills/merge-conflict-resolver",
+        "./skills/tdd-loop",
+        "./skills/architecture-doctor",
+        "./skills/agent-guardrails"
       ]
     },
     {
       "name": "skill-builder-pack",
-      "description": "Create, lint, audit and security-scan Agent Skills, plus agent memory and session handoffs",
+      "description": "Find, create, lint, audit and security-scan Agent Skills, plus agent memory and session handoffs",
       "source": "./",
       "strict": false,
       "skills": [
         "./skills/skill-creator-pro",
         "./skills/skills-doctor",
         "./skills/agent-memory-keeper",
-        "./skills/prompt-injection-scanner"
+        "./skills/prompt-injection-scanner",
+        "./skills/skill-finder"
       ]
     },
     {

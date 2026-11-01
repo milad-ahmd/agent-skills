@@ -2,6 +2,18 @@
 
 ⭐ Star or watch the repo to get notified about new skills, and [request a skill](https://github.com/milad-ahmd/agent-skills/issues/new). Popular requests get built first.
 
+## 2026-11-01: v5.2 · the skills people install most
+Seven new skills, picked from the most-installed skills on skills.sh that this collection didn't cover yet. Six ship a stdlib Python tool with tests.
+- 🔀 **New: merge-conflict-resolver.** `conflicts.py` names the operation (merge, rebase with progress, cherry-pick, revert, am, stash pop) and what ours and theirs mean in it, then shows each hunk with base, both sides and the commits behind each side, so the agent merges intents instead of picking a side. Lockfiles are regenerated, never hand-merged, and `--check` finds leftover markers, staged ones included.
+- 🚧 **New: agent-guardrails.** A Claude Code PreToolUse hook (with Cursor and Codex formats) that denies or asks before force pushes to main, `rm -rf` outside the project, reading `.env` and keys, `curl | bash`, `DROP TABLE` and `--no-verify`. It parses chains, wrappers, `bash -c` and `$(...)`, merges into settings.json with a backup, and ships a 59-command self-test. A seatbelt, not a sandbox, and the skill says so.
+- 🏛️ **New: architecture-doctor.** `arch_report.py` measures fan-in, fan-out and instability, cycles, god files, layer violations and hidden coupling (files that change together without importing each other), weights each by git churn, and the skill turns the top ones into small, separately shippable refactors.
+- 💅 **New: ui-taste.** `ui_lint.py` scores CSS, SCSS and Tailwind 0-100: font sizes, near-duplicate colours, off-grid spacing, radii and shadows, contrast, `!important`, arbitrary values and the generic AI look. `--baseline` shows the before/after.
+- 🔴 **New: tdd-loop.** `tdd_guard.py` records red, green and refactor. It refuses a red that fails on an import or syntax error, and a green reached by editing, deleting or skipping the test.
+- 🧭 **New: skill-finder.** Describe a task and get the matching skill from this collection, or a `npx skills find` search of the wider registry, installed only after you say yes.
+- ✂️ **New: terse-mode.** Shorter replies that keep every command, path, number and warning. `terse_check.py --compare` proves nothing was lost.
+- skills-doctor no longer reads `scripts/index.json` as a missing `scripts/index.js`.
+- 55 skills in total.
+
 ## 2026-10-30: v5.1 · from spec to debugger
 Four new skills and two upgrades, picked from what people install most on skills.sh and star most on GitHub. Each one ships a stdlib Python tool with tests.
 - 🕵️ **New: bug-detective.** Reproduce first, keep a hypothesis log, narrow by halves, fix with a failing test. `bisect_run.py` checks that the good ref passes and the bad ref fails before it starts, runs `git bisect` with a timeout and `--repeat` for flaky bugs, and always puts your HEAD back, even on Ctrl-C.
@@ -10,7 +22,7 @@ Four new skills and two upgrades, picked from what people install most on skills
 - 📐 **New: plan-griller.** Reads your code, then asks one decision at a time (with a recommended answer) until the plan is concrete, and writes a SPEC.md. `spec_lint.py` flags vague words, requirements with no acceptance criterion, criteria without Given/When/Then and gaps in the test plan.
 - 🗺️ **codebase-explainer now measures before it explains.** `code_map.py` builds the import graph for Python, JS/TS (with tsconfig aliases) and Go: entry points, hub files, import cycles, orphans, a Mermaid diagram and a self-contained interactive HTML map.
 - 🧠 **agent-memory-keeper adds handoffs.** HANDOFF.md holds the current task's state, next step and dead ends. `handoff.py` collects the git facts agents get wrong and, at the start of the next session, checks the repo still matches what the handoff says.
-- 48 skills in total.
+- 48 skills at this release.
 
 ## 2026-10-29: v5 · fewer, deeper skills
 - 🔥 **Roast your GitHub in the browser:** [milad-ahmd.github.io/agent-skills/roast](https://milad-ahmd.github.io/agent-skills/roast/). No install, no login, no AI: real numbers from GitHub's public API, a /10 scorecard, a concrete glow-up plan and a downloadable scorecard image.
