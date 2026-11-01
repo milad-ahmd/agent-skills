@@ -1,0 +1,613 @@
+{
+ "source": "milad-ahmd/agent-skills",
+ "count": 55,
+ "skills": [
+  {
+   "name": "a11y-fixer",
+   "emoji": "♿",
+   "tagline": "WCAG 2.2 AA audit that fixes accessibility issues in your code",
+   "category": "Frontend",
+   "description": "Audits web and mobile UI code against WCAG 2.2 AA and fixes accessibility issues directly in the source, including alt text, labels, contrast, keyboard navigation, focus, ARIA, and semantics. Use when the user asks for an accessibility audit, a11y fixes, WCAG compliance, or screen-reader support.",
+   "examples": [
+    "Audit this app for accessibility and fix the issues",
+    "Make the signup form screen-reader friendly"
+   ]
+  },
+  {
+   "name": "ad-copy-generator",
+   "emoji": "📣",
+   "tagline": "Ad copy for Meta, TikTok, Google and YouTube within each platform's limits, plus an A/B test matrix",
+   "category": "Marketing",
+   "description": "Writes high-converting ad creative and copy variations for Meta (Facebook and Instagram), TikTok, Google Search, YouTube, and LinkedIn ads using direct-response frameworks, respecting each platform's character limits and policies, and organizes them into an A/B test matrix. Use when the user asks for ad copy, ad creatives, ad scripts, headlines, or paid-social or PPC campaign text.",
+   "examples": [
+    "Write Meta ads for my product",
+    "Create Google RSA headlines for this landing page"
+   ]
+  },
+  {
+   "name": "agent-guardrails",
+   "emoji": "🚧",
+   "tagline": "A tested hook that stops your agent force pushing main, rm -rf outside the project, reading .env or curl | bash",
+   "category": "Security & Maintenance",
+   "description": "Installs and tests guardrails that stop a coding agent from running destructive or leaking shell commands. Adds a Claude Code PreToolUse hook on Bash that denies or asks before force pushes to main/master, pushes and commits on main, git reset --hard and git clean -fdx, rm -rf of /, ~, .. or paths outside the project, reading .env files, SSH keys and cloud credentials, curl or wget piped to bash, DROP TABLE and TRUNCATE through psql/mysql/sqlite3, chmod -R 777, and --no-verify. Parses chains, pipes, sudo/env wrappers, bash -c and $(...) and ships a self-test table. Merges into settings.json with a backup and a clean uninstall, and gives the same hook for Cursor and Codex or a plain rule list for other agents. Use when the user asks to add git guardrails or safety hooks to Claude Code, block dangerous or destructive commands, stop the agent from force pushing, deleting files with rm -rf or reading .env secrets, protect the main branch from the agent, or set up a PreToolUse hook that blocks commands.",
+   "examples": [
+    "Stop Claude Code from force pushing to main",
+    "Add guardrails so the agent can't rm -rf or cat my .env"
+   ]
+  },
+  {
+   "name": "agent-memory-keeper",
+   "emoji": "🧠",
+   "tagline": "Project memory (MEMORY.md) plus session handoffs (HANDOFF.md) so the next session picks up where this one stopped",
+   "category": "Agent Productivity",
+   "description": "Carries a coding agent's context across sessions with two files. MEMORY.md holds durable project lessons (verified commands, conventions, decisions, gotchas, user preferences); it is loaded at the start of work and updated whenever the user corrects the agent. HANDOFF.md holds the state of the current task (goal, status checklist, exact next step, failed attempts, open questions, branch and uncommitted files); it is written when a session ends mid-task and checked against git when the next session resumes. Use when the user says \"remember this\", \"don't forget\", \"forget that note\" or \"what do you remember\", says \"write a handoff\", \"I'm running out of context\", \"continue this in a new session\", \"pick up where we left off\", or \"hand this to another agent or a teammate\", and at the start of any session in a repo with MEMORY.md or HANDOFF.md.",
+   "examples": [
+    "Remember that we use pnpm, not npm",
+    "Write a handoff, I'm running out of context"
+   ]
+  },
+  {
+   "name": "ai-slop-detector",
+   "emoji": "🧹",
+   "tagline": "Score text for AI-sounding writing and rewrite it to sound human, keeping the author's voice",
+   "category": "Writing",
+   "description": "Finds \"AI slop\" writing patterns, such as cliché phrases (\"delve\", \"in today's fast-paced world\"), \"not just X, it's Y\" frames, sycophancy, emoji bullets, em-dash overload, uniform sentence rhythm and empty conclusions, using a scoring script with a 120-pattern catalog, then rewrites the text to sound specific and human while keeping the author's meaning and voice. Use when the user asks to humanize text, remove AI-sounding phrasing, de-slop a draft, check whether writing sounds robotic, or flag AI-sounding prose in docs or pull requests in CI.",
+   "examples": [
+    "De-slop this blog post",
+    "Does this sound like AI? Make it sound human"
+   ]
+  },
+  {
+   "name": "api-to-sdk",
+   "emoji": "🔌",
+   "tagline": "Typed, idiomatic client SDK from an OpenAPI spec or your backend routes",
+   "category": "Backend & Data",
+   "description": "Generates a clean, typed, idiomatic client SDK (TypeScript, Python, Go, or Dart) from an OpenAPI/Swagger spec, Postman collection, or existing backend routes, with auth, errors, retries, pagination, docs, and tests. Use when the user asks to generate an API client, SDK, or typed fetch layer, or to wrap a REST API.",
+   "examples": [
+    "Generate a TypeScript SDK from openapi.yaml",
+    "Create a typed client for our API"
+   ]
+  },
+  {
+   "name": "app-store-optimizer",
+   "emoji": "📱",
+   "tagline": "App Store and Google Play ASO: keywords, titles, screenshot captions, review replies, A/B tests",
+   "category": "Growth",
+   "description": "App Store Optimization (ASO) for the Apple App Store and Google Play, covering keyword research, title, subtitle, short description and keyword field within character limits, long description, screenshot captions and order, preview video script, localization, ratings prompts, review replies, and A/B tests. Use when the user asks to improve an app store listing, ASO, app keywords, screenshots, app descriptions, or app review responses.",
+   "examples": [
+    "Optimize my App Store listing",
+    "Write Google Play short descriptions for my app"
+   ]
+  },
+  {
+   "name": "architecture-doctor",
+   "emoji": "🏛️",
+   "tagline": "Ranks coupling, cycles, god files and hidden coupling by git churn, then plans small safe refactors",
+   "category": "Refactoring",
+   "description": "Finds the architecture problems that cost a team the most time and proposes small, incremental refactors instead of a rewrite. A bundled script measures coupling (fan-in, fan-out, instability), circular dependencies, god files, hubs and layering violations, then weights each finding by git churn, so code that changes every week ranks above code nobody touches. It also finds hidden coupling, files that keep changing in the same commits without importing each other. The agent reads the worst offenders and returns 3-5 ranked refactors, each with evidence, a target shape, a first safe step and a way to verify nothing broke. Use when the user asks to improve the architecture, decide what to refactor first, untangle spaghetti or circular dependencies, split a god class or a file that is too big, fix tight coupling or wrong-way layer imports, pay down tech debt, or draw better module or domain boundaries.",
+   "examples": [
+    "Our backend is spaghetti, what should we refactor first?",
+    "Find circular dependencies and wrong-way layer imports in src/"
+   ]
+  },
+  {
+   "name": "brand-voice-guide",
+   "emoji": "🎨",
+   "tagline": "A brand voice, positioning and personas guide, then rewrites copy on-brand",
+   "category": "Marketing",
+   "description": "Creates a reusable brand voice and messaging guide (positioning, audience personas, tone attributes, vocabulary do's and don'ts, messaging pillars, taglines, and per-platform examples) from existing website copy, posts, or interviews, then uses it to rewrite content on-brand. Use when the user asks to define a brand voice, tone of voice, messaging, positioning, or personas, or to make copy \"sound like us\".",
+   "examples": [
+    "Create a brand voice guide from our website",
+    "Make this post sound like our brand"
+   ]
+  },
+  {
+   "name": "bug-detective",
+   "emoji": "🕵️",
+   "tagline": "Debug by reproducing first, logging hypotheses and auto-bisecting the commit that broke it",
+   "category": "Testing & Quality",
+   "description": "Debugs code bugs systematically. Builds a minimal repro that fails on demand, logs each hypothesis and how it was tested so the investigation doesn't go in circles, narrows the cause by binary search over code, input or history, and pins down the change that introduced a regression with a git bisect runner that checks both ends first, handles timeouts and flaky repros, and always restores HEAD. Then writes a failing test, fixes the root cause instead of the symptom, and looks for the same bug elsewhere. Use when the user asks to debug their code, fix a bug, find out why a test or function fails, throws an error or returns the wrong result, track down a regression (\"it used to work\", \"which commit broke this\"), run git bisect, or chase a flaky or intermittent failure that only happens sometimes.",
+   "examples": [
+    "This test passed last week and fails now, find the commit that broke it",
+    "The cart total is sometimes wrong, help me find out why"
+   ]
+  },
+  {
+   "name": "changelog-from-git",
+   "emoji": "📝",
+   "tagline": "Polished release notes and CHANGELOG entries from git history",
+   "category": "Git & Workflow",
+   "description": "Generates polished, human-readable release notes and CHANGELOG entries from a git commit range, grouping changes by impact and crediting contributors. Use when the user asks for release notes, a changelog, \"what changed since vX\", or to draft a GitHub release.",
+   "examples": [
+    "Write release notes since the last tag",
+    "Draft the GitHub release for v2.0"
+   ]
+  },
+  {
+   "name": "codebase-explainer",
+   "emoji": "🗺️",
+   "tagline": "Onboarding guide built from a real import graph: entry points, hubs, cycles, Mermaid and an interactive map",
+   "category": "Documentation",
+   "description": "Produces an onboarding guide for an unfamiliar repository from its real import graph. A bundled script parses Python, JS/TS and Go imports to find entry points, hub files that many others depend on, import cycles, orphans and external packages, then emits a Mermaid architecture diagram and a self-contained interactive HTML dependency graph. The guide covers the architecture overview, how a request or data flows from the API to the database, key modules and the files to handle with care, each backed by numbers. Use when the user asks to explain a codebase, onboard to a new or just-cloned repo, map the codebase or its modules, draw an architecture or dependency diagram, see what imports what, or asks \"where do I start?\".",
+   "examples": [
+    "Explain this codebase",
+    "Map how the modules in this repo depend on each other"
+   ]
+  },
+  {
+   "name": "codebase-time-machine",
+   "emoji": "⏳",
+   "tagline": "The story of your repo from git history, as a documentary: eras, cast, plot twists, cursed files",
+   "category": "Fun & Viral",
+   "description": "Tells the story of a codebase from its git history as an entertaining documentary, with eras, key contributors, plot twists (reverts, giant commits, long silences), cursed files, and the current state, backed by a git analysis script. Useful for onboarding, retrospectives, anniversaries, and fun. Use when the user asks for the history of a repo, how a project evolved, a repo story or timeline, or \"who built what and when\".",
+   "examples": [
+    "Tell me the story of this codebase",
+    "Who built what in this repo, and when?"
+   ]
+  },
+  {
+   "name": "commit-craft",
+   "emoji": "🧱",
+   "tagline": "Turn messy changes into clean, atomic Conventional Commits",
+   "category": "Git & Workflow",
+   "description": "Turns messy working-tree changes into clean, atomic Conventional Commits, splitting unrelated changes into separate commits with clear messages. Use when the user asks to commit, write a commit message, split changes into commits, or clean up git history before a PR.",
+   "examples": [
+    "Commit my changes",
+    "Split these changes into clean commits"
+   ]
+  },
+  {
+   "name": "competitor-spy",
+   "emoji": "🕵️",
+   "tagline": "Competitor analysis of pricing, messaging, socials, ads and reviews, with a SWOT and opportunities",
+   "category": "Marketing",
+   "description": "Runs a structured competitive analysis of competitors' positioning, pricing, features, website messaging, social media content (Instagram, TikTok, YouTube, LinkedIn), ads, SEO, and reviews, and turns it into a SWOT and concrete opportunities. Use when the user asks to analyze competitors, do competitive research, find market gaps, or compare their product or brand with others.",
+   "examples": [
+    "Analyze my top 3 competitors",
+    "Find gaps in our competitors' marketing"
+   ]
+  },
+  {
+   "name": "content-repurposer",
+   "emoji": "♻️",
+   "tagline": "One video or podcast into 15+ posts: Shorts, Reels, threads, LinkedIn, carousel, newsletter",
+   "category": "Marketing",
+   "description": "Turns one piece of long content (YouTube video, podcast transcript, blog post, webinar, or talk) into a full multi-platform content pack with Shorts, Reels and TikTok clip scripts with timestamps, an X thread, a LinkedIn post, an Instagram carousel, a newsletter, a blog post, and quote graphics. Use when the user asks to repurpose, recycle, atomize, or turn a video, podcast, or article into social posts.",
+   "examples": [
+    "Repurpose this transcript into social posts",
+    "Turn my latest video into a content pack"
+   ]
+  },
+  {
+   "name": "cost-cutter",
+   "emoji": "💸",
+   "tagline": "Cut cloud, SaaS and LLM API bills with dollar estimates, effort, risk and exact fixes",
+   "category": "DevOps",
+   "description": "Finds ways to cut cloud and SaaS spend (AWS, GCP, Azure, Vercel, Netlify, Supabase, Firebase, OpenAI and other LLM APIs, databases, CDNs) by analyzing billing exports and infrastructure code, then ranks savings by dollars and effort with exact fixes and risks. Use when the user asks to reduce cloud costs, review a cloud bill, optimize infrastructure spend, cut LLM API costs, or asks why their bill is so high.",
+   "examples": [
+    "Why is our AWS bill so high?",
+    "Cut our OpenAI API costs"
+   ]
+  },
+  {
+   "name": "demo-recorder",
+   "emoji": "🎬",
+   "tagline": "Record a real demo GIF or video of your CLI or web app for the README and launch posts",
+   "category": "Growth",
+   "description": "Records a short demo of a project actually running, for a README, launch post or pull request. Writes a VHS .tape (or an asciinema script) for CLI tools and a Playwright script for web apps, runs the commands for real so the GIF or MP4 shows real output, then shrinks it with ffmpeg and gifsicle and keeps the script in the repo for re-recording. Use when the user asks to record, make or update a demo GIF, terminal recording, screen recording, screencast or demo video of their CLI or web app (sign-up flow, onboarding, a feature), or wants a GIF for the README that shows the tool in action.",
+   "examples": [
+    "Make a demo GIF of this CLI for the README",
+    "Record the signup flow as a short video"
+   ]
+  },
+  {
+   "name": "dependency-doctor",
+   "emoji": "🩺",
+   "tagline": "Audit vulnerable, outdated and unused packages with a safe upgrade plan",
+   "category": "Security & Maintenance",
+   "description": "Audits project dependencies for vulnerabilities, outdated and unused packages, and produces a safe, ordered upgrade plan with breaking-change notes. Use when the user asks to update dependencies, fix npm/pip audit warnings, check for vulnerable packages, or plan a major-version upgrade.",
+   "examples": [
+    "Check my dependencies",
+    "Plan the upgrade to React 19"
+   ]
+  },
+  {
+   "name": "dockerize-anything",
+   "emoji": "🐳",
+   "tagline": "Production-ready, small, secure Dockerfile and compose for any repo",
+   "category": "DevOps",
+   "description": "Generates a production-ready, secure, small Dockerfile, .dockerignore and docker-compose.yml for any project by detecting its stack, then builds and verifies the image. Use when the user asks to dockerize, containerize, add Docker or compose, or reduce Docker image size.",
+   "examples": [
+    "Dockerize this project",
+    "Make my Docker image smaller"
+   ]
+  },
+  {
+   "name": "e2e-flow-tester",
+   "emoji": "🎭",
+   "tagline": "Find your app's critical user flows and write Playwright end-to-end tests for them",
+   "category": "Testing & Quality",
+   "description": "Finds a web app's critical user flows (sign up, log in, checkout, password reset, creating and editing the core object, search, settings) and writes Playwright end-to-end tests that drive a real browser through them, using the project's existing Playwright or Cypress setup when there is one, then de-flakes the tests and adds a CI job. Use when the user asks to add e2e or end-to-end tests, set up Playwright, test a signup, login or checkout flow in the browser, write smoke tests for user journeys, or catch UI regressions before deploys.",
+   "examples": [
+    "Write e2e tests for our signup and checkout flows",
+    "Set up Playwright for this Next.js app"
+   ]
+  },
+  {
+   "name": "email-campaign-writer",
+   "emoji": "📧",
+   "tagline": "Welcome, launch, cart and newsletter email sequences with subject-line tests",
+   "category": "Marketing",
+   "description": "Writes email marketing campaigns and automated sequences such as welcome series, product launches, newsletters, abandoned cart, re-engagement, and sales promotions, with subject-line variants, preview text, segmentation, send timing, and deliverability and compliance checks. Use when the user asks for marketing emails, newsletters, drip or nurture sequences, or email subject lines.",
+   "examples": [
+    "Write a 5-email welcome sequence",
+    "Write a launch email campaign"
+   ]
+  },
+  {
+   "name": "env-secrets-guard",
+   "emoji": "🔐",
+   "tagline": "Find leaked API keys and secrets before they hit GitHub",
+   "category": "Security & Maintenance",
+   "description": "Scans a repository and its git history for leaked secrets (API keys, tokens, passwords, private keys), fixes .gitignore and env handling, and guides safe key rotation. Use before pushing, before open-sourcing a repo, or when the user asks to check for leaked keys or secrets.",
+   "examples": [
+    "Scan this repo for leaked secrets before I push",
+    "I'm open-sourcing this repo, is it safe?"
+   ]
+  },
+  {
+   "name": "gh-actions-auditor",
+   "emoji": "🛡️",
+   "tagline": "Find pwn requests, script injection and unpinned actions in GitHub Actions, then fix them",
+   "category": "Security & Maintenance",
+   "description": "Audits GitHub Actions workflows and composite actions for CI/CD supply-chain and injection risks (actions not pinned to a commit SHA, missing or write-all GITHUB_TOKEN permissions, pull_request_target \"pwn request\" checkouts, script injection from issue and PR titles, secrets inherit and curl-to-shell installs), then pins SHAs and hardens the YAML with the user's approval. Use when the user asks to secure, harden or audit GitHub Actions or .github/workflows, pin actions to SHAs, or check a CI workflow for injection.",
+   "examples": [
+    "Audit our GitHub Actions workflows for security issues",
+    "Pin all our actions to commit SHAs"
+   ]
+  },
+  {
+   "name": "hook-generator",
+   "emoji": "🪝",
+   "tagline": "Scroll-stopping hooks for videos, posts, emails and ads, scored and ranked",
+   "category": "Marketing",
+   "description": "Generates scroll-stopping hooks for short videos, posts, threads, emails, ads, and YouTube intros using proven psychological frameworks, then scores and ranks them for a specific audience and platform. Use when the user asks for hooks, opening lines, headlines, attention grabbers, or \"how should I start this video or post\".",
+   "examples": [
+    "Give me hooks for a video about X",
+    "Write 20 opening lines for this LinkedIn post"
+   ]
+  },
+  {
+   "name": "incident-commander",
+   "emoji": "🚨",
+   "tagline": "Run a production outage from triage to mitigation, status updates and a blameless postmortem",
+   "category": "DevOps",
+   "description": "Guides a production incident from first alert to blameless postmortem, covering severity triage, an incident channel and roles, structured investigation (recent deploys, logs, metrics, dependencies), hypothesis tracking, safe mitigation and rollback, status-page and stakeholder updates, a timeline, and a postmortem with action items. Use when the user says production is down, there's an outage, errors are spiking, the site is slow, or asks for help writing a postmortem.",
+   "examples": [
+    "Production is down, help me",
+    "Write a postmortem for yesterday's outage"
+   ]
+  },
+  {
+   "name": "influencer-outreach",
+   "emoji": "🤝",
+   "tagline": "Influencer and UGC campaigns: vetting, outreach DMs, briefs and tracking",
+   "category": "Marketing",
+   "description": "Plans and runs creator and influencer marketing campaigns on Instagram, TikTok, and YouTube, covering creator criteria and vetting, personalized outreach DMs and emails, follow-ups, briefs, deliverables, rate guidance, contracts checklist, disclosure rules, and performance tracking. Use when the user asks to find or contact influencers or creators, write outreach messages, or plan a UGC or influencer campaign.",
+   "examples": [
+    "Plan a micro-influencer campaign on TikTok",
+    "Write outreach DMs to these creators"
+   ]
+  },
+  {
+   "name": "instagram-growth-manager",
+   "emoji": "📸",
+   "tagline": "Grow and manage Instagram with bio audits, Reels scripts, carousels, captions, hashtags and growth reviews",
+   "category": "Marketing",
+   "description": "Manages an Instagram account end to end, covering profile and bio audits, content pillars, Reels, carousel and Story plans, captions with hooks and CTAs, hashtag sets, posting schedules, DM and comment reply templates, and monthly growth reviews from Insights data. Use when the user asks for Instagram captions, Reels scripts, carousels, hashtags, an Instagram bio or grid audit, or Instagram Insights review.",
+   "examples": [
+    "Audit my Instagram profile and plan next month",
+    "Write 5 Reels scripts for my bakery"
+   ]
+  },
+  {
+   "name": "landing-page-roaster",
+   "emoji": "🔥",
+   "tagline": "Honest, funny, scored roast of your landing page plus copy rewrites",
+   "category": "Growth",
+   "description": "Brutally honest but constructive critique of a landing page's copy, UX, design, and conversion. Gives a scored roast plus a prioritized fix list and rewritten headline and CTA options, working from a URL, screenshot, or the page's source code. Use when the user asks to roast, review, critique, or improve the conversion of a landing page, homepage, or pricing page.",
+   "examples": [
+    "Roast my landing page",
+    "Improve the conversion of our pricing page"
+   ]
+  },
+  {
+   "name": "launch-post-writer",
+   "emoji": "🚀",
+   "tagline": "Turn your repo into an X thread, Show HN, LinkedIn and Reddit launch posts",
+   "category": "Growth",
+   "description": "Writes launch content for an open-source project or feature, including an X/Twitter thread, LinkedIn post, Show HN post, Reddit post, Product Hunt tagline, and dev.to article outline, based on the actual repo. Use when the user asks to announce, launch, promote, or write a post or thread about a repo, release, or feature.",
+   "examples": [
+    "Write launch posts for this repo",
+    "Write a Show HN post for v1.0"
+   ]
+  },
+  {
+   "name": "meeting-notes-to-tickets",
+   "emoji": "📋",
+   "tagline": "Meeting notes into de-duplicated GitHub, Linear or Jira tickets",
+   "category": "Git & Workflow",
+   "description": "Turns raw meeting notes, transcripts, or Slack threads into well-formed, de-duplicated tickets for GitHub Issues, Linear, or Jira, each with a title, context, acceptance criteria, owner, priority, and labels, after user confirmation. Use when the user pastes meeting notes or a transcript and asks to create tasks, issues, tickets, or action items.",
+   "examples": [
+    "Turn these meeting notes into GitHub issues",
+    "Create tickets from this transcript"
+   ]
+  },
+  {
+   "name": "merge-conflict-resolver",
+   "emoji": "🔀",
+   "tagline": "Resolves merge, rebase and cherry-pick conflicts by reading what each side meant, then regenerates lockfiles",
+   "category": "Git & Workflow",
+   "description": "Resolves git merge, rebase, cherry-pick, revert and stash pop conflicts by working out what each side meant and keeping both intents, instead of picking ours or theirs. A read-only script reports the operation in progress and what \"ours\" and \"theirs\" mean for it (they swap during a rebase), each conflicted file and its kind (content, add/add, modify/delete, rename, binary), every hunk's ours, base and theirs text, and the commits on each side that touched the file. Lockfiles such as package-lock.json, yarn.lock or Cargo.lock are regenerated with the package manager, never hand-merged, and a check mode confirms no conflict markers are left before git add and continue. Use when the user asks to resolve or fix merge conflicts, says a rebase or cherry-pick stopped with CONFLICT, sees <<<<<<< HEAD markers in a file, asks whether to keep ours or theirs, has a conflicted package-lock.json, or wants help finishing a stuck merge or rebase.",
+   "examples": [
+    "My rebase stopped with CONFLICT in 4 files, help me fix it",
+    "package-lock.json is conflicted after merging main, what do I do?"
+   ]
+  },
+  {
+   "name": "migration-wizard",
+   "emoji": "🧙",
+   "tagline": "Safe, incremental codebase migrations: JS→TS, Jest→Vitest, Pages→App Router and more",
+   "category": "Refactoring",
+   "description": "Plans and executes large codebase migrations incrementally and safely, such as JavaScript→TypeScript, Jest→Vitest, Next.js Pages→App Router, Vue 2→3, React class→hooks, CommonJS→ESM, or any framework or major-version upgrade, verifying each step with build and tests. Use when the user asks to migrate, convert, upgrade, or port a codebase or module.",
+   "examples": [
+    "Migrate this project from JavaScript to TypeScript",
+    "Move our tests from Jest to Vitest"
+   ]
+  },
+  {
+   "name": "plan-griller",
+   "emoji": "📐",
+   "tagline": "Grill you on a feature plan against your real code, then write a testable SPEC.md",
+   "category": "Git & Workflow",
+   "description": "Grills the user about a planned feature or code change before any code is written. It reads the relevant code and docs first so every question is specific to the repo, asks one decision at a time with a recommended answer, works through scope, behaviour, edge cases, data, failure modes and rollout, then writes a SPEC.md with numbered requirements, Given/When/Then acceptance criteria tied to them and a test plan, checked by a linter that flags vague words and untraced requirements. Use when the user asks to grill or interview them about a feature, pressure-test an implementation plan, write a spec or PRD for a change, or turn a rough feature request into testable requirements before coding.",
+   "examples": [
+    "Grill me on this feature before we build it",
+    "Turn this feature request into a spec with acceptance criteria"
+   ]
+  },
+  {
+   "name": "pr-reviewer-pro",
+   "emoji": "🔎",
+   "tagline": "Senior-engineer PR reviews with severity levels, file:line evidence and suggested fixes",
+   "category": "Git & Workflow",
+   "description": "Reviews a pull request or local branch diff like a senior engineer, covering correctness, security, performance, naming, and missing tests, and produces prioritized, actionable comments (optionally posted to GitHub). Use when the user asks to review a PR, a diff, a branch, or \"check my changes before I push\".",
+   "examples": [
+    "Review PR #123",
+    "Review my changes before I push"
+   ]
+  },
+  {
+   "name": "prompt-injection-scanner",
+   "emoji": "🪤",
+   "tagline": "Scan skills, CLAUDE.md, hooks and MCP configs for prompt injection and hidden instructions",
+   "category": "Security & Maintenance",
+   "description": "Scans an AI agent's instruction and tool-config files (CLAUDE.md, AGENTS.md, skills, slash commands, subagents, Cursor and Cline rules, hooks, MCP server configs) for prompt injection, hidden Unicode or HTML-comment instructions, exfiltration commands, and risky permissions or unpinned MCP packages, then recommends what to remove or quarantine. Use when the user installs third-party skills or plugins, clones an unfamiliar repo, adds an MCP server, or asks whether their agent setup is safe to trust.",
+   "examples": [
+    "Check the skills I just installed for anything malicious",
+    "Is this repo's .claude and .mcp.json safe to trust?"
+   ]
+  },
+  {
+   "name": "readme-glow-up",
+   "emoji": "✨",
+   "tagline": "Turn any README into a star magnet using only facts from your repo",
+   "category": "Documentation",
+   "description": "Rewrites a repository's README into a polished, star-worthy page with badges, a hero tagline, demo section, quickstart, features, usage, and contributing info. Use when the user asks to improve, rewrite, polish, or \"glow up\" a README, or when a repo has a missing or weak README.",
+   "examples": [
+    "Glow up the README of this repo",
+    "Rewrite my README with badges and a quickstart"
+   ]
+  },
+  {
+   "name": "roast-my-github",
+   "emoji": "🔥",
+   "tagline": "Get your GitHub profile roasted with real data, then a scorecard and glow-up plan",
+   "category": "Fun & Viral",
+   "description": "Roasts a GitHub profile with humor, then gives genuinely useful advice. It analyzes public repos, stars, languages, missing descriptions and licenses, abandoned projects, lazy commit messages, and activity with a data script, and produces a shareable scorecard and a glow-up plan. Use when the user asks to roast, rate, review, or improve a GitHub profile, or asks \"what does my GitHub say about me\".",
+   "examples": [
+    "Roast my GitHub: milad-ahmd",
+    "Rate my GitHub profile and tell me what to fix"
+   ]
+  },
+  {
+   "name": "screenshot-to-component",
+   "emoji": "🖼️",
+   "tagline": "Screenshot or mockup to a component built with your design system",
+   "category": "Frontend",
+   "description": "Converts a screenshot, mockup, or Figma export into a production-ready UI component that reuses the project's existing design system (React/Next, Vue, Svelte, React Native, Flutter, or SwiftUI with Tailwind, CSS modules, or a component library), so the result is responsive and accessible. Use when the user shares an image of a UI and asks to build, implement, or recreate it in code.",
+   "examples": [
+    "Build this screenshot as a React component",
+    "Implement this mockup in Flutter"
+   ]
+  },
+  {
+   "name": "seo-blog-writer",
+   "emoji": "✍️",
+   "tagline": "SEO blog posts that rank: intent research, outline, meta tags, FAQ and schema",
+   "category": "Marketing",
+   "description": "Researches and writes SEO-optimized, genuinely helpful blog articles, covering keyword and search-intent analysis, competitor outline gaps, title and meta description, headings, FAQ, internal links, and schema, in the brand's voice and following Google's helpful-content and E-E-A-T principles. Use when the user asks to write a blog post or article, do SEO content, or rank for a keyword.",
+   "examples": [
+    "Write an SEO article for 'best budgeting apps'",
+    "Outline a blog post that ranks for X"
+   ]
+  },
+  {
+   "name": "skill-creator-pro",
+   "emoji": "🛠️",
+   "tagline": "Turn any workflow into a well-written SKILL.md, with a linter to validate it",
+   "category": "Agent Productivity",
+   "description": "Designs and writes new Agent Skills (SKILL.md) from a described workflow. It produces a precise trigger description, a step-by-step workflow, rules, an output format, optional helper scripts, and a README, then checks the new skill before handing it over. Use when the user wants to create, write, improve, or package an agent skill, SKILL.md, Claude skill, or reusable agent workflow.",
+   "examples": [
+    "Create a skill for our release process",
+    "Turn this checklist into an agent skill"
+   ]
+  },
+  {
+   "name": "skill-finder",
+   "emoji": "🧭",
+   "tagline": "Describe a task, get the right existing skill with why it fits, and install it only on your OK",
+   "category": "Agent Productivity",
+   "description": "Recommends an existing agent skill for a job the user describes, so nobody rebuilds what is already published. Notes which ones are already present so it never suggests a duplicate, ranks this collection's bundled catalog with a BM25 search script, and falls back to the skills.sh directory and leaderboard with `npx skills find`. Presents the best 1 to 3 matches with the reason it fits, its publisher and popularity, and the exact command to add it, then adds it only after the user says yes. Use when the user asks \"is there a skill for this\", wants to find, look up, discover, browse or get a recommendation for a skill or plugin that does some job, asks which skill to use for a task, or asks which skills they already have.",
+   "examples": [
+    "Is there a skill for turning meeting notes into Jira tickets?",
+    "Find me a skill for Playwright tests and install it"
+   ]
+  },
+  {
+   "name": "skills-doctor",
+   "emoji": "🩺",
+   "tagline": "Audit your installed skills for broken frontmatter, vague triggers, conflicts and leaked secrets",
+   "category": "Agent Productivity",
+   "description": "Audits installed Agent Skills (SKILL.md) for problems that stop them from working, such as invalid or missing frontmatter, name and folder mismatches, vague or overlapping descriptions that never trigger or trigger wrongly, oversized files, missing referenced scripts, and possible embedded secrets, using a linter script, then proposes fixes. Use when the user asks to lint, check, debug, clean up, or audit their skills or a skills folder such as ~/.claude/skills, or asks why a skill isn't triggering.",
+   "examples": [
+    "Check my installed skills",
+    "Why isn't my skill triggering?"
+   ]
+  },
+  {
+   "name": "social-analytics-reporter",
+   "emoji": "📊",
+   "tagline": "Social media analytics exports into a clear report with KPIs, reasons and next actions",
+   "category": "Marketing",
+   "description": "Turns raw social media analytics exports (Instagram Insights, TikTok Analytics, YouTube Studio, LinkedIn, X, Meta Ads CSV or screenshots) into a clear performance report with KPIs, trends, top and bottom content analysis, the reasons behind them, and prioritized recommendations. Includes a Python script to summarize CSV exports. Use when the user shares social media analytics, asks for a monthly social report, or asks \"what's working on my socials\".",
+   "examples": [
+    "Analyze this Instagram Insights export",
+    "Write my monthly social media report"
+   ]
+  },
+  {
+   "name": "social-media-calendar",
+   "emoji": "🗓️",
+   "tagline": "Monthly cross-platform content calendar, exported as CSV for Notion, Sheets, Buffer or Later",
+   "category": "Marketing",
+   "description": "Builds a complete monthly cross-platform social media content calendar (Instagram, TikTok, YouTube, LinkedIn, X, Facebook, Pinterest, Threads) with themes, pillars, post ideas, drafts, formats, posting times, and campaign or holiday hooks, exported as Markdown and CSV for Notion, Google Sheets, Buffer, or Later. Use when the user asks for a content calendar, posting schedule, or monthly social media plan.",
+   "examples": [
+    "Plan my social media calendar for November",
+    "Create a 4-week launch content plan"
+   ]
+  },
+  {
+   "name": "social-media-manager",
+   "emoji": "🧠",
+   "tagline": "One social media manager for LinkedIn, X, Facebook, Pinterest, Threads, Reddit, Telegram, WhatsApp and Google Business Profile: platforms, KPIs, weekly plans",
+   "category": "Social Platforms",
+   "description": "Head-of-social agent that picks which platforms a brand should focus on, sets KPIs, runs the weekly plan and community work, and does the hands-on work on LinkedIn, X (Twitter), Facebook Pages and Groups, Pinterest, Threads, Reddit, Telegram channels, WhatsApp Business and Google Business Profile, loading one platform guide at a time. Instagram, TikTok and YouTube work goes to their own skills. Use when the user asks for overall social media management, a social strategy, \"manage my socials\" or which platforms to use, or for work on one of those nine platforms, such as a LinkedIn headline or post, tweets or an X thread, a Facebook Page, Group or Messenger replies, Pin titles and boards, Threads posts, promoting on Reddit or finding subreddits, growing a Telegram channel, WhatsApp broadcasts, templates or chatbot flows, ranking on Google Maps or replying to Google reviews.",
+   "examples": [
+    "Manage my brand's social media",
+    "Rewrite my LinkedIn headline and About",
+    "Find subreddits where I can share my app",
+    "Optimize my Google Business Profile"
+   ]
+  },
+  {
+   "name": "sql-optimizer",
+   "emoji": "⚡",
+   "tagline": "Explain slow SQL queries and get index and rewrite fixes",
+   "category": "Backend & Data",
+   "description": "Explains slow SQL queries in plain English, reads EXPLAIN plans, and suggests concrete rewrites and indexes for PostgreSQL, MySQL, and SQLite, including ORM-generated N+1 problems. Use when the user shares a slow query, an EXPLAIN output, asks why a query is slow, or wants index recommendations.",
+   "examples": [
+    "Why is this query slow?",
+    "Find N+1 queries in this API"
+   ]
+  },
+  {
+   "name": "startup-idea-validator",
+   "emoji": "🦈",
+   "tagline": "Stress-test a startup idea with a VC, customer and competitor panel, cheap experiments and a verdict",
+   "category": "Founders",
+   "description": "Stress-tests a startup or product idea before you build it. It runs critique from a skeptical investor, a target customer, and a competitor, researches existing competitors, ranks the riskiest assumptions, writes Mom-Test interview questions, designs cheap validation experiments with success thresholds, and gives a Go, Pivot, or Kill verdict. Use when the user shares a startup, app, SaaS, or side-project idea and asks whether it's good, how to validate it, or what could kill it.",
+   "examples": [
+    "Validate my startup idea: ...",
+    "What could kill this idea?"
+   ]
+  },
+  {
+   "name": "tdd-loop",
+   "emoji": "🔴",
+   "tagline": "One behaviour at a time, red-green-refactor, with a guard that blocks editing or skipping tests to get green",
+   "category": "Testing & Quality",
+   "description": "Runs strict test-driven development one behaviour at a time. Picks the next smallest behaviour from the spec or task list, writes one failing test, makes the smallest change that passes it, then refactors with the tests green. A guard script records each step and refuses the usual shortcuts. It rejects a red step that fails for the wrong reason (syntax, import or compile error, missing function, no tests ran) and code written before any failing test. It also rejects a test that was edited, deleted, skipped or focused with .only to reach green. Works with pytest, unittest, Jest, Vitest, go test, cargo test, RSpec, Maven and Gradle. Use when the user asks to do TDD, work test-first, write the test first, follow red green refactor, build a feature test-driven from a spec or user story, or stop the agent from changing tests to make them pass.",
+   "examples": [
+    "Build the CSV parser test-first, one test at a time",
+    "Do red green refactor and don't touch my tests to make them pass"
+   ]
+  },
+  {
+   "name": "terse-mode",
+   "emoji": "✂️",
+   "tagline": "Shorter, denser agent replies that never cut code, commands, numbers or safety warnings",
+   "category": "Agent Productivity",
+   "description": "Switches the agent's chat replies to a short, dense style for the rest of the session, at two levels. Lite drops preamble, restated questions, recaps of what was just shown, filler phrases, stacked hedges and offers of more help. Full also uses fragments, drops articles where the meaning stays clear, and prefers lists to prose. Exact commands, code, file paths, numbers, error messages, warnings about destructive or irreversible actions and the answer itself are never shortened. Includes a checker that counts padding in a reply and verifies a shortened version kept every command, path, number and warning. Use when the user asks for shorter, more concise or less verbose answers, says \"terse on\", \"be brief\", \"less fluff\", \"stop rambling\", \"skip the preamble\", \"too wordy\", wants to cut token usage, asks for caveman mode, or says \"terse off\" or \"normal mode\" to switch back.",
+   "examples": [
+    "terse on",
+    "Your answers are too long, skip the preamble and the recap"
+   ]
+  },
+  {
+   "name": "test-gap-hunter",
+   "emoji": "🧪",
+   "tagline": "Find the riskiest untested code and write real tests for it",
+   "category": "Testing & Quality",
+   "description": "Finds the riskiest untested code in a project and writes meaningful tests for it using the project's existing test framework and conventions. Use when the user asks to improve coverage, add tests, find untested code, or harden a module before a refactor.",
+   "examples": [
+    "Find test gaps in this project and write tests for the top 3",
+    "Add tests for src/billing"
+   ]
+  },
+  {
+   "name": "tiktok-viral-creator",
+   "emoji": "🎵",
+   "tagline": "TikTok ideas, 2-second hooks, shot-by-shot scripts and retention analysis",
+   "category": "Marketing",
+   "description": "Plans and scripts TikTok videos built for watch time and rewatches: trend and niche research, 2-second openers, shot-by-shot shooting scripts with on-screen text, sound choices, series formats, a weekly upload schedule, and retention-curve analysis from TikTok Analytics. Use when the user asks for TikTok ideas, TikTok scripts or openers, a TikTok strategy, or help growing a TikTok account or TikTok Shop.",
+   "examples": [
+    "Give me 10 TikTok ideas for my fitness app",
+    "Script a 30s TikTok about this feature"
+   ]
+  },
+  {
+   "name": "ui-taste",
+   "emoji": "💅",
+   "tagline": "Scores your CSS and Tailwind for one-off sizes, near-duplicate colours and off-grid spacing, then consolidates them into tokens",
+   "category": "Frontend",
+   "description": "Polishes an existing web UI so it looks deliberate, without a redesign. A bundled lint scores CSS, SCSS, Less, inline styles and Tailwind classes from 0 to 100 on type scale, font families, palette size and near-duplicate colours, the 4px spacing grid, radii and shadows, WCAG contrast of colour pairs set together, !important and z-index wars, Tailwind arbitrary values and generic AI-look signals (purple-blue gradients, emoji as icons, everything centred), with file:line examples. Fixes go into design tokens (CSS variables or the Tailwind theme), then it re-lints against a saved baseline and compares before and after screenshots. Use when the user asks to polish or tidy up a UI, make the design consistent, make an app look less generic, less AI-generated or less like a template, clean up messy CSS or Tailwind styles, set up a type scale, spacing scale or colour tokens, or add a design consistency lint to CI.",
+   "examples": [
+    "Our app looks amateur, fonts and spacing are all over the place",
+    "This UI screams AI-generated, make it look less generic"
+   ]
+  },
+  {
+   "name": "youtube-script-writer",
+   "emoji": "🎬",
+   "tagline": "High-retention YouTube and Shorts scripts with hooks, open loops and B-roll cues",
+   "category": "Marketing",
+   "description": "Writes high-retention YouTube scripts for long-form videos and Shorts, with a 30-second hook, structured outline, open loops, pattern interrupts, B-roll and graphics cues, sponsor segments, and CTAs, from a topic, notes, article, or research. Use when the user asks to write or rewrite what is said on camera: a YouTube script, talking points, a 30-second intro hook, a sponsor read, or a Shorts script.",
+   "examples": [
+    "Write a 10-minute YouTube script about X",
+    "Turn this blog post into a YouTube Short"
+   ]
+  },
+  {
+   "name": "youtube-seo-optimizer",
+   "emoji": "📺",
+   "tagline": "YouTube titles, thumbnails, descriptions, chapters and channel audits for more views",
+   "category": "Marketing",
+   "description": "Optimizes YouTube videos and channels for search and click-through, covering keyword research, titles, descriptions with chapters, tags, thumbnail concepts, end screens, playlists, channel page audits, and analytics reviews. Use when the user asks for YouTube titles, thumbnail ideas, tags, chapters, the video description box, better CTR or search ranking, or a YouTube channel audit.",
+   "examples": [
+    "Optimize the title and description for this video",
+    "Audit my YouTube channel"
+   ]
+  }
+ ]
+}

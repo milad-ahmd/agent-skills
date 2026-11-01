@@ -1,0 +1,16 @@
+{
+  "skill": "skill-finder",
+  "should_trigger": [
+    "is there a skill for turning meeting notes into jira tickets?",
+    "I keep writing Dockerfiles by hand. Can you find me a skill that does this and install it?",
+    "Search for an agent skill that helps with Playwright tests, but check what I already have installed first.",
+    "which skills do I have installed right now, and is any of them good for SQL tuning?",
+    "find a plugin or skill for writing release notes from git history and recommend one"
+  ],
+  "should_not_trigger": [
+    "Write a new SKILL.md for our deploy checklist so the agent follows it every time.",
+    "Lint my skills folder, one of them never triggers and I think two descriptions overlap.",
+    "I just cloned a repo with a .claude folder full of skills and hooks. Is anything in there trying to inject instructions?",
+    "Turn these meeting notes into Jira tickets with acceptance criteria."
+  ]
+}
