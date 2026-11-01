@@ -1,0 +1,16 @@
+{
+  "skill": "agent-guardrails",
+  "should_trigger": [
+    "Claude force pushed to main yesterday and wiped a teammate's commits. Set up something so the agent can never do that again.",
+    "add guardrails so claude code can't rm -rf outside the project or cat my .env",
+    "I want a PreToolUse hook that blocks dangerous bash commands like git reset --hard, curl | bash and DROP TABLE. Can you install one?",
+    "How do I stop my coding agent from running destructive commands? I use Claude Code and sometimes Cursor.",
+    "Protect the main branch from the agent: ask me before it pushes or commits there, and block --no-verify."
+  ],
+  "should_not_trigger": [
+    "I cloned a repo with a CLAUDE.md and hooks in .claude/settings.json. Check them for prompt injection before I open a session.",
+    "Audit our GitHub Actions workflows for pull_request_target and unpinned actions.",
+    "Scan the git history for leaked AWS keys and tell me which ones to rotate.",
+    "npm audit shows 12 vulnerabilities, fix them safely."
+  ]
+}
