@@ -1,0 +1,16 @@
+{
+  "skill": "merge-conflict-resolver",
+  "should_trigger": [
+    "I merged main into my feature branch and now have conflicts in 6 files. Can you resolve them?",
+    "rebase stopped at commit 3/7 with CONFLICT (content) in src/api/client.ts, help me fix it and continue",
+    "there are <<<<<<< HEAD markers all over checkout.py after git pull, which side do I keep?",
+    "package-lock.json is conflicted after merging the dependabot branch, what's the right way to fix it",
+    "git stash pop gave me a conflict in settings.py and I don't want to lose my changes"
+  ],
+  "should_not_trigger": [
+    "Write a commit message for my staged changes and split them into separate commits.",
+    "Generate release notes for everything merged since v2.4.0.",
+    "The checkout test passed last week and fails on main now. Which commit broke it?",
+    "Review my PR #214 before I merge it and leave comments."
+  ]
+}
