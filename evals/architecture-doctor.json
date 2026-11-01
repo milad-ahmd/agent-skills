@@ -1,0 +1,16 @@
+{
+  "skill": "architecture-doctor",
+  "should_trigger": [
+    "Our backend has turned into spaghetti. Where should we start refactoring so it actually pays off?",
+    "services/billing.py is 3000 lines and everything imports it. How do I split this god class without a rewrite?",
+    "we keep hitting circular dependencies between the ui and data folders, can you find them and tell me how to break them",
+    "Check whether our layering holds: controllers -> services -> repositories. Anything importing the wrong way?",
+    "which parts of this repo have the worst coupling and the most tech debt? give me a ranked refactor plan"
+  ],
+  "should_not_trigger": [
+    "I just cloned this repo and I'm lost. Explain the codebase and where I should start reading.",
+    "Migrate this project from Jest to Vitest without breaking the test suite.",
+    "Review PR #212 before I merge it.",
+    "Tell me the story of this repo's history, who built what and when."
+  ]
+}
