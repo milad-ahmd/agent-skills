@@ -1,6 +1,6 @@
 ---
 name: skills-doctor
-description: Audits installed Agent Skills (SKILL.md) for problems that stop them from working, such as invalid or missing frontmatter, name and folder mismatches, vague or overlapping descriptions that never trigger or trigger wrongly, oversized files, missing referenced scripts, and possible embedded secrets, using a linter script, then proposes fixes. Use when the user asks to lint, check, debug, clean up, or audit their skills, or asks why a skill isn't triggering.
+description: Audits installed Agent Skills (SKILL.md) for problems that stop them from working, such as invalid or missing frontmatter, name and folder mismatches, vague or overlapping descriptions that never trigger or trigger wrongly, oversized files, missing referenced scripts, and possible embedded secrets, using a linter script, then proposes fixes. Use when the user asks to lint, check, debug, clean up, or audit their skills or a skills folder such as ~/.claude/skills, or asks why a skill isn't triggering.
 ---
 
 # Skills Doctor 🩺

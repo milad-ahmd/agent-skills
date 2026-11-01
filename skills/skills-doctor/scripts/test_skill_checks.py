@@ -94,6 +94,14 @@ class DoctorCLI(unittest.TestCase):
             make_skill(t, "leaky", f"description: {GOOD_DESC}", "AWS_SECRET_ACCESS_KEY=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY\n")
             self.assertEqual(run_doctor(t).returncode, 1)
 
+    def test_referenced_script_must_exist_but_longer_extensions_are_not_scripts(self):
+        with tempfile.TemporaryDirectory() as t:
+            make_skill(t, "refs", f"description: {GOOD_DESC}", "Run `python3 scripts/run.py`; it reads scripts/index.json and scripts/a.tsx.\n")
+            out = run_doctor(t).stdout
+            self.assertIn("referenced file missing: scripts/run.py", out)
+            self.assertNotIn("scripts/index.js", out)
+            self.assertNotIn("scripts/a.ts", out)
+
     def test_folded_skill_is_clean(self):
         with tempfile.TemporaryDirectory() as t:
             make_skill(t, "folded", "description: >\n  Reviews pull requests for correctness and security issues and writes\n"

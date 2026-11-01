@@ -59,7 +59,7 @@ def check(skill_dir):
     lines = text.count("\n") + 1
     if lines > 500:
         warns.append((f"SKILL.md is {lines} lines (> 500): move detail into references/", md, 1))
-    for ref in sorted(set(re.findall(r"\b(scripts/[\w./-]+\.(?:py|sh|js|ts|rb))", body))):
+    for ref in sorted(set(re.findall(r"\b(scripts/[\w./-]+\.(?:py|sh|js|ts|rb))(?!\w)", body))):
         if not os.path.exists(os.path.join(skill_dir, ref)):
             errs.append((f"referenced file missing: {ref}", md, line_of(text, r"\b" + re.escape(ref))))
     for root, dirs, files in os.walk(skill_dir):
