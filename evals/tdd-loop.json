@@ -1,0 +1,16 @@
+{
+  "skill": "tdd-loop",
+  "should_trigger": [
+    "Let's build the password strength checker with TDD. Write the test first, then the code.",
+    "can we do red green refactor on this rate limiter? one test at a time pls",
+    "Here's the user story for coupon codes. Implement it test-first and don't touch the tests to make them pass.",
+    "Last time you edited my failing test until it passed. This time do proper test driven development for the CSV parser.",
+    "I want to practice TDD on a slugify function in Go. Walk me through each cycle."
+  ],
+  "should_not_trigger": [
+    "Find the parts of the billing module that have no tests and write some.",
+    "test_checkout started failing after yesterday's merge, figure out why.",
+    "Add Playwright tests for the signup and login flow.",
+    "Review PR #212 and tell me if the tests are good enough."
+  ]
+}
