@@ -1,0 +1,16 @@
+{
+  "skill": "terse-mode",
+  "should_trigger": [
+    "terse on. your answers are way too long, skip the preamble and the recap at the end",
+    "Can you be more concise from now on? Less fluff, just the answer and the command.",
+    "stop rambling lol. caveman mode, I want to save tokens",
+    "Your replies are too wordy and verbose. Give me shorter answers for the rest of this session.",
+    "terse off, back to normal mode please, I need the detailed explanation again"
+  ],
+  "should_not_trigger": [
+    "Does this blog post sound like it was written by AI? Flag the robotic phrases.",
+    "Define our brand voice and tone so all our marketing copy sounds the same.",
+    "Rewrite our README so it looks good on GitHub with badges and a quickstart.",
+    "Write a commit message for my staged changes."
+  ]
+}
