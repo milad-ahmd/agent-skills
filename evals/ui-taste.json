@@ -1,0 +1,16 @@
+{
+  "skill": "ui-taste",
+  "should_trigger": [
+    "Our dashboard looks kind of amateur, fonts and spacing are all over the place. Can you tidy up the UI without redesigning it?",
+    "this app screams AI-generated: purple gradient hero, emoji everywhere, everything centered. make it look less generic",
+    "How many font sizes and colours are we actually using in src/styles? I bet half of them are near-duplicates",
+    "Consolidate our messy CSS into design tokens: a type scale, a spacing scale and one accent colour",
+    "Add a design consistency lint to CI so nobody sneaks in p-[13px] or text-[#3b82f6] again"
+  ],
+  "should_not_trigger": [
+    "Our signup form is useless with VoiceOver and keyboard users can't reach the submit button. Fix the accessibility.",
+    "Here's a screenshot of a pricing card from Dribbble, build it as a React component with Tailwind",
+    "Roast our landing page, the headline is weak and nobody clicks the signup button",
+    "Write a brand voice guide so our website copy sounds like us"
+  ]
+}
