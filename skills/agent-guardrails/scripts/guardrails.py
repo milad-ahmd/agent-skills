@@ -563,8 +563,6 @@ class Ctx(object):
             "/tmp", "/private/tmp", "/var/tmp", "/private/var/tmp", "/var/folders", "/private/var/folders",
             os.environ.get("TMPDIR") or "/tmp", tempfile.gettempdir(),
             os.path.join(self.home, ".cache"), os.path.join(self.home, "Library", "Caches"))]
-        # a temp root that contains HOME (a sandboxed or test HOME) would exempt the whole home directory
-        self.safe_roots = [r for r in self.safe_roots if not _under(self.home, r)]
 
     def is_protected(self, branch):
         return bool(branch) and any(fnmatch.fnmatchcase(branch, p) for p in self.protected)
@@ -710,7 +708,10 @@ def check_rm(cmd, ctx, hits):
             hits.append(("rm-outside-project", "rm -r %s deletes %s" % (label, what)))
         elif ctx.project and _under(target, ctx.project):
             continue
-        elif any(_under(target, r) and target != r for r in ctx.safe_roots):
+        elif any(_under(target, r) and target != r and (_under(r, ctx.home) or not _under(target, ctx.home))
+                 for r in ctx.safe_roots):
+            # A temp root only covers what is outside HOME (HOME can itself live under /tmp in
+            # sandboxes and CI); the cache roots inside HOME cover their own subtree.
             continue
         else:
             hits.append(("rm-outside-project", "rm -r %s is outside the project" % label))

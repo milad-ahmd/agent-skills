@@ -145,6 +145,18 @@ class RuleTests(unittest.TestCase):
             with self.subTest(cmd=cmd):
                 self.assertEqual(self.p.decide(cmd), "allow")
 
+    def test_temp_dirs_stay_exempt_when_home_is_under_tmp(self):
+        home = "/tmp/sandbox/home"
+        project = home + "/code/app"
+
+        def decide(cmd):
+            return g.evaluate(cmd, cwd=project, project_dir=project, home=home)["decision"]
+
+        self.assertEqual(decide("rm -rf /tmp/x"), "allow")
+        self.assertEqual(decide("rm -rf ~/.cache/pip"), "allow")
+        self.assertEqual(decide("rm -rf /tmp/sandbox/home/Documents"), "deny")
+        self.assertEqual(decide("rm -rf /tmp/sandbox"), "deny")
+
     def test_secret_detection(self):
         deny = ["cat .env", "less config/.env.production", "tail -f prod.env", "grep -i key .env.local",
                 "sed -n 1p .env", "awk '{print}' .env", "base64 ~/.ssh/id_rsa", "cat ~/.aws/credentials",
