@@ -1242,8 +1242,8 @@ def install(opts, out):
         backup = write_settings(settings_path, settings)
         if backup:
             out.write("backup: %s\n" % backup)
-    out.write("done. Claude Code reloads settings files on change; run /status in a session to confirm the file "
-              "loaded, and `python3 %s test` to see the rules fire.\n" % script_path)
+    out.write("done. Claude Code reloads settings files on change; open /hooks in a session to see the entry, "
+              "and run `python3 %s test` to see the rules fire.\n" % script_path)
     return 0
 
 
