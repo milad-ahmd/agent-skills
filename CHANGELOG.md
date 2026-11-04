@@ -2,6 +2,12 @@
 
 ⭐ Star or watch the repo to get notified about new skills, and [request a skill](https://github.com/milad-ahmd/agent-skills/issues/new). Popular requests get built first.
 
+## 2026-11-05: v5.3 · durable agent workflows
+- ⏪ **New: durable-agent-workflows.** Turns a long, costly Python agent job into a durable workflow with [rewindable](https://github.com/milad-ahmd/rewindable): every model call, tool call and side effect becomes a journaled step, so a crash resumes where it stopped without re-paying finished calls, irreversible tools wait for a human, and a run can be rewound to a step after a fix. `durability_audit.py` reads the code and lists every call that would break replay (network and SDK calls, clock, randomness, file writes outside a step, tools that move money without approval) with the `ctx` replacement.
+- skill-finder now leads with the questions it answers ("is there a skill for X?"), after live evals showed it was skipped for them.
+- agent-guardrails points at `/hooks` after install.
+- 56 skills in total.
+
 ## 2026-11-01: v5.2 · the skills people install most
 Seven new skills, picked from the most-installed skills on skills.sh that this collection didn't cover yet. Six ship a stdlib Python tool with tests.
 - 🔀 **New: merge-conflict-resolver.** `conflicts.py` names the operation (merge, rebase with progress, cherry-pick, revert, am, stash pop) and what ours and theirs mean in it, then shows each hunk with base, both sides and the commits behind each side, so the agent merges intents instead of picking a side. Lockfiles are regenerated, never hand-merged, and `--check` finds leftover markers, staged ones included.
@@ -12,7 +18,7 @@ Seven new skills, picked from the most-installed skills on skills.sh that this c
 - 🧭 **New: skill-finder.** Describe a task and get the matching skill from this collection, or a `npx skills find` search of the wider registry, installed only after you say yes.
 - ✂️ **New: terse-mode.** Shorter replies that keep every command, path, number and warning. `terse_check.py --compare` proves nothing was lost.
 - skills-doctor no longer reads `scripts/index.json` as a missing `scripts/index.js`.
-- 55 skills in total.
+- 55 skills at this release.
 
 ## 2026-10-30: v5.1 · from spec to debugger
 Four new skills and two upgrades, picked from what people install most on skills.sh and star most on GitHub. Each one ships a stdlib Python tool with tests.

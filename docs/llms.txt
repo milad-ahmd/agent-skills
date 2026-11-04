@@ -1,6 +1,6 @@
 # Agent Skills by Milad Ahmadi
 
-> 55 open-source Agent Skills (SKILL.md) for Claude Code, Cursor, Codex, Cline and other AI agents. Install: `/plugin install all-skills --marketplace milad-ahmd/agent-skills` or `npx skills add milad-ahmd/agent-skills`.
+> 56 open-source Agent Skills (SKILL.md) for Claude Code, Cursor, Codex, Cline and other AI agents. Install: `/plugin install all-skills --marketplace milad-ahmd/agent-skills` or `npx skills add milad-ahmd/agent-skills`.
 
 ## Skills
 
@@ -24,6 +24,7 @@
 - [demo-recorder](https://milad-ahmd.github.io/agent-skills/skills/demo-recorder/): Record a real demo GIF or video of your CLI or web app for the README and launch posts
 - [dependency-doctor](https://milad-ahmd.github.io/agent-skills/skills/dependency-doctor/): Audit vulnerable, outdated and unused packages with a safe upgrade plan
 - [dockerize-anything](https://milad-ahmd.github.io/agent-skills/skills/dockerize-anything/): Production-ready, small, secure Dockerfile and compose for any repo
+- [durable-agent-workflows](https://milad-ahmd.github.io/agent-skills/skills/durable-agent-workflows/): Resume a crashed Python agent job where it stopped, without re-paying finished model calls
 - [e2e-flow-tester](https://milad-ahmd.github.io/agent-skills/skills/e2e-flow-tester/): Find your app's critical user flows and write Playwright end-to-end tests for them
 - [email-campaign-writer](https://milad-ahmd.github.io/agent-skills/skills/email-campaign-writer/): Welcome, launch, cart and newsletter email sequences with subject-line tests
 - [env-secrets-guard](https://milad-ahmd.github.io/agent-skills/skills/env-secrets-guard/): Find leaked API keys and secrets before they hit GitHub

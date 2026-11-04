@@ -2,13 +2,13 @@
 
 # 🧰 Agent Skills
 
-### Roast your GitHub with real data. Strip AI slop from your writing. Turn your git history into a documentary. Plus 52 more skills for developers and marketers.
+### Roast your GitHub with real data. Strip AI slop from your writing. Turn your git history into a documentary. Plus 53 more skills for developers and marketers.
 
 **Works with Claude Code · Cline · Cursor · Codex · any agent that reads `SKILL.md`**
 
 [![Stars](https://img.shields.io/github/stars/milad-ahmd/agent-skills?style=social)](https://github.com/milad-ahmd/agent-skills)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE)
-![Skills](https://img.shields.io/badge/skills-55-orange)
+![Skills](https://img.shields.io/badge/skills-56-orange)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](#-contributing)
 
 [🌐 Website](https://milad-ahmd.github.io/agent-skills/) · [Start here](#-start-with-these-three) · [Install](#-install-in-10-seconds) · [Packs](#-packs-install-by-who-you-are) · [Social media](#-social-media-manager) · [Marketing skills](#-marketing--content-skills) · [Developer skills](#-developer-skills) · [What is a skill?](#-what-is-a-skill) · [Awesome list](https://github.com/milad-ahmd/awesome-agent-skills)
@@ -76,7 +76,7 @@ npx skills add milad-ahmd/agent-skills --skill roast-my-github  # one skill
 ### Option 3: shell installer
 
 ```bash
-# all 55 skills
+# all 56 skills
 curl -fsSL https://raw.githubusercontent.com/milad-ahmd/agent-skills/main/install.sh | bash
 
 # or a role-based pack
@@ -100,7 +100,7 @@ Then just talk to your agent normally. It picks the right skill automatically.
 | `marketer` | Marketing teams | brand voice, ads, email, SEO, competitors, influencers, analytics |
 | `local-business` | Shops, clinics, restaurants | Google Business Profile, WhatsApp, Facebook, Instagram |
 | `startup-cto` | Engineering leads | specs, debugging, architecture, PR review, incidents, cost cutting, secrets, deps, migrations, agent guardrails |
-| `developer` | Every dev | the 20 core dev workflow skills, from spec and TDD to merge conflicts and debugging |
+| `developer` | Every dev | the 21 core dev workflow skills, from spec and TDD to merge conflicts and debugging |
 | `skill-builder` | Skill authors | skill-finder, skill-creator-pro, skills-doctor, agent-memory-keeper, prompt-injection-scanner |
 | `fun` | Everyone | roast-my-github, codebase-time-machine, landing-page-roaster, ai-slop-detector |
 
@@ -112,7 +112,7 @@ Run `install.sh --list` to see every skill and pack.
 |---|---|
 | <img src="assets/demo-env-secrets-guard.gif" width="420"/> | <img src="assets/demo-skills-doctor.gif" width="420"/> |
 
-## 📚 All 55 skills
+## 📚 All 56 skills
 
 ⚙️ = ships a script that collects real data (git history, API results, files) before the agent writes anything.
 
@@ -220,6 +220,7 @@ Your AI agent can also act as a social media manager, content strategist and gro
 | Skill | What it does | Try saying |
 |---|---|---|
 | 🐳 [**dockerize-anything**](skills/dockerize-anything) | Small, secure, multi-stage Dockerfile and compose | *"Dockerize this project"* |
+| ⏪ [**durable-agent-workflows**](skills/durable-agent-workflows) ⚙️ | Makes a long Python agent job crash-proof with [rewindable](https://github.com/milad-ahmd/rewindable): resume where it died without re-paying model calls, human approval before emails and payments, rewind after a fix. Ships an audit of calls that break replay | *"Make my research agent resumable after a crash"* |
 | 🔌 [**api-to-sdk**](skills/api-to-sdk) | Typed, idiomatic SDK from OpenAPI or your routes | *"Generate a TS SDK from openapi.yaml"* |
 | ⚡ [**sql-optimizer**](skills/sql-optimizer) | Explains slow queries and suggests indexes and rewrites | *"Why is this query slow?"* |
 
@@ -265,7 +266,7 @@ Every skill in this collection:
 
 ## 🗺️ Roadmap
 
-All 55 skills have shipped ([changelog](CHANGELOG.md)). Next up is your idea:
+All 56 skills have shipped ([changelog](CHANGELOG.md)). Next up is your idea:
 
 👉 [Request a skill](https://github.com/milad-ahmd/agent-skills/issues/new). Popular requests get built first.
 

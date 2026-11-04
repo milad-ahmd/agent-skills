@@ -1,6 +1,6 @@
 {
  "source": "milad-ahmd/agent-skills",
- "count": 55,
+ "count": 56,
  "skills": [
   {
    "name": "a11y-fixer",
@@ -220,6 +220,17 @@
    "examples": [
     "Dockerize this project",
     "Make my Docker image smaller"
+   ]
+  },
+  {
+   "name": "durable-agent-workflows",
+   "emoji": "⏪",
+   "tagline": "Resume a crashed Python agent job where it stopped, without re-paying finished model calls",
+   "category": "Backend & Data",
+   "description": "Makes long-running, multi-step Python AI agent jobs crash-proof and resumable with the open-source rewindable library, so a failure at step 37 resumes there instead of re-running and re-paying for steps 1 to 36. Wraps each model call, tool call and side effect in a journaled step (ctx.step, ctx.llm), moves time, randomness and network reads behind ctx so replays match, puts emails, payments and deploys behind human approval, caps spend with a Budget, and proves it by killing a run and resuming it. Includes an AST audit script that flags calls breaking durable replay. Use when the user builds an LLM research pipeline, a batch job over many documents or an agent whose tools send email, pay or deploy, and wants it to survive crashes, resume after an exception without paying again, pause hours or days for a human approval, rewind a run to a step after fixing a bug, or asks for durable execution, checkpointing or human-in-the-loop for a Python agent.",
+   "examples": [
+    "Make my research agent resumable after a crash",
+    "Add a human approval before this agent sends the invoice"
    ]
   },
   {
@@ -458,7 +469,7 @@
    "emoji": "🧭",
    "tagline": "Describe a task, get the right existing skill with why it fits, and install it only on your OK",
    "category": "Agent Productivity",
-   "description": "Recommends an existing agent skill for a job the user describes, so nobody rebuilds what is already published. Notes which ones are already present so it never suggests a duplicate, ranks this collection's bundled catalog with a BM25 search script, and falls back to the skills.sh directory and leaderboard with `npx skills find`. Presents the best 1 to 3 matches with the reason it fits, its publisher and popularity, and the exact command to add it, then adds it only after the user says yes. Use when the user asks \"is there a skill for this\", wants to find, look up, discover, browse or get a recommendation for a skill or plugin that does some job, asks which skill to use for a task, or asks which skills they already have.",
+   "description": "Answers \"is there a skill for X?\" and \"find me a skill\" requests by recommending an existing agent skill for the job, so nobody rebuilds what already exists. Notes which ones are already present so it never suggests a duplicate, ranks this collection's bundled catalog with a BM25 search script, and falls back to the skills.sh directory and leaderboard with `npx skills find`. Presents the best 1 to 3 matches with the reason it fits, its publisher and popularity, and the exact command to add it, then adds it only after the user says yes. Use it first whenever the user asks \"is there a skill for this\", even when a matching skill seems to be on hand already, or wants to find, look up, discover, browse or get a recommendation for a skill or plugin that does some job, asks which skill to use for a task, or asks which skills they already have.",
    "examples": [
     "Is there a skill for turning meeting notes into Jira tickets?",
     "Find me a skill for Playwright tests and install it"

@@ -22,6 +22,7 @@ https://milad-ahmd.github.io/agent-skills/skills/cost-cutter/
 https://milad-ahmd.github.io/agent-skills/skills/demo-recorder/
 https://milad-ahmd.github.io/agent-skills/skills/dependency-doctor/
 https://milad-ahmd.github.io/agent-skills/skills/dockerize-anything/
+https://milad-ahmd.github.io/agent-skills/skills/durable-agent-workflows/
 https://milad-ahmd.github.io/agent-skills/skills/e2e-flow-tester/
 https://milad-ahmd.github.io/agent-skills/skills/email-campaign-writer/
 https://milad-ahmd.github.io/agent-skills/skills/env-secrets-guard/
