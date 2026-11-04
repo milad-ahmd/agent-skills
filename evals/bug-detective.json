@@ -10,6 +10,7 @@
   "should_not_trigger": [
     "Production is throwing 500s on every checkout since the deploy ten minutes ago, help me run the response.",
     "Find the parts of the billing module that have no tests and write some.",
-    "Review my PR #88 before I merge it and leave comments."
+    "Review my PR #88 before I merge it and leave comments.",
+    "My research agent dies around step 30 of 40 and loses everything. Make it pick up where it stopped next time."
   ]
 }

@@ -1,0 +1,17 @@
+{
+  "skill": "durable-agent-workflows",
+  "should_trigger": [
+    "My research agent runs for two hours and makes about 300 Claude calls. When it dies near the end I start over and pay for all of it again. Can you make it resumable?",
+    "add a human approval before this agent's send_invoice tool actually fires. whoever approves might only see it the next morning",
+    "Convert this batch summarization script to rewindable so a crash halfway through doesn't lose the 400 documents it already did.",
+    "how do I checkpoint a python LLM pipeline so it picks up where it left off after an exception",
+    "The agent took the wrong branch at step 12 because my parser had a bug. I fixed the parser. Can I rerun from step 12 without redoing the first 11 model calls?"
+  ],
+  "should_not_trigger": [
+    "Our nightly Python job started throwing a KeyError in parse_invoice yesterday. Find what broke.",
+    "Our OpenAI bill tripled this month, where is the money going?",
+    "The agent service is down in production and customers are getting 500s, help me run the incident.",
+    "Generate a typed Python client for our REST API from openapi.yaml.",
+    "Build the retry policy for our job runner test-first, one red-green cycle at a time."
+  ]
+}

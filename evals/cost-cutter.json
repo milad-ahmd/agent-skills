@@ -10,6 +10,7 @@
   "should_not_trigger": [
     "This Postgres query takes 8 seconds, how do I speed it up?",
     "Make our Docker image smaller",
-    "The API is down and errors are spiking, help!"
+    "The API is down and errors are spiking, help!",
+    "Our agent pays for every Claude call again when it crashes and restarts. Make it resume from the last finished step instead."
   ]
 }
