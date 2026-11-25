@@ -1,0 +1,16 @@
+{
+  "skill": "domain-modeler",
+  "should_trigger": [
+    "Before we build subscriptions, help me get the domain model right: entities, aggregates and invariants",
+    "our code calls the same person a customer, a client, a user and a member depending on the file. pick one name and write a glossary",
+    "Set up a ubiquitous language for this repo and put it in GLOSSARY.md",
+    "Order means one thing in checkout and something else in the warehouse service. How do we split the bounded contexts and what events go between them?",
+    "is DDD worth it for this app or is it just CRUD? what are the real business concepts here"
+  ],
+  "should_not_trigger": [
+    "Our backend is spaghetti with circular imports, what should we refactor first?",
+    "I just cloned this repo, explain how it's organised and where to start",
+    "Grill me on the refunds feature before we build it and write a SPEC.md with acceptance criteria",
+    "Generate a typed Python client from our openapi.yaml"
+  ]
+}

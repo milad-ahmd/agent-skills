@@ -1,0 +1,9 @@
+model Member {
+  id    Int    @id
+  role  Role
+}
+
+enum Role {
+  ADMIN
+  MEMBER
+}

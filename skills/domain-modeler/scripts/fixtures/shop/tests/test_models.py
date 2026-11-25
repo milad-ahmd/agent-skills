@@ -1,0 +1,2 @@
+class FakeCustomerForTests:
+    pass
