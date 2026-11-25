@@ -1,0 +1,364 @@
+[
+ {
+  "number": 101,
+  "title": "Crash on startup when the config path contains unicode characters",
+  "body": "acme-cli 2.4.1 on Windows 11.\n\nSteps:\n1. Put the config in `C:\\Users\\Zoë\\acme\\config.toml`\n2. Run `acme status`\n\nExpected: status output. Actual: it crashes.\n\n```\nTraceback (most recent call last):\n  File \"acme/config.py\", line 88, in load\nUnicodeDecodeError: 'charmap' codec can't decode byte 0x81\n```",
+  "author": {
+   "login": "zoe-w"
+  },
+  "labels": [
+   {
+    "name": "bug"
+   }
+  ],
+  "comments": [
+   {
+    "author": {
+     "login": "ravi"
+    },
+    "authorAssociation": "NONE",
+    "body": "Same here with a Cyrillic username.",
+    "createdAt": "2026-09-03T10:00:00Z"
+   },
+   {
+    "author": {
+     "login": "kim"
+    },
+    "authorAssociation": "NONE",
+    "body": "+1, unicode path in config crashes on startup for me too",
+    "createdAt": "2026-11-20T09:00:00Z"
+   }
+  ],
+  "createdAt": "2026-09-01T10:00:00Z",
+  "updatedAt": "2026-11-20T09:00:00Z",
+  "url": "https://github.com/acme/acme-cli/issues/101",
+  "reactionGroups": [
+   {
+    "content": "THUMBS_UP",
+    "users": {
+     "totalCount": 12
+    }
+   }
+  ]
+ },
+ {
+  "number": 108,
+  "title": "App crashes on startup if config directory has a unicode name",
+  "body": "When my config directory has unicode characters in the path the app crashes on startup with UnicodeDecodeError.",
+  "author": {
+   "login": "pablo"
+  },
+  "labels": [],
+  "comments": [],
+  "createdAt": "2026-10-02T10:00:00Z",
+  "updatedAt": "2026-10-02T10:00:00Z",
+  "url": "https://github.com/acme/acme-cli/issues/108",
+  "reactionGroups": [
+   {
+    "content": "THUMBS_UP",
+    "users": {
+     "totalCount": 3
+    }
+   }
+  ]
+ },
+ {
+  "number": 119,
+  "title": "UnicodeDecodeError loading config from a path with unicode characters",
+  "body": "Getting `UnicodeDecodeError: 'charmap' codec can't decode` when the config path has unicode characters. Version 2.4.0.",
+  "author": {
+   "login": "lena"
+  },
+  "labels": [],
+  "comments": [],
+  "createdAt": "2026-11-10T10:00:00Z",
+  "updatedAt": "2026-11-10T10:00:00Z",
+  "url": "https://github.com/acme/acme-cli/issues/119",
+  "reactions": [
+   {
+    "content": "THUMBS_UP",
+    "users": {
+     "totalCount": 1
+    }
+   }
+  ]
+ },
+ {
+  "number": 102,
+  "title": "Add support for YAML config files",
+  "body": "It would be nice to write the config in YAML instead of TOML. Many of our other tools use YAML config files.",
+  "author": {
+   "login": "devon"
+  },
+  "labels": [
+   {
+    "name": "enhancement"
+   }
+  ],
+  "comments": [
+   {
+    "author": {
+     "login": "maint-amy"
+    },
+    "authorAssociation": "MEMBER",
+    "body": "Open to it. Needs a design for how YAML and TOML config files coexist.",
+    "createdAt": "2026-08-20T10:00:00Z"
+   },
+   {
+    "author": {
+     "login": "devon"
+    },
+    "authorAssociation": "NONE",
+    "body": "Proposal: pick the format from the file extension of the config file.",
+    "createdAt": "2026-11-01T10:00:00Z"
+   }
+  ],
+  "createdAt": "2026-08-15T10:00:00Z",
+  "updatedAt": "2026-11-01T10:00:00Z",
+  "url": "https://github.com/acme/acme-cli/issues/102",
+  "reactionGroups": [
+   {
+    "content": "THUMBS_UP",
+    "users": {
+     "totalCount": 20
+    }
+   }
+  ]
+ },
+ {
+  "number": 117,
+  "title": "Support YAML configuration files",
+  "body": "Please add support for YAML config files. TOML is unfamiliar to my team.",
+  "author": {
+   "login": "sam"
+  },
+  "labels": [],
+  "comments": [],
+  "createdAt": "2026-11-15T10:00:00Z",
+  "updatedAt": "2026-11-15T10:00:00Z",
+  "url": "https://github.com/acme/acme-cli/issues/117",
+  "reactionGroups": [
+   {
+    "content": "THUMBS_UP",
+    "users": {
+     "totalCount": 2
+    }
+   }
+  ]
+ },
+ {
+  "number": 103,
+  "title": "It doesn't work",
+  "body": "I ran the export command and it fails. Please fix.",
+  "author": {
+   "login": "anon1"
+  },
+  "labels": [],
+  "comments": [],
+  "createdAt": "2026-11-18T10:00:00Z",
+  "updatedAt": "2026-11-18T10:00:00Z",
+  "url": "https://github.com/acme/acme-cli/issues/103",
+  "reactionGroups": []
+ },
+ {
+  "number": 104,
+  "title": "How do I set a proxy for the upload command?",
+  "body": "We are behind a corporate proxy. Is there an env var or flag for upload?",
+  "author": {
+   "login": "chen"
+  },
+  "labels": [],
+  "comments": [],
+  "createdAt": "2026-11-12T10:00:00Z",
+  "updatedAt": "2026-11-12T10:00:00Z",
+  "url": "https://github.com/acme/acme-cli/issues/104",
+  "reactionGroups": []
+ },
+ {
+  "number": 105,
+  "title": "Typo in README install section",
+  "body": "The install section says `pip instal acme-cli`.",
+  "author": {
+   "login": "tomas"
+  },
+  "labels": [],
+  "comments": [],
+  "createdAt": "2026-11-01T10:00:00Z",
+  "updatedAt": "2026-11-01T10:00:00Z",
+  "url": "https://github.com/acme/acme-cli/issues/105",
+  "reactionGroups": []
+ },
+ {
+  "number": 106,
+  "title": "Export to CSV drops rows with empty fields",
+  "body": "When I export to CSV, rows that have an empty `notes` field are missing from the file.",
+  "author": {
+   "login": "ingrid"
+  },
+  "labels": [
+   {
+    "name": "bug"
+   }
+  ],
+  "comments": [
+   {
+    "author": {
+     "login": "maint-amy"
+    },
+    "authorAssociation": "MEMBER",
+    "body": "Thanks! Which version are you on, and can you share a small input file that shows it?",
+    "createdAt": "2026-09-10T10:00:00Z"
+   }
+  ],
+  "createdAt": "2026-08-01T10:00:00Z",
+  "updatedAt": "2026-09-10T10:00:00Z",
+  "url": "https://github.com/acme/acme-cli/issues/106",
+  "reactionGroups": [
+   {
+    "content": "THUMBS_UP",
+    "users": {
+     "totalCount": 1
+    }
+   }
+  ]
+ },
+ {
+  "number": 107,
+  "title": "Login token is printed in debug logs",
+  "body": "acme-cli 2.4.1. Steps: 1. run `acme login --debug`. Expected: token redacted. Actual: the full bearer token appears in the debug log output.",
+  "author": {
+   "login": "sec-sara"
+  },
+  "labels": [],
+  "comments": [],
+  "createdAt": "2026-11-22T10:00:00Z",
+  "updatedAt": "2026-11-22T10:00:00Z",
+  "url": "https://github.com/acme/acme-cli/issues/107",
+  "reactions": {
+   "total_count": 4,
+   "+1": 4
+  }
+ },
+ {
+  "number": 109,
+  "title": "Progress bar flickers in Windows Terminal",
+  "body": "Version 2.3.0. Steps: run `acme sync` in Windows Terminal. Expected a steady progress bar, actual it flickers. No error output.",
+  "author": {
+   "login": "oli"
+  },
+  "labels": [
+   {
+    "name": "bug"
+   }
+  ],
+  "comments": [],
+  "createdAt": "2026-07-20T10:00:00Z",
+  "updatedAt": "2026-07-20T10:00:00Z",
+  "url": "https://github.com/acme/acme-cli/issues/109",
+  "reactionGroups": []
+ },
+ {
+  "number": 110,
+  "title": "Data loss: sync deletes local files when the remote folder is empty",
+  "body": "Regression in 2.4.0, 2.3.2 was fine.\n\n1. Create an empty remote folder\n2. `acme sync ./photos remote:empty`\n\nExpected: nothing deleted. Actual: all local files under ./photos were deleted. Log:\n```\nINFO deleting 214 files not present on remote\n```",
+  "author": {
+   "login": "marta"
+  },
+  "labels": [
+   {
+    "name": "bug"
+   }
+  ],
+  "comments": [
+   {
+    "author": {
+     "login": "maint-amy"
+    },
+    "authorAssociation": "OWNER",
+    "body": "Confirmed, looking at it now.",
+    "createdAt": "2026-11-20T10:00:00Z"
+   },
+   {
+    "author": {
+     "login": "marta"
+    },
+    "authorAssociation": "NONE",
+    "body": "Any workaround until the fix ships?",
+    "createdAt": "2026-11-23T10:00:00Z"
+   }
+  ],
+  "createdAt": "2026-11-19T10:00:00Z",
+  "updatedAt": "2026-11-23T10:00:00Z",
+  "url": "https://github.com/acme/acme-cli/issues/110",
+  "reactionGroups": [
+   {
+    "content": "THUMBS_UP",
+    "users": {
+     "totalCount": 6
+    }
+   }
+  ]
+ },
+ {
+  "number": 111,
+  "title": "Option to disable color output",
+  "body": "An option to turn off ANSI color would help when piping output to files.",
+  "author": {
+   "login": "jo"
+  },
+  "labels": [
+   {
+    "name": "enhancement"
+   }
+  ],
+  "comments": [
+   {
+    "author": {
+     "login": "kim"
+    },
+    "authorAssociation": "NONE",
+    "body": "NO_COLOR support would cover it.",
+    "createdAt": "2026-10-21T10:00:00Z"
+   }
+  ],
+  "createdAt": "2026-10-20T10:00:00Z",
+  "updatedAt": "2026-10-21T10:00:00Z",
+  "url": "https://github.com/acme/acme-cli/issues/111",
+  "reactionGroups": [
+   {
+    "content": "THUMBS_UP",
+    "users": {
+     "totalCount": 5
+    }
+   }
+  ]
+ },
+ {
+  "number": 112,
+  "title": "Docs: the example for --filter is wrong",
+  "body": "The docs page for `acme list` shows `--filter name=foo` but the flag expects `--filter name:foo`.",
+  "author": {
+   "login": "pat"
+  },
+  "labels": [],
+  "comments": [],
+  "createdAt": "2026-11-05T10:00:00Z",
+  "updatedAt": "2026-11-05T10:00:00Z",
+  "url": "https://github.com/acme/acme-cli/issues/112",
+  "reactionGroups": []
+ },
+ {
+  "number": 113,
+  "title": "Upload fails for files over 2 GB",
+  "body": "### Version\n\n_No response_\n\n### Steps to reproduce\n\n1. `acme upload big.iso`\n\n### Expected behavior\n\n_No response_\n\n### Logs\n\n_No response_",
+  "author": {
+   "login": "form-user"
+  },
+  "labels": [],
+  "comments": [],
+  "createdAt": "2026-11-21T10:00:00Z",
+  "updatedAt": "2026-11-21T10:00:00Z",
+  "url": "https://github.com/acme/acme-cli/issues/113",
+  "reactionGroups": []
+ }
+]

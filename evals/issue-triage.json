@@ -1,0 +1,16 @@
+{
+  "skill": "issue-triage",
+  "should_trigger": [
+    "triage the open issues on acme/acme-cli",
+    "Our GitHub repo has 300+ open issues. Can you find the duplicates and tell me which ones we should look at first?",
+    "go through the issue backlog and suggest labels for everything, but don't change anything on github until I say ok",
+    "Which bug reports in our tracker are missing a version or steps to reproduce? Draft replies asking the reporters for them.",
+    "a lot of issues have been sitting for months waiting on the people who opened them, help me sort out which ones are stale"
+  ],
+  "should_not_trigger": [
+    "Here are the notes from today's planning call, turn the action items into GitHub issues with owners.",
+    "Review PR #214 and leave comments on anything risky before I merge.",
+    "Issue #88 says the CSV export drops rows with empty fields. Can you debug it and fix the code?",
+    "Write release notes for everything merged since v1.8."
+  ]
+}
