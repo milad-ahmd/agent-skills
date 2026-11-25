@@ -1,0 +1,16 @@
+{
+  "skill": "pre-commit-setup",
+  "should_trigger": [
+    "Set up pre-commit hooks for this Python repo, we use ruff",
+    "add husky and lint-staged so eslint and prettier run before every commit",
+    "Our Go + TypeScript monorepo needs git hooks. Is lefthook a good fit? Wire it up with our existing linters",
+    "people keep pushing unformatted code, can we auto-format staged files on commit and fail the commit if lint breaks?",
+    "I want a .pre-commit-config.yaml with a secret scan and a big file check, and the same checks in CI so nobody skips them with --no-verify"
+  ],
+  "should_not_trigger": [
+    "Write a good commit message for my staged changes",
+    "Add a Claude Code hook that blocks the agent from running rm -rf or force pushing",
+    "Scan the git history for leaked AWS keys before we open-source this",
+    "Audit our GitHub Actions workflows and pin the actions to SHAs"
+  ]
+}
