@@ -5,13 +5,13 @@
     "email": "miladahmadi803@gmail.com"
   },
   "metadata": {
-    "description": "56 Agent Skills: roast-my-github, an AI slop detector, a bisecting bug detective, merge conflict resolver, agent guardrails, TDD loop, durable agent workflows, architecture doctor, UI taste lint, Playwright e2e tests, spec grilling and a social media manager",
-    "version": "5.3.0"
+    "description": "59 Agent Skills: roast-my-github, an AI slop detector, a bisecting bug detective, merge conflict resolver, agent guardrails, TDD loop, issue triage, domain modeling, pre-commit hooks, durable agent workflows, architecture doctor, UI taste lint, Playwright e2e tests, spec grilling and a social media manager",
+    "version": "5.4.0"
   },
   "plugins": [
     {
       "name": "all-skills",
-      "description": "All 56 skills: developer workflows, debugging, TDD, merge conflicts, architecture, security scanners and guardrails, marketing, social media and fun skills",
+      "description": "All 59 skills: developer workflows, debugging, TDD, merge conflicts, architecture, security scanners and guardrails, marketing, social media and fun skills",
       "source": "./",
       "strict": false,
       "skills": [
@@ -35,6 +35,7 @@
         "./skills/demo-recorder",
         "./skills/dependency-doctor",
         "./skills/dockerize-anything",
+        "./skills/domain-modeler",
         "./skills/durable-agent-workflows",
         "./skills/e2e-flow-tester",
         "./skills/email-campaign-writer",
@@ -44,6 +45,7 @@
         "./skills/incident-commander",
         "./skills/influencer-outreach",
         "./skills/instagram-growth-manager",
+        "./skills/issue-triage",
         "./skills/landing-page-roaster",
         "./skills/launch-post-writer",
         "./skills/meeting-notes-to-tickets",
@@ -51,6 +53,7 @@
         "./skills/migration-wizard",
         "./skills/plan-griller",
         "./skills/pr-reviewer-pro",
+        "./skills/pre-commit-setup",
         "./skills/prompt-injection-scanner",
         "./skills/readme-glow-up",
         "./skills/roast-my-github",
@@ -142,7 +145,7 @@
     },
     {
       "name": "startup-cto-pack",
-      "description": "Engineering lead toolkit: specs, debugging, architecture, PR review, incidents, cost cutting, secrets, dependencies, migrations, CI security and agent guardrails",
+      "description": "Engineering lead toolkit: specs, debugging, architecture, domain modeling, issue triage, PR review, incidents, cost cutting, secrets, dependencies, migrations, CI security and agent guardrails",
       "source": "./",
       "strict": false,
       "skills": [
@@ -161,12 +164,14 @@
         "./skills/plan-griller",
         "./skills/bug-detective",
         "./skills/architecture-doctor",
-        "./skills/agent-guardrails"
+        "./skills/agent-guardrails",
+        "./skills/issue-triage",
+        "./skills/domain-modeler"
       ]
     },
     {
       "name": "developer-pack",
-      "description": "Core developer workflows: specs, TDD, debugging, merge conflicts, architecture, PR review, commits, unit and e2e tests, secrets, Docker, SQL, migrations, API SDKs, durable agent workflows, CI security, agent guardrails",
+      "description": "Core developer workflows: specs, TDD, debugging, merge conflicts, issue triage, git hooks, domain modeling, architecture, PR review, commits, unit and e2e tests, secrets, Docker, SQL, migrations, API SDKs, durable agent workflows, CI security, agent guardrails",
       "source": "./",
       "strict": false,
       "skills": [
@@ -190,7 +195,10 @@
         "./skills/tdd-loop",
         "./skills/architecture-doctor",
         "./skills/agent-guardrails",
-        "./skills/durable-agent-workflows"
+        "./skills/durable-agent-workflows",
+        "./skills/issue-triage",
+        "./skills/pre-commit-setup",
+        "./skills/domain-modeler"
       ]
     },
     {

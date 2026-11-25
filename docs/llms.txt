@@ -1,6 +1,6 @@
 # Agent Skills by Milad Ahmadi
 
-> 56 open-source Agent Skills (SKILL.md) for Claude Code, Cursor, Codex, Cline and other AI agents. Install: `/plugin install all-skills --marketplace milad-ahmd/agent-skills` or `npx skills add milad-ahmd/agent-skills`.
+> 59 open-source Agent Skills (SKILL.md) for Claude Code, Cursor, Codex, Cline and other AI agents. Install: `/plugin install all-skills --marketplace milad-ahmd/agent-skills` or `npx skills add milad-ahmd/agent-skills`.
 
 ## Skills
 
@@ -24,6 +24,7 @@
 - [demo-recorder](https://milad-ahmd.github.io/agent-skills/skills/demo-recorder/): Record a real demo GIF or video of your CLI or web app for the README and launch posts
 - [dependency-doctor](https://milad-ahmd.github.io/agent-skills/skills/dependency-doctor/): Audit vulnerable, outdated and unused packages with a safe upgrade plan
 - [dockerize-anything](https://milad-ahmd.github.io/agent-skills/skills/dockerize-anything/): Production-ready, small, secure Dockerfile and compose for any repo
+- [domain-modeler](https://milad-ahmd.github.io/agent-skills/skills/domain-modeler/): Glossary, aggregates, bounded contexts and events grounded in your code's real names; flags synonym drift
 - [durable-agent-workflows](https://milad-ahmd.github.io/agent-skills/skills/durable-agent-workflows/): Resume a crashed Python agent job where it stopped, without re-paying finished model calls
 - [e2e-flow-tester](https://milad-ahmd.github.io/agent-skills/skills/e2e-flow-tester/): Find your app's critical user flows and write Playwright end-to-end tests for them
 - [email-campaign-writer](https://milad-ahmd.github.io/agent-skills/skills/email-campaign-writer/): Welcome, launch, cart and newsletter email sequences with subject-line tests
@@ -33,6 +34,7 @@
 - [incident-commander](https://milad-ahmd.github.io/agent-skills/skills/incident-commander/): Run a production outage from triage to mitigation, status updates and a blameless postmortem
 - [influencer-outreach](https://milad-ahmd.github.io/agent-skills/skills/influencer-outreach/): Influencer and UGC campaigns: vetting, outreach DMs, briefs and tracking
 - [instagram-growth-manager](https://milad-ahmd.github.io/agent-skills/skills/instagram-growth-manager/): Grow and manage Instagram with bio audits, Reels scripts, carousels, captions, hashtags and growth reviews
+- [issue-triage](https://milad-ahmd.github.io/agent-skills/skills/issue-triage/): Triages open GitHub issues: duplicates, missing repro info, stale threads, labels and priority, writes on approval
 - [landing-page-roaster](https://milad-ahmd.github.io/agent-skills/skills/landing-page-roaster/): Honest, funny, scored roast of your landing page plus copy rewrites
 - [launch-post-writer](https://milad-ahmd.github.io/agent-skills/skills/launch-post-writer/): Turn your repo into an X thread, Show HN, LinkedIn and Reddit launch posts
 - [meeting-notes-to-tickets](https://milad-ahmd.github.io/agent-skills/skills/meeting-notes-to-tickets/): Meeting notes into de-duplicated GitHub, Linear or Jira tickets
@@ -40,6 +42,7 @@
 - [migration-wizard](https://milad-ahmd.github.io/agent-skills/skills/migration-wizard/): Safe, incremental codebase migrations: JS→TS, Jest→Vitest, Pages→App Router and more
 - [plan-griller](https://milad-ahmd.github.io/agent-skills/skills/plan-griller/): Grill you on a feature plan against your real code, then write a testable SPEC.md
 - [pr-reviewer-pro](https://milad-ahmd.github.io/agent-skills/skills/pr-reviewer-pro/): Senior-engineer PR reviews with severity levels, file:line evidence and suggested fixes
+- [pre-commit-setup](https://milad-ahmd.github.io/agent-skills/skills/pre-commit-setup/): Fast git hooks from the tools you already use: pre-commit, husky + lint-staged or lefthook, mirrored in CI
 - [prompt-injection-scanner](https://milad-ahmd.github.io/agent-skills/skills/prompt-injection-scanner/): Scan skills, CLAUDE.md, hooks and MCP configs for prompt injection and hidden instructions
 - [readme-glow-up](https://milad-ahmd.github.io/agent-skills/skills/readme-glow-up/): Turn any README into a star magnet using only facts from your repo
 - [roast-my-github](https://milad-ahmd.github.io/agent-skills/skills/roast-my-github/): Get your GitHub profile roasted with real data, then a scorecard and glow-up plan

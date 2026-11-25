@@ -2,11 +2,18 @@
 
 ⭐ Star or watch the repo to get notified about new skills, and [request a skill](https://github.com/milad-ahmd/agent-skills/issues/new). Popular requests get built first.
 
+## 2026-11-25: v5.4 · triage, hooks and a shared language
+Three new skills, picked from the most-installed skills on skills.sh that this collection didn't cover. Each ships a stdlib Python tool with tests.
+- 🏷️ **New: issue-triage.** `triage.py` reads open issues (a saved `gh issue list --json` file, or `--repo` to fetch them read-only) and finds duplicate candidates by text similarity, bug reports missing a version, steps or expected/actual, threads waiting on the reporter or on maintainers, label suggestions and a priority order. The agent drafts replies; labels, comments and closes go to GitHub only after you approve each batch.
+- 📖 **New: domain-modeler.** `domain_terms.py` pulls the domain words out of class, type, table and enum names across Python, TS/JS, Go, Java, Kotlin, C#, Ruby, SQL and Prisma, and flags one concept under several names, the same name in two contexts, and near-duplicate spellings. The skill turns that into a GLOSSARY.md and a domain doc, and `--glossary` checks new code against it in CI.
+- 🚦 **New: pre-commit-setup.** `hooks_plan.py` detects the stack, the tools already configured and any existing hook setup, then picks pre-commit, husky + lint-staged or lefthook and writes the config (never over an existing one). Hooks run on staged files only, and the same checks are mirrored in CI so `--no-verify` can't skip them for good.
+- 59 skills in total.
+
 ## 2026-11-05: v5.3 · durable agent workflows
 - ⏪ **New: durable-agent-workflows.** Turns a long, costly Python agent job into a durable workflow with [rewindable](https://github.com/milad-ahmd/rewindable): every model call, tool call and side effect becomes a journaled step, so a crash resumes where it stopped without re-paying finished calls, irreversible tools wait for a human, and a run can be rewound to a step after a fix. `durability_audit.py` reads the code and lists every call that would break replay (network and SDK calls, clock, randomness, file writes outside a step, tools that move money without approval) with the `ctx` replacement.
 - skill-finder now leads with the questions it answers ("is there a skill for X?"), after live evals showed it was skipped for them.
 - agent-guardrails points at `/hooks` after install.
-- 56 skills in total.
+- 56 skills at this release.
 
 ## 2026-11-01: v5.2 · the skills people install most
 Seven new skills, picked from the most-installed skills on skills.sh that this collection didn't cover yet. Six ship a stdlib Python tool with tests.

@@ -1,0 +1,83 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>domain-modeler: Free Agent Skill for Claude Code, Cursor &amp; Codex</title><meta name="description" content="Glossary, aggregates, bounded contexts and events grounded in your code&#x27;s real names; flags synonym drift. Free open-source SKILL.md for Claude Code, Cursor, Codex and Cline.">
+<link rel="canonical" href="https://milad-ahmd.github.io/agent-skills/skills/domain-modeler/"><meta name="robots" content="index,follow">
+<meta property="og:type" content="website"><meta property="og:title" content="domain-modeler: Free Agent Skill for Claude Code, Cursor &amp; Codex"><meta property="og:description" content="Glossary, aggregates, bounded contexts and events grounded in your code&#x27;s real names; flags synonym drift. Free open-source SKILL.md for Claude Code, Cursor, Codex and Cline.">
+<meta property="og:url" content="https://milad-ahmd.github.io/agent-skills/skills/domain-modeler/"><meta property="og:image" content="https://milad-ahmd.github.io/agent-skills/assets/og.png"><meta property="og:site_name" content="Agent Skills by Milad Ahmadi">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="domain-modeler: Free Agent Skill for Claude Code, Cursor &amp; Codex"><meta name="twitter:description" content="Glossary, aggregates, bounded contexts and events grounded in your code&#x27;s real names; flags synonym drift. Free open-source SKILL.md for Claude Code, Cursor, Codex and Cline."><meta name="twitter:image" content="https://milad-ahmd.github.io/agent-skills/assets/og.png">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧰</text></svg>">
+<style>
+:root{--bg:#0f1117;--card:#171a23;--fg:#e8e9ee;--dim:#9aa0ad;--acc:#8b5cf6;--acc2:#22d3ee;--line:#262a36;--pre:#0b0d12;color-scheme:dark}
+@media (prefers-color-scheme:light){:root{--bg:#f7f7fb;--card:#fff;--fg:#15171e;--dim:#5b6170;--acc:#7c3aed;--acc2:#0e7490;--line:#e1e3ea;--pre:#f0f1f6;color-scheme:light}}
+*{box-sizing:border-box}body{margin:0;font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--fg)}
+a{color:var(--acc2);text-decoration:none}a:hover{text-decoration:underline}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+header.top{border-bottom:1px solid var(--line);padding:14px 0}header.top .wrap{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.logo{font-weight:800;color:var(--fg);font-size:18px}.nav a{margin-left:16px;color:var(--dim)}
+.hero{padding:56px 0 28px;text-align:center}.hero h1{font-size:clamp(30px,5vw,48px);line-height:1.15;margin:0 0 14px}
+.hero p{color:var(--dim);font-size:19px;max-width:760px;margin:0 auto 22px}
+.btn{display:inline-block;background:var(--acc);color:#fff;padding:12px 20px;border-radius:10px;font-weight:700;margin:4px}
+.btn.alt{background:transparent;border:1px solid var(--line);color:var(--fg)}
+pre{background:var(--pre);border:1px solid var(--line);border-radius:10px;padding:14px;overflow:auto;font-size:14px;white-space:pre-wrap;word-break:break-word}
+code{font-family:ui-monospace,Menlo,monospace}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;display:block;color:var(--fg)}
+.card:hover{border-color:var(--acc);text-decoration:none}.card h3{margin:0 0 6px;font-size:17px}.card p{margin:0;color:var(--dim);font-size:14px}
+h2{margin-top:44px}.tag{display:inline-block;font-size:12px;color:var(--acc2);border:1px solid var(--line);border-radius:999px;padding:2px 10px;margin-bottom:8px}
+.demo{max-width:100%;height:auto;border-radius:10px;border:1px solid var(--line)}
+.crumbs{color:var(--dim);font-size:14px;margin:20px 0 0}article{max-width:820px}
+article h1{font-size:clamp(28px,4vw,40px);margin:8px 0}.lead{font-size:19px;color:var(--dim)}
+.skillmd h2,.skillmd h3{margin-top:28px}.skillmd table{border-collapse:collapse;width:100%;font-size:14px;display:block;overflow:auto}
+.skillmd td,.skillmd th{border:1px solid var(--line);padding:6px 8px;text-align:left}
+footer{border-top:1px solid var(--line);margin-top:60px;padding:24px 0;color:var(--dim);font-size:14px}
+</style><script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareSourceCode", "name": "domain-modeler", "description": "Builds a domain model from the real code and the user's words before a feature is built. A read-only script lists the business terms declared in code (classes, structs, enums and their values, SQL tables, ORM and Prisma models) in Python, TS/JS, Go, Java, Kotlin, C# and Ruby and flags one concept under several names (Customer, Client, User), one name declared in two folders (Order in checkout and fulfilment) and near-identical spellings, with file:line. The agent asks only what the code can't answer, then writes a GLOSSARY.md (one name per concept, its meaning, what it is not, words to avoid) and a docs/domain.md: entities, value objects, aggregates and invariants, bounded contexts, domain events. It says when DDD is overkill, proposes renames without applying them, and a --glossary mode fails CI on avoided words. Use when the user asks for a domain model, DDD or ubiquitous language, a glossary of business terms, which name to use for a concept, aggregates or invariants, bounded contexts, or domain events.", "codeRepository": "https://github.com/milad-ahmd/agent-skills/tree/main/skills/domain-modeler", "license": "https://opensource.org/licenses/MIT", "dateModified": "2026-11-25", "author": {"@type": "Person", "name": "Milad Ahmadi", "url": "https://github.com/milad-ahmd"}, "keywords": "agent skill, SKILL.md, claude code skill, cursor, codex, domain-modeler, Backend & Data"}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Agent Skills", "item": "https://milad-ahmd.github.io/agent-skills/"}, {"@type": "ListItem", "position": 2, "name": "domain-modeler", "item": "https://milad-ahmd.github.io/agent-skills/skills/domain-modeler/"}]}</script></head><body>
+<header class="top"><div class="wrap"><a class="logo" href="../../">🧰 Agent Skills</a>
+<nav class="nav"><a href="../../#skills">Skills</a><a href="../../roast/">Roast 🔥</a><a href="../../guides/">Guides</a><a href="../../#packs">Packs</a><a href="../../#install">Install</a><a href="https://github.com/milad-ahmd/agent-skills">GitHub ⭐</a></nav></div></header>
+<main class="wrap"><p class="crumbs"><a href="../../">Agent Skills</a> › <a href="../../#skills">Backend &amp; Data</a> › domain-modeler</p>
+<article><span class="tag">Backend &amp; Data</span>
+<h1>📖 domain-modeler</h1><p class="lead">Glossary, aggregates, bounded contexts and events grounded in your code&#x27;s real names; flags synonym drift. A free, open-source Agent Skill for Claude Code, Cline, Cursor, Codex and 75+ AI agents.</p>
+<h2>Install domain-modeler</h2>
+<pre><code># Claude Code (all 59 skills)
+/plugin install all-skills --marketplace milad-ahmd/agent-skills
+
+# Cursor, Codex, Cline, Windsurf, Copilot + 75 more agents
+npx skills add milad-ahmd/agent-skills --skill domain-modeler
+
+# Shell installer
+curl -fsSL https://raw.githubusercontent.com/milad-ahmd/agent-skills/main/install.sh | bash -s -- domain-modeler</code></pre><p>Included in packs: <code>startup-cto-pack</code>, <code>developer-pack</code></p>
+<h2>What to say to your agent</h2><ul><li><code>Help me get the domain model right before we build subscriptions</code></li><li><code>We call the same person customer, client and user, pick one name</code></li></ul>
+<h2>When it triggers</h2><p>Builds a domain model from the real code and the user&#x27;s words before a feature is built. A read-only script lists the business terms declared in code (classes, structs, enums and their values, SQL tables, ORM and Prisma models) in Python, TS/JS, Go, Java, Kotlin, C# and Ruby and flags one concept under several names (Customer, Client, User), one name declared in two folders (Order in checkout and fulfilment) and near-identical spellings, with file:line. The agent asks only what the code can&#x27;t answer, then writes a GLOSSARY.md (one name per concept, its meaning, what it is not, words to avoid) and a docs/domain.md: entities, value objects, aggregates and invariants, bounded contexts, domain events. It says when DDD is overkill, proposes renames without applying them, and a --glossary mode fails CI on avoided words. Use when the user asks for a domain model, DDD or ubiquitous language, a glossary of business terms, which name to use for a concept, aggregates or invariants, bounded contexts, or domain events.</p>
+<h2>Full skill instructions (SKILL.md)</h2><div class="skillmd"><h2>Domain Modeler</h2>
+<p>Get the names and rules right before the code, so the code says what the business says. Ground every entry in the code and the user&#x27;s words. A model nobody&#x27;s code follows is decoration.</p>
+<h3>1. Decide how deep to go</h3>
+<p>Read the README, the models or schema and the feature request. If the app is forms over tables with one team and rules that fit in validators, say &quot;DDD is overkill here&quot;, do steps 2, 3 and 5 for the glossary only, and stop. Go further when rules span several objects, one word means different things to two teams, a status field has many contested transitions, or money or concurrent edits are involved. [references/domain-doc.md](references/domain-doc.md) has the full checklist.</p>
+<h3>2. Scan the names the code already uses</h3>
+<pre><code>python3 scripts/domain_terms.py src/                 # terms, synonym groups, multi-defined names, near-duplicates
+python3 scripts/domain_terms.py . --exclude &#x27;legacy/*&#x27; --top 80
+python3 scripts/domain_terms.py . --json             # every declaration with file, line, kind, words</code></pre>
+<p>It reads declarations only: class, interface, type, struct, record and enum names, enum values, <code>CREATE TABLE</code>, <code>CREATE TYPE ... AS ENUM</code>, Prisma models, and table names in <code>__tablename__</code>, <code>db_table</code>, <code>@Entity(&quot;...&quot;)</code>, <code>@Table(name = ...)</code>, <code>[Table(&quot;...&quot;)]</code> and <code>create_table</code>. Names are split into words, technical suffixes and prefixes are dropped (Service, Controller, Repository, Dto, Impl, Handler, Model, Entity, Request, Base, Abstract, the <code>I</code> of <code>IOrderRepository</code>), plurals become singular, and names with words like Http, Api, Json or Redis are skipped. Test folders, vendored and build folders are skipped.</p>
+<p>Exit codes: <code>0</code> report · <code>1</code> glossary violations (with <code>--glossary</code>) · <code>2</code> nothing to scan or unreadable glossary.</p>
+<p>The output is candidates, not truth. <code>customer / client / user</code> in one group may be one concept under three names, or three real concepts. Two <code>Order</code> classes may be two bounded contexts or a copy that drifted.</p>
+<h3>3. Read, then ask only what the code can&#x27;t answer</h3>
+<p>For each synonym group and multi-defined term, open the declarations and compare fields, callers and the tables they map to. Same fields and same callers usually means one concept. Different fields, lifecycles or owners usually means two. Write what the code settles in a few lines (&quot;<code>ClientAccount</code> and <code>Customer</code> share <code>email</code> and <code>tax_id</code>; billing/ calls one, checkout/ the other&quot;).</p>
+<p>Then ask the user, one question at a time, each with a recommended answer they can accept with &quot;yes&quot;:</p>
+<pre><code>Q2. checkout/models.py:20 Order has prices and a customer; fulfilment/order.go:4 Order has lines
+and a warehouse, no prices. Recommend: two contexts, keep &quot;Order&quot; in checkout and call the
+fulfilment one &quot;PickList&quot;, because warehouse staff already say pick list. OK?</code></pre>
+<p>Use the user&#x27;s words for names, not textbook ones. Ask what a term means to the people who use it, what it is not, when one is created and when it ends, and which rules must always hold.</p>
+<h3>4. Model</h3>
+<p>Work through the tests in the reference: entity or value object (identity and lifecycle, or defined by its values), aggregates (start from an invariant, name the root that enforces it, reference other aggregates by ID), bounded contexts (where one word means different things, and who translates), and domain events (past tense, raised by the aggregate that changed, who reacts). For each invariant, say whether the code enforces it today and where (file:line), or that it doesn&#x27;t.</p>
+<h3>5. Write the documents</h3>
+<p>Write <code>GLOSSARY.md</code> and, if you went past the glossary, <code>docs/domain.md</code>, in the formats in the reference. Use an existing glossary or docs folder if the repo has one. Each glossary entry has: the name as the code should spell it, a one- or two-line definition in the user&#x27;s words, <code>Not:</code> (what it is easily confused with), <code>Avoid:</code> (synonyms to stop using), and where it lives in code. Then check the code against it:</p>
+<pre><code>python3 scripts/domain_terms.py src/ --glossary GLOSSARY.md   # exit 1 lists file:line, avoided word, the term to use</code></pre>
+<p>Offer this as a CI step if the user wants the glossary enforced. Exempt third-party or frozen names with an <code>Allow:</code> line, not by dropping the <code>Avoid:</code> word.</p>
+<h3>6. Propose renames, don&#x27;t apply them</h3>
+<p>List renames as a table: current name, new name, files affected, and risk. Mark separately anything that leaves the codebase: database tables and columns (need a migration), public API fields, event names other services consume, and serialized data. Apply nothing until the user picks which renames to do.</p>
+<h3>Report</h3>
+<p>Depth chosen and why; the synonym groups and multi-defined names with your verdict and its evidence; the questions asked and the answers; the files written; the <code>--glossary</code> result; the rename table.</p>
+<h3>Do not</h3>
+<ul><li>Invent terms, rules or contexts the code and the user don&#x27;t support. Mark guesses as assumptions.</li><li>Build aggregates, repositories and event buses for a CRUD app.</li><li>Merge two concepts because their names are synonyms, or split one because the script grouped words differently. Check fields and callers.</li><li>Rename code, tables, API fields or events without the user choosing the renames.</li><li>Ask the user what the code already shows.</li></ul></div>
+<p><a class="btn" href="https://github.com/milad-ahmd/agent-skills/tree/main/skills/domain-modeler">View source on GitHub</a> <a class="btn alt" href="https://github.com/milad-ahmd/agent-skills">⭐ Star the collection</a></p>
+<h2>Related skills</h2><div class="grid"><a class="card" href="../api-to-sdk/"><h3>🔌 api-to-sdk</h3><p>Typed, idiomatic client SDK from an OpenAPI spec or your backend routes</p></a><a class="card" href="../durable-agent-workflows/"><h3>⏪ durable-agent-workflows</h3><p>Resume a crashed Python agent job where it stopped, without re-paying finished model calls</p></a><a class="card" href="../sql-optimizer/"><h3>⚡ sql-optimizer</h3><p>Explain slow SQL queries and get index and rewrite fixes</p></a></div></article></main>
+<footer><div class="wrap">Open source (MIT) by <a href="https://github.com/milad-ahmd">Milad Ahmadi</a> · <a href="https://github.com/milad-ahmd/agent-skills">GitHub</a> · Works with Claude Code, Cline, Cursor, Codex, Windsurf, Copilot and any agent that reads SKILL.md · Updated 2026-11-25</div></footer>
+</body></html>

@@ -1,6 +1,6 @@
 {
  "source": "milad-ahmd/agent-skills",
- "count": 56,
+ "count": 59,
  "skills": [
   {
    "name": "a11y-fixer",
@@ -223,6 +223,17 @@
    ]
   },
   {
+   "name": "domain-modeler",
+   "emoji": "📖",
+   "tagline": "Glossary, aggregates, bounded contexts and events grounded in your code's real names; flags synonym drift",
+   "category": "Backend & Data",
+   "description": "Builds a domain model from the real code and the user's words before a feature is built. A read-only script lists the business terms declared in code (classes, structs, enums and their values, SQL tables, ORM and Prisma models) in Python, TS/JS, Go, Java, Kotlin, C# and Ruby and flags one concept under several names (Customer, Client, User), one name declared in two folders (Order in checkout and fulfilment) and near-identical spellings, with file:line. The agent asks only what the code can't answer, then writes a GLOSSARY.md (one name per concept, its meaning, what it is not, words to avoid) and a docs/domain.md: entities, value objects, aggregates and invariants, bounded contexts, domain events. It says when DDD is overkill, proposes renames without applying them, and a --glossary mode fails CI on avoided words. Use when the user asks for a domain model, DDD or ubiquitous language, a glossary of business terms, which name to use for a concept, aggregates or invariants, bounded contexts, or domain events.",
+   "examples": [
+    "Help me get the domain model right before we build subscriptions",
+    "We call the same person customer, client and user, pick one name"
+   ]
+  },
+  {
    "name": "durable-agent-workflows",
    "emoji": "⏪",
    "tagline": "Resume a crashed Python agent job where it stopped, without re-paying finished model calls",
@@ -322,6 +333,17 @@
    ]
   },
   {
+   "name": "issue-triage",
+   "emoji": "🏷️",
+   "tagline": "Triages open GitHub issues: duplicates, missing repro info, stale threads, labels and priority, writes on approval",
+   "category": "Git & Workflow",
+   "description": "Triages a repository's open GitHub issues the way a careful maintainer does. A read-only script pulls the open issues with gh (or reads saved gh JSON) and lists duplicate candidates by TF-IDF similarity with the score and shared terms, bugs missing a version, steps to reproduce, expected vs actual or logs, stale issues and whether each one waits on the reporter or on maintainers, suggested labels (bug, feature, question, docs, good first issue), and a P1/P2/P3 priority from severity, reactions, commenters and duplicates, ranked by what needs attention. Produces a triage summary and proposed replies. Labels, comments and closing happen only after the user approves each batch of gh commands shown first; it never closes anything on its own. Use when the user asks to triage GitHub issues, go through the issue backlog or tracker, find duplicate issues, label or prioritise open issues, find bugs that need a repro or more info, chase stale issues waiting on reporters, or decide which issues to fix first.",
+   "examples": [
+    "Triage the open issues on our repo",
+    "Which bug reports are missing a version or steps to reproduce?"
+   ]
+  },
+  {
    "name": "landing-page-roaster",
    "emoji": "🔥",
    "tagline": "Honest, funny, scored roast of your landing page plus copy rewrites",
@@ -396,6 +418,17 @@
    "examples": [
     "Review PR #123",
     "Review my changes before I push"
+   ]
+  },
+  {
+   "name": "pre-commit-setup",
+   "emoji": "🚦",
+   "tagline": "Fast git hooks from the tools you already use: pre-commit, husky + lint-staged or lefthook, mirrored in CI",
+   "category": "Git & Workflow",
+   "description": "Sets up git pre-commit hooks that run the project's own formatters and linters on staged files only, plus a secret scan and a large-file check, and mirrors the same checks in CI so git commit --no-verify can't skip them for good. A read-only script detects languages, lockfiles, monorepo layout, existing hook setups (husky, lefthook, simple-git-hooks, custom .git/hooks, core.hooksPath) and tool configs (ruff, black, eslint, prettier, biome, gofmt, golangci-lint, rustfmt). It picks the pre-commit framework for Python, husky + lint-staged for JS/TS, or lefthook for Rust, polyglot repos and monorepos, and prints the exact config file. It never adds a formatter the project doesn't use and never replaces an existing setup. These are git hooks, not Claude Code agent hooks. Use when the user asks to set up pre-commit hooks or a .pre-commit-config.yaml, add husky and lint-staged, configure lefthook, run eslint or prettier before every commit, format staged files on commit, or stop commits that fail lint.",
+   "examples": [
+    "Set up pre-commit hooks for this repo with ruff",
+    "Add husky and lint-staged so eslint and prettier run on commit"
    ]
   },
   {
