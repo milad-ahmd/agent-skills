@@ -1,0 +1,16 @@
+{
+  "skill": "dependency-weigh-in",
+  "should_trigger": [
+    "how big is my node_modules? give me the number and a meme-worthy comparison",
+    "Why is node_modules 1.2 GB? Find which packages take the most disk space",
+    "our .venv is huge, which pip packages are eating all that space",
+    "weigh my dependencies and make a shareable card I can post",
+    "something keeps dragging a 40 MB package into our install, figure out what pulls it in and how to slim the install down"
+  ],
+  "should_not_trigger": [
+    "npm audit shows 23 vulnerabilities, sort it out",
+    "Our Docker image is 1.4 GB, write a smaller multi-stage Dockerfile",
+    "Our AWS bill doubled last month, where is the money going?",
+    "Make this dashboard look less generic and clean up the Tailwind styles"
+  ]
+}
