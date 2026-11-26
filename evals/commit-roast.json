@@ -1,0 +1,16 @@
+{
+  "skill": "commit-roast",
+  "should_trigger": [
+    "Roast our commit history, it's mostly wip and fix",
+    "how bad are the commit messages in this repo? give me a score",
+    "count how many commits in the last 6 months just say 'update' or 'asdf' and make fun of us a bit",
+    "our git log is a mess. look at the messages, tell us what we keep doing wrong and suggest some commit rules we could actually follow",
+    "do we even use conventional commits? check the history and recommend a commit-msg hook"
+  ],
+  "should_not_trigger": [
+    "Write a commit message for my staged changes",
+    "Roast my GitHub profile, username jdoe",
+    "Generate release notes for everything merged since v2.4.0",
+    "Tell me the story of this codebase from the first commit, like a documentary"
+  ]
+}
