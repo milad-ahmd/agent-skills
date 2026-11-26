@@ -1,0 +1,16 @@
+{
+  "skill": "bus-factor",
+  "should_trigger": [
+    "what's our bus factor? I have a feeling it's 1",
+    "Which parts of this repo does only one person understand? Our senior dev is leaving in March and I need a handover plan",
+    "find the knowledge silos in our monorepo and tell me who should pair with whom",
+    "If Sam quits tomorrow, how much of the backend would nobody know how to maintain?",
+    "compute the truck factor for this project and make a card I can drop in our team channel"
+  ],
+  "should_not_trigger": [
+    "Tell me the story of this repo from the first commit, like a documentary",
+    "Find the circular dependencies and god files and tell me what to refactor first",
+    "I just cloned this repo, explain the codebase and where I should start",
+    "Make me a Spotify Wrapped for my own commits this year"
+  ]
+}
