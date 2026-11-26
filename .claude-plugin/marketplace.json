@@ -5,13 +5,13 @@
     "email": "miladahmadi803@gmail.com"
   },
   "metadata": {
-    "description": "63 Agent Skills: roast-my-github, dev wrapped, a tech debt receipt, an AI slop detector, a bisecting bug detective, merge conflict resolver, agent guardrails, TDD loop, issue triage, domain modeling, pre-commit hooks, durable agent workflows, architecture doctor, UI taste lint, Playwright e2e tests, spec grilling and a social media manager",
-    "version": "5.5.0"
+    "description": "67 Agent Skills: roast-my-github, commit roasts, bus factor, dev wrapped, a tech debt receipt, an AI slop detector, a bisecting bug detective, merge conflict resolver, agent guardrails, TDD loop, issue triage, domain modeling, pre-commit hooks, durable agent workflows, architecture doctor, UI taste lint, Playwright e2e tests, spec grilling and a social media manager",
+    "version": "5.6.0"
   },
   "plugins": [
     {
       "name": "all-skills",
-      "description": "All 63 skills: developer workflows, debugging, TDD, merge conflicts, architecture, security scanners and guardrails, marketing, social media and fun skills",
+      "description": "All 67 skills: developer workflows, debugging, TDD, merge conflicts, architecture, security scanners and guardrails, marketing, social media and fun skills",
       "source": "./",
       "strict": false,
       "skills": [
@@ -25,15 +25,18 @@
         "./skills/architecture-doctor",
         "./skills/brand-voice-guide",
         "./skills/bug-detective",
+        "./skills/bus-factor",
         "./skills/changelog-from-git",
         "./skills/codebase-explainer",
         "./skills/codebase-time-machine",
         "./skills/commit-craft",
+        "./skills/commit-roast",
         "./skills/competitor-spy",
         "./skills/content-repurposer",
         "./skills/cost-cutter",
         "./skills/demo-recorder",
         "./skills/dependency-doctor",
+        "./skills/dependency-weigh-in",
         "./skills/dev-wrapped",
         "./skills/dockerize-anything",
         "./skills/domain-modeler",
@@ -59,6 +62,7 @@
         "./skills/pre-commit-setup",
         "./skills/prompt-injection-scanner",
         "./skills/readme-glow-up",
+        "./skills/repo-card",
         "./skills/roast-my-github",
         "./skills/screenshot-to-component",
         "./skills/seo-blog-writer",
@@ -82,7 +86,7 @@
     },
     {
       "name": "indie-hacker-pack",
-      "description": "Solo founder toolkit: idea validation, name checks, a portfolio site, landing page roast, launch posts, demo GIFs, UI polish, ASO, SEO, X and Reddit growth",
+      "description": "Solo founder toolkit: idea validation, name checks, a portfolio site, a social preview card, landing page roast, launch posts, demo GIFs, UI polish, ASO, SEO, X and Reddit growth",
       "source": "./",
       "strict": false,
       "skills": [
@@ -98,7 +102,8 @@
         "./skills/demo-recorder",
         "./skills/ui-taste",
         "./skills/name-checker",
-        "./skills/github-portfolio"
+        "./skills/github-portfolio",
+        "./skills/repo-card"
       ]
     },
     {
@@ -151,7 +156,7 @@
     },
     {
       "name": "startup-cto-pack",
-      "description": "Engineering lead toolkit: specs, debugging, architecture, domain modeling, issue triage, PR review, incidents, cost cutting, secrets, dependencies, migrations, CI security and agent guardrails",
+      "description": "Engineering lead toolkit: specs, debugging, architecture, domain modeling, issue triage, bus factor, PR review, incidents, cost cutting, secrets, dependencies, migrations, CI security and agent guardrails",
       "source": "./",
       "strict": false,
       "skills": [
@@ -172,7 +177,8 @@
         "./skills/architecture-doctor",
         "./skills/agent-guardrails",
         "./skills/issue-triage",
-        "./skills/domain-modeler"
+        "./skills/domain-modeler",
+        "./skills/bus-factor"
       ]
     },
     {
@@ -222,7 +228,7 @@
     },
     {
       "name": "fun-pack",
-      "description": "Roast your GitHub, git history documentaries, landing page roasts, AI slop detection, your year in code as a Wrapped card, tech debt as a receipt",
+      "description": "Roast your GitHub, git history documentaries, landing page roasts, AI slop detection, your year in code as a Wrapped card, tech debt as a receipt, commit roasts, your bus factor, node_modules weighed in floppy disks",
       "source": "./",
       "strict": false,
       "skills": [
@@ -231,7 +237,10 @@
         "./skills/landing-page-roaster",
         "./skills/ai-slop-detector",
         "./skills/dev-wrapped",
-        "./skills/tech-debt-receipt"
+        "./skills/tech-debt-receipt",
+        "./skills/commit-roast",
+        "./skills/bus-factor",
+        "./skills/dependency-weigh-in"
       ]
     }
   ]

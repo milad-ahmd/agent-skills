@@ -1,6 +1,6 @@
 # Agent Skills by Milad Ahmadi
 
-> 63 open-source Agent Skills (SKILL.md) for Claude Code, Cursor, Codex, Cline and other AI agents. Install: `/plugin install all-skills --marketplace milad-ahmd/agent-skills` or `npx skills add milad-ahmd/agent-skills`.
+> 67 open-source Agent Skills (SKILL.md) for Claude Code, Cursor, Codex, Cline and other AI agents. Install: `/plugin install all-skills --marketplace milad-ahmd/agent-skills` or `npx skills add milad-ahmd/agent-skills`.
 
 ## Skills
 
@@ -14,15 +14,18 @@
 - [architecture-doctor](https://milad-ahmd.github.io/agent-skills/skills/architecture-doctor/): Ranks coupling, cycles, god files and hidden coupling by git churn, then plans small safe refactors
 - [brand-voice-guide](https://milad-ahmd.github.io/agent-skills/skills/brand-voice-guide/): A brand voice, positioning and personas guide, then rewrites copy on-brand
 - [bug-detective](https://milad-ahmd.github.io/agent-skills/skills/bug-detective/): Debug by reproducing first, logging hypotheses and auto-bisecting the commit that broke it
+- [bus-factor](https://milad-ahmd.github.io/agent-skills/skills/bus-factor/): Finds the code only one person knows, scores your bus factor, and plans the handover
 - [changelog-from-git](https://milad-ahmd.github.io/agent-skills/skills/changelog-from-git/): Polished release notes and CHANGELOG entries from git history
 - [codebase-explainer](https://milad-ahmd.github.io/agent-skills/skills/codebase-explainer/): Onboarding guide built from a real import graph: entry points, hubs, cycles, Mermaid and an interactive map
 - [codebase-time-machine](https://milad-ahmd.github.io/agent-skills/skills/codebase-time-machine/): The story of your repo from git history, as a documentary: eras, cast, plot twists, cursed files
 - [commit-craft](https://milad-ahmd.github.io/agent-skills/skills/commit-craft/): Turn messy changes into clean, atomic Conventional Commits
+- [commit-roast](https://milad-ahmd.github.io/agent-skills/skills/commit-roast/): Roast a repo's commit history with real numbers, then get commit rules that fix what it does wrong
 - [competitor-spy](https://milad-ahmd.github.io/agent-skills/skills/competitor-spy/): Competitor analysis of pricing, messaging, socials, ads and reviews, with a SWOT and opportunities
 - [content-repurposer](https://milad-ahmd.github.io/agent-skills/skills/content-repurposer/): One video or podcast into 15+ posts: Shorts, Reels, threads, LinkedIn, carousel, newsletter
 - [cost-cutter](https://milad-ahmd.github.io/agent-skills/skills/cost-cutter/): Cut cloud, SaaS and LLM API bills with dollar estimates, effort, risk and exact fixes
 - [demo-recorder](https://milad-ahmd.github.io/agent-skills/skills/demo-recorder/): Record a real demo GIF or video of your CLI or web app for the README and launch posts
 - [dependency-doctor](https://milad-ahmd.github.io/agent-skills/skills/dependency-doctor/): Audit vulnerable, outdated and unused packages with a safe upgrade plan
+- [dependency-weigh-in](https://milad-ahmd.github.io/agent-skills/skills/dependency-weigh-in/): Weigh node_modules, venvs and Go modules in floppy disks and Doom copies, then find what to slim
 - [dev-wrapped](https://milad-ahmd.github.io/agent-skills/skills/dev-wrapped/): Your year in code from your own git history: streaks, hours, languages, an archetype and a shareable card
 - [dockerize-anything](https://milad-ahmd.github.io/agent-skills/skills/dockerize-anything/): Production-ready, small, secure Dockerfile and compose for any repo
 - [domain-modeler](https://milad-ahmd.github.io/agent-skills/skills/domain-modeler/): Glossary, aggregates, bounded contexts and events grounded in your code's real names; flags synonym drift
@@ -48,6 +51,7 @@
 - [pre-commit-setup](https://milad-ahmd.github.io/agent-skills/skills/pre-commit-setup/): Fast git hooks from the tools you already use: pre-commit, husky + lint-staged or lefthook, mirrored in CI
 - [prompt-injection-scanner](https://milad-ahmd.github.io/agent-skills/skills/prompt-injection-scanner/): Scan skills, CLAUDE.md, hooks and MCP configs for prompt injection and hidden instructions
 - [readme-glow-up](https://milad-ahmd.github.io/agent-skills/skills/readme-glow-up/): Turn any README into a star magnet using only facts from your repo
+- [repo-card](https://milad-ahmd.github.io/agent-skills/skills/repo-card/): Build a real-data social preview card (OG image) so your repo link looks good when shared
 - [roast-my-github](https://milad-ahmd.github.io/agent-skills/skills/roast-my-github/): Get your GitHub profile roasted with real data, then a scorecard and glow-up plan
 - [screenshot-to-component](https://milad-ahmd.github.io/agent-skills/skills/screenshot-to-component/): Screenshot or mockup to a component built with your design system
 - [seo-blog-writer](https://milad-ahmd.github.io/agent-skills/skills/seo-blog-writer/): SEO blog posts that rank: intent research, outline, meta tags, FAQ and schema

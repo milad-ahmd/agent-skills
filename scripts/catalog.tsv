@@ -61,3 +61,7 @@ dev-wrapped	🎁	Your year in code from your own git history: streaks, hours, la
 tech-debt-receipt	🧾	Every TODO, FIXME, hack and lint suppression, aged with git blame and printed as a receipt, plus a payoff plan	Fun & Viral	Print our tech debt as a receipt|Which TODOs and eslint-disables should we fix first?
 github-portfolio	🌐	One-page portfolio site from your real GitHub repos, honest project write-ups, ready for GitHub Pages	Growth	Make me a portfolio site from my GitHub|Build a github.io page I can link on my CV
 name-checker	🔤	Brainstorm product, library or CLI names and check domains, GitHub, npm, PyPI and crates in seconds	Founders	Find a name for my new CLI and check what's free|Is "lumora" taken on npm and .com?
+commit-roast	🪵	Roast a repo's commit history with real numbers, then get commit rules that fix what it does wrong	Fun & Viral	Roast our commit history|How bad are the commit messages in this repo?
+bus-factor	🚌	Finds the code only one person knows, scores your bus factor, and plans the handover	Fun & Viral	What's our bus factor?|Which parts of this repo does only one person understand?
+dependency-weigh-in	⚖️	Weigh node_modules, venvs and Go modules in floppy disks and Doom copies, then find what to slim	Fun & Viral	How heavy is my node_modules?|Why is my venv 3 GB and what can I drop?
+repo-card	🪪	Build a real-data social preview card (OG image) so your repo link looks good when shared	Growth	Make a social preview image for my repo|Generate an og:image and meta tags for my project site

@@ -2,13 +2,13 @@
 
 # 🧰 Agent Skills
 
-### Roast your GitHub with real data. Strip AI slop from your writing. Turn your git history into a documentary. Plus 60 more skills for developers and marketers.
+### Roast your GitHub with real data. Strip AI slop from your writing. Turn your git history into a documentary. Plus 64 more skills for developers and marketers.
 
 **Works with Claude Code · Cline · Cursor · Codex · any agent that reads `SKILL.md`**
 
 [![Stars](https://img.shields.io/github/stars/milad-ahmd/agent-skills?style=social)](https://github.com/milad-ahmd/agent-skills)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE)
-![Skills](https://img.shields.io/badge/skills-63-orange)
+![Skills](https://img.shields.io/badge/skills-67-orange)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](#-contributing)
 
 [🌐 Website](https://milad-ahmd.github.io/agent-skills/) · [Start here](#-start-with-these-three) · [Install](#-install-in-10-seconds) · [Packs](#-packs-install-by-who-you-are) · [Social media](#-social-media-manager) · [Marketing skills](#-marketing--content-skills) · [Developer skills](#-developer-skills) · [What is a skill?](#-what-is-a-skill) · [Awesome list](https://github.com/milad-ahmd/awesome-agent-skills)
@@ -76,7 +76,7 @@ npx skills add milad-ahmd/agent-skills --skill roast-my-github  # one skill
 ### Option 3: shell installer
 
 ```bash
-# all 63 skills
+# all 67 skills
 curl -fsSL https://raw.githubusercontent.com/milad-ahmd/agent-skills/main/install.sh | bash
 
 # or a role-based pack
@@ -95,14 +95,14 @@ Then just talk to your agent normally. It picks the right skill automatically.
 
 | Pack | For | Includes |
 |---|---|---|
-| `indie-hacker` | Solo founders | idea validation, name checks, a portfolio site, landing page roast, launch posts, demo GIFs, UI polish, ASO, SEO, X & Reddit |
+| `indie-hacker` | Solo founders | idea validation, name checks, a portfolio site, a social preview card, landing page roast, launch posts, demo GIFs, UI polish, ASO, SEO, X & Reddit |
 | `creator` | Creators & influencers | Instagram, TikTok, YouTube, repurposing, hooks, calendar, analytics |
 | `marketer` | Marketing teams | brand voice, ads, email, SEO, competitors, influencers, analytics |
 | `local-business` | Shops, clinics, restaurants | Google Business Profile, WhatsApp, Facebook, Instagram |
-| `startup-cto` | Engineering leads | specs, debugging, architecture, domain modeling, issue triage, PR review, incidents, cost cutting, secrets, deps, migrations, agent guardrails |
+| `startup-cto` | Engineering leads | specs, debugging, architecture, domain modeling, issue triage, bus factor, PR review, incidents, cost cutting, secrets, deps, migrations, agent guardrails |
 | `developer` | Every dev | the 24 core dev workflow skills, from spec and TDD to merge conflicts and debugging |
 | `skill-builder` | Skill authors | skill-finder, skill-creator-pro, skills-doctor, agent-memory-keeper, prompt-injection-scanner |
-| `fun` | Everyone | roast-my-github, dev-wrapped, tech-debt-receipt, codebase-time-machine, landing-page-roaster, ai-slop-detector |
+| `fun` | Everyone | roast-my-github, commit-roast, dev-wrapped, tech-debt-receipt, bus-factor, dependency-weigh-in, codebase-time-machine, landing-page-roaster, ai-slop-detector |
 
 Run `install.sh --list` to see every skill and pack.
 
@@ -112,7 +112,7 @@ Run `install.sh --list` to see every skill and pack.
 |---|---|
 | <img src="assets/demo-env-secrets-guard.gif" width="420"/> | <img src="assets/demo-skills-doctor.gif" width="420"/> |
 
-## 📚 All 63 skills
+## 📚 All 67 skills
 
 ⚙️ = ships a script that collects real data (git history, API results, files) before the agent writes anything.
 
@@ -123,6 +123,9 @@ Run `install.sh --list` to see every skill and pack.
 | 🔥 [**roast-my-github**](skills/roast-my-github) ⚙️ | Get your GitHub profile roasted with real data, then a scorecard and glow-up plan | *"Roast my GitHub: milad-ahmd"* |
 | 🦈 [**startup-idea-validator**](skills/startup-idea-validator) | Stress-test a startup idea with a VC, customer and competitor panel, cheap experiments and a verdict | *"Validate my startup idea: ..."* |
 | 🎁 [**dev-wrapped**](skills/dev-wrapped) ⚙️ | Your year in code from your own git history: commits, streaks, night-owl hours, languages, an archetype and a shareable 1200x630 card that shows no repo names unless you ask | *"Make me a Spotify Wrapped for my code this year"* |
+| 🪵 [**commit-roast**](skills/commit-roast) ⚙️ | Roasts a repo's commit history with real numbers (the "wip" hall of shame, fix-the-fix chains, 2am commits) and a hygiene score, then gives commit rules that fix what it does wrong | *"Roast our commit history"* |
+| 🚌 [**bus-factor**](skills/bus-factor) ⚙️ | Finds the code only one person knows from git blame and recent history, scores your bus factor, and plans the handover. People stay anonymous unless you ask | *"What's our bus factor?"* |
+| ⚖️ [**dependency-weigh-in**](skills/dependency-weigh-in) ⚙️ | Weighs node_modules, venvs and Go modules in floppy disks and Doom copies, then finds the heaviest packages, duplicate copies, dev weight and lighter alternatives | *"How heavy is my node_modules?"* |
 | 🧾 [**tech-debt-receipt**](skills/tech-debt-receipt) ⚙️ | Every TODO, FIXME, hack and lint suppression, aged with git blame and printed as a shop receipt (text or SVG), then a ranked list of what to pay off first | *"Print our tech debt as a receipt"* |
 | 🔤 [**name-checker**](skills/name-checker) ⚙️ | Brainstorms names for a product, library or CLI and checks each one: .com/.dev/.app domains, GitHub, npm, PyPI, crates and Homebrew, ranked | *"Find a name for my new CLI and check what's free"* |
 | ⏳ [**codebase-time-machine**](skills/codebase-time-machine) ⚙️ | The story of your repo from git history, as a documentary: eras, cast, plot twists, cursed files | *"Tell me the story of this codebase"* |
@@ -241,6 +244,7 @@ Your AI agent can also act as a social media manager, content strategist and gro
 |---|---|---|
 | 🚀 [**launch-post-writer**](skills/launch-post-writer) | X thread, Show HN, LinkedIn and Reddit posts from your repo | *"Write launch posts for this repo"* |
 | 🎬 [**demo-recorder**](skills/demo-recorder) ⚙️ | Records a real demo GIF or video of your CLI (VHS) or web app (Playwright) and shrinks it for the README | *"Make a demo GIF of this CLI for the README"* |
+| 🪪 [**repo-card**](skills/repo-card) ⚙️ | A 1280x640 social preview card built from your repo's real data, in three templates, as SVG and PNG, plus og:image tags, so every shared link looks good | *"Make a social preview image for my repo"* |
 | 🌐 [**github-portfolio**](skills/github-portfolio) ⚙️ | A one-page portfolio site built from your real public repos, with honest project write-ups, no JavaScript and ready for GitHub Pages | *"Make me a portfolio site from my GitHub"* |
 | 🔥 [**landing-page-roaster**](skills/landing-page-roaster) | Scored, funny, honest roast of your landing page plus rewrites | *"Roast my landing page"* |
 
@@ -273,7 +277,7 @@ Every skill in this collection:
 
 ## 🗺️ Roadmap
 
-All 63 skills have shipped ([changelog](CHANGELOG.md)). Next up is your idea:
+All 67 skills have shipped ([changelog](CHANGELOG.md)). Next up is your idea:
 
 👉 [Request a skill](https://github.com/milad-ahmd/agent-skills/issues/new). Popular requests get built first.
 

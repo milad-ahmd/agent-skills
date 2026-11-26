@@ -2,13 +2,21 @@
 
 ⭐ Star or watch the repo to get notified about new skills, and [request a skill](https://github.com/milad-ahmd/agent-skills/issues/new). Popular requests get built first.
 
+## 2026-11-28: v5.6 · roasts, buses and floppy disks
+Four more skills that make something worth posting and leave the repo better. Each ships a stdlib Python tool with tests, and people stay anonymous unless you ask.
+- 🪵 **New: commit-roast.** `commit_stats.py` scores a repo's commit history out of 100 (descriptive subjects, imperative mood, length, bodies on big commits, Conventional Commits, fix-the-fix chains, shouting) with the formula shown, and finds the five most roastable facts with evidence. The skill then writes commit rules that fit what this repo gets wrong.
+- 🚌 **New: bus-factor.** `bus_factor.py` measures who knows each file from git blame and recent commits, finds files only one person owns, and computes the team's bus factor (an exact search, or a greedy upper bound after Avelino et al. 2016, counting lines). A shareable card shows the headline without names.
+- ⚖️ **New: dependency-weigh-in.** `weigh_in.py` weighs node_modules (npm, pnpm, yarn, bun), venvs and Go modules, says how many floppy disks or copies of shareware Doom that is (every reference size is sourced), and lists the heaviest packages with what pulls them in, duplicate copies, dev-only weight and lighter alternatives.
+- 🪪 **New: repo-card.** `repo_card.py` renders a 1280x640 social preview from your repo's real name, tagline, languages, license and stars in three templates, converts it to PNG with whatever converter the machine has, and prints og:image tags. You upload it in the repo's settings yourself.
+- 67 skills in total.
+
 ## 2026-11-27: v5.5 · wrapped season
 Four skills that make something worth sharing and stay useful after the screenshot. Each ships a stdlib Python tool with tests.
 - 🎁 **New: dev-wrapped.** `wrapped.py` reads your own commits across local repos for a year: commits, active days, streaks, hour and weekday patterns, languages by changed lines, favourite commit verbs and an archetype (The Night Owl, The Weekend Warrior…), then draws a 1200x630 card in a dark or light theme. The card and markdown recap show no repo names, paths or emails unless you ask.
 - 🧾 **New: tech-debt-receipt.** `debt_receipt.py` finds every TODO, FIXME, HACK, XXX and lint suppression in tracked files, ages each with git blame, prices it by kind, age and how often its file changes, and prints a receipt (text or SVG) with the formula at the bottom. Then a ranked list of what to pay first, and `--fail-over` for a CI debt budget. Authors stay hidden unless you ask.
 - 🌐 **New: github-portfolio.** `portfolio.py` builds a one-page portfolio from your public GitHub data inside the unauthenticated rate limit: featured projects, languages, recent activity. No JavaScript, light and dark themes, every repo description escaped. A `data.json` keeps your own wording across rebuilds.
 - 🔤 **New: name-checker.** `check_names.py` checks candidate names against domains (DNS, then RDAP through the IANA bootstrap), GitHub, npm, PyPI, crates.io and Homebrew, applies each registry's naming rules, and ranks them. A timeout or rate limit shows as unknown, never as free.
-- 63 skills in total.
+- 63 skills at this release.
 
 ## 2026-11-25: v5.4 · triage, hooks and a shared language
 Three new skills, picked from the most-installed skills on skills.sh that this collection didn't cover. Each ships a stdlib Python tool with tests.

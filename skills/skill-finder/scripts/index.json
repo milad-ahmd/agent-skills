@@ -1,6 +1,6 @@
 {
  "source": "milad-ahmd/agent-skills",
- "count": 63,
+ "count": 67,
  "skills": [
   {
    "name": "a11y-fixer",
@@ -113,6 +113,17 @@
    ]
   },
   {
+   "name": "bus-factor",
+   "emoji": "🚌",
+   "tagline": "Finds the code only one person knows, scores your bus factor, and plans the handover",
+   "category": "Fun & Viral",
+   "description": "Measures a repository's bus factor (truck factor) and plans the knowledge transfer. A read-only script runs git blame and git log on tracked source files, skipping lockfiles, vendored and generated code, to see who owns each file's lines and who touched it recently. It flags knowledge silos where one person owns 80% or more, scores knowledge at risk per file and directory, lists what only each person knows, and finds the fewest people whose departure would leave over half the code with nobody active who knows it. It honours .mailmap, keeps people anonymous (Author A, B, C) unless asked, and writes JSON and a shareable SVG card. The agent then proposes a handover for the riskiest areas: pairing, walkthrough docs, CODEOWNERS review rotation and tests. Use when the user asks for the bus factor or truck factor, which code only one person knows, knowledge silos or single points of failure, code ownership concentration, what happens if someone leaves or quits, or a knowledge transfer or handover plan.",
+   "examples": [
+    "What's our bus factor?",
+    "Which parts of this repo does only one person understand?"
+   ]
+  },
+  {
    "name": "changelog-from-git",
    "emoji": "📝",
    "tagline": "Polished release notes and CHANGELOG entries from git history",
@@ -154,6 +165,17 @@
    "examples": [
     "Commit my changes",
     "Split these changes into clean commits"
+   ]
+  },
+  {
+   "name": "commit-roast",
+   "emoji": "🪵",
+   "tagline": "Roast a repo's commit history with real numbers, then get commit rules that fix what it does wrong",
+   "category": "Fun & Viral",
+   "description": "Roasts a repository's commit history with numbers, then turns the worst habits into commit message rules that fit the repo. A read-only script runs git log over a range and measures message length, one-word and lazy messages, a hall of shame of repeated messages like wip, fix, update and asdf, ALL CAPS, swearing (censored) and emoji, Conventional Commits adoption and types, imperative mood, subjects over 72 characters, big commits with no body, fix-the-fix chains, late-night and Friday-evening commits, reverts, giant commits, typo commits and issue references. It prints a 0-100 commit hygiene score with its formula and the five most roastable facts with sha evidence, with authors anonymous by default. Use when the user asks to roast our commits or a repo's commit history, asks how bad the commit messages in this repo are, wants a commit hygiene score, counts wip or \"fix\" commits, or wants commit message rules, a commit-msg hook or commitlint based on what the history does wrong.",
+   "examples": [
+    "Roast our commit history",
+    "How bad are the commit messages in this repo?"
    ]
   },
   {
@@ -209,6 +231,17 @@
    "examples": [
     "Check my dependencies",
     "Plan the upgrade to React 19"
+   ]
+  },
+  {
+   "name": "dependency-weigh-in",
+   "emoji": "⚖️",
+   "tagline": "Weigh node_modules, venvs and Go modules in floppy disks and Doom copies, then find what to slim",
+   "category": "Fun & Viral",
+   "description": "Weighs a project's installed dependencies on disk and finds what to slim. A read-only script measures node_modules (npm, pnpm, yarn, bun), a Python venv per installed distribution, and Go modules in the module cache, compares the total with real reference sizes (floppy disks, shareware Doom, the Apollo Guidance Computer, CDs) and gives it a weight class from strawweight to black hole. It lists the heaviest packages and what pulls each one in, the heaviest direct dependencies with everything they drag along, duplicate copies to dedupe, dev-only weight, dev tools listed under dependencies, and maintained lighter alternatives for known heavy packages, plus JSON and a shareable SVG weigh-in card. Use when the user asks how big or heavy node_modules is, why node_modules or a venv is so large, which package uses the most disk space, what pulls in a huge dependency, to weigh or shrink their dependencies, to cut install size, or wants the \"node_modules heavier than a black hole\" meme with real numbers.",
+   "examples": [
+    "How heavy is my node_modules?",
+    "Why is my venv 3 GB and what can I drop?"
    ]
   },
   {
@@ -484,6 +517,17 @@
    "examples": [
     "Glow up the README of this repo",
     "Rewrite my README with badges and a quickstart"
+   ]
+  },
+  {
+   "name": "repo-card",
+   "emoji": "🪪",
+   "tagline": "Build a real-data social preview card (OG image) so your repo link looks good when shared",
+   "category": "Growth",
+   "description": "Makes a 1280x640 social preview card (Open Graph image) for a repository from its real data, the image X, LinkedIn, Slack and Discord show when the link is shared. A stdlib script reads the name from the git remote, a short tagline, languages by file count, the license and the latest tag, and can add real stars, forks and topics from the GitHub API without a token. It writes an SVG card in clean, terminal or bold templates with light and dark themes, shrinks and wraps long names and taglines, converts it to PNG with rsvg-convert, cairosvg, ImageMagick or headless Chrome when one is installed, and prints og and twitter meta tags for a project site. The user uploads it in the repository settings by hand. Use when the user asks for a social preview image, social card, OG image, Open Graph image, link preview, share image or banner for their repository, wants a nicer preview when the link is pasted into a chat or feed, or needs og:image meta tags for a project site.",
+   "examples": [
+    "Make a social preview image for my repo",
+    "Generate an og:image and meta tags for my project site"
    ]
   },
   {
