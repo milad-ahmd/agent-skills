@@ -2,12 +2,20 @@
 
 ⭐ Star or watch the repo to get notified about new skills, and [request a skill](https://github.com/milad-ahmd/agent-skills/issues/new). Popular requests get built first.
 
+## 2026-11-27: v5.5 · wrapped season
+Four skills that make something worth sharing and stay useful after the screenshot. Each ships a stdlib Python tool with tests.
+- 🎁 **New: dev-wrapped.** `wrapped.py` reads your own commits across local repos for a year: commits, active days, streaks, hour and weekday patterns, languages by changed lines, favourite commit verbs and an archetype (The Night Owl, The Weekend Warrior…), then draws a 1200x630 card in a dark or light theme. The card and markdown recap show no repo names, paths or emails unless you ask.
+- 🧾 **New: tech-debt-receipt.** `debt_receipt.py` finds every TODO, FIXME, HACK, XXX and lint suppression in tracked files, ages each with git blame, prices it by kind, age and how often its file changes, and prints a receipt (text or SVG) with the formula at the bottom. Then a ranked list of what to pay first, and `--fail-over` for a CI debt budget. Authors stay hidden unless you ask.
+- 🌐 **New: github-portfolio.** `portfolio.py` builds a one-page portfolio from your public GitHub data inside the unauthenticated rate limit: featured projects, languages, recent activity. No JavaScript, light and dark themes, every repo description escaped. A `data.json` keeps your own wording across rebuilds.
+- 🔤 **New: name-checker.** `check_names.py` checks candidate names against domains (DNS, then RDAP through the IANA bootstrap), GitHub, npm, PyPI, crates.io and Homebrew, applies each registry's naming rules, and ranks them. A timeout or rate limit shows as unknown, never as free.
+- 63 skills in total.
+
 ## 2026-11-25: v5.4 · triage, hooks and a shared language
 Three new skills, picked from the most-installed skills on skills.sh that this collection didn't cover. Each ships a stdlib Python tool with tests.
 - 🏷️ **New: issue-triage.** `triage.py` reads open issues (a saved `gh issue list --json` file, or `--repo` to fetch them read-only) and finds duplicate candidates by text similarity, bug reports missing a version, steps or expected/actual, threads waiting on the reporter or on maintainers, label suggestions and a priority order. The agent drafts replies; labels, comments and closes go to GitHub only after you approve each batch.
 - 📖 **New: domain-modeler.** `domain_terms.py` pulls the domain words out of class, type, table and enum names across Python, TS/JS, Go, Java, Kotlin, C#, Ruby, SQL and Prisma, and flags one concept under several names, the same name in two contexts, and near-duplicate spellings. The skill turns that into a GLOSSARY.md and a domain doc, and `--glossary` checks new code against it in CI.
 - 🚦 **New: pre-commit-setup.** `hooks_plan.py` detects the stack, the tools already configured and any existing hook setup, then picks pre-commit, husky + lint-staged or lefthook and writes the config (never over an existing one). Hooks run on staged files only, and the same checks are mirrored in CI so `--no-verify` can't skip them for good.
-- 59 skills in total.
+- 59 skills at this release.
 
 ## 2026-11-05: v5.3 · durable agent workflows
 - ⏪ **New: durable-agent-workflows.** Turns a long, costly Python agent job into a durable workflow with [rewindable](https://github.com/milad-ahmd/rewindable): every model call, tool call and side effect becomes a journaled step, so a crash resumes where it stopped without re-paying finished calls, irreversible tools wait for a human, and a run can be rewound to a step after a fix. `durability_audit.py` reads the code and lists every call that would break replay (network and SDK calls, clock, randomness, file writes outside a step, tools that move money without approval) with the `ctx` replacement.

@@ -5,13 +5,13 @@
     "email": "miladahmadi803@gmail.com"
   },
   "metadata": {
-    "description": "59 Agent Skills: roast-my-github, an AI slop detector, a bisecting bug detective, merge conflict resolver, agent guardrails, TDD loop, issue triage, domain modeling, pre-commit hooks, durable agent workflows, architecture doctor, UI taste lint, Playwright e2e tests, spec grilling and a social media manager",
-    "version": "5.4.0"
+    "description": "63 Agent Skills: roast-my-github, dev wrapped, a tech debt receipt, an AI slop detector, a bisecting bug detective, merge conflict resolver, agent guardrails, TDD loop, issue triage, domain modeling, pre-commit hooks, durable agent workflows, architecture doctor, UI taste lint, Playwright e2e tests, spec grilling and a social media manager",
+    "version": "5.5.0"
   },
   "plugins": [
     {
       "name": "all-skills",
-      "description": "All 59 skills: developer workflows, debugging, TDD, merge conflicts, architecture, security scanners and guardrails, marketing, social media and fun skills",
+      "description": "All 63 skills: developer workflows, debugging, TDD, merge conflicts, architecture, security scanners and guardrails, marketing, social media and fun skills",
       "source": "./",
       "strict": false,
       "skills": [
@@ -34,6 +34,7 @@
         "./skills/cost-cutter",
         "./skills/demo-recorder",
         "./skills/dependency-doctor",
+        "./skills/dev-wrapped",
         "./skills/dockerize-anything",
         "./skills/domain-modeler",
         "./skills/durable-agent-workflows",
@@ -41,6 +42,7 @@
         "./skills/email-campaign-writer",
         "./skills/env-secrets-guard",
         "./skills/gh-actions-auditor",
+        "./skills/github-portfolio",
         "./skills/hook-generator",
         "./skills/incident-commander",
         "./skills/influencer-outreach",
@@ -51,6 +53,7 @@
         "./skills/meeting-notes-to-tickets",
         "./skills/merge-conflict-resolver",
         "./skills/migration-wizard",
+        "./skills/name-checker",
         "./skills/plan-griller",
         "./skills/pr-reviewer-pro",
         "./skills/pre-commit-setup",
@@ -68,6 +71,7 @@
         "./skills/sql-optimizer",
         "./skills/startup-idea-validator",
         "./skills/tdd-loop",
+        "./skills/tech-debt-receipt",
         "./skills/terse-mode",
         "./skills/test-gap-hunter",
         "./skills/tiktok-viral-creator",
@@ -78,7 +82,7 @@
     },
     {
       "name": "indie-hacker-pack",
-      "description": "Solo founder toolkit: idea validation, landing page roast, launch posts, demo GIFs, UI polish, ASO, SEO, X and Reddit growth",
+      "description": "Solo founder toolkit: idea validation, name checks, a portfolio site, landing page roast, launch posts, demo GIFs, UI polish, ASO, SEO, X and Reddit growth",
       "source": "./",
       "strict": false,
       "skills": [
@@ -92,7 +96,9 @@
         "./skills/cost-cutter",
         "./skills/commit-craft",
         "./skills/demo-recorder",
-        "./skills/ui-taste"
+        "./skills/ui-taste",
+        "./skills/name-checker",
+        "./skills/github-portfolio"
       ]
     },
     {
@@ -216,14 +222,16 @@
     },
     {
       "name": "fun-pack",
-      "description": "Roast your GitHub, git history documentaries, landing page roasts, AI slop detection",
+      "description": "Roast your GitHub, git history documentaries, landing page roasts, AI slop detection, your year in code as a Wrapped card, tech debt as a receipt",
       "source": "./",
       "strict": false,
       "skills": [
         "./skills/roast-my-github",
         "./skills/codebase-time-machine",
         "./skills/landing-page-roaster",
-        "./skills/ai-slop-detector"
+        "./skills/ai-slop-detector",
+        "./skills/dev-wrapped",
+        "./skills/tech-debt-receipt"
       ]
     }
   ]

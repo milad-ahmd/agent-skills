@@ -21,6 +21,7 @@ https://milad-ahmd.github.io/agent-skills/skills/content-repurposer/
 https://milad-ahmd.github.io/agent-skills/skills/cost-cutter/
 https://milad-ahmd.github.io/agent-skills/skills/demo-recorder/
 https://milad-ahmd.github.io/agent-skills/skills/dependency-doctor/
+https://milad-ahmd.github.io/agent-skills/skills/dev-wrapped/
 https://milad-ahmd.github.io/agent-skills/skills/dockerize-anything/
 https://milad-ahmd.github.io/agent-skills/skills/domain-modeler/
 https://milad-ahmd.github.io/agent-skills/skills/durable-agent-workflows/
@@ -28,6 +29,7 @@ https://milad-ahmd.github.io/agent-skills/skills/e2e-flow-tester/
 https://milad-ahmd.github.io/agent-skills/skills/email-campaign-writer/
 https://milad-ahmd.github.io/agent-skills/skills/env-secrets-guard/
 https://milad-ahmd.github.io/agent-skills/skills/gh-actions-auditor/
+https://milad-ahmd.github.io/agent-skills/skills/github-portfolio/
 https://milad-ahmd.github.io/agent-skills/skills/hook-generator/
 https://milad-ahmd.github.io/agent-skills/skills/incident-commander/
 https://milad-ahmd.github.io/agent-skills/skills/influencer-outreach/
@@ -38,6 +40,7 @@ https://milad-ahmd.github.io/agent-skills/skills/launch-post-writer/
 https://milad-ahmd.github.io/agent-skills/skills/meeting-notes-to-tickets/
 https://milad-ahmd.github.io/agent-skills/skills/merge-conflict-resolver/
 https://milad-ahmd.github.io/agent-skills/skills/migration-wizard/
+https://milad-ahmd.github.io/agent-skills/skills/name-checker/
 https://milad-ahmd.github.io/agent-skills/skills/plan-griller/
 https://milad-ahmd.github.io/agent-skills/skills/pr-reviewer-pro/
 https://milad-ahmd.github.io/agent-skills/skills/pre-commit-setup/
@@ -55,6 +58,7 @@ https://milad-ahmd.github.io/agent-skills/skills/social-media-manager/
 https://milad-ahmd.github.io/agent-skills/skills/sql-optimizer/
 https://milad-ahmd.github.io/agent-skills/skills/startup-idea-validator/
 https://milad-ahmd.github.io/agent-skills/skills/tdd-loop/
+https://milad-ahmd.github.io/agent-skills/skills/tech-debt-receipt/
 https://milad-ahmd.github.io/agent-skills/skills/terse-mode/
 https://milad-ahmd.github.io/agent-skills/skills/test-gap-hunter/
 https://milad-ahmd.github.io/agent-skills/skills/tiktok-viral-creator/

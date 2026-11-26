@@ -1,6 +1,6 @@
 {
  "source": "milad-ahmd/agent-skills",
- "count": 59,
+ "count": 63,
  "skills": [
   {
    "name": "a11y-fixer",
@@ -212,6 +212,17 @@
    ]
   },
   {
+   "name": "dev-wrapped",
+   "emoji": "🎁",
+   "tagline": "Your year in code from your own git history: streaks, hours, languages, an archetype and a shareable card",
+   "category": "Fun & Viral",
+   "description": "Builds a \"Wrapped\"-style year in review of a developer's own coding from local git history, filtered to their author emails and one calendar year. A read-only script counts commits, active days, the longest streak, the busiest day and month, hour-of-day and weekday patterns, night-owl and weekend share, lines added and removed without lockfiles or vendored code, top languages and repos, the biggest commit, the most edited file and favourite commit verbs, then picks an archetype such as The Night Owl or The Streak Machine and shows the rule behind it. It writes a shareable 1200x630 SVG card (dark or light) and a short markdown recap that leave out emails, repo names, paths and commit messages unless asked, can add public GitHub stats, and comes with a caption and goals for next year. Use when the user asks for their year in code, a GitHub or git wrapped, a coding year in review or recap, their commit stats for 2026, or a card to post about their year.",
+   "examples": [
+    "Make me a Spotify Wrapped for my code this year",
+    "How many commits did I make in 2026 and when do I code?"
+   ]
+  },
+  {
    "name": "dockerize-anything",
    "emoji": "🐳",
    "tagline": "Production-ready, small, secure Dockerfile and compose for any repo",
@@ -286,6 +297,17 @@
    "examples": [
     "Audit our GitHub Actions workflows for security issues",
     "Pin all our actions to commit SHAs"
+   ]
+  },
+  {
+   "name": "github-portfolio",
+   "emoji": "🌐",
+   "tagline": "One-page portfolio site from your real GitHub repos, honest project write-ups, ready for GitHub Pages",
+   "category": "Growth",
+   "description": "Generates a one-page developer portfolio website from a person's real public GitHub data and gets it ready to publish on GitHub Pages at USERNAME.github.io. A stdlib script fetches the profile, public repos, README intros and language totals without a token (it counts requests to stay inside the 60 per hour limit), picks featured projects by stars and recency, and writes a static index.html with no frameworks, light and dark themes and accessible markup, plus a data.json the user edits to reword or hide projects. The agent then rewrites each project card as problem, what was built and result, using only numbers from the README or the user, and prints the git commands to publish without pushing anything. Use when the user asks for a portfolio, a personal website built from their GitHub repos, a developer one-pager, a showcase of their best projects, a github.io page, or a portfolio link for their CV or job applications.",
+   "examples": [
+    "Make me a portfolio site from my GitHub",
+    "Build a github.io page I can link on my CV"
    ]
   },
   {
@@ -396,6 +418,17 @@
    "examples": [
     "Migrate this project from JavaScript to TypeScript",
     "Move our tests from Jest to Vitest"
+   ]
+  },
+  {
+   "name": "name-checker",
+   "emoji": "🔤",
+   "tagline": "Brainstorm product, library or CLI names and check domains, GitHub, npm, PyPI and crates in seconds",
+   "category": "Founders",
+   "description": "Brainstorms names for a product, startup, open-source library or CLI tool, then checks every candidate in seconds and ranks them. A read-only script looks up domains (.com, .dev, .io, .app or any TLD) through DNS and the registry's RDAP server, the GitHub user or org name and how many repos already use it, and the npm, PyPI, crates.io, Homebrew and optionally Docker Hub names, applying each registry's own naming and normalisation rules. It also flags names that are too long, hard to pronounce or spell, a plain dictionary word, too close to a famous brand, or a generic descriptive term that makes a weak trademark. Results are likely-free / taken / unknown, never a guarantee, and nothing is registered. Use when the user asks to name or rename a project, package, library, CLI or app, wants name ideas, asks \"is this name taken\", whether a domain, npm package, PyPI name or GitHub org is available, or wants to compare a few candidate names.",
+   "examples": [
+    "Find a name for my new CLI and check what's free",
+    "Is \"lumora\" taken on npm and .com?"
    ]
   },
   {
@@ -585,6 +618,17 @@
    "examples": [
     "Build the CSV parser test-first, one test at a time",
     "Do red green refactor and don't touch my tests to make them pass"
+   ]
+  },
+  {
+   "name": "tech-debt-receipt",
+   "emoji": "🧾",
+   "tagline": "Every TODO, FIXME, hack and lint suppression, aged with git blame and printed as a receipt, plus a payoff plan",
+   "category": "Fun & Viral",
+   "description": "Prints a repository's tech debt as a shop receipt people screenshot and share, then a ranked plan to pay it down. A read-only script finds every TODO, FIXME, HACK, XXX, temporary workaround, @deprecated and lint or type-check suppression (eslint-disable, noqa, type ignore, @ts-ignore, nolint, @SuppressWarnings) in tracked files, ages each one with git blame, notes whether it links a ticket, and prices it by kind, age and how often its file changed in the last 180 days. Output is a 42-column receipt with subtotals and TOTAL DEBT, an SVG image of it, JSON, and a \"pay these first\" list; a --fail-over budget turns it into a CI check. Use when the user asks to find or count TODO and FIXME comments, see how old the TODOs are, audit eslint-disable or noqa suppressions, make a tech debt receipt or report, list stale hacks and workarounds, decide which TODOs to fix first, or fail CI when the TODO count or debt grows.",
+   "examples": [
+    "Print our tech debt as a receipt",
+    "Which TODOs and eslint-disables should we fix first?"
    ]
   },
   {

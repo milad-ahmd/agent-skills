@@ -1,6 +1,6 @@
 # Agent Skills by Milad Ahmadi
 
-> 59 open-source Agent Skills (SKILL.md) for Claude Code, Cursor, Codex, Cline and other AI agents. Install: `/plugin install all-skills --marketplace milad-ahmd/agent-skills` or `npx skills add milad-ahmd/agent-skills`.
+> 63 open-source Agent Skills (SKILL.md) for Claude Code, Cursor, Codex, Cline and other AI agents. Install: `/plugin install all-skills --marketplace milad-ahmd/agent-skills` or `npx skills add milad-ahmd/agent-skills`.
 
 ## Skills
 
@@ -23,6 +23,7 @@
 - [cost-cutter](https://milad-ahmd.github.io/agent-skills/skills/cost-cutter/): Cut cloud, SaaS and LLM API bills with dollar estimates, effort, risk and exact fixes
 - [demo-recorder](https://milad-ahmd.github.io/agent-skills/skills/demo-recorder/): Record a real demo GIF or video of your CLI or web app for the README and launch posts
 - [dependency-doctor](https://milad-ahmd.github.io/agent-skills/skills/dependency-doctor/): Audit vulnerable, outdated and unused packages with a safe upgrade plan
+- [dev-wrapped](https://milad-ahmd.github.io/agent-skills/skills/dev-wrapped/): Your year in code from your own git history: streaks, hours, languages, an archetype and a shareable card
 - [dockerize-anything](https://milad-ahmd.github.io/agent-skills/skills/dockerize-anything/): Production-ready, small, secure Dockerfile and compose for any repo
 - [domain-modeler](https://milad-ahmd.github.io/agent-skills/skills/domain-modeler/): Glossary, aggregates, bounded contexts and events grounded in your code's real names; flags synonym drift
 - [durable-agent-workflows](https://milad-ahmd.github.io/agent-skills/skills/durable-agent-workflows/): Resume a crashed Python agent job where it stopped, without re-paying finished model calls
@@ -30,6 +31,7 @@
 - [email-campaign-writer](https://milad-ahmd.github.io/agent-skills/skills/email-campaign-writer/): Welcome, launch, cart and newsletter email sequences with subject-line tests
 - [env-secrets-guard](https://milad-ahmd.github.io/agent-skills/skills/env-secrets-guard/): Find leaked API keys and secrets before they hit GitHub
 - [gh-actions-auditor](https://milad-ahmd.github.io/agent-skills/skills/gh-actions-auditor/): Find pwn requests, script injection and unpinned actions in GitHub Actions, then fix them
+- [github-portfolio](https://milad-ahmd.github.io/agent-skills/skills/github-portfolio/): One-page portfolio site from your real GitHub repos, honest project write-ups, ready for GitHub Pages
 - [hook-generator](https://milad-ahmd.github.io/agent-skills/skills/hook-generator/): Scroll-stopping hooks for videos, posts, emails and ads, scored and ranked
 - [incident-commander](https://milad-ahmd.github.io/agent-skills/skills/incident-commander/): Run a production outage from triage to mitigation, status updates and a blameless postmortem
 - [influencer-outreach](https://milad-ahmd.github.io/agent-skills/skills/influencer-outreach/): Influencer and UGC campaigns: vetting, outreach DMs, briefs and tracking
@@ -40,6 +42,7 @@
 - [meeting-notes-to-tickets](https://milad-ahmd.github.io/agent-skills/skills/meeting-notes-to-tickets/): Meeting notes into de-duplicated GitHub, Linear or Jira tickets
 - [merge-conflict-resolver](https://milad-ahmd.github.io/agent-skills/skills/merge-conflict-resolver/): Resolves merge, rebase and cherry-pick conflicts by reading what each side meant, then regenerates lockfiles
 - [migration-wizard](https://milad-ahmd.github.io/agent-skills/skills/migration-wizard/): Safe, incremental codebase migrations: JS→TS, Jest→Vitest, Pages→App Router and more
+- [name-checker](https://milad-ahmd.github.io/agent-skills/skills/name-checker/): Brainstorm product, library or CLI names and check domains, GitHub, npm, PyPI and crates in seconds
 - [plan-griller](https://milad-ahmd.github.io/agent-skills/skills/plan-griller/): Grill you on a feature plan against your real code, then write a testable SPEC.md
 - [pr-reviewer-pro](https://milad-ahmd.github.io/agent-skills/skills/pr-reviewer-pro/): Senior-engineer PR reviews with severity levels, file:line evidence and suggested fixes
 - [pre-commit-setup](https://milad-ahmd.github.io/agent-skills/skills/pre-commit-setup/): Fast git hooks from the tools you already use: pre-commit, husky + lint-staged or lefthook, mirrored in CI
@@ -57,6 +60,7 @@
 - [sql-optimizer](https://milad-ahmd.github.io/agent-skills/skills/sql-optimizer/): Explain slow SQL queries and get index and rewrite fixes
 - [startup-idea-validator](https://milad-ahmd.github.io/agent-skills/skills/startup-idea-validator/): Stress-test a startup idea with a VC, customer and competitor panel, cheap experiments and a verdict
 - [tdd-loop](https://milad-ahmd.github.io/agent-skills/skills/tdd-loop/): One behaviour at a time, red-green-refactor, with a guard that blocks editing or skipping tests to get green
+- [tech-debt-receipt](https://milad-ahmd.github.io/agent-skills/skills/tech-debt-receipt/): Every TODO, FIXME, hack and lint suppression, aged with git blame and printed as a receipt, plus a payoff plan
 - [terse-mode](https://milad-ahmd.github.io/agent-skills/skills/terse-mode/): Shorter, denser agent replies that never cut code, commands, numbers or safety warnings
 - [test-gap-hunter](https://milad-ahmd.github.io/agent-skills/skills/test-gap-hunter/): Find the riskiest untested code and write real tests for it
 - [tiktok-viral-creator](https://milad-ahmd.github.io/agent-skills/skills/tiktok-viral-creator/): TikTok ideas, 2-second hooks, shot-by-shot scripts and retention analysis
