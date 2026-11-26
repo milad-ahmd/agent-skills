@@ -1,0 +1,16 @@
+{
+  "skill": "tech-debt-receipt",
+  "should_trigger": [
+    "how many TODOs and FIXMEs are in this repo, and how old are they?",
+    "Print our tech debt as a receipt I can screenshot for the team channel",
+    "we've got eslint-disable and noqa comments everywhere. which ones are hiding real problems?",
+    "There are hacks marked 'temporary' from years ago all over the backend. Which should we clean up first?",
+    "fail the build if the number of TODO comments keeps going up"
+  ],
+  "should_not_trigger": [
+    "Everything imports utils.py and we have circular imports between services. What should we refactor first?",
+    "Find the riskiest untested code in the payments module and write tests for it",
+    "npm audit shows 14 vulnerabilities and half our packages are two majors behind. Plan the upgrades.",
+    "Tell me the story of this repo from its git history, who built what and when"
+  ]
+}
