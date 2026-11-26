@@ -1,0 +1,16 @@
+{
+  "skill": "name-checker",
+  "should_trigger": [
+    "I need a name for my new Rust CLI that diffs JSON files. Give me ideas and check which ones are free on crates.io",
+    "is 'lumora' taken? domain, npm, github, all of it",
+    "help me pick a name for my open-source python library, something short and not already on PyPI",
+    "we're renaming our side project because the .com is gone. Brainstorm 20 alternatives and tell me which domains are still open",
+    "Compare these package names for me: quillo, tracehound, sift. Which is best and which are available?"
+  ],
+  "should_not_trigger": [
+    "Here's my startup idea, an app that matches dog walkers with seniors. Is it worth building?",
+    "Write a brand voice guide for our fintech app: tone, personas, do and don't words.",
+    "Optimize my App Store title, subtitle and keywords so the app ranks for 'habit tracker'.",
+    "Write a Show HN post and an X thread to launch my repo next Tuesday."
+  ]
+}
