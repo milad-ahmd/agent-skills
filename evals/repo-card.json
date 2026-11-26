@@ -1,0 +1,16 @@
+{
+  "skill": "repo-card",
+  "should_trigger": [
+    "make a social preview image for my repo, the GitHub link looks so generic when I share it",
+    "When I paste my repo link into Slack or LinkedIn it just shows the default GitHub card. Can you make a nicer one with the stars and languages?",
+    "generate an og:image for this project, 1280x640, and give me the meta tags for the docs site",
+    "I need a share banner for the repo before I post it on X tomorrow",
+    "design a link preview card for my CLI tool, something terminal-looking in dark mode"
+  ],
+  "should_not_trigger": [
+    "Our README is a wall of text. Rewrite it with badges, a quickstart and a features section.",
+    "Record a GIF of the CLI running for the README",
+    "Write the Show HN post and an X thread announcing the 1.0 release",
+    "Build me a portfolio website from my GitHub repos that I can host on github.io"
+  ]
+}
