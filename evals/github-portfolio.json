@@ -1,0 +1,16 @@
+{
+  "skill": "github-portfolio",
+  "should_trigger": [
+    "Make me a portfolio website from my GitHub, username ada-dev",
+    "I need a personal site to link on my CV that shows off my best projects",
+    "build a simple github.io page for me and help me deploy it",
+    "Can you turn my repos into a developer homepage? Nothing fancy, just a clean one-pager",
+    "Recruiters keep asking for a portfolio link. Put together something from my public projects that I can host for free"
+  ],
+  "should_not_trigger": [
+    "Roast my GitHub profile and give me a score",
+    "Rewrite the README for this repo so people star it",
+    "Roast my landing page",
+    "Write a Show HN post and an X thread for my new CLI"
+  ]
+}

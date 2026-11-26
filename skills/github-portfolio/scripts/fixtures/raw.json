@@ -1,0 +1,189 @@
+{
+  "profile": {
+    "login": "ada-dev",
+    "name": "Ada Example",
+    "bio": "Backend engineer. Go, Postgres, queues.",
+    "location": "Lisbon",
+    "blog": "ada.example.com",
+    "twitter_username": "ada_ex",
+    "email": null,
+    "html_url": "https://github.com/ada-dev",
+    "avatar_url": "https://avatars.githubusercontent.com/u/1?v=4"
+  },
+  "repos": [
+    {
+      "name": "queue-lite",
+      "description": "Durable job queue on Postgres with SKIP LOCKED",
+      "stargazers_count": 412,
+      "forks_count": 31,
+      "language": "Go",
+      "topics": [
+        "postgres",
+        "queue"
+      ],
+      "homepage": "https://queue-lite.example.com",
+      "pushed_at": "2026-11-20T10:00:00Z",
+      "fork": false,
+      "archived": false,
+      "private": false,
+      "html_url": "https://github.com/ada-dev/queue-lite"
+    },
+    {
+      "name": "pg-migrate",
+      "description": "Zero-downtime schema migrations for Postgres",
+      "stargazers_count": 88,
+      "forks_count": 5,
+      "language": "Go",
+      "topics": [],
+      "homepage": "",
+      "pushed_at": "2026-06-01T10:00:00Z",
+      "fork": false,
+      "archived": false,
+      "private": false,
+      "html_url": "https://github.com/ada-dev/pg-migrate"
+    },
+    {
+      "name": "ratelimit",
+      "description": "Token-bucket rate limiter as HTTP middleware",
+      "stargazers_count": 15,
+      "forks_count": 0,
+      "language": "Go",
+      "topics": [],
+      "homepage": "",
+      "pushed_at": "2026-11-01T10:00:00Z",
+      "fork": false,
+      "archived": false,
+      "private": false,
+      "html_url": "https://github.com/ada-dev/ratelimit"
+    },
+    {
+      "name": "old-blog",
+      "description": "My first blog engine",
+      "stargazers_count": 120,
+      "forks_count": 0,
+      "language": "Ruby",
+      "topics": [],
+      "homepage": "",
+      "pushed_at": "2019-03-01T10:00:00Z",
+      "fork": false,
+      "archived": false,
+      "private": false,
+      "html_url": "https://github.com/ada-dev/old-blog"
+    },
+    {
+      "name": "dotfiles",
+      "description": "",
+      "stargazers_count": 3,
+      "forks_count": 0,
+      "language": "Shell",
+      "topics": [],
+      "homepage": "",
+      "pushed_at": "2026-11-25T10:00:00Z",
+      "fork": false,
+      "archived": false,
+      "private": false,
+      "html_url": "https://github.com/ada-dev/dotfiles"
+    },
+    {
+      "name": "kafka-tools",
+      "description": "CLI for inspecting Kafka consumer lag",
+      "stargazers_count": 40,
+      "forks_count": 0,
+      "language": "Java",
+      "topics": [],
+      "homepage": "javascript:alert(1)",
+      "pushed_at": "2025-12-01T10:00:00Z",
+      "fork": false,
+      "archived": false,
+      "private": false,
+      "html_url": "https://github.com/ada-dev/kafka-tools"
+    },
+    {
+      "name": "archived-thing",
+      "description": "Retired service",
+      "stargazers_count": 500,
+      "forks_count": 0,
+      "language": "Go",
+      "topics": [],
+      "homepage": "",
+      "pushed_at": "2024-01-01T10:00:00Z",
+      "fork": false,
+      "archived": true,
+      "private": false,
+      "html_url": "https://github.com/ada-dev/archived-thing"
+    },
+    {
+      "name": "linux",
+      "description": "Linux kernel source tree",
+      "stargazers_count": 9000,
+      "forks_count": 0,
+      "language": "C",
+      "topics": [],
+      "homepage": "",
+      "pushed_at": "2026-11-26T10:00:00Z",
+      "fork": true,
+      "archived": false,
+      "private": false,
+      "html_url": "https://github.com/ada-dev/linux"
+    },
+    {
+      "name": "ada-dev",
+      "description": "Profile README",
+      "stargazers_count": 2,
+      "forks_count": 0,
+      "language": null,
+      "topics": [],
+      "homepage": "",
+      "pushed_at": "2026-10-01T10:00:00Z",
+      "fork": false,
+      "archived": false,
+      "private": false,
+      "html_url": "https://github.com/ada-dev/ada-dev"
+    },
+    {
+      "name": "ada-dev.github.io",
+      "description": "Old personal site",
+      "stargazers_count": 1,
+      "forks_count": 0,
+      "language": "HTML",
+      "topics": [],
+      "homepage": "",
+      "pushed_at": "2023-01-01T10:00:00Z",
+      "fork": false,
+      "archived": false,
+      "private": false,
+      "html_url": "https://github.com/ada-dev/ada-dev.github.io"
+    },
+    {
+      "name": "xss-demo",
+      "description": "<script>alert(\"x\")</script> & \"quotes\" 'single'",
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "language": "TypeScript",
+      "topics": [],
+      "homepage": "",
+      "pushed_at": "2026-09-01T10:00:00Z",
+      "fork": false,
+      "archived": false,
+      "private": false,
+      "html_url": "https://github.com/ada-dev/xss-demo"
+    }
+  ],
+  "readmes": {
+    "queue-lite": "# queue-lite\n\n[![CI](https://img.shields.io/x.svg)](https://ci)\n\nqueue-lite runs **background jobs** on the Postgres you already have. It handles 4,000 jobs/s on one [db.t3.medium](https://aws.amazon.com) instance.\n\n## Install\n\n```\ngo get x\n```\n"
+  },
+  "languages": {
+    "queue-lite": {
+      "Go": 90000,
+      "PLpgSQL": 6000,
+      "Makefile": 1000
+    },
+    "pg-migrate": {
+      "Go": 40000,
+      "Shell": 2000
+    }
+  },
+  "partial": false,
+  "fetched_at": "2026-11-27T09:00:00Z",
+  "requests": 6
+}
