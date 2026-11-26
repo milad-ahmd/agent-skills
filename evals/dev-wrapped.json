@@ -1,0 +1,16 @@
+{
+  "skill": "dev-wrapped",
+  "should_trigger": [
+    "Make me a Spotify Wrapped but for my code this year",
+    "how many commits did I make in 2026 and what time of day do I usually code? my repos are in ~/code",
+    "I want a shareable card of my year in git for LinkedIn, something like github wrapped",
+    "year in review of my coding: streaks, top languages, busiest month",
+    "am I a night owl? check my commit history across all my projects and give me a fun recap"
+  ],
+  "should_not_trigger": [
+    "Roast my GitHub profile, username jdoe",
+    "Tell me the story of this repo from the first commit, like a documentary",
+    "Generate release notes for everything merged since v2.4.0",
+    "Write a Show HN post for my new CLI tool"
+  ]
+}
