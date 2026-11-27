@@ -1,0 +1,16 @@
+{
+  "skill": "dead-code-funeral",
+  "should_trigger": [
+    "find dead code in this repo",
+    "Which files in src/ does nothing import anymore? I want to clean house before the 2.0 release",
+    "are there functions or exported components we never call? feels like half of utils/ is leftovers",
+    "Hold a funeral for our unused code and make a gravestone image I can post in the team channel",
+    "what can I safely delete from this python project? lots of legacy stuff nobody has touched in years"
+  ],
+  "should_not_trigger": [
+    "Which npm packages in package.json are we not actually using anymore? Remove them and update the rest",
+    "Count the TODO and FIXME comments in this repo and tell me how old they are",
+    "Find the circular imports and god files in our backend and tell me what to refactor first",
+    "Tell me the story of this repo from the first commit, who built what and when"
+  ]
+}
