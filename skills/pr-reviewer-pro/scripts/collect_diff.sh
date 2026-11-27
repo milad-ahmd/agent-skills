@@ -30,7 +30,7 @@ fi
 [[ -n "$base" ]] || { echo "Could not determine base branch" >&2; exit 1; }
 
 current="$(git rev-parse --abbrev-ref HEAD)"
-merge_base="$(git merge-base "$base" HEAD)"
+merge_base="$(git merge-base "$base" HEAD)" || { echo "No common ancestor between $base and HEAD" >&2; exit 1; }
 
 echo "===== BRANCH: $current vs $base ====="
 echo "===== COMMITS ====="
