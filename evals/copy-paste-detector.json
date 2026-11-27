@@ -1,0 +1,16 @@
+{
+  "skill": "copy-paste-detector",
+  "should_trigger": [
+    "Find duplicated code in this repo. I'm pretty sure people copy-pasted the same validation into half the controllers.",
+    "how DRY is our codebase? give me a number and the worst offenders",
+    "We fixed a rounding bug in one invoice calculation and later found two more copies of the same function. Are there other places where the same block is repeated?",
+    "Detect code clones in src/ and pull the ones that are really the same logic into a shared helper",
+    "add a CI check that fails if duplicate code goes above 5%"
+  ],
+  "should_not_trigger": [
+    "Our services folder has circular imports and one 3000-line god class. Where should we start refactoring?",
+    "We have 40 slightly different shades of blue and grey in our CSS. Consolidate them into design tokens.",
+    "Find unused functions and dead files we can delete safely.",
+    "Review PR #318 before I merge it."
+  ]
+}
