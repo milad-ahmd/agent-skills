@@ -2,6 +2,15 @@
 
 ⭐ Star or watch the repo to get notified about new skills, and [request a skill](https://github.com/milad-ahmd/agent-skills/issues/new). Popular requests get built first.
 
+## 2026-11-28: v5.7.1 · every script has tests
+The six skills that shipped a script without tests now have them (144 new tests, 1,000 in total). Writing them turned up real bugs, all fixed:
+- ⏳ **codebase-time-machine:** an empty repo or a folder that isn't a repo crashed; renamed files showed up as fake "cursed files"; commits made in the same second came out in the wrong order; `--max N` before the path was read as the path.
+- 🔥 **roast-my-github:** one lazy-commit pattern could never match, an empty commit message crashed, and API errors printed tracebacks. New `--from-json FILE` runs it on saved API responses.
+- 🔐 **env-secrets-guard:** file names with non-ASCII characters were skipped without a warning, Anthropic keys were also reported as OpenAI keys, and the hard-coded secret rule missed the most common forms: `DB_PASSWORD="…"`, `OPENAI_API_KEY="…"`, `SECRET_KEY = "…"` and JSON `"password": "…"`. Repos with those will now fail the scan, as they should.
+- 📊 **social-analytics-reporter:** a row with extra cells crashed, `--top 0` printed every row, ID columns such as Meta post IDs were summed as metrics, YouTube's "Total" row doubled every total, and unreadable files gave a traceback.
+- 🔎 **pr-reviewer-pro:** a branch with no common history with its base exited silently; it now says why.
+- 🛠️ **skill-creator-pro:** `lint_skill.py .` warned about a folder named "."; a script path at the end of a sentence was reported missing.
+
 ## 2026-11-27: v5.7 · funerals, diets and clone families
 Four more skills that make a number worth posting and then clean something up. Each ships a read-only stdlib Python tool with tests and a shareable card without paths or names.
 - 🪦 **New: dead-code-funeral.** `find_dead.py` finds Python and JS/TS files nothing imports and top-level functions, classes and exports nothing names, skips entry points, tests and framework-convention files, and dates each item from git. The agent checks every suspect for dynamic loading and framework wiring, writes the obituaries from those facts, and deletes only approved items in tested commits.
