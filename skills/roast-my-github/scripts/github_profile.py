@@ -1,8 +1,12 @@
 #!/usr/bin/env python3
 """Collect public GitHub profile facts for a roast (stdlib only).
 
-Usage: python3 github_profile.py <username> [--json]
+Usage: python3 github_profile.py <username> [--json] [--from-json FILE]
 Env:   GITHUB_TOKEN or GH_TOKEN (optional, raises rate limit)
+
+--from-json FILE  work offline from saved API responses instead of calling GitHub:
+                  {"user": <GET /users/NAME>, "repos": [<GET /users/NAME/repos>...],
+                   "events": [<GET /users/NAME/events/public>...]}
 """
 import json
 import os
@@ -14,7 +18,7 @@ from collections import Counter
 from datetime import datetime, timezone
 
 API = "https://api.github.com"
-LAZY = re.compile(r"^(update|fix|wip|changes?|stuff|test|asdf+|\.+|minor|misc|commit|final( final)?|ok|done|tmp|temp)\b\.?$", re.I)
+LAZY = re.compile(r"^(update|fix|wip|changes?|stuff|test|asdf+|\.+|minor|misc|commit|final( final)?|ok|done|tmp|temp)\.?$", re.I)
 
 
 def get(path):
@@ -28,16 +32,18 @@ def get(path):
     except urllib.error.HTTPError as e:
         if e.code == 404:
             sys.exit(f"User not found: {path}")
-        if e.code == 403:
+        if e.code in (403, 429):
             sys.exit("GitHub rate limit hit. Set GITHUB_TOKEN and retry.")
-        raise
+        sys.exit(f"GitHub API error {e.code} for {path}")
+    except urllib.error.URLError as e:
+        sys.exit(f"Could not reach GitHub: {e.reason}")
 
 
 def age_days(iso):
     return (datetime.now(timezone.utc) - datetime.fromisoformat(iso.replace("Z", "+00:00"))).days
 
 
-def collect(user):
+def fetch(user):
     u = get(f"/users/{user}")
     repos = []
     for page in range(1, 11):
@@ -45,9 +51,14 @@ def collect(user):
         repos += batch
         if len(batch) < 100:
             break
+    return {"user": u, "repos": repos, "events": get(f"/users/{user}/events/public?per_page=100")}
+
+
+def collect(user, raw=None):
+    raw = fetch(user) if raw is None else raw
+    u, repos, events = raw["user"], raw["repos"], raw["events"]
     own = [r for r in repos if not r["fork"]]
-    events = get(f"/users/{user}/events/public?per_page=100")
-    msgs = [c["message"].splitlines()[0] for e in events if e["type"] == "PushEvent" for c in e["payload"].get("commits", [])]
+    msgs = [(c["message"].splitlines() or [""])[0] for e in events if e["type"] == "PushEvent" for c in e["payload"].get("commits", [])]
     lazy = [m for m in msgs if LAZY.match(m.strip()) or len(m.strip()) < 6]
     langs = Counter(r["language"] for r in own if r["language"])
     stale = [r for r in own if age_days(r["pushed_at"]) > 365 and not r["archived"]]
@@ -73,7 +84,22 @@ def collect(user):
 def main():
     if len(sys.argv) < 2:
         sys.exit(__doc__)
-    d = collect(sys.argv[1])
+    if sys.argv[1] in ("-h", "--help"):
+        print(__doc__)
+        return
+    raw = None
+    if "--from-json" in sys.argv:
+        i = sys.argv.index("--from-json")
+        if i + 1 >= len(sys.argv):
+            sys.exit("--from-json needs a FILE")
+        try:
+            with open(sys.argv[i + 1], encoding="utf-8") as f:
+                raw = json.load(f)
+        except (OSError, ValueError) as e:
+            sys.exit(f"Cannot read saved responses: {e}")
+        if not isinstance(raw, dict) or not {"user", "repos", "events"} <= raw.keys():
+            sys.exit("Saved responses need \"user\", \"repos\" and \"events\" keys (see --help)")
+    d = collect(sys.argv[1], raw)
     if "--json" in sys.argv:
         print(json.dumps(d, indent=2))
         return
