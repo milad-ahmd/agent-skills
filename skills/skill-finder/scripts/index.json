@@ -128,7 +128,7 @@
    "emoji": "📝",
    "tagline": "Polished release notes and CHANGELOG entries from git history",
    "category": "Git & Workflow",
-   "description": "Generates polished, human-readable release notes and CHANGELOG entries from a git commit range, grouping changes by impact and crediting contributors. Use when the user asks for release notes, a changelog, \"what changed since vX\", or to draft a GitHub release.",
+   "description": "Generates polished, human-readable release notes and CHANGELOG entries from a git commit range, grouping changes by impact and crediting contributors when asked. A bundled script parses the Conventional Commits since the latest tag, groups breaking changes, features, fixes and performance work, attaches PR numbers, drops reverted pairs, folds bot version bumps into one line and suggests the next SemVer bump; the agent then turns each entry into plain language people understand. Use when the user asks for release notes, a changelog, \"what changed since vX\", or to draft a GitHub release.",
    "examples": [
     "Write release notes since the last tag",
     "Draft the GitHub release for v2.0"
@@ -260,7 +260,7 @@
    "emoji": "🩺",
    "tagline": "Audit vulnerable, outdated and unused packages with a safe upgrade plan",
    "category": "Security & Maintenance",
-   "description": "Audits project dependencies for vulnerabilities, outdated and unused packages, and produces a safe, ordered upgrade plan with breaking-change notes. Use when the user asks to update dependencies, fix npm/pip audit warnings, check for vulnerable packages, or plan a major-version upgrade.",
+   "description": "Audits project dependencies for vulnerabilities, outdated and unused packages, and produces a safe, ordered upgrade plan with breaking-change notes. A read-only offline script compares package.json, pyproject.toml, requirements.txt and go.mod with the imports in the code and the versions pinned in lockfiles, and lists unused, undeclared and misplaced dev dependencies; the agent then runs npm audit, pip-audit or govulncheck for the vulnerability and freshness side. Use when the user asks to update dependencies, fix npm/pip audit warnings, check for vulnerable packages, or plan a major-version upgrade.",
    "examples": [
     "Check my dependencies",
     "Plan the upgrade to React 19"
@@ -735,7 +735,7 @@
    "emoji": "🧪",
    "tagline": "Find the riskiest untested code and write real tests for it",
    "category": "Testing & Quality",
-   "description": "Finds the riskiest untested code in a project and writes meaningful tests for it using the project's existing test framework and conventions. Use when the user asks to improve coverage, add tests, find untested code, or harden a module before a refactor.",
+   "description": "Finds the riskiest untested code in a project and writes meaningful tests for it using the project's existing test framework (pytest, Go testing, JUnit, RSpec) and conventions. A read-only script ranks files by recent changes times missing coverage, from a Cobertura or LCOV report or test-file naming, to show what a refactor could break untested. Use when the user asks to improve coverage, add tests, find untested code, or harden a module before a refactor.",
    "examples": [
     "Find test gaps in this project and write tests for the top 3",
     "Add tests for src/billing"

@@ -2,6 +2,13 @@
 
 ⭐ Star or watch the repo to get notified about new skills, and [request a skill](https://github.com/milad-ahmd/agent-skills/issues/new). Popular requests get built first.
 
+## 2026-11-28: v5.8 · three core dev skills now work from facts
+Three of the most-used developer skills were instructions only. Each now runs a read-only stdlib Python script first, with tests, so the agent starts from your repo instead of guessing.
+- 🧪 **test-gap-hunter.** `find_gaps.py` ranks source files by risk = commits in the last 180 days × how untested they are. It reads Cobertura (`coverage.xml`) and LCOV (`lcov.info`) reports when they exist; without one it pairs sources and tests by each language's naming conventions and labels every row as a guess. For Python it lists the biggest untested functions in the top files.
+- 📝 **changelog-from-git.** `release_notes.py` reads the commits since the last tag, groups them by Conventional Commits 1.0.0 type with breaking changes first, takes PR numbers from squash and merge subjects, drops commits that were later reverted, folds dependency bumps into one counted line and suggests the next semver bump. `--md` prints a CHANGELOG section for the agent to rewrite in plain language.
+- 🩺 **dependency-doctor.** `dep_audit.py` compares what package.json, pyproject.toml, requirements files and go.mod declare with what the code imports, and checks lockfiles (package-lock, pnpm, yarn v1, poetry, uv, go.sum): unused, undeclared, dev-only packages imported by app code, and manifests with no lockfile. Packages used only from scripts or config are listed separately, never called unused. Registry checks stay with `npm audit`, `pip-audit` and `govulncheck`, which the agent runs itself.
+- 1,082 unit tests in total; 42 skills now run a script first.
+
 ## 2026-11-28: v5.7.1 · every script has tests
 The six skills that shipped a script without tests now have them (144 new tests, 1,000 in total). Writing them turned up real bugs, all fixed:
 - ⏳ **codebase-time-machine:** an empty repo or a folder that isn't a repo crashed; renamed files showed up as fake "cursed files"; commits made in the same second came out in the wrong order; `--max N` before the path was read as the path.

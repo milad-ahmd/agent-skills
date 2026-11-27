@@ -9,7 +9,7 @@ Review PRs · resolve merge conflicts · find dead code · block dangerous comma
 [![Stars](https://img.shields.io/github/stars/milad-ahmd/agent-skills?style=social)](https://github.com/milad-ahmd/agent-skills)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 ![Skills](https://img.shields.io/badge/skills-71-orange)
-![Unit tests](https://img.shields.io/badge/unit%20tests-1000-blue)
+![Unit tests](https://img.shields.io/badge/unit%20tests-1082-blue)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](#-contributing)
 
 [Install](#-install-in-10-seconds) · [Start here](#-start-with-these-three) · [All 71 skills](#-all-71-skills) · [🌐 Website](https://milad-ahmd.github.io/agent-skills/) · [Request a skill](https://github.com/milad-ahmd/agent-skills/issues/new)
@@ -26,8 +26,8 @@ Review PRs · resolve merge conflicts · find dead code · block dangerous comma
 
 Most skills are a prompt. These do the homework first.
 
-- ⚙️ **Real data, not guesses.** 39 skills run a script before the agent writes anything: your git history, your files, the GitHub API. The agent works from what is actually there.
-- 🧪 **Tested like code.** 1,000 unit tests run on every push, every `SKILL.md` is linted in strict mode, and trigger evals check that each skill loads for its own prompts and not for its neighbours'.
+- ⚙️ **Real data, not guesses.** 42 skills run a script before the agent writes anything: your git history, your files, the GitHub API. The agent works from what is actually there.
+- 🧪 **Tested like code.** 1,082 unit tests run on every push, every `SKILL.md` is linted in strict mode, and trigger evals check that each skill loads for its own prompts and not for its neighbours'.
 - 🛑 **Safe by default.** The scripts never change your code unless you pass a flag for it, and anything that pushes, deletes, posts or rewrites history waits for your OK.
 - 🕶️ **Anonymous by default.** Shareable cards and reports leave out names, emails and file paths unless you ask for them.
 
@@ -171,14 +171,14 @@ Try: *"Tell me the story of this codebase"*
 | 🧱 [**commit-craft**](skills/commit-craft) | Messy changes → clean, atomic Conventional Commits | *"Commit my changes"* |
 | 🏷️ [**issue-triage**](skills/issue-triage) ⚙️ | Triages open GitHub issues: duplicate candidates, bug reports missing a version or repro, stale threads, labels and priority; drafts replies and writes to GitHub only on your approval | *"Triage the open issues on our repo"* |
 | 📋 [**meeting-notes-to-tickets**](skills/meeting-notes-to-tickets) | Meeting notes → de-duplicated GitHub/Linear/Jira tickets | *"Turn these notes into issues"* |
-| 📝 [**changelog-from-git**](skills/changelog-from-git) | Human-readable release notes from git history | *"Write release notes since v1.2"* |
+| 📝 [**changelog-from-git**](skills/changelog-from-git) ⚙️ | Release notes from git history: commits grouped by Conventional Commit type, breaking changes, PR numbers, reverts dropped and a suggested next version, then rewritten for users | *"Write release notes since v1.2"* |
 
 ### 🧪 Testing & Quality
 | Skill | What it does | Try saying |
 |---|---|---|
 | 🕵️ [**bug-detective**](skills/bug-detective) ⚙️ | Reproduce first, log hypotheses, auto-bisect the commit that broke it, then fix with a failing test | *"This passed last week and fails now. Find the commit"* |
 | 🔴 [**tdd-loop**](skills/tdd-loop) ⚙️ | Red, green, refactor one behaviour at a time, with a guard that refuses a red that fails for the wrong reason and a green reached by editing or skipping the test | *"Build this test-first and don't touch my tests"* |
-| 🧪 [**test-gap-hunter**](skills/test-gap-hunter) | Finds the riskiest untested code and writes real tests | *"Find test gaps and fix the top 3"* |
+| 🧪 [**test-gap-hunter**](skills/test-gap-hunter) ⚙️ | Ranks files by how often they change times how untested they are (from your coverage report, or a labelled guess), then writes real behaviour tests for the top ones | *"Find test gaps and fix the top 3"* |
 | 🎭 [**e2e-flow-tester**](skills/e2e-flow-tester) ⚙️ | Maps your app's routes and forms, then writes Playwright tests for the flows that make money | *"Write e2e tests for signup and checkout"* |
 
 ### 🎨 Frontend
@@ -199,7 +199,7 @@ Try: *"Tell me the story of this codebase"*
 | Skill | What it does | Try saying |
 |---|---|---|
 | 🔐 [**env-secrets-guard**](skills/env-secrets-guard) ⚙️ | Catches leaked API keys before you push | *"Scan for leaked secrets"* |
-| 🩺 [**dependency-doctor**](skills/dependency-doctor) | Vulnerable, outdated and unused packages with a safe upgrade plan | *"Check my dependencies"* |
+| 🩺 [**dependency-doctor**](skills/dependency-doctor) ⚙️ | Unused, undeclared and dev-only-but-imported packages from your real imports and lockfiles, then audit and outdated results and a safe upgrade plan | *"Check my dependencies"* |
 | 🛡️ [**gh-actions-auditor**](skills/gh-actions-auditor) ⚙️ | Finds pwn requests, script injection, unpinned actions and over-broad permissions in GitHub Actions, then fixes them | *"Audit our GitHub Actions for security issues"* |
 | 🪤 [**prompt-injection-scanner**](skills/prompt-injection-scanner) ⚙️ | Scans skills, CLAUDE.md, hooks and MCP configs for hidden instructions, exfiltration and unsafe settings | *"Check the skills I just installed for anything malicious"* |
 | 🚧 [**agent-guardrails**](skills/agent-guardrails) ⚙️ | A tested Claude Code hook (also Cursor and Codex) that denies or asks before force pushes to main, `rm -rf` outside the project, reading `.env` and keys, `curl \| bash` and `DROP TABLE` | *"Stop Claude Code from force pushing to main"* |
@@ -294,7 +294,7 @@ A skill is a folder with a `SKILL.md` file: YAML frontmatter (`name`, `descripti
 
 - **Linted on every push** with [skills-doctor](skills/skills-doctor): frontmatter, trigger language, overlapping descriptions, missing scripts, leaked secrets. Lint your own skills in CI with the [Skills Doctor Action](https://github.com/milad-ahmd/skills-doctor#-use-it-in-ci).
 - **Trigger evals** in [`evals/`](evals): every skill has prompts that should load it and prompts that belong to a neighbor. CI runs a free offline check on every push; `python3 scripts/run_trigger_evals.py --live` runs them against Claude Code itself.
-- **Unit tests** for every skill script (1,000 at v5.7.1), run in CI on every push.
+- **Unit tests** for every skill script (1,082 at v5.8), run in CI on every push.
 
 ## 🗺️ Roadmap
 
