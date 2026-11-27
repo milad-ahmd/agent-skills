@@ -1,0 +1,16 @@
+{
+  "skill": "repo-diet",
+  "should_trigger": [
+    "why is our .git folder 900 MB when the code is like 20 MB?",
+    "git clone takes forever on this repo, figure out what's making it so heavy",
+    "someone committed a 300 MB video two years ago and deleted it, is it still bloating the history? how do I get rid of it",
+    "find the largest files ever committed to this repo",
+    "should we move our PSDs and game assets to Git LFS? the repo keeps growing"
+  ],
+  "should_not_trigger": [
+    "node_modules is 1.2 GB on my machine, which packages take the most space?",
+    "I think an AWS key got committed last year, scan the git history for leaked secrets",
+    "Write release notes from the commits since v2.3.0",
+    "Roast my last 20 commit messages"
+  ]
+}
