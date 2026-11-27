@@ -263,6 +263,8 @@ class TestOutputs(Base):
             for secret in ("@", "secret-client-repo", "invoice", "billing"):
                 self.assertNotIn(secret, svg)
         self.assertIn("#faf7f2", svg)
+        self.assertIn("milad-ahmd/agent-skills", svg)
+        self.assertNotIn("milad-ahmd/agent-skills", self.card("--no-credit"))
 
     def test_svg_show_repos_and_escaping(self):
         self.make()

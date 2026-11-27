@@ -10,6 +10,7 @@ Usage: python3 weigh_in.py [PROJECT] [--venv DIR] [--top N] [--json] [--svg card
   --top N     rows per list (default 10)
   --json      everything as JSON on stdout
   --svg FILE  also write a 1200x630 weigh-in card
+  --no-credit     leave the "made with agent-skills" line off the card
 
 Sizes are apparent sizes (the sum of st_size of regular files), shown with MB = 1,000,000 bytes.
 The on-disk figure counts allocated blocks once per inode. Symlinks are never followed, so pnpm's
@@ -564,6 +565,16 @@ def report(data):
     return "\n".join(out).rstrip() + "\n"
 
 
+CREDIT = "made with github.com/milad-ahmd/agent-skills"
+
+
+def credit(svg, on=True):
+    """Sign the card in its free top-right corner so a shared card links back; --no-credit turns it off."""
+    if not on:
+        return svg
+    return svg.replace("</svg>", '<text x="1160" y="44" font-size="16" fill="#71717a" text-anchor="end">%s</text>\n</svg>' % CREDIT)
+
+
 def svg_card(data):
     bg, panel, fg, muted, accent = "#111318", "#1c1f27", "#f4f4f5", "#a1a1aa", "#ff7a45"
     el = ['<rect width="1200" height="630" fill="%s"/>' % bg,
@@ -639,6 +650,7 @@ def main(argv=None):
     p.add_argument("--top", type=int, default=10)
     p.add_argument("--json", action="store_true")
     p.add_argument("--svg")
+    p.add_argument("--no-credit", action="store_true", help="leave the \"made with agent-skills\" line off the card")
     args = p.parse_args(argv)
     data = weigh(args.project, args.venv, max(1, args.top))
     if not data["ecosystems"]:
@@ -651,7 +663,7 @@ def main(argv=None):
     if args.svg:
         try:
             with open(args.svg, "w", encoding="utf-8") as fh:
-                fh.write(svg_card(data))
+                fh.write(credit(svg_card(data), not args.no_credit))
         except OSError as e:
             print("could not write %s: %s" % (args.svg, e), file=sys.stderr)
             return 1

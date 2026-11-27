@@ -13,6 +13,7 @@ A repo is heavy for two different reasons: junk that is committed now, and files
 python3 scripts/repo_diet.py                  # repo in the current directory
 python3 scripts/repo_diet.py -C path/to/repo --top 15
 python3 scripts/repo_diet.py --svg diet.svg   # also write a 1200x630 card
+python3 scripts/repo_diet.py --svg diet.svg --no-credit   # same card without the small "made with agent-skills" line
 python3 scripts/repo_diet.py --json           # every number, for follow-up questions
 python3 scripts/repo_diet.py --show-authors   # who added each big blob (hidden by default)
 ```

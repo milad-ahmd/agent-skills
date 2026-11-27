@@ -12,6 +12,7 @@ Every TODO is a small loan. This skill prints the bill, then helps pay off the e
 ```bash
 python3 scripts/debt_receipt.py                        # receipt, then "pay these first"
 python3 scripts/debt_receipt.py --svg receipt.svg      # also a receipt-shaped image
+python3 scripts/debt_receipt.py --svg receipt.svg --no-credit   # same card without the small "made with agent-skills" line
 python3 scripts/debt_receipt.py --json                 # every item with age, ticket, churn, price
 python3 scripts/debt_receipt.py src/ --items 0         # one directory, every line item
 python3 scripts/debt_receipt.py --currency points      # "12.4 pts" instead of "$12.40"

@@ -14,6 +14,7 @@ python3 scripts/find_dead.py                        # ranked list, obituaries, t
 python3 scripts/find_dead.py -C path/to/repo --top 50
 python3 scripts/find_dead.py --json > dead.json     # every item, every spared entry point
 python3 scripts/find_dead.py --svg funeral.svg      # gravestone card, totals only
+python3 scripts/find_dead.py --svg funeral.svg --no-credit   # same card without the small "made with agent-skills" line
 python3 scripts/find_dead.py --svg funeral.svg --show-paths --now 2026-01-31
 ```
 

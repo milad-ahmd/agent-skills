@@ -15,6 +15,7 @@ Usage: python3 wrapped.py [--repos PATH ...] [--email ADDR ...] [--year YYYY] [-
   --json         all stats as JSON on stdout
   --md           a short markdown recap on stdout, for a README or a post
   --svg FILE     write a 1200x630 card (dark by default, --theme light)
+  --no-credit     leave the "made with agent-skills" line off the card
   --show-repos   allow repo names on the card and in --md (off by default)
   --show-details allow commit subjects and file paths in --md (off by default)
   --github USER  add public GitHub stats (repos created, languages, stars) from the REST API. Works
@@ -429,6 +430,16 @@ THEMES = {
 FONT = "Inter, 'Helvetica Neue', Arial, sans-serif"
 
 
+CREDIT = "made with github.com/milad-ahmd/agent-skills"
+
+
+def credit(svg, on=True):
+    """Sign the card in its free top-right corner so a shared card links back; --no-credit turns it off."""
+    if not on:
+        return svg
+    return svg.replace("</svg>", '<text x="1160" y="44" font-size="16" fill="#71717a" text-anchor="end">%s</text>\n</svg>' % CREDIT)
+
+
 def svg_card(s, theme="dark", show_repos=False):
     t = THEMES[theme]
     a = s["archetype"]
@@ -496,6 +507,7 @@ def main(argv=None):
     p.add_argument("--json", action="store_true")
     p.add_argument("--md", action="store_true")
     p.add_argument("--svg")
+    p.add_argument("--no-credit", action="store_true", help="leave the \"made with agent-skills\" line off the card")
     p.add_argument("--theme", choices=sorted(THEMES), default="dark")
     p.add_argument("--show-repos", action="store_true")
     p.add_argument("--show-details", action="store_true")
@@ -532,7 +544,7 @@ def main(argv=None):
     if args.svg:
         try:
             with open(args.svg, "w", encoding="utf-8") as fh:
-                fh.write(svg_card(stats, args.theme, args.show_repos))
+                fh.write(credit(svg_card(stats, args.theme, args.show_repos), not args.no_credit))
         except OSError as e:
             print("could not write %s: %s" % (args.svg, e), file=sys.stderr)
             return 1

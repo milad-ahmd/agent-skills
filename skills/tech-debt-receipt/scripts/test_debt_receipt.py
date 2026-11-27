@@ -280,7 +280,12 @@ class Output(RepoCase):
         self.assertEqual(root.tag, "{http://www.w3.org/2000/svg}svg")
         texts = [(t.text or "").replace("\u00a0", " ") for t in root.iter("{http://www.w3.org/2000/svg}text")]
         self.assertTrue(any("TOTAL DEBT" in t for t in texts))
-        self.assertEqual(len(texts), len(out.split("\n\nPAY THESE FIRST")[0].splitlines()))
+        # the receipt plus a blank line and the two credit lines
+        self.assertEqual(len(texts), len(out.split("\n\nPAY THESE FIRST")[0].splitlines()) + 3)
+        self.assertIn("github.com/milad-ahmd/agent-skills", texts[-1])
+        self.repo.run("--svg", path, "--no-credit")
+        with open(path, encoding="utf-8") as fh:
+            self.assertNotIn("milad-ahmd/agent-skills", fh.read())
 
     def test_fail_over_exit_codes(self):
         _, rep = self.repo.report()

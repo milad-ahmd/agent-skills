@@ -14,6 +14,7 @@ python3 scripts/weigh_in.py                     # project in the current directo
 python3 scripts/weigh_in.py path/to/app --top 15
 python3 scripts/weigh_in.py --venv .venv        # a venv somewhere other than .venv or venv
 python3 scripts/weigh_in.py --svg weigh-in.svg  # also write a 1200x630 card
+python3 scripts/weigh_in.py --svg weigh-in.svg --no-credit   # same card without the small "made with agent-skills" line
 python3 scripts/weigh_in.py --json              # every number, for follow-up questions
 ```
 

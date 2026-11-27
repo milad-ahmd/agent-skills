@@ -13,6 +13,7 @@ description: Estimates what a codebase would cost to build from scratch, the "th
 python3 scripts/valuation.py                         # repository in the current directory
 python3 scripts/valuation.py -C path/to/repo
 python3 scripts/valuation.py --svg valuation.svg     # also write a 1200x630 card
+python3 scripts/valuation.py --svg valuation.svg --no-credit   # same card without the small "made with agent-skills" line
 python3 scripts/valuation.py --salary 95000 --overhead 2.0
 python3 scripts/valuation.py --salary 80000 --currency EUR
 python3 scripts/valuation.py --json                  # every number, for follow-up questions

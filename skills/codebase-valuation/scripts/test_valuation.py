@@ -201,6 +201,10 @@ class TestCli(TempDir):
         ET.fromstring(body)
         self.assertIn("1981 model estimate", body)
         self.assertIn("no git history", body)
+        self.assertIn("milad-ahmd/agent-skills", body)
+        run("-C", self.root, "--svg", svg, "--no-credit")
+        with open(svg) as fh:
+            self.assertNotIn("milad-ahmd/agent-skills", fh.read())
 
     def test_custom_salary_and_currency(self):
         write(self.root, "a.c", "int x;\n" * 2000)

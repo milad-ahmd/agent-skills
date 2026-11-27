@@ -8,6 +8,7 @@ Usage: python3 valuation.py [-C REPO] [--json] [--svg card.svg] [--salary N] [--
   -C REPO         directory to measure (default: current directory)
   --json          everything as JSON on stdout
   --svg FILE      also write a 1200x630 card
+  --no-credit     leave the "made with agent-skills" line off the card
   --salary N      average yearly salary of one developer (default 56286, SLOCCount's year-2000 US figure)
   --overhead X    multiplier for facilities, equipment, management and so on (default 2.4)
   --currency C    label for the salary and cost (default USD); any other currency needs --salary
@@ -355,6 +356,16 @@ def report(data):
     return "\n".join(out) + "\n"
 
 
+CREDIT = "made with github.com/milad-ahmd/agent-skills"
+
+
+def credit(svg, on=True):
+    """Sign the card in its free top-right corner so a shared card links back; --no-credit turns it off."""
+    if not on:
+        return svg
+    return svg.replace("</svg>", '<text x="1160" y="44" font-size="16" fill="#71717a" text-anchor="end">%s</text>\n</svg>' % CREDIT)
+
+
 def svg_card(data):
     bg, panel, fg, muted, accent = "#10141a", "#1d232c", "#f4f4f5", "#a1a1aa", "#3ecf8e"
     el = ['<rect width="1200" height="630" fill="%s"/>' % bg,
@@ -406,6 +417,7 @@ def main(argv=None):
     p.add_argument("-C", dest="repo", default=".")
     p.add_argument("--json", action="store_true")
     p.add_argument("--svg")
+    p.add_argument("--no-credit", action="store_true", help="leave the \"made with agent-skills\" line off the card")
     p.add_argument("--salary", type=float)
     p.add_argument("--overhead", type=float, default=DEFAULT_OVERHEAD)
     p.add_argument("--currency", default="USD")
@@ -429,7 +441,7 @@ def main(argv=None):
     if args.svg:
         try:
             with open(args.svg, "w", encoding="utf-8") as fh:
-                fh.write(svg_card(data))
+                fh.write(credit(svg_card(data), not args.no_credit))
         except OSError as err:
             print("could not write %s: %s" % (args.svg, err), file=sys.stderr)
             return 2

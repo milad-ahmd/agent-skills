@@ -17,6 +17,7 @@ Usage: python3 bus_factor.py [-C REPO] [PATH ...] [--days 365] [--now YYYY-MM-DD
                   lines in this run; labels are stable within one run, not across runs)
   --json          machine-readable report on stdout
   --svg FILE      write a shareable 1200x630 card (no names unless --show-authors)
+  --no-credit     leave the "made with agent-skills" line off the card
 
 How it measures (files at HEAD; lockfiles, vendored, minified, generated and binary files skipped):
   ownership   `git blame --line-porcelain -w HEAD` per file, lines per person (mailmap applied by git)
@@ -414,6 +415,16 @@ def text_report(rep, show, top):
 COLORS = ["#e4572e", "#f3a712", "#29335c", "#669bbc", "#a8c686", "#8e6c8a", "#b0b0b0"]
 
 
+CREDIT = "made with github.com/milad-ahmd/agent-skills"
+
+
+def credit(svg, on=True):
+    """Sign the card in its free top-right corner so a shared card links back; --no-credit turns it off."""
+    if not on:
+        return svg
+    return svg.replace("</svg>", '<text x="1160" y="44" font-size="16" fill="#71717a" text-anchor="end">%s</text>\n</svg>' % CREDIT)
+
+
 def svg_card(rep, show):
     T = rep["total_lines"]
     el = ['<rect width="1200" height="630" fill="#14161c"/>',
@@ -468,6 +479,7 @@ def main(argv=None):
     ap.add_argument("--show-authors", action="store_true")
     ap.add_argument("--json", action="store_true")
     ap.add_argument("--svg", metavar="FILE")
+    ap.add_argument("--no-credit", action="store_true", help="leave the \"made with agent-skills\" line off the card")
     a = ap.parse_args(argv)
     now = None
     if a.now:
@@ -479,7 +491,7 @@ def main(argv=None):
         return 2
     if a.svg:
         with open(a.svg, "w", encoding="utf-8") as fh:
-            fh.write(svg_card(rep, a.show_authors))
+            fh.write(credit(svg_card(rep, a.show_authors), not a.no_credit))
     if a.json:
         json.dump(to_json(rep, a.show_authors), sys.stdout, indent=2)
         print()

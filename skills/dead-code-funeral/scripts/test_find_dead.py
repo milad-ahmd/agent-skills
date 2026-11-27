@@ -282,6 +282,7 @@ class Cli(Base):
         ET.fromstring(body)
         self.assertIn("R.I.P.", body)
         self.assertNotIn("secret_module", body)
+        self.assertIn("milad-ahmd/agent-skills", body)
         self.repo.run("--svg", card, "--show-paths")
         with open(card) as fh:
             self.assertIn("secret_module.py", fh.read())

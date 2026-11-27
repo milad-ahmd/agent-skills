@@ -323,6 +323,8 @@ class TestSvg(Base):
         texts = " ".join(t.text or "" for t in root.iter("{http://www.w3.org/2000/svg}text"))
         self.assertIn("BUS FACTOR", texts)
         self.assertIn("Author A 60%", texts)
+        self.assertIn("made with github.com/milad-ahmd/agent-skills", texts)
+        self.assertNotIn("milad-ahmd/agent-skills", self.card("--no-credit"))
         for name, email in PEOPLE.values():
             self.assertNotIn(name.split()[0], svg)
             self.assertNotIn(email, svg)

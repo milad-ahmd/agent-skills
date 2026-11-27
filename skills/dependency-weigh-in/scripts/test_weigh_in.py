@@ -338,6 +338,10 @@ class Cli(NpmBase):
         texts = " ".join(t.text or "" for t in root.iter("{http://www.w3.org/2000/svg}text"))
         self.assertIn("DEPENDENCY WEIGH-IN", texts)
         self.assertIn("moment", texts)
+        self.assertIn("milad-ahmd/agent-skills", texts)
+        self.run_cli(self.root, "--svg", out, "--no-credit")
+        with open(out, encoding="utf-8") as fh:
+            self.assertNotIn("milad-ahmd/agent-skills", fh.read())
 
     def test_text_and_json(self):
         r = self.run_cli(self.root)

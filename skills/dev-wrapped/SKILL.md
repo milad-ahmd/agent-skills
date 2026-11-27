@@ -17,6 +17,7 @@ Ask where their code lives (one folder like `~/code`, or a few repos) and which 
 python3 scripts/wrapped.py --repos ~/code ~/work/api --email me@home.dev --email me@work.com
 python3 scripts/wrapped.py --repos ~/code --year 2026 --json            # every stat
 python3 scripts/wrapped.py --repos ~/code --svg wrapped.svg --theme light
+python3 scripts/wrapped.py --repos ~/code --svg wrapped.svg --no-credit   # same card without the small "made with agent-skills" line
 python3 scripts/wrapped.py --repos ~/code --md                          # recap for a README or post
 python3 scripts/wrapped.py --repos ~/code --github <user>               # add public GitHub stats
 ```

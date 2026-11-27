@@ -258,6 +258,7 @@ class Cli(Tmp):
         ET.fromstring(text)
         self.assertNotIn("billing_service", text)
         self.assertIn("2x", text)
+        self.assertIn("milad-ahmd/agent-skills", text)
         self.run_cli(self.root, "--svg", card, "--show-paths")
         self.assertIn("billing_service.py", read(card))
 

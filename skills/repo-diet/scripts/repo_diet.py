@@ -9,6 +9,7 @@ Usage: python3 repo_diet.py [-C REPO] [--top N] [--json] [--svg card.svg] [--sho
   --top N         rows per list (default 10)
   --json          everything as JSON on stdout
   --svg FILE      also write a 1200x630 diet card
+  --no-credit     leave the "made with agent-skills" line off the card
   --show-authors  include the author of the commit that added each big blob (hidden by default)
 
 "History" is every object reachable from any ref (git rev-list --objects --all), sized with
@@ -377,6 +378,16 @@ def report(d):
     return "\n".join(out) + "\n"
 
 
+CREDIT = "made with github.com/milad-ahmd/agent-skills"
+
+
+def credit(svg, on=True):
+    """Sign the card in its free top-right corner so a shared card links back; --no-credit turns it off."""
+    if not on:
+        return svg
+    return svg.replace("</svg>", '<text x="1160" y="44" font-size="16" fill="#71717a" text-anchor="end">%s</text>\n</svg>' % CREDIT)
+
+
 def svg_card(d):
     bg, panel, fg, muted, accent, red = "#10151a", "#1d252c", "#f4f4f5", "#a1a1aa", "#4ade80", "#f87171"
     el = ['<rect width="1200" height="630" fill="%s"/>' % bg,
@@ -422,6 +433,7 @@ def main(argv=None):
     p.add_argument("--top", type=int, default=10, help="rows per list (default 10)")
     p.add_argument("--json", action="store_true", help="everything as JSON on stdout")
     p.add_argument("--svg", metavar="FILE", help="also write a 1200x630 SVG card")
+    p.add_argument("--no-credit", action="store_true", help="leave the \"made with agent-skills\" line off the card")
     p.add_argument("--show-authors", action="store_true", help="name who added each big blob (hidden by default)")
     args = p.parse_args(argv)
     if not os.path.isdir(args.repo) or not git(args.repo, "rev-parse", "--git-dir", check=False).strip():
@@ -435,7 +447,7 @@ def main(argv=None):
     if args.svg:
         try:
             with open(args.svg, "w", encoding="utf-8") as fh:
-                fh.write(svg_card(d))
+                fh.write(credit(svg_card(d), not args.no_credit))
         except OSError as e:
             print("could not write %s: %s" % (args.svg, e), file=sys.stderr)
             return 3

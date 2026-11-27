@@ -255,6 +255,10 @@ class Output(Repo):
         root = ET.parse(out).getroot()
         self.assertTrue(root.tag.endswith("svg"))
         self.assertIn("REPO DIET", ET.tostring(root, encoding="unicode"))
+        self.assertIn("milad-ahmd/agent-skills", ET.tostring(root, encoding="unicode"))
+        self.run_cli("--svg", out, "--no-credit")
+        with open(out, encoding="utf-8") as fh:
+            self.assertNotIn("milad-ahmd/agent-skills", fh.read())
 
     def test_svg_unwritable_exits_3(self):
         self.lean()

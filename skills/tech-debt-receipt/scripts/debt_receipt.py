@@ -10,6 +10,7 @@ Usage: python3 debt_receipt.py [-C REPO] [--json] [--svg FILE] [--top N] [--item
   PATH             only scan tracked files under these paths
   --json           machine-readable report on stdout instead of the receipt
   --svg FILE       also write the receipt as an SVG image
+  --no-credit      leave the "made with agent-skills" lines off the SVG receipt
   --top N          items in the "pay these first" list (default 5)
   --items N        line items printed on the receipt, most expensive first (default 12, 0 = all)
   --currency       usd ("$12.40", default) or points ("12.4 pts")
@@ -551,6 +552,7 @@ def main(argv=None):
     ap.add_argument("--json", action="store_true")
     ap.add_argument("--receipt", action="store_true", help="print the receipt (default)")
     ap.add_argument("--svg")
+    ap.add_argument("--no-credit", action="store_true", help="leave the \"made with agent-skills\" lines off the SVG receipt")
     ap.add_argument("--top", type=int, default=5)
     ap.add_argument("--items", type=int, default=12)
     ap.add_argument("--currency", choices=["usd", "points"], default="usd")
@@ -576,7 +578,7 @@ def main(argv=None):
     lines = receipt(rep, a.currency, a.items, a.show_authors)
     if a.svg:
         with open(a.svg, "w", encoding="utf-8") as fh:
-            fh.write(svg(lines))
+            fh.write(svg(lines if a.no_credit else lines + ["", "made with".center(WIDTH), "github.com/milad-ahmd/agent-skills".center(WIDTH)]))
     if a.json:
         print(json.dumps(rep, indent=2))
     else:

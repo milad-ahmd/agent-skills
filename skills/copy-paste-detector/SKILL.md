@@ -15,6 +15,7 @@ python3 scripts/find_clones.py src --min-lines 10 --top 20    # bigger blocks on
 python3 scripts/find_clones.py . --ext py,ts --exclude 'src/generated/*'
 python3 scripts/find_clones.py . --json > /tmp/clones.json    # every family and copy
 python3 scripts/find_clones.py . --svg clones.svg             # shareable card, no file paths (--show-paths adds them)
+python3 scripts/find_clones.py . --svg clones.svg --no-credit   # same card without the small "made with agent-skills" line
 python3 scripts/find_clones.py . --fail-over 5                # CI: fail when exact copies pass 5% of code lines
 ```
 

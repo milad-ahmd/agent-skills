@@ -12,6 +12,7 @@ Usage: python3 find_clones.py [PATH] [--min-lines 6] [--min-tokens 40] [--ext py
   --top N         families shown in the text report (default 10; --json always has all of them)
   --json          machine-readable report on stdout
   --svg FILE      write a shareable 1200x630 card with the totals (no file paths unless --show-paths)
+  --no-credit     leave the "made with agent-skills" line off the card
   --show-paths    put file names on the SVG card
   --fail-over PCT exit 1 only when exact duplication is over PCT percent of code lines (for CI)
 
@@ -438,6 +439,16 @@ def text_report(rep, top):
     return "\n".join(out) + "\n"
 
 
+CREDIT = "made with github.com/milad-ahmd/agent-skills"
+
+
+def credit(svg, on=True):
+    """Sign the card in its free top-right corner so a shared card links back; --no-credit turns it off."""
+    if not on:
+        return svg
+    return svg.replace("</svg>", '<text x="1160" y="44" font-size="16" fill="#71717a" text-anchor="end">%s</text>\n</svg>' % CREDIT)
+
+
 def svg_card(rep, show_paths):
     el = ['<rect width="1200" height="630" fill="#14161c"/>', '<rect x="0" y="0" width="12" height="630" fill="#7c5cff"/>']
 
@@ -487,6 +498,7 @@ def main(argv=None):
     ap.add_argument("--top", type=int, default=10)
     ap.add_argument("--json", action="store_true")
     ap.add_argument("--svg", metavar="FILE")
+    ap.add_argument("--no-credit", action="store_true", help="leave the \"made with agent-skills\" line off the card")
     ap.add_argument("--show-paths", action="store_true")
     ap.add_argument("--fail-over", type=float, metavar="PCT")
     a = ap.parse_args(argv)
@@ -502,7 +514,7 @@ def main(argv=None):
         return 2
     if a.svg:
         with open(a.svg, "w", encoding="utf-8") as fh:
-            fh.write(svg_card(rep, a.show_paths))
+            fh.write(credit(svg_card(rep, a.show_paths), not a.no_credit))
     if a.json:
         json.dump(rep, sys.stdout, indent=2)
         print()

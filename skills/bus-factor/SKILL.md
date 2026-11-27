@@ -13,6 +13,7 @@ description: Measures a repository's bus factor (truck factor) and plans the kno
 python3 scripts/bus_factor.py                      # headline, riskiest files and dirs, "only you know"
 python3 scripts/bus_factor.py src/ services/api    # limit to paths
 python3 scripts/bus_factor.py --svg bus-factor.svg # shareable card, no names
+python3 scripts/bus_factor.py --svg bus-factor.svg --no-credit   # same card without the small "made with agent-skills" line
 python3 scripts/bus_factor.py --json               # every file, dir and person
 python3 scripts/bus_factor.py --days 180 --alias "jdoe@laptop.local=Jane Doe" --max-files 5000
 ```
