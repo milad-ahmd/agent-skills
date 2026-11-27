@@ -24,6 +24,14 @@ RULES = [(n, re.compile(p)) for n, p in RULES]
 RISKY_FILES = re.compile(r"(^|/)(\.env(\.[\w-]+)?|id_rsa|id_ed25519|.*\.pem|.*\.p12|.*\.keystore|.*\.jks|credentials(\.json)?|service-account.*\.json)$", re.I)
 SAFE_FILES = re.compile(r"\.env\.(example|sample|template)$", re.I)
 PLACEHOLDER = re.compile(r"(?i)(example|dummy|placeholder|changeme|your[_-]|xxxx|<.*>|\$\{|test)")
+# Translation files say "password": "Password" or "secret": "Geheimnis"; those are labels, not secrets.
+LOCALE_DIRS = re.compile(r"(^|/)(locales?|i18n|l10n|lang|langs|translations?)/", re.I)
+
+
+def looks_like_label(m, where):
+    """A hard-coded-secret match that is really UI text: in a locale folder, the key repeated, or one capitalised word."""
+    value = m.group(0).rstrip("'\"").rsplit(m.group(0)[-1], 1)[-1]
+    return bool(LOCALE_DIRS.search(where or "")) or value.lower() == m.group(1).lower() or (value.isalpha() and value[0].isupper() and value[1:].islower())
 
 
 def git(repo, *a):
@@ -43,6 +51,8 @@ def scan_text(text, where, findings, seen):
             for m in rx.finditer(line):
                 val = m.group(0)
                 if PLACEHOLDER.search(val):
+                    continue
+                if name == "Hard-coded secret" and looks_like_label(m, where):
                     continue
                 key = (name, val)
                 if key in seen:

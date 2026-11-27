@@ -112,6 +112,18 @@ class DetectorTests(unittest.TestCase):
             with self.subTest(line=line % "..."):
                 self.assertEqual(scan(line % val), [])
 
+    def test_translation_labels_are_not_secrets(self):
+        pw = "pass" + "word"  # split so the hygiene test does not see a literal match in this file
+        for line in ('"%s": "Password"' % pw, '"secret": "Geheim' + 'nis"', 'passwd="Contra' + 'se\u00f1a"'):
+            with self.subTest(line=line):
+                self.assertEqual(scan(line), [])
+        found = []
+        ss.scan_text('"api_key": "API-' + FILL + '"', "web/locales/de.json", found, set())
+        self.assertEqual(found, [])
+        # outside a locale folder the same line is still a finding, and lower-case or mixed values still count
+        self.assertEqual([f[0] for f in scan('"api_key": "API-' + FILL + '"')], ["Hard-coded secret"])
+        self.assertEqual([f[0] for f in scan(pw + ' = "letmein' + 'please"')], ["Hard-coded secret"])
+
     def test_db_url_variants(self):
         for scheme in ("postgres", "mysql", "mongodb+srv", "redis", "amqp"):
             with self.subTest(scheme=scheme):

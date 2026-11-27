@@ -9,7 +9,7 @@ Review PRs · resolve merge conflicts · find dead code · block dangerous comma
 [![Stars](https://img.shields.io/github/stars/milad-ahmd/agent-skills?style=social)](https://github.com/milad-ahmd/agent-skills)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 ![Skills](https://img.shields.io/badge/skills-71-orange)
-![Unit tests](https://img.shields.io/badge/unit%20tests-1082-blue)
+![Unit tests](https://img.shields.io/badge/unit%20tests-1083-blue)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](#-contributing)
 
 [Install](#-install-in-10-seconds) · [Start here](#-start-with-these-three) · [All 71 skills](#-all-71-skills) · [🌐 Website](https://milad-ahmd.github.io/agent-skills/) · [Request a skill](https://github.com/milad-ahmd/agent-skills/issues/new)
@@ -27,7 +27,7 @@ Review PRs · resolve merge conflicts · find dead code · block dangerous comma
 Most skills are a prompt. These do the homework first.
 
 - ⚙️ **Real data, not guesses.** 42 skills run a script before the agent writes anything: your git history, your files, the GitHub API. The agent works from what is actually there.
-- 🧪 **Tested like code.** 1,082 unit tests run on every push, every `SKILL.md` is linted in strict mode, and trigger evals check that each skill loads for its own prompts and not for its neighbours'.
+- 🧪 **Tested like code.** 1,083 unit tests run on every push, every `SKILL.md` is linted in strict mode, and trigger evals check that each skill loads for its own prompts and not for its neighbours'.
 - 🛑 **Safe by default.** The scripts never change your code unless you pass a flag for it, and anything that pushes, deletes, posts or rewrites history waits for your OK.
 - 🕶️ **Anonymous by default.** Shareable cards and reports leave out names, emails and file paths unless you ask for them.
 
@@ -294,7 +294,7 @@ A skill is a folder with a `SKILL.md` file: YAML frontmatter (`name`, `descripti
 
 - **Linted on every push** with [skills-doctor](skills/skills-doctor): frontmatter, trigger language, overlapping descriptions, missing scripts, leaked secrets. Lint your own skills in CI with the [Skills Doctor Action](https://github.com/milad-ahmd/skills-doctor#-use-it-in-ci).
 - **Trigger evals** in [`evals/`](evals): every skill has prompts that should load it and prompts that belong to a neighbor. CI runs a free offline check on every push; `python3 scripts/run_trigger_evals.py --live` runs them against Claude Code itself.
-- **Unit tests** for every skill script (1,082 at v5.8), run in CI on every push.
+- **Unit tests** for every skill script (1,083 at v5.8), run in CI on every push.
 
 ## 🗺️ Roadmap
 
