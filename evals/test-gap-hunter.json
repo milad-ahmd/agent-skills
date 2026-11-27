@@ -5,12 +5,15 @@
     "Find the untested code in the payments module and cover it",
     "I'm about to refactor auth. Add tests first so I don't break it",
     "Which parts of this project are risky because nothing tests them?",
-    "add pytest tests for the CSV parser"
+    "add pytest tests for the CSV parser",
+    "CI spits out an lcov.info. Which files that change a lot have no tests at all?"
   ],
   "should_not_trigger": [
     "Review my PR and point out missing tests",
     "Migrate from Jest to Vitest",
     "Explain what this codebase does",
-    "This TypeError only happens sometimes when I save a draft. Help me track down why."
+    "This TypeError only happens sometimes when I save a draft. Help me track down why.",
+    "Write a failing test first, then implement the discount rule",
+    "Add Playwright tests for our signup and checkout flows"
   ]
 }
