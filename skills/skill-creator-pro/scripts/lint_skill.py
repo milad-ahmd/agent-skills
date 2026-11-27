@@ -16,6 +16,7 @@ def main():
     if len(sys.argv) != 2:
         sys.exit(__doc__)
     d = sys.argv[1].rstrip("/")
+    folder = os.path.basename(os.path.abspath(d))  # abspath: `lint_skill.py .` names the real folder
     p = os.path.join(d, "SKILL.md")
     if not os.path.isfile(p):
         sys.exit(f"❌ {p} not found")
@@ -28,7 +29,7 @@ def main():
     name, desc = fm.get("name", ""), fm.get("description", "")
     if not name: errs.append("missing `name`")
     elif not NAME_RX.match(name) or len(name) > 64: errs.append(f"`name` must be kebab-case ≤ 64 chars (got `{name}`)")
-    elif name != os.path.basename(d): warns.append(f"`name` ({name}) should match folder ({os.path.basename(d)})")
+    elif name != folder: warns.append(f"`name` ({name}) should match folder ({folder})")
     else: ok.append(f"name `{name}`")
     if not desc: errs.append("missing `description`")
     else:
@@ -41,7 +42,7 @@ def main():
     (warns.append(f"body is {n} lines (> 500): move details to references/") if n > 500 else ok.append(f"body {n} lines"))
     if not re.search(r"^#{1,3} ", body, re.M): warns.append("no headings: structure as workflow / output / rules")
     if not re.search(r"(?im)^#+.*\b(rules|guardrails|constraints)\b", body): warns.append("no Rules section: add safety/quality guardrails")
-    for ref in set(re.findall(r"\b((?:scripts|references)/[\w./-]+)", body)):
+    for ref in {r.rstrip(".") for r in re.findall(r"\b((?:scripts|references)/[\w./-]+)", body)}:  # drop a sentence-ending period
         if not os.path.exists(os.path.join(d, ref)): errs.append(f"referenced file missing: {ref}")
     for kind, ln, val in find_secrets(text):
         errs.append(f"possible secret in SKILL.md:{ln}: {kind} {val}")
