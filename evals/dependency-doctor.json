@@ -5,11 +5,14 @@
     "Update our dependencies, but safely",
     "Which packages in requirements.txt are outdated or not even used?",
     "Dependabot opened 30 PRs. Which ones are safe to merge first?",
-    "Is anything in our go.mod known to be vulnerable?"
+    "Is anything in our go.mod known to be vulnerable?",
+    "Our code imports packages that aren't even listed in package.json. Find them before the build breaks",
+    "Is the lockfile out of sync with what pyproject.toml declares?"
   ],
   "should_not_trigger": [
     "Migrate our tests from Jest to Vitest",
     "Scan the git history for leaked tokens",
-    "Dockerize this Node app"
+    "Dockerize this Node app",
+    "Why is node_modules 2 GB on disk?"
   ]
 }
