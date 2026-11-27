@@ -1,6 +1,6 @@
 {
  "source": "milad-ahmd/agent-skills",
- "count": 67,
+ "count": 71,
  "skills": [
   {
    "name": "a11y-fixer",
@@ -157,6 +157,17 @@
    ]
   },
   {
+   "name": "codebase-valuation",
+   "emoji": "💰",
+   "tagline": "What a repo would cost to build from scratch (COCOMO), next to what git shows really happened",
+   "category": "Fun & Viral",
+   "description": "Estimates what a codebase would cost to build from scratch, the \"this repo is worth $2M\" number people post, done honestly. A read-only script counts files, code, comment and blank lines per language (git ls-files, so .gitignore applies; lockfiles, vendored, minified and generated files skipped), applies Boehm's basic COCOMO organic model with the SLOCCount and scc defaults to get person-months, schedule, team size and cost, and sets that next to what git shows really happened (author count and history span). Salary, overhead and currency are adjustable, there is JSON output and a shareable SVG card, and every output carries the caveat that COCOMO is a 1981 estimate, not a valuation. Use when the user asks how much their repo or project would cost to build or rewrite, what the codebase is worth, for a COCOMO or scc-style cost estimate, how many developers and how long a rewrite needs, how many lines of code per language, or wants a cost-to-build card for a README or post.",
+   "examples": [
+    "How much would this repo cost to build from scratch?",
+    "Make a cost-to-build card for my README"
+   ]
+  },
+  {
    "name": "commit-craft",
    "emoji": "🧱",
    "tagline": "Turn messy changes into clean, atomic Conventional Commits",
@@ -201,6 +212,17 @@
    ]
   },
   {
+   "name": "copy-paste-detector",
+   "emoji": "👯",
+   "tagline": "Finds copy-pasted code, groups it into clone families, flags drifted copies and merges only the real ones",
+   "category": "Refactoring",
+   "description": "Finds duplicated code in a repository and merges the copies worth merging. A read-only script strips comments and whitespace, hashes every run of N code lines, extends matches to the longest shared blocks and groups them into clone families with file:line ranges, lines per copy, removable lines and whether each copy is identical, renamed (only names or literals changed, a second tier) or has drifted since it was pasted. It skips vendored, generated and fixture code, reports the duplicated share of code and the most-copied block, writes JSON and an SVG card with no paths, and can fail CI over a percentage. The agent splits families into real and coincidental duplicates, applies the rule of three, then extracts one family at a time into a helper module the code already uses, with tests after each. Use when the user asks to find duplicate or copy-pasted code, detect code clones, check how DRY a codebase is, deduplicate repeated logic, pull repeated blocks into a shared helper, or add a duplication check to CI.",
+   "examples": [
+    "Find duplicated code in this repo and tell me which copies are worth merging",
+    "Add a CI check that fails if duplicate code goes above 5%"
+   ]
+  },
+  {
    "name": "cost-cutter",
    "emoji": "💸",
    "tagline": "Cut cloud, SaaS and LLM API bills with dollar estimates, effort, risk and exact fixes",
@@ -209,6 +231,17 @@
    "examples": [
     "Why is our AWS bill so high?",
     "Cut our OpenAI API costs"
+   ]
+  },
+  {
+   "name": "dead-code-funeral",
+   "emoji": "🪦",
+   "tagline": "Finds unused files, functions and exports, writes obituaries from git history, deletes only what you approve",
+   "category": "Fun & Viral",
+   "description": "Finds dead code in a repository's own source, holds a funeral for it, and deletes it only after the user approves. A read-only script scans Python (with ast) and JavaScript/TypeScript (with regular expressions) for files no other file imports and for top-level functions, classes and exported symbols nothing else refers to, skipping entry points, tests, configs and framework-convention files. Each finding gets a confidence level, its line count, the dates git says it was born and last touched, and an obituary line built from those facts. It prints totals (\"12 items, 840 lines that could go\"), JSON, and a gravestone SVG card without file paths. The agent checks each item for dynamic imports, reflection and framework wiring, then removes the approved items in small commits and runs the tests. Use when the user asks to find dead code, unused or orphaned files, unused functions or classes, unused exports, code that is never imported or called, what can be safely deleted, or to clean up leftover legacy code.",
+   "examples": [
+    "Find dead code in this repo",
+    "What can I safely delete from this project?"
    ]
   },
   {
@@ -528,6 +561,17 @@
    "examples": [
     "Make a social preview image for my repo",
     "Generate an og:image and meta tags for my project site"
+   ]
+  },
+  {
+   "name": "repo-diet",
+   "emoji": "🥗",
+   "tagline": "Finds why a repo is heavy to clone: biggest blobs in history, committed junk, LFS candidates, a safe slim-down plan",
+   "category": "Fun & Viral",
+   "description": "Finds why a git repository is slow or heavy to clone and plans the diet. A read-only script compares .git with the checkout, lists the biggest blobs ever committed on any branch with the commit and date that added each and whether the file was since deleted, sums how much history is files that no longer exist, and flags junk committed now (.DS_Store, node_modules, virtualenvs, .pyc, dist/build/target output, logs, archives, vendored code without a lockfile) with a .gitignore check, plus large binaries that belong in Git LFS. It prints a headline like \"48 MB of history; 71% is files you already deleted\", a floppy-disk and clone-time comparison, JSON and an SVG card. Fixes the cheap stuff in a normal commit and only suggests git filter-repo commands, with their cost spelled out. Use when the user asks why the repo or .git folder is so big, why git clone is slow, to find large files in git history, to shrink or slim down a repository, to purge a file committed by mistake, or whether to move files to Git LFS.",
+   "examples": [
+    "Why is our .git folder 900 MB when the code is 20 MB?",
+    "Someone committed a huge video and deleted it, is it still bloating the repo?"
    ]
   },
   {

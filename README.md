@@ -2,13 +2,13 @@
 
 # 🧰 Agent Skills
 
-### Roast your GitHub with real data. Strip AI slop from your writing. Turn your git history into a documentary. Plus 64 more skills for developers and marketers.
+### Roast your GitHub with real data. Strip AI slop from your writing. Turn your git history into a documentary. Plus 68 more skills for developers and marketers.
 
 **Works with Claude Code · Cline · Cursor · Codex · any agent that reads `SKILL.md`**
 
 [![Stars](https://img.shields.io/github/stars/milad-ahmd/agent-skills?style=social)](https://github.com/milad-ahmd/agent-skills)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE)
-![Skills](https://img.shields.io/badge/skills-67-orange)
+![Skills](https://img.shields.io/badge/skills-71-orange)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](#-contributing)
 
 [🌐 Website](https://milad-ahmd.github.io/agent-skills/) · [Start here](#-start-with-these-three) · [Install](#-install-in-10-seconds) · [Packs](#-packs-install-by-who-you-are) · [Social media](#-social-media-manager) · [Marketing skills](#-marketing--content-skills) · [Developer skills](#-developer-skills) · [What is a skill?](#-what-is-a-skill) · [Awesome list](https://github.com/milad-ahmd/awesome-agent-skills)
@@ -76,7 +76,7 @@ npx skills add milad-ahmd/agent-skills --skill roast-my-github  # one skill
 ### Option 3: shell installer
 
 ```bash
-# all 67 skills
+# all 71 skills
 curl -fsSL https://raw.githubusercontent.com/milad-ahmd/agent-skills/main/install.sh | bash
 
 # or a role-based pack
@@ -100,9 +100,9 @@ Then just talk to your agent normally. It picks the right skill automatically.
 | `marketer` | Marketing teams | brand voice, ads, email, SEO, competitors, influencers, analytics |
 | `local-business` | Shops, clinics, restaurants | Google Business Profile, WhatsApp, Facebook, Instagram |
 | `startup-cto` | Engineering leads | specs, debugging, architecture, domain modeling, issue triage, bus factor, PR review, incidents, cost cutting, secrets, deps, migrations, agent guardrails |
-| `developer` | Every dev | the 24 core dev workflow skills, from spec and TDD to merge conflicts and debugging |
+| `developer` | Every dev | the 27 core dev workflow skills, from spec and TDD to merge conflicts and debugging |
 | `skill-builder` | Skill authors | skill-finder, skill-creator-pro, skills-doctor, agent-memory-keeper, prompt-injection-scanner |
-| `fun` | Everyone | roast-my-github, commit-roast, dev-wrapped, tech-debt-receipt, bus-factor, dependency-weigh-in, codebase-time-machine, landing-page-roaster, ai-slop-detector |
+| `fun` | Everyone | roast-my-github, commit-roast, dev-wrapped, tech-debt-receipt, bus-factor, dependency-weigh-in, dead-code-funeral, repo-diet, copy-paste-detector, codebase-valuation, codebase-time-machine, landing-page-roaster, ai-slop-detector |
 
 Run `install.sh --list` to see every skill and pack.
 
@@ -112,7 +112,7 @@ Run `install.sh --list` to see every skill and pack.
 |---|---|
 | <img src="assets/demo-env-secrets-guard.gif" width="420"/> | <img src="assets/demo-skills-doctor.gif" width="420"/> |
 
-## 📚 All 67 skills
+## 📚 All 71 skills
 
 ⚙️ = ships a script that collects real data (git history, API results, files) before the agent writes anything.
 
@@ -126,6 +126,9 @@ Run `install.sh --list` to see every skill and pack.
 | 🪵 [**commit-roast**](skills/commit-roast) ⚙️ | Roasts a repo's commit history with real numbers (the "wip" hall of shame, fix-the-fix chains, 2am commits) and a hygiene score, then gives commit rules that fix what it does wrong | *"Roast our commit history"* |
 | 🚌 [**bus-factor**](skills/bus-factor) ⚙️ | Finds the code only one person knows from git blame and recent history, scores your bus factor, and plans the handover. People stay anonymous unless you ask | *"What's our bus factor?"* |
 | ⚖️ [**dependency-weigh-in**](skills/dependency-weigh-in) ⚙️ | Weighs node_modules, venvs and Go modules in floppy disks and Doom copies, then finds the heaviest packages, duplicate copies, dev weight and lighter alternatives | *"How heavy is my node_modules?"* |
+| 🪦 [**dead-code-funeral**](skills/dead-code-funeral) ⚙️ | Finds files, functions and exports nothing uses, writes each an obituary from its real git dates, and deletes only what you approve, one tested commit at a time | *"Find dead code in this repo"* |
+| 🥗 [**repo-diet**](skills/repo-diet) ⚙️ | Why your clone is slow: the biggest files ever committed (even deleted ones), junk like node_modules and .DS_Store, LFS candidates, and a slim-down plan that never rewrites history without you | *"Why is our .git folder so big?"* |
+| 💰 [**codebase-valuation**](skills/codebase-valuation) ⚙️ | What your repo would cost to build from scratch with the published COCOMO model, next to what git shows really happened, with the caveat on every card | *"How much would this repo cost to build?"* |
 | 🧾 [**tech-debt-receipt**](skills/tech-debt-receipt) ⚙️ | Every TODO, FIXME, hack and lint suppression, aged with git blame and printed as a shop receipt (text or SVG), then a ranked list of what to pay off first | *"Print our tech debt as a receipt"* |
 | 🔤 [**name-checker**](skills/name-checker) ⚙️ | Brainstorms names for a product, library or CLI and checks each one: .com/.dev/.app domains, GitHub, npm, PyPI, crates and Homebrew, ranked | *"Find a name for my new CLI and check what's free"* |
 | ⏳ [**codebase-time-machine**](skills/codebase-time-machine) ⚙️ | The story of your repo from git history, as a documentary: eras, cast, plot twists, cursed files | *"Tell me the story of this codebase"* |
@@ -213,6 +216,7 @@ Your AI agent can also act as a social media manager, content strategist and gro
 | Skill | What it does | Try saying |
 |---|---|---|
 | 🏛️ [**architecture-doctor**](skills/architecture-doctor) ⚙️ | Measures coupling, cycles, god files, layer violations and files that change together without importing each other, ranks them by git churn, and plans small safe refactors | *"What should we refactor first?"* |
+| 👯 [**copy-paste-detector**](skills/copy-paste-detector) ⚙️ | Groups copy-pasted code into clone families (exact, renamed and drifted copies), then merges only the families that mean the same thing; `--fail-over` adds a CI budget | *"Find duplicated code in this repo"* |
 | 🧙 [**migration-wizard**](skills/migration-wizard) | Safe, phased migrations: JS→TS, Jest→Vitest, Pages→App Router | *"Migrate this project to TypeScript"* |
 
 ### 🔐 Security & Maintenance
@@ -277,7 +281,7 @@ Every skill in this collection:
 
 ## 🗺️ Roadmap
 
-All 67 skills have shipped ([changelog](CHANGELOG.md)). Next up is your idea:
+All 71 skills have shipped ([changelog](CHANGELOG.md)). Next up is your idea:
 
 👉 [Request a skill](https://github.com/milad-ahmd/agent-skills/issues/new). Popular requests get built first.
 

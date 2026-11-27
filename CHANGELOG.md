@@ -2,13 +2,21 @@
 
 ⭐ Star or watch the repo to get notified about new skills, and [request a skill](https://github.com/milad-ahmd/agent-skills/issues/new). Popular requests get built first.
 
-## 2026-11-28: v5.6 · roasts, buses and floppy disks
+## 2026-11-27: v5.7 · funerals, diets and clone families
+Four more skills that make a number worth posting and then clean something up. Each ships a read-only stdlib Python tool with tests and a shareable card without paths or names.
+- 🪦 **New: dead-code-funeral.** `find_dead.py` finds Python and JS/TS files nothing imports and top-level functions, classes and exports nothing names, skips entry points, tests and framework-convention files, and dates each item from git. The agent checks every suspect for dynamic loading and framework wiring, writes the obituaries from those facts, and deletes only approved items in tested commits.
+- 🥗 **New: repo-diet.** `repo_diet.py` compares .git with the checkout, lists the biggest blobs ever committed (with the commit that added them and whether they still exist), committed junk with the .gitignore line that fixes it, and Git LFS candidates. History rewrites are printed as `git filter-repo` commands with their cost spelled out, never run.
+- 👯 **New: copy-paste-detector.** `find_clones.py` groups duplicated code into clone families, in an exact tier and a renamed tier, marks copies that have drifted apart, and reports the % of duplicated lines; `--fail-over` turns it into a CI budget. About 1 second on a 100k-line repo.
+- 💰 **New: codebase-valuation.** `valuation.py` counts code per language and applies basic COCOMO (organic mode, the constants and defaults SLOCCount and scc use, all sourced), then shows what git says really happened. Every output says it is a 1981 model estimate, not a valuation.
+- 71 skills in total.
+
+## 2026-11-27: v5.6 · roasts, buses and floppy disks
 Four more skills that make something worth posting and leave the repo better. Each ships a stdlib Python tool with tests, and people stay anonymous unless you ask.
 - 🪵 **New: commit-roast.** `commit_stats.py` scores a repo's commit history out of 100 (descriptive subjects, imperative mood, length, bodies on big commits, Conventional Commits, fix-the-fix chains, shouting) with the formula shown, and finds the five most roastable facts with evidence. The skill then writes commit rules that fit what this repo gets wrong.
 - 🚌 **New: bus-factor.** `bus_factor.py` measures who knows each file from git blame and recent commits, finds files only one person owns, and computes the team's bus factor (an exact search, or a greedy upper bound after Avelino et al. 2016, counting lines). A shareable card shows the headline without names.
 - ⚖️ **New: dependency-weigh-in.** `weigh_in.py` weighs node_modules (npm, pnpm, yarn, bun), venvs and Go modules, says how many floppy disks or copies of shareware Doom that is (every reference size is sourced), and lists the heaviest packages with what pulls them in, duplicate copies, dev-only weight and lighter alternatives.
 - 🪪 **New: repo-card.** `repo_card.py` renders a 1280x640 social preview from your repo's real name, tagline, languages, license and stars in three templates, converts it to PNG with whatever converter the machine has, and prints og:image tags. You upload it in the repo's settings yourself.
-- 67 skills in total.
+- 67 skills at this release.
 
 ## 2026-11-27: v5.5 · wrapped season
 Four skills that make something worth sharing and stay useful after the screenshot. Each ships a stdlib Python tool with tests.

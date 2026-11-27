@@ -16,11 +16,14 @@ https://milad-ahmd.github.io/agent-skills/skills/bus-factor/
 https://milad-ahmd.github.io/agent-skills/skills/changelog-from-git/
 https://milad-ahmd.github.io/agent-skills/skills/codebase-explainer/
 https://milad-ahmd.github.io/agent-skills/skills/codebase-time-machine/
+https://milad-ahmd.github.io/agent-skills/skills/codebase-valuation/
 https://milad-ahmd.github.io/agent-skills/skills/commit-craft/
 https://milad-ahmd.github.io/agent-skills/skills/commit-roast/
 https://milad-ahmd.github.io/agent-skills/skills/competitor-spy/
 https://milad-ahmd.github.io/agent-skills/skills/content-repurposer/
+https://milad-ahmd.github.io/agent-skills/skills/copy-paste-detector/
 https://milad-ahmd.github.io/agent-skills/skills/cost-cutter/
+https://milad-ahmd.github.io/agent-skills/skills/dead-code-funeral/
 https://milad-ahmd.github.io/agent-skills/skills/demo-recorder/
 https://milad-ahmd.github.io/agent-skills/skills/dependency-doctor/
 https://milad-ahmd.github.io/agent-skills/skills/dependency-weigh-in/
@@ -50,6 +53,7 @@ https://milad-ahmd.github.io/agent-skills/skills/pre-commit-setup/
 https://milad-ahmd.github.io/agent-skills/skills/prompt-injection-scanner/
 https://milad-ahmd.github.io/agent-skills/skills/readme-glow-up/
 https://milad-ahmd.github.io/agent-skills/skills/repo-card/
+https://milad-ahmd.github.io/agent-skills/skills/repo-diet/
 https://milad-ahmd.github.io/agent-skills/skills/roast-my-github/
 https://milad-ahmd.github.io/agent-skills/skills/screenshot-to-component/
 https://milad-ahmd.github.io/agent-skills/skills/seo-blog-writer/

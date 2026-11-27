@@ -5,13 +5,13 @@
     "email": "miladahmadi803@gmail.com"
   },
   "metadata": {
-    "description": "67 Agent Skills: roast-my-github, commit roasts, bus factor, dev wrapped, a tech debt receipt, an AI slop detector, a bisecting bug detective, merge conflict resolver, agent guardrails, TDD loop, issue triage, domain modeling, pre-commit hooks, durable agent workflows, architecture doctor, UI taste lint, Playwright e2e tests, spec grilling and a social media manager",
-    "version": "5.6.0"
+    "description": "71 Agent Skills: roast-my-github, a dead code funeral, repo diets, commit roasts, bus factor, dev wrapped, a tech debt receipt, an AI slop detector, a bisecting bug detective, merge conflict resolver, agent guardrails, TDD loop, issue triage, domain modeling, pre-commit hooks, durable agent workflows, architecture doctor, UI taste lint, Playwright e2e tests, spec grilling and a social media manager",
+    "version": "5.7.0"
   },
   "plugins": [
     {
       "name": "all-skills",
-      "description": "All 67 skills: developer workflows, debugging, TDD, merge conflicts, architecture, security scanners and guardrails, marketing, social media and fun skills",
+      "description": "All 71 skills: developer workflows, debugging, TDD, merge conflicts, architecture, security scanners and guardrails, marketing, social media and fun skills",
       "source": "./",
       "strict": false,
       "skills": [
@@ -29,11 +29,14 @@
         "./skills/changelog-from-git",
         "./skills/codebase-explainer",
         "./skills/codebase-time-machine",
+        "./skills/codebase-valuation",
         "./skills/commit-craft",
         "./skills/commit-roast",
         "./skills/competitor-spy",
         "./skills/content-repurposer",
+        "./skills/copy-paste-detector",
         "./skills/cost-cutter",
+        "./skills/dead-code-funeral",
         "./skills/demo-recorder",
         "./skills/dependency-doctor",
         "./skills/dependency-weigh-in",
@@ -63,6 +66,7 @@
         "./skills/prompt-injection-scanner",
         "./skills/readme-glow-up",
         "./skills/repo-card",
+        "./skills/repo-diet",
         "./skills/roast-my-github",
         "./skills/screenshot-to-component",
         "./skills/seo-blog-writer",
@@ -183,7 +187,7 @@
     },
     {
       "name": "developer-pack",
-      "description": "Core developer workflows: specs, TDD, debugging, merge conflicts, issue triage, git hooks, domain modeling, architecture, PR review, commits, unit and e2e tests, secrets, Docker, SQL, migrations, API SDKs, durable agent workflows, CI security, agent guardrails",
+      "description": "Core developer workflows: specs, TDD, debugging, merge conflicts, issue triage, git hooks, domain modeling, architecture, dead code, duplicate code, repo size, PR review, commits, unit and e2e tests, secrets, Docker, SQL, migrations, API SDKs, durable agent workflows, CI security, agent guardrails",
       "source": "./",
       "strict": false,
       "skills": [
@@ -210,7 +214,10 @@
         "./skills/durable-agent-workflows",
         "./skills/issue-triage",
         "./skills/pre-commit-setup",
-        "./skills/domain-modeler"
+        "./skills/domain-modeler",
+        "./skills/dead-code-funeral",
+        "./skills/copy-paste-detector",
+        "./skills/repo-diet"
       ]
     },
     {
@@ -228,7 +235,7 @@
     },
     {
       "name": "fun-pack",
-      "description": "Roast your GitHub, git history documentaries, landing page roasts, AI slop detection, your year in code as a Wrapped card, tech debt as a receipt, commit roasts, your bus factor, node_modules weighed in floppy disks",
+      "description": "Roast your GitHub, git history documentaries, landing page roasts, AI slop detection, your year in code as a Wrapped card, tech debt as a receipt, commit roasts, your bus factor, node_modules weighed in floppy disks, dead code funerals, repo diets, copy-paste clone families, what your repo would cost to build",
       "source": "./",
       "strict": false,
       "skills": [
@@ -240,7 +247,11 @@
         "./skills/tech-debt-receipt",
         "./skills/commit-roast",
         "./skills/bus-factor",
-        "./skills/dependency-weigh-in"
+        "./skills/dependency-weigh-in",
+        "./skills/dead-code-funeral",
+        "./skills/repo-diet",
+        "./skills/copy-paste-detector",
+        "./skills/codebase-valuation"
       ]
     }
   ]

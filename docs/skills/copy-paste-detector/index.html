@@ -1,0 +1,84 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>copy-paste-detector: Free Agent Skill for Claude Code, Cursor &amp; Codex</title><meta name="description" content="Finds copy-pasted code, groups it into clone families, flags drifted copies and merges only the real ones. Free open-source SKILL.md for Claude Code, Cursor, Codex and Cline.">
+<link rel="canonical" href="https://milad-ahmd.github.io/agent-skills/skills/copy-paste-detector/"><meta name="robots" content="index,follow">
+<meta property="og:type" content="website"><meta property="og:title" content="copy-paste-detector: Free Agent Skill for Claude Code, Cursor &amp; Codex"><meta property="og:description" content="Finds copy-pasted code, groups it into clone families, flags drifted copies and merges only the real ones. Free open-source SKILL.md for Claude Code, Cursor, Codex and Cline.">
+<meta property="og:url" content="https://milad-ahmd.github.io/agent-skills/skills/copy-paste-detector/"><meta property="og:image" content="https://milad-ahmd.github.io/agent-skills/assets/og.png"><meta property="og:site_name" content="Agent Skills by Milad Ahmadi">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="copy-paste-detector: Free Agent Skill for Claude Code, Cursor &amp; Codex"><meta name="twitter:description" content="Finds copy-pasted code, groups it into clone families, flags drifted copies and merges only the real ones. Free open-source SKILL.md for Claude Code, Cursor, Codex and Cline."><meta name="twitter:image" content="https://milad-ahmd.github.io/agent-skills/assets/og.png">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧰</text></svg>">
+<style>
+:root{--bg:#0f1117;--card:#171a23;--fg:#e8e9ee;--dim:#9aa0ad;--acc:#8b5cf6;--acc2:#22d3ee;--line:#262a36;--pre:#0b0d12;color-scheme:dark}
+@media (prefers-color-scheme:light){:root{--bg:#f7f7fb;--card:#fff;--fg:#15171e;--dim:#5b6170;--acc:#7c3aed;--acc2:#0e7490;--line:#e1e3ea;--pre:#f0f1f6;color-scheme:light}}
+*{box-sizing:border-box}body{margin:0;font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--fg)}
+a{color:var(--acc2);text-decoration:none}a:hover{text-decoration:underline}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+header.top{border-bottom:1px solid var(--line);padding:14px 0}header.top .wrap{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.logo{font-weight:800;color:var(--fg);font-size:18px}.nav a{margin-left:16px;color:var(--dim)}
+.hero{padding:56px 0 28px;text-align:center}.hero h1{font-size:clamp(30px,5vw,48px);line-height:1.15;margin:0 0 14px}
+.hero p{color:var(--dim);font-size:19px;max-width:760px;margin:0 auto 22px}
+.btn{display:inline-block;background:var(--acc);color:#fff;padding:12px 20px;border-radius:10px;font-weight:700;margin:4px}
+.btn.alt{background:transparent;border:1px solid var(--line);color:var(--fg)}
+pre{background:var(--pre);border:1px solid var(--line);border-radius:10px;padding:14px;overflow:auto;font-size:14px;white-space:pre-wrap;word-break:break-word}
+code{font-family:ui-monospace,Menlo,monospace}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;display:block;color:var(--fg)}
+.card:hover{border-color:var(--acc);text-decoration:none}.card h3{margin:0 0 6px;font-size:17px}.card p{margin:0;color:var(--dim);font-size:14px}
+h2{margin-top:44px}.tag{display:inline-block;font-size:12px;color:var(--acc2);border:1px solid var(--line);border-radius:999px;padding:2px 10px;margin-bottom:8px}
+.demo{max-width:100%;height:auto;border-radius:10px;border:1px solid var(--line)}
+.crumbs{color:var(--dim);font-size:14px;margin:20px 0 0}article{max-width:820px}
+article h1{font-size:clamp(28px,4vw,40px);margin:8px 0}.lead{font-size:19px;color:var(--dim)}
+.skillmd h2,.skillmd h3{margin-top:28px}.skillmd table{border-collapse:collapse;width:100%;font-size:14px;display:block;overflow:auto}
+.skillmd td,.skillmd th{border:1px solid var(--line);padding:6px 8px;text-align:left}
+footer{border-top:1px solid var(--line);margin-top:60px;padding:24px 0;color:var(--dim);font-size:14px}
+</style><script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareSourceCode", "name": "copy-paste-detector", "description": "Finds duplicated code in a repository and merges the copies worth merging. A read-only script strips comments and whitespace, hashes every run of N code lines, extends matches to the longest shared blocks and groups them into clone families with file:line ranges, lines per copy, removable lines and whether each copy is identical, renamed (only names or literals changed, a second tier) or has drifted since it was pasted. It skips vendored, generated and fixture code, reports the duplicated share of code and the most-copied block, writes JSON and an SVG card with no paths, and can fail CI over a percentage. The agent splits families into real and coincidental duplicates, applies the rule of three, then extracts one family at a time into a helper module the code already uses, with tests after each. Use when the user asks to find duplicate or copy-pasted code, detect code clones, check how DRY a codebase is, deduplicate repeated logic, pull repeated blocks into a shared helper, or add a duplication check to CI.", "codeRepository": "https://github.com/milad-ahmd/agent-skills/tree/main/skills/copy-paste-detector", "license": "https://opensource.org/licenses/MIT", "dateModified": "2026-11-27", "author": {"@type": "Person", "name": "Milad Ahmadi", "url": "https://github.com/milad-ahmd"}, "keywords": "agent skill, SKILL.md, claude code skill, cursor, codex, copy-paste-detector, Refactoring"}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Agent Skills", "item": "https://milad-ahmd.github.io/agent-skills/"}, {"@type": "ListItem", "position": 2, "name": "copy-paste-detector", "item": "https://milad-ahmd.github.io/agent-skills/skills/copy-paste-detector/"}]}</script></head><body>
+<header class="top"><div class="wrap"><a class="logo" href="../../">🧰 Agent Skills</a>
+<nav class="nav"><a href="../../#skills">Skills</a><a href="../../roast/">Roast 🔥</a><a href="../../guides/">Guides</a><a href="../../#packs">Packs</a><a href="../../#install">Install</a><a href="https://github.com/milad-ahmd/agent-skills">GitHub ⭐</a></nav></div></header>
+<main class="wrap"><p class="crumbs"><a href="../../">Agent Skills</a> › <a href="../../#skills">Refactoring</a> › copy-paste-detector</p>
+<article><span class="tag">Refactoring</span>
+<h1>👯 copy-paste-detector</h1><p class="lead">Finds copy-pasted code, groups it into clone families, flags drifted copies and merges only the real ones. A free, open-source Agent Skill for Claude Code, Cline, Cursor, Codex and 75+ AI agents.</p>
+<h2>Install copy-paste-detector</h2>
+<pre><code># Claude Code (all 71 skills)
+/plugin install all-skills --marketplace milad-ahmd/agent-skills
+
+# Cursor, Codex, Cline, Windsurf, Copilot + 75 more agents
+npx skills add milad-ahmd/agent-skills --skill copy-paste-detector
+
+# Shell installer
+curl -fsSL https://raw.githubusercontent.com/milad-ahmd/agent-skills/main/install.sh | bash -s -- copy-paste-detector</code></pre><p>Included in packs: <code>developer-pack</code>, <code>fun-pack</code></p>
+<h2>What to say to your agent</h2><ul><li><code>Find duplicated code in this repo and tell me which copies are worth merging</code></li><li><code>Add a CI check that fails if duplicate code goes above 5%</code></li></ul>
+<h2>When it triggers</h2><p>Finds duplicated code in a repository and merges the copies worth merging. A read-only script strips comments and whitespace, hashes every run of N code lines, extends matches to the longest shared blocks and groups them into clone families with file:line ranges, lines per copy, removable lines and whether each copy is identical, renamed (only names or literals changed, a second tier) or has drifted since it was pasted. It skips vendored, generated and fixture code, reports the duplicated share of code and the most-copied block, writes JSON and an SVG card with no paths, and can fail CI over a percentage. The agent splits families into real and coincidental duplicates, applies the rule of three, then extracts one family at a time into a helper module the code already uses, with tests after each. Use when the user asks to find duplicate or copy-pasted code, detect code clones, check how DRY a codebase is, deduplicate repeated logic, pull repeated blocks into a shared helper, or add a duplication check to CI.</p>
+<h2>Full skill instructions (SKILL.md)</h2><div class="skillmd"><h2>Copy-Paste Detector</h2>
+<p>A pasted block is harmless until someone fixes a bug in one copy and not the others. This skill finds the copies, shows which ones have already drifted apart, and merges only the ones that should be one thing.</p>
+<h3>1. Scan</h3>
+<pre><code>python3 scripts/find_clones.py .                              # headline + top 10 families
+python3 scripts/find_clones.py src --min-lines 10 --top 20    # bigger blocks only, more of them
+python3 scripts/find_clones.py . --ext py,ts --exclude &#x27;src/generated/*&#x27;
+python3 scripts/find_clones.py . --json &gt; /tmp/clones.json    # every family and copy
+python3 scripts/find_clones.py . --svg clones.svg             # shareable card, no file paths (--show-paths adds them)
+python3 scripts/find_clones.py . --fail-over 5                # CI: fail when exact copies pass 5% of code lines</code></pre>
+<p>The script only reads. It tokenizes each file, drops comments and whitespace, and ignores lines that are only braces or imports. Every window of <code>--min-lines</code> code lines (default 6, with at least <code>--min-tokens</code> 40 tokens) is hashed; equal windows are extended to the longest shared block, and overlapping matches become one family. A second pass replaces identifiers, strings and numbers with placeholders to find renamed copies. It skips hidden dirs, <code>node_modules</code>, <code>vendor</code>, <code>dist</code>, <code>build</code>, <code>migrations</code>, test fixtures, minified and generated files. On a laptop it scans about 100k code lines in one second.</p>
+<p>Exit codes: <code>0</code> no families (or <code>--fail-over</code> given and exact duplication is at or under it) · <code>1</code> families found (or over the <code>--fail-over</code> budget) · <code>2</code> bad arguments, missing path, or no source files.</p>
+<h3>2. Read the numbers</h3>
+<table><thead><tr><th>Field</th><th>Meaning</th></tr></thead><tbody><tr><td>duplicated %</td><td>code lines (non-blank, non-comment) inside an exact copy, every copy counted</td></tr><tr><td>removable</td><td>lines saved if each family became one copy</td></tr><tr><td><code>same</code> / <code>renamed</code></td><td>identical to the family&#x27;s most common version / only names or literals differ</td></tr><tr><td><code>drifted</code></td><td>lines were added, removed or changed in this copy; <code>lines_differ</code> says how many</td></tr><tr><td><code>partial</code></td><td>shares under half the block; it overlaps the family rather than copying it</td></tr><tr><td><code>same file</code>, <code>tests only</code></td><td>all copies in one file / all copies in test files</td></tr></tbody></table>
+<p>Look at drifted copies first. Compare one with its family&#x27;s <code>same</code> copy, e.g. <code>diff &lt;(sed -n 120,181p a.py) &lt;(sed -n 88,149p b.py)</code>, and check history with <code>git log -L 120,181:a.py --oneline</code>. A fix that reached one copy and not the others is a bug, not a refactor: report it, and once the user agrees, fix it in its own commit.</p>
+<h3>3. Triage each family</h3>
+<p>Open every copy in the top families, by removable lines with drifted ones first, and decide whether the copies mean the same thing.</p>
+<p>Merge when they must change together: one business rule, one validation, one retry pattern for the same API. If a fix in one copy would be needed in all of them, they are one thing written twice.</p>
+<p>Leave them when the likeness is a coincidence. Test setup blocks, two validators for unrelated forms that look alike today, framework boilerplate and data tables will change for different reasons, and merging them couples code that shouldn&#x27;t know about each other. A copy that is missing a fix the others have goes to the drift step above before anything is merged.</p>
+<p>Apply the rule of three (Don Roberts, via Fowler&#x27;s <em>Refactoring</em>): the first time you write something, just write it; the second time, wince and duplicate it anyway; the third time, extract it. Two copies earn a merge only when they must change together, for example when history shows the same fix landing in both. Sandi Metz&#x27;s point in &quot;The Wrong Abstraction&quot; also holds: duplication is cheaper than a shared function that needs flags or mode parameters to serve callers that have drifted apart. If the merged version needs a boolean to pick a branch, leave the copies.</p>
+<h3>4. Merge one family at a time</h3>
+<ol><li>Run the tests first and note anything already failing.</li><li>Find where shared code already lives near the copies (a <code>utils</code>, <code>helpers</code>, <code>common</code> or <code>lib</code> module, a base class, a shared package) and how callers import it. Put the helper there. Do not start a new utility module next to an existing one.</li><li>Extract the family&#x27;s <code>same</code> version. Make a parameter only for what differs between copies; the <code>renamed</code> copies show which names and literals those are.</li><li>Replace each copy with a call, run the tests, and commit that family on its own.</li><li>Re-run the scan and quote the drop in duplicated % and removable lines.</li></ol>
+<h3>Report</h3>
+<pre><code>Copy-paste report: 6.2% of 48,210 code lines are exact copies (41 families, ~1,620 lines removable)
+Biggest: #1, 3 copies x 58 lines · Most copied: #4, one block exists 5 times
+
+| #  | Copies x lines | Status        | Decision                       | Why                                          |
+| 1  | 3 x 58         | 1 drifted     | merge into billing/totals.py   | one tax rule; drifted copy lacks rounding fix |
+| 4  | 5 x 14         | same, tests   | leave                          | per-test setup, changes per test              |</code></pre>
+<p>Then the families merged so far, test results after each, and the before and after numbers. Give the SVG path if the user wants the card.</p>
+<h3>Do not</h3>
+<ul><li>Merge because code looks alike. Merge because it means the same thing and changes together.</li><li>Create a helper with one caller, or a new <code>utils</code> module when the codebase already has one.</li><li>Add boolean flags or mode parameters so one function can serve copies that have diverged.</li><li>Merge several families in one commit, or move on without running the tests.</li><li>Edit generated, vendored or migration code; change the generator or leave it out with <code>--exclude</code>.</li><li>Treat the percentage as a quality grade or a target to drive to zero. Some duplication is the cheaper choice.</li><li>Change code before the user has picked which families to merge. The scan and the report come first.</li></ul></div>
+<p><a class="btn" href="https://github.com/milad-ahmd/agent-skills/tree/main/skills/copy-paste-detector">View source on GitHub</a> <a class="btn alt" href="https://github.com/milad-ahmd/agent-skills">⭐ Star the collection</a></p>
+<h2>Related skills</h2><div class="grid"><a class="card" href="../architecture-doctor/"><h3>🏛️ architecture-doctor</h3><p>Ranks coupling, cycles, god files and hidden coupling by git churn, then plans small safe refactors</p></a><a class="card" href="../migration-wizard/"><h3>🧙 migration-wizard</h3><p>Safe, incremental codebase migrations: JS→TS, Jest→Vitest, Pages→App Router and more</p></a></div></article></main>
+<footer><div class="wrap">Open source (MIT) by <a href="https://github.com/milad-ahmd">Milad Ahmadi</a> · <a href="https://github.com/milad-ahmd/agent-skills">GitHub</a> · Works with Claude Code, Cline, Cursor, Codex, Windsurf, Copilot and any agent that reads SKILL.md · Updated 2026-11-27</div></footer>
+</body></html>
