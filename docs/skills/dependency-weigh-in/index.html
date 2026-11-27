@@ -54,6 +54,7 @@ curl -fsSL https://raw.githubusercontent.com/milad-ahmd/agent-skills/main/instal
 python3 scripts/weigh_in.py path/to/app --top 15
 python3 scripts/weigh_in.py --venv .venv        # a venv somewhere other than .venv or venv
 python3 scripts/weigh_in.py --svg weigh-in.svg  # also write a 1200x630 card
+python3 scripts/weigh_in.py --svg weigh-in.svg --no-credit   # same card without the small &quot;made with agent-skills&quot; line
 python3 scripts/weigh_in.py --json              # every number, for follow-up questions</code></pre>
 <p>The script only reads. It never installs or deletes anything, and weighs only what is already installed.</p>
 <p>For node_modules it sizes every package directory, nested copies and pnpm&#x27;s <code>node_modules/.pnpm</code> store included. Symlinks are not followed, so pnpm&#x27;s top-level links and workspace links are not counted twice. Dependencies are resolved the way Node resolves them (nearest <code>node_modules</code> upward), so the &quot;pulled in by&quot; chains and per-dependency totals follow the real install. Dev-only weight comes from <code>dev: true</code> in package-lock.json v2/v3, otherwise from that graph.</p>

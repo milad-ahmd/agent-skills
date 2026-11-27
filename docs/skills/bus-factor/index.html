@@ -53,6 +53,7 @@ curl -fsSL https://raw.githubusercontent.com/milad-ahmd/agent-skills/main/instal
 <pre><code>python3 scripts/bus_factor.py                      # headline, riskiest files and dirs, &quot;only you know&quot;
 python3 scripts/bus_factor.py src/ services/api    # limit to paths
 python3 scripts/bus_factor.py --svg bus-factor.svg # shareable card, no names
+python3 scripts/bus_factor.py --svg bus-factor.svg --no-credit   # same card without the small &quot;made with agent-skills&quot; line
 python3 scripts/bus_factor.py --json               # every file, dir and person
 python3 scripts/bus_factor.py --days 180 --alias &quot;jdoe@laptop.local=Jane Doe&quot; --max-files 5000</code></pre>
 <p>The script only reads. It blames each text file at HEAD with <code>git blame --line-porcelain -w</code> (whitespace-only changes keep the original author) and reads <code>git log --use-mailmap</code> for the last <code>--days</code> (default 365). Git applies <code>.mailmap</code> to both. <code>--alias FROM=TO</code> merges an email or name into the person named TO. If the repo sets <code>blame.ignoreRevsFile</code>, git skips those formatting commits too. It blames the 2,000 largest files by default and prints a <code>Capped:</code> line when it stops early. <code>--now YYYY-MM-DD</code> fixes the window end so runs can be compared. Docs are skipped unless <code>--include-docs</code>.</p>

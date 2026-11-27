@@ -53,6 +53,7 @@ curl -fsSL https://raw.githubusercontent.com/milad-ahmd/agent-skills/main/instal
 <pre><code>python3 scripts/repo_diet.py                  # repo in the current directory
 python3 scripts/repo_diet.py -C path/to/repo --top 15
 python3 scripts/repo_diet.py --svg diet.svg   # also write a 1200x630 card
+python3 scripts/repo_diet.py --svg diet.svg --no-credit   # same card without the small &quot;made with agent-skills&quot; line
 python3 scripts/repo_diet.py --json           # every number, for follow-up questions
 python3 scripts/repo_diet.py --show-authors   # who added each big blob (hidden by default)</code></pre>
 <p>The script only reads. It never rewrites history, never runs filter-repo and never pushes. It works on a bare or mirror clone too, minus the .gitignore and LFS checks.</p>

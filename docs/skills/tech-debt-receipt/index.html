@@ -52,6 +52,7 @@ curl -fsSL https://raw.githubusercontent.com/milad-ahmd/agent-skills/main/instal
 <h3>1. Print the receipt</h3>
 <pre><code>python3 scripts/debt_receipt.py                        # receipt, then &quot;pay these first&quot;
 python3 scripts/debt_receipt.py --svg receipt.svg      # also a receipt-shaped image
+python3 scripts/debt_receipt.py --svg receipt.svg --no-credit   # same card without the small &quot;made with agent-skills&quot; line
 python3 scripts/debt_receipt.py --json                 # every item with age, ticket, churn, price
 python3 scripts/debt_receipt.py src/ --items 0         # one directory, every line item
 python3 scripts/debt_receipt.py --currency points      # &quot;12.4 pts&quot; instead of &quot;$12.40&quot;</code></pre>

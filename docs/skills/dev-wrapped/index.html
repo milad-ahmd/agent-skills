@@ -55,6 +55,7 @@ curl -fsSL https://raw.githubusercontent.com/milad-ahmd/agent-skills/main/instal
 <pre><code>python3 scripts/wrapped.py --repos ~/code ~/work/api --email me@home.dev --email me@work.com
 python3 scripts/wrapped.py --repos ~/code --year 2026 --json            # every stat
 python3 scripts/wrapped.py --repos ~/code --svg wrapped.svg --theme light
+python3 scripts/wrapped.py --repos ~/code --svg wrapped.svg --no-credit   # same card without the small &quot;made with agent-skills&quot; line
 python3 scripts/wrapped.py --repos ~/code --md                          # recap for a README or post
 python3 scripts/wrapped.py --repos ~/code --github &lt;user&gt;               # add public GitHub stats</code></pre>
 <p>Folders are searched 4 levels deep (<code>--depth</code>), skipping hidden dirs, <code>node_modules</code>, <code>vendor</code>, venvs and build output. The year uses each commit&#x27;s author date in its own timezone, so 23:30 in Tehran counts as 23:30. Merge commits are skipped. Lockfiles, vendored, minified, generated and binary files are left out of lines, languages and the biggest commit; JSON, YAML, TOML and XML count as lines but not as languages.</p>
