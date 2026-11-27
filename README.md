@@ -2,20 +2,108 @@
 
 # 🧰 Agent Skills
 
-### Roast your GitHub with real data. Strip AI slop from your writing. Turn your git history into a documentary. Plus 68 more skills for developers and marketers.
+### 71 tested skills that make Claude Code, Cursor, Codex and Cline do real work
 
-**Works with Claude Code · Cline · Cursor · Codex · any agent that reads `SKILL.md`**
+Review PRs · resolve merge conflicts · find dead code · block dangerous commands · roast your GitHub · write launch posts
 
 [![Stars](https://img.shields.io/github/stars/milad-ahmd/agent-skills?style=social)](https://github.com/milad-ahmd/agent-skills)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 ![Skills](https://img.shields.io/badge/skills-71-orange)
+![Unit tests](https://img.shields.io/badge/unit%20tests-856-blue)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](#-contributing)
 
-[🌐 Website](https://milad-ahmd.github.io/agent-skills/) · [Start here](#-start-with-these-three) · [Install](#-install-in-10-seconds) · [Packs](#-packs-install-by-who-you-are) · [Social media](#-social-media-manager) · [Marketing skills](#-marketing--content-skills) · [Developer skills](#-developer-skills) · [What is a skill?](#-what-is-a-skill) · [Awesome list](https://github.com/milad-ahmd/awesome-agent-skills)
+[Install](#-install-in-10-seconds) · [Start here](#-start-with-these-three) · [All 71 skills](#-all-71-skills) · [🌐 Website](https://milad-ahmd.github.io/agent-skills/) · [Request a skill](https://github.com/milad-ahmd/agent-skills/issues/new)
 
 <img src="assets/demo-install.gif" alt="Installing agent-skills with one command" width="760"/>
 
+🆕 **Just shipped (v5.7):** [dead-code-funeral](skills/dead-code-funeral) · [repo-diet](skills/repo-diet) · [copy-paste-detector](skills/copy-paste-detector) · [codebase-valuation](skills/codebase-valuation)
+
 </div>
+
+---
+
+## 💡 Why these skills
+
+Most skills are a prompt. These do the homework first.
+
+- ⚙️ **Real data, not guesses.** 39 skills run a script before the agent writes anything: your git history, your files, the GitHub API. The agent works from what is actually there.
+- 🧪 **Tested like code.** 856 unit tests run on every push, every `SKILL.md` is linted in strict mode, and trigger evals check that each skill loads for its own prompts and not for its neighbours'.
+- 🛑 **Safe by default.** The scripts never change your code unless you pass a flag for it, and anything that pushes, deletes, posts or rewrites history waits for your OK.
+- 🕶️ **Anonymous by default.** Shareable cards and reports leave out names, emails and file paths unless you ask for them.
+
+## ⚡ Install in 10 seconds
+
+**Claude Code**
+
+```text
+/plugin install all-skills --marketplace milad-ahmd/agent-skills
+```
+
+**Cursor, Codex, Cline, Windsurf, Copilot and 75+ other agents**
+
+```bash
+npx skills add milad-ahmd/agent-skills
+```
+
+**Any agent, with the shell installer**
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/milad-ahmd/agent-skills/main/install.sh | bash
+```
+
+Then talk to your agent normally. It loads the right skill when the task matches.
+
+<details>
+<summary><b>Install one skill, one pack, or per project</b></summary>
+
+Claude Code packs (on older versions, run `/plugin marketplace add milad-ahmd/agent-skills` first):
+
+```text
+/plugin install developer-pack --marketplace milad-ahmd/agent-skills
+/plugin install startup-cto-pack --marketplace milad-ahmd/agent-skills
+/plugin install indie-hacker-pack --marketplace milad-ahmd/agent-skills
+/plugin install fun-pack --marketplace milad-ahmd/agent-skills
+/plugin install skill-builder-pack --marketplace milad-ahmd/agent-skills
+/plugin install creator-pack --marketplace milad-ahmd/agent-skills
+/plugin install marketer-pack --marketplace milad-ahmd/agent-skills
+/plugin install local-business-pack --marketplace milad-ahmd/agent-skills
+```
+
+One skill with `npx skills`:
+
+```bash
+npx skills add milad-ahmd/agent-skills --skill roast-my-github
+```
+
+Shell installer:
+
+```bash
+# a role-based pack
+curl -fsSL https://raw.githubusercontent.com/milad-ahmd/agent-skills/main/install.sh | bash -s -- --pack developer
+
+# only the skills you want
+curl -fsSL https://raw.githubusercontent.com/milad-ahmd/agent-skills/main/install.sh | bash -s -- pr-reviewer-pro env-secrets-guard
+
+# project-local install (commit it so your whole team gets the skills)
+curl -fsSL https://raw.githubusercontent.com/milad-ahmd/agent-skills/main/install.sh | SKILLS_DIR=.claude/skills bash
+```
+
+Run `install.sh --list` to see every skill and pack.
+
+</details>
+
+### 🎒 Packs: install by who you are
+
+| Pack | For | Includes |
+|---|---|---|
+| `indie-hacker` | Solo founders | idea validation, name checks, a portfolio site, a social preview card, landing page roast, launch posts, demo GIFs, UI polish, ASO, SEO, X & Reddit |
+| `creator` | Creators & influencers | Instagram, TikTok, YouTube, repurposing, hooks, calendar, analytics |
+| `marketer` | Marketing teams | brand voice, ads, email, SEO, competitors, influencers, analytics |
+| `local-business` | Shops, clinics, restaurants | Google Business Profile, WhatsApp, Facebook, Instagram |
+| `startup-cto` | Engineering leads | specs, debugging, architecture, domain modeling, issue triage, bus factor, PR review, incidents, cost cutting, secrets, deps, migrations, agent guardrails |
+| `developer` | Every dev | the 27 core dev workflow skills, from spec and TDD to merge conflicts and debugging |
+| `skill-builder` | Skill authors | skill-finder, skill-creator-pro, skills-doctor, agent-memory-keeper, prompt-injection-scanner |
+| `fun` | Everyone | roast-my-github, commit-roast, dev-wrapped, tech-debt-receipt, bus-factor, dependency-weigh-in, dead-code-funeral, repo-diet, copy-paste-detector, codebase-valuation, codebase-time-machine, landing-page-roaster, ai-slop-detector |
 
 ---
 
@@ -41,70 +129,7 @@ Try: *"Tell me the story of this codebase"*
 
 <img src="assets/demo-codebase-time-machine.gif" alt="codebase-time-machine narrating a repository's history" width="680"/>
 
----
-
-## ⚡ Install in 10 seconds
-
-### Option 1: Claude Code plugin (recommended)
-
-```text
-/plugin install all-skills --marketplace milad-ahmd/agent-skills
-```
-
-Or install just one pack:
-
-```text
-/plugin install creator-pack --marketplace milad-ahmd/agent-skills
-/plugin install marketer-pack --marketplace milad-ahmd/agent-skills
-/plugin install indie-hacker-pack --marketplace milad-ahmd/agent-skills
-/plugin install local-business-pack --marketplace milad-ahmd/agent-skills
-/plugin install startup-cto-pack --marketplace milad-ahmd/agent-skills
-/plugin install developer-pack --marketplace milad-ahmd/agent-skills
-/plugin install skill-builder-pack --marketplace milad-ahmd/agent-skills
-/plugin install fun-pack --marketplace milad-ahmd/agent-skills
-```
-
-On older Claude Code versions, run `/plugin marketplace add milad-ahmd/agent-skills` first.
-
-### Option 2: `npx skills` (Cursor, Codex, Cline, Windsurf, Copilot and 75+ agents)
-
-```bash
-npx skills add milad-ahmd/agent-skills                          # pick skills interactively
-npx skills add milad-ahmd/agent-skills --skill roast-my-github  # one skill
-```
-
-### Option 3: shell installer
-
-```bash
-# all 71 skills
-curl -fsSL https://raw.githubusercontent.com/milad-ahmd/agent-skills/main/install.sh | bash
-
-# or a role-based pack
-curl -fsSL https://raw.githubusercontent.com/milad-ahmd/agent-skills/main/install.sh | bash -s -- --pack creator
-
-# or only the ones you want
-curl -fsSL https://raw.githubusercontent.com/milad-ahmd/agent-skills/main/install.sh | bash -s -- pr-reviewer-pro env-secrets-guard
-
-# project-local install (commit it so your whole team gets the skills)
-curl -fsSL https://raw.githubusercontent.com/milad-ahmd/agent-skills/main/install.sh | SKILLS_DIR=.claude/skills bash
-```
-
-Then just talk to your agent normally. It picks the right skill automatically.
-
-### 🎒 Packs: install by who you are
-
-| Pack | For | Includes |
-|---|---|---|
-| `indie-hacker` | Solo founders | idea validation, name checks, a portfolio site, a social preview card, landing page roast, launch posts, demo GIFs, UI polish, ASO, SEO, X & Reddit |
-| `creator` | Creators & influencers | Instagram, TikTok, YouTube, repurposing, hooks, calendar, analytics |
-| `marketer` | Marketing teams | brand voice, ads, email, SEO, competitors, influencers, analytics |
-| `local-business` | Shops, clinics, restaurants | Google Business Profile, WhatsApp, Facebook, Instagram |
-| `startup-cto` | Engineering leads | specs, debugging, architecture, domain modeling, issue triage, bus factor, PR review, incidents, cost cutting, secrets, deps, migrations, agent guardrails |
-| `developer` | Every dev | the 27 core dev workflow skills, from spec and TDD to merge conflicts and debugging |
-| `skill-builder` | Skill authors | skill-finder, skill-creator-pro, skills-doctor, agent-memory-keeper, prompt-injection-scanner |
-| `fun` | Everyone | roast-my-github, commit-roast, dev-wrapped, tech-debt-receipt, bus-factor, dependency-weigh-in, dead-code-funeral, repo-diet, copy-paste-detector, codebase-valuation, codebase-time-machine, landing-page-roaster, ai-slop-detector |
-
-Run `install.sh --list` to see every skill and pack.
+> ⭐ **If a skill saves you time, star the repo.** It is how other developers find it.
 
 ## 🎬 More demos (real output, not mockups)
 
@@ -133,55 +158,6 @@ Run `install.sh --list` to see every skill and pack.
 | 🔤 [**name-checker**](skills/name-checker) ⚙️ | Brainstorms names for a product, library or CLI and checks each one: .com/.dev/.app domains, GitHub, npm, PyPI, crates and Homebrew, ranked | *"Find a name for my new CLI and check what's free"* |
 | ⏳ [**codebase-time-machine**](skills/codebase-time-machine) ⚙️ | The story of your repo from git history, as a documentary: eras, cast, plot twists, cursed files | *"Tell me the story of this codebase"* |
 | 🧹 [**ai-slop-detector**](skills/ai-slop-detector) ⚙️ | Score text for AI-sounding writing and rewrite it to sound human, keeping the author's voice | *"De-slop this blog post"* |
-
-## 🦸 Agent Superpowers
-
-| Skill | What it does | Try saying |
-|---|---|---|
-| 🧠 [**agent-memory-keeper**](skills/agent-memory-keeper) ⚙️ | Project memory (MEMORY.md) so your agent stops repeating mistakes, plus handoffs (HANDOFF.md) so a new session picks up exactly where this one stopped | *"Write a handoff, I'm running out of context"* |
-| 🛠️ [**skill-creator-pro**](skills/skill-creator-pro) ⚙️ | Turn any workflow into a well-written SKILL.md, with a linter to validate it | *"Create a skill for our release process"* |
-| 🩺 [**skills-doctor**](skills/skills-doctor) ⚙️ | Audit your installed skills for broken frontmatter, vague triggers, conflicts and leaked secrets | *"Check my installed skills"* |
-| 🧭 [**skill-finder**](skills/skill-finder) ⚙️ | Describe a task and get the right existing skill, why it fits and how to install it, from this collection or the wider skills.sh registry | *"Is there a skill for turning meeting notes into tickets?"* |
-| ✂️ [**terse-mode**](skills/terse-mode) ⚙️ | Shorter, denser replies that cut preamble, recaps and filler but never code, commands, numbers or safety warnings | *"terse on"* |
-
-## 🛠️ Ops & Growth
-
-| Skill | What it does | Try saying |
-|---|---|---|
-| 💸 [**cost-cutter**](skills/cost-cutter) | Cut cloud, SaaS and LLM API bills with dollar estimates, effort, risk and exact fixes | *"Why is our AWS bill so high?"* |
-| 🚨 [**incident-commander**](skills/incident-commander) | Run a production outage from triage to mitigation, status updates and a blameless postmortem | *"Production is down, help me"* |
-| 📱 [**app-store-optimizer**](skills/app-store-optimizer) | App Store and Google Play ASO: keywords, titles, screenshot captions, review replies, A/B tests | *"Optimize my App Store listing"* |
-
-## 🤖 Social Media Manager
-
-One skill runs your whole social presence. It picks the platforms, sets KPIs and plans the week, then loads a detailed guide for each platform only when the task needs it, and hands Instagram, TikTok and YouTube work to their own skills.
-
-| Skill | What it does | Try saying |
-|---|---|---|
-| 🧠 [**social-media-manager**](skills/social-media-manager) | Strategy and hands-on work for LinkedIn, X, Facebook, Pinterest, Threads, Reddit, Telegram, WhatsApp Business and Google Business Profile | *"Manage my brand's social media"* · *"Rewrite my LinkedIn headline"* · *"Find subreddits where I can share my app"* |
-
-## 📣 Marketing & Content Skills
-
-Your AI agent can also act as a social media manager, content strategist and growth marketer.
-
-| Skill | What it does | Try saying |
-|---|---|---|
-| 📸 [**instagram-growth-manager**](skills/instagram-growth-manager) | Grow and manage Instagram with bio audits, Reels scripts, carousels, captions, hashtags and growth reviews | *"Audit my Instagram profile and plan next month"* |
-| 🎵 [**tiktok-viral-creator**](skills/tiktok-viral-creator) | TikTok ideas, 2-second hooks, shot-by-shot scripts and retention analysis | *"Give me 10 TikTok ideas for my fitness app"* |
-| 📺 [**youtube-seo-optimizer**](skills/youtube-seo-optimizer) | YouTube titles, thumbnails, descriptions, chapters and channel audits for more views | *"Optimize the title and description for this video"* |
-| 🎬 [**youtube-script-writer**](skills/youtube-script-writer) | High-retention YouTube and Shorts scripts with hooks, open loops and B-roll cues | *"Write a 10-minute YouTube script about X"* |
-| ♻️ [**content-repurposer**](skills/content-repurposer) | One video or podcast into 15+ posts: Shorts, Reels, threads, LinkedIn, carousel, newsletter | *"Repurpose this transcript into social posts"* |
-| 🗓️ [**social-media-calendar**](skills/social-media-calendar) | Monthly cross-platform content calendar, exported as CSV for Notion, Sheets, Buffer or Later | *"Plan my social media calendar for November"* |
-| 🪝 [**hook-generator**](skills/hook-generator) | Scroll-stopping hooks for videos, posts, emails and ads, scored and ranked | *"Give me hooks for a video about X"* |
-| 📣 [**ad-copy-generator**](skills/ad-copy-generator) | Ad copy for Meta, TikTok, Google and YouTube within each platform's limits, plus an A/B test matrix | *"Write Meta ads for my product"* |
-| ✍️ [**seo-blog-writer**](skills/seo-blog-writer) | SEO blog posts that rank: intent research, outline, meta tags, FAQ and schema | *"Write an SEO article for 'best budgeting apps'"* |
-| 📧 [**email-campaign-writer**](skills/email-campaign-writer) | Welcome, launch, cart and newsletter email sequences with subject-line tests | *"Write a 5-email welcome sequence"* |
-| 🎨 [**brand-voice-guide**](skills/brand-voice-guide) | A brand voice, positioning and personas guide, then rewrites copy on-brand | *"Create a brand voice guide from our website"* |
-| 🕵️ [**competitor-spy**](skills/competitor-spy) | Competitor analysis of pricing, messaging, socials, ads and reviews, with a SWOT and opportunities | *"Analyze my top 3 competitors"* |
-| 🤝 [**influencer-outreach**](skills/influencer-outreach) | Influencer and UGC campaigns: vetting, outreach DMs, briefs and tracking | *"Plan a micro-influencer campaign on TikTok"* |
-| 📊 [**social-analytics-reporter**](skills/social-analytics-reporter) ⚙️ | Social media analytics exports into a clear report with KPIs, reasons and next actions | *"Analyze this Instagram Insights export"* |
-
-<div align="center"><img src="assets/demo-analytics.gif" alt="social-analytics-reporter summarizing an Instagram export" width="680"/></div>
 
 ## 💻 Developer Skills
 
@@ -252,6 +228,55 @@ Your AI agent can also act as a social media manager, content strategist and gro
 | 🌐 [**github-portfolio**](skills/github-portfolio) ⚙️ | A one-page portfolio site built from your real public repos, with honest project write-ups, no JavaScript and ready for GitHub Pages | *"Make me a portfolio site from my GitHub"* |
 | 🔥 [**landing-page-roaster**](skills/landing-page-roaster) | Scored, funny, honest roast of your landing page plus rewrites | *"Roast my landing page"* |
 
+## 🦸 Agent Superpowers
+
+| Skill | What it does | Try saying |
+|---|---|---|
+| 🧠 [**agent-memory-keeper**](skills/agent-memory-keeper) ⚙️ | Project memory (MEMORY.md) so your agent stops repeating mistakes, plus handoffs (HANDOFF.md) so a new session picks up exactly where this one stopped | *"Write a handoff, I'm running out of context"* |
+| 🛠️ [**skill-creator-pro**](skills/skill-creator-pro) ⚙️ | Turn any workflow into a well-written SKILL.md, with a linter to validate it | *"Create a skill for our release process"* |
+| 🩺 [**skills-doctor**](skills/skills-doctor) ⚙️ | Audit your installed skills for broken frontmatter, vague triggers, conflicts and leaked secrets | *"Check my installed skills"* |
+| 🧭 [**skill-finder**](skills/skill-finder) ⚙️ | Describe a task and get the right existing skill, why it fits and how to install it, from this collection or the wider skills.sh registry | *"Is there a skill for turning meeting notes into tickets?"* |
+| ✂️ [**terse-mode**](skills/terse-mode) ⚙️ | Shorter, denser replies that cut preamble, recaps and filler but never code, commands, numbers or safety warnings | *"terse on"* |
+
+## 🛠️ Ops & Growth
+
+| Skill | What it does | Try saying |
+|---|---|---|
+| 💸 [**cost-cutter**](skills/cost-cutter) | Cut cloud, SaaS and LLM API bills with dollar estimates, effort, risk and exact fixes | *"Why is our AWS bill so high?"* |
+| 🚨 [**incident-commander**](skills/incident-commander) | Run a production outage from triage to mitigation, status updates and a blameless postmortem | *"Production is down, help me"* |
+| 📱 [**app-store-optimizer**](skills/app-store-optimizer) | App Store and Google Play ASO: keywords, titles, screenshot captions, review replies, A/B tests | *"Optimize my App Store listing"* |
+
+## 🤖 Social Media Manager
+
+One skill runs your whole social presence. It picks the platforms, sets KPIs and plans the week, then loads a detailed guide for each platform only when the task needs it, and hands Instagram, TikTok and YouTube work to their own skills.
+
+| Skill | What it does | Try saying |
+|---|---|---|
+| 🧠 [**social-media-manager**](skills/social-media-manager) | Strategy and hands-on work for LinkedIn, X, Facebook, Pinterest, Threads, Reddit, Telegram, WhatsApp Business and Google Business Profile | *"Manage my brand's social media"* · *"Rewrite my LinkedIn headline"* · *"Find subreddits where I can share my app"* |
+
+## 📣 Marketing & Content Skills
+
+Your AI agent can also act as a social media manager, content strategist and growth marketer.
+
+| Skill | What it does | Try saying |
+|---|---|---|
+| 📸 [**instagram-growth-manager**](skills/instagram-growth-manager) | Grow and manage Instagram with bio audits, Reels scripts, carousels, captions, hashtags and growth reviews | *"Audit my Instagram profile and plan next month"* |
+| 🎵 [**tiktok-viral-creator**](skills/tiktok-viral-creator) | TikTok ideas, 2-second hooks, shot-by-shot scripts and retention analysis | *"Give me 10 TikTok ideas for my fitness app"* |
+| 📺 [**youtube-seo-optimizer**](skills/youtube-seo-optimizer) | YouTube titles, thumbnails, descriptions, chapters and channel audits for more views | *"Optimize the title and description for this video"* |
+| 🎬 [**youtube-script-writer**](skills/youtube-script-writer) | High-retention YouTube and Shorts scripts with hooks, open loops and B-roll cues | *"Write a 10-minute YouTube script about X"* |
+| ♻️ [**content-repurposer**](skills/content-repurposer) | One video or podcast into 15+ posts: Shorts, Reels, threads, LinkedIn, carousel, newsletter | *"Repurpose this transcript into social posts"* |
+| 🗓️ [**social-media-calendar**](skills/social-media-calendar) | Monthly cross-platform content calendar, exported as CSV for Notion, Sheets, Buffer or Later | *"Plan my social media calendar for November"* |
+| 🪝 [**hook-generator**](skills/hook-generator) | Scroll-stopping hooks for videos, posts, emails and ads, scored and ranked | *"Give me hooks for a video about X"* |
+| 📣 [**ad-copy-generator**](skills/ad-copy-generator) | Ad copy for Meta, TikTok, Google and YouTube within each platform's limits, plus an A/B test matrix | *"Write Meta ads for my product"* |
+| ✍️ [**seo-blog-writer**](skills/seo-blog-writer) | SEO blog posts that rank: intent research, outline, meta tags, FAQ and schema | *"Write an SEO article for 'best budgeting apps'"* |
+| 📧 [**email-campaign-writer**](skills/email-campaign-writer) | Welcome, launch, cart and newsletter email sequences with subject-line tests | *"Write a 5-email welcome sequence"* |
+| 🎨 [**brand-voice-guide**](skills/brand-voice-guide) | A brand voice, positioning and personas guide, then rewrites copy on-brand | *"Create a brand voice guide from our website"* |
+| 🕵️ [**competitor-spy**](skills/competitor-spy) | Competitor analysis of pricing, messaging, socials, ads and reviews, with a SWOT and opportunities | *"Analyze my top 3 competitors"* |
+| 🤝 [**influencer-outreach**](skills/influencer-outreach) | Influencer and UGC campaigns: vetting, outreach DMs, briefs and tracking | *"Plan a micro-influencer campaign on TikTok"* |
+| 📊 [**social-analytics-reporter**](skills/social-analytics-reporter) ⚙️ | Social media analytics exports into a clear report with KPIs, reasons and next actions | *"Analyze this Instagram Insights export"* |
+
+<div align="center"><img src="assets/demo-analytics.gif" alt="social-analytics-reporter summarizing an Instagram export" width="680"/></div>
+
 ## 🤔 What is a skill?
 
 A skill is a folder with a `SKILL.md` file: YAML frontmatter (`name`, `description`) followed by instructions, plus optional scripts. Your agent reads the description and loads the full instructions **only when the task matches**, so your context stays clean and the agent follows a proven workflow instead of improvising.
@@ -269,15 +294,7 @@ A skill is a folder with a `SKILL.md` file: YAML frontmatter (`name`, `descripti
 
 - **Linted on every push** with [skills-doctor](skills/skills-doctor): frontmatter, trigger language, overlapping descriptions, missing scripts, leaked secrets. Lint your own skills in CI with the [Skills Doctor Action](https://github.com/milad-ahmd/skills-doctor#-use-it-in-ci).
 - **Trigger evals** in [`evals/`](evals): every skill has prompts that should load it and prompts that belong to a neighbor. CI runs a free offline check on every push; `python3 scripts/run_trigger_evals.py --live` runs them against Claude Code itself.
-- **Unit tests** for every skill script, run in CI.
-
-## 🧠 Design principles
-
-Every skill in this collection:
-- ✅ **Investigates before acting.** It reads your repo and follows your conventions.
-- ✅ **Never invents facts.** It cites evidence and marks unknowns as TODOs.
-- ✅ **Asks before anything destructive**, such as pushing, force-pushing, deleting or posting.
-- ✅ **Produces a clear, structured output** you can act on immediately.
+- **Unit tests** for the skill scripts (856 at v5.7), run in CI on every push.
 
 ## 🗺️ Roadmap
 
