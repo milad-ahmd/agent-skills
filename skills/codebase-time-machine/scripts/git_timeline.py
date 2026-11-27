@@ -3,6 +3,8 @@
 
 Usage: python3 git_timeline.py [repo_path] [--max N]
 """
+import argparse
+import re
 import subprocess
 import sys
 from collections import Counter, defaultdict
@@ -15,12 +17,25 @@ def git(repo, *args):
     return subprocess.run(["git", "-C", repo, *args], capture_output=True, text=True, check=True).stdout
 
 
+def new_path(f):
+    """numstat writes renames as `old => new` or `dir/{old => new}/f`; keep the new path."""
+    if "{" in f:
+        return re.sub(r"\{[^{}]* => ([^{}]*)\}", r"\1", f).replace("//", "/").lstrip("/")
+    return f.split(" => ")[-1]
+
+
 def main():
-    args = [a for a in sys.argv[1:] if not a.startswith("--")]
-    repo = args[0] if args else "."
-    mx = int(sys.argv[sys.argv.index("--max") + 1]) if "--max" in sys.argv else 20000
-    raw = git(repo, "log", "--no-merges", f"--max-count={mx}", "--numstat", "--date=iso-strict",
-              f"--pretty=format:@@{SEP}%h{SEP}%an{SEP}%ad{SEP}%s")
+    ap = argparse.ArgumentParser(description="Extract story-worthy facts from git history.")
+    ap.add_argument("repo", nargs="?", default=".")
+    ap.add_argument("--max", type=int, default=20000)
+    opts = ap.parse_args()
+    repo, mx = opts.repo, opts.max
+    try:  # --reverse: oldest first, so same-second commits keep history order after the stable sort
+        raw = git(repo, "log", "--no-merges", "--reverse", f"--max-count={mx}", "--numstat", "--date=iso-strict",
+                  f"--pretty=format:@@{SEP}%h{SEP}%an{SEP}%ad{SEP}%s")
+    except subprocess.CalledProcessError as e:  # an empty repo is still a repo; HEAD just doesn't resolve yet
+        is_repo = subprocess.run(["git", "-C", repo, "rev-parse", "--git-dir"], capture_output=True).returncode == 0
+        sys.exit("No commits found." if is_repo else e.stderr.strip() or "git log failed")
     commits, cur = [], None
     for line in raw.splitlines():
         if line.startswith("@@" + SEP):
@@ -32,7 +47,7 @@ def main():
             if len(parts) == 3:
                 ad, de, f = parts
                 n = (int(ad) if ad.isdigit() else 0) + (int(de) if de.isdigit() else 0)
-                cur["files"].append(f)
+                cur["files"].append(new_path(f))
                 cur["churn"] += n
     if not commits:
         sys.exit("No commits found.")
