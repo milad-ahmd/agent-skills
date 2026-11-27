@@ -10,7 +10,7 @@ import sys
 
 RULES = [
     ("AWS access key", r"\b(AKIA|ASIA)[0-9A-Z]{16}\b"),
-    ("OpenAI key", r"\bsk-(proj-)?[A-Za-z0-9_-]{20,}\b"),
+    ("OpenAI key", r"\bsk-(?!ant-)(proj-)?[A-Za-z0-9_-]{20,}\b"),
     ("Anthropic key", r"\bsk-ant-[A-Za-z0-9_-]{20,}\b"),
     ("GitHub token", r"\b(ghp|gho|ghu|ghs|ghr)_[A-Za-z0-9]{36}\b|\bgithub_pat_[A-Za-z0-9_]{50,}\b"),
     ("Slack token", r"\bxox[baprs]-[A-Za-z0-9-]{10,}\b"),
@@ -18,7 +18,7 @@ RULES = [
     ("Stripe live key", r"\b(sk|rk)_live_[0-9a-zA-Z]{24,}\b"),
     ("Private key", r"-----BEGIN [A-Z ]*PRIVATE KEY-----"),
     ("DB URL with password", r"\b(postgres(ql)?|mysql|mongodb(\+srv)?|redis|amqp)://[^\s:/@]+:[^\s@/]{3,}@"),
-    ("Hard-coded secret", r"(?i)\b(password|passwd|secret|api_?key|access_?token|auth_?token)\b\s*[:=]\s*['\"][^'\"\s]{8,}['\"]"),
+    ("Hard-coded secret", r"(?i)(?<![A-Za-z0-9])(password|passwd|secret|secret_?key|api_?key|access_?token|auth_?token)\b['\"]?\s*[:=]\s*['\"][^'\"\s]{8,}['\"]"),
 ]
 RULES = [(n, re.compile(p)) for n, p in RULES]
 RISKY_FILES = re.compile(r"(^|/)(\.env(\.[\w-]+)?|id_rsa|id_ed25519|.*\.pem|.*\.p12|.*\.keystore|.*\.jks|credentials(\.json)?|service-account.*\.json)$", re.I)
@@ -57,7 +57,7 @@ def main():
     if not git(repo, "rev-parse", "--is-inside-work-tree").strip():
         sys.exit("Not a git repository.")
     findings, seen, risky = [], set(), []
-    files = [f for f in git(repo, "ls-files").splitlines() if f]
+    files = [f for f in git(repo, "ls-files", "-z").split("\0") if f]  # -z: no C-quoting of unusual names
     for f in files:
         if RISKY_FILES.search(f) and not SAFE_FILES.search(f):
             risky.append(f)
