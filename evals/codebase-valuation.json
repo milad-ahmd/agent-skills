@@ -1,0 +1,16 @@
+{
+  "skill": "codebase-valuation",
+  "should_trigger": [
+    "how much would this repo cost to build from scratch?",
+    "Run a COCOMO estimate on our monorepo like scc does, but with a 95k salary",
+    "what's my side project worth in dev hours? make a card I can stick in the README",
+    "If we had to rewrite this whole codebase, how many engineers and how many months would it take?",
+    "count lines of code per language and turn it into a cost estimate"
+  ],
+  "should_not_trigger": [
+    "Make me a Spotify Wrapped style recap of my coding this year",
+    "Tell the story of how this repo evolved from its git history",
+    "Roast my GitHub profile",
+    "Our AWS bill doubled last month, where is the money going?"
+  ]
+}
