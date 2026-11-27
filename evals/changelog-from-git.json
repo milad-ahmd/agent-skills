@@ -5,11 +5,14 @@
     "What changed since v1.8? Summarize it for users",
     "Draft the GitHub release text for the tag I just pushed",
     "Update CHANGELOG.md with everything merged since the last release",
-    "Users keep asking what's new. Turn the last 60 commits into something people can read"
+    "Users keep asking what's new. Turn the last 60 commits into something people can read",
+    "Should the next release be a major, minor or patch bump? Look at what landed since the last tag",
+    "Group everything since v3.2.0 into breaking changes, features and fixes for the release page"
   ],
   "should_not_trigger": [
     "Split my working changes into atomic commits",
     "Write an X thread and a Show HN post announcing our release",
-    "Tell the history of this repository like a documentary"
+    "Tell the history of this repository like a documentary",
+    "Write good commit messages for my staged changes following conventional commits"
   ]
 }
