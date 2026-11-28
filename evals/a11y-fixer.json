@@ -5,7 +5,9 @@
     "Run an accessibility audit on the components in src/ui and fix whatever you find",
     "Can keyboard-only users actually use this modal? Tab seems to escape it",
     "A customer complained the checkout isn't WCAG compliant. Make it pass AA",
-    "the light grey text on our buttons is probably too faint to read, check the contrast and fix it"
+    "the light grey text on our buttons is probably too faint to read, check the contrast and fix it",
+    "Add a CI step that fails the build when our React components have images without alt text or inputs without labels",
+    "Scan the Vue and Svelte templates for clickable divs and icon buttons that screen readers can't name"
   ],
   "should_not_trigger": [
     "Turn this Figma screenshot of the pricing card into a React component",
