@@ -5,12 +5,15 @@
     "Glow up the README",
     "Add badges, a quickstart and a demo GIF section to the README",
     "Make the repo's front page on GitHub look professional so people star it",
-    "Rewrite README.md, it's outdated and confusing"
+    "Rewrite README.md, it's outdated and confusing",
+    "Before you rewrite our README, check which of its links, images and section anchors are broken.",
+    "The table of contents links in our README don't jump anywhere and the install section says npm install, but this is a Python package. Fix the README."
   ],
   "should_not_trigger": [
     "Write an onboarding architecture doc for new engineers",
     "Write a Show HN post for the repo",
     "Roast my GitHub profile",
-    "Record a short terminal GIF of our CLI running for the top of the README."
+    "Record a short terminal GIF of our CLI running for the top of the README.",
+    "Add alt text to every image in our React components so screen readers can describe them."
   ]
 }
