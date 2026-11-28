@@ -5,11 +5,13 @@
     "Add a docker-compose file with Postgres and Redis for local dev",
     "Our image is 2.3 GB, can you get it smaller?",
     "Write a production Dockerfile for this Go service, multi-stage please",
-    "how do I containerize this Next.js project?"
+    "how do I containerize this Next.js project?",
+    "Our Dockerfile already exists, can you review it and fix what's wrong?"
   ],
   "should_not_trigger": [
     "Cut our AWS costs",
     "Audit and upgrade our npm dependencies",
-    "Explain this codebase's architecture"
+    "Explain this codebase's architecture",
+    "Scan the repo for leaked API keys in .env files"
   ]
 }
