@@ -21,6 +21,9 @@ jobs:
         run: |
           diff -u skills/skills-doctor/scripts/skill_checks.py skills/skill-creator-pro/scripts/skill_checks.py \
             || { echo "::error::skill_checks.py differs. Edit skills-doctor's copy, then: cp skills/skills-doctor/scripts/skill_checks.py skills/skill-creator-pro/scripts/"; exit 1; }
+          cc() { grep -E '^(SUBJECT|BREAKING|FOOTER)_RE = ' "$1"; }
+          [ "$(cc skills/changelog-from-git/scripts/release_notes.py | wc -l)" -eq 3 ] && diff -u <(cc skills/changelog-from-git/scripts/release_notes.py) <(cc skills/commit-craft/scripts/commit_facts.py) \
+            || { echo "::error::Conventional Commits regexes differ. Copy SUBJECT_RE, BREAKING_RE and FOOTER_RE from changelog-from-git/scripts/release_notes.py into commit-craft/scripts/commit_facts.py"; exit 1; }
       - name: Test every skill's scripts
         run: for d in skills/*/scripts; do ls "$d"/test_*.py >/dev/null 2>&1 || continue; echo "== $d"; python3 -m unittest discover -s "$d" -p 'test_*.py' || exit 1; done
       - name: "Lint all skills (strict mode: errors, warnings and overlaps fail CI)"

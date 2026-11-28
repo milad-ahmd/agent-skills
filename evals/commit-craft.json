@@ -5,11 +5,14 @@
     "I've got a pile of unrelated changes in my working tree, split them into clean commits",
     "Write a good commit message for what's staged",
     "Tidy up my history before I open the PR, it's 14 'wip' commits",
-    "Use conventional commits for these changes"
+    "Use conventional commits for these changes",
+    "Lint this commit message before I commit it: 'Fixed stuff in the parser.'",
+    "Match this repo's commit message style and commit my staged changes"
   ],
   "should_not_trigger": [
     "Write the changelog for our 3.2 release",
     "Review my branch before I push",
-    "Check the repo for leaked API keys before I push"
+    "Check the repo for leaked API keys before I push",
+    "Summarise what changed between v2.0 and v2.1 for the release notes"
   ]
 }
