@@ -2,6 +2,15 @@
 
 ⭐ Star or watch the repo to get notified about new skills, and [request a skill](https://github.com/milad-ahmd/agent-skills/issues/new). Popular requests get built first.
 
+## 2026-11-28: v5.9 · four more skills check before they write
+Four everyday developer skills were instructions only. Each now runs a read-only stdlib Python script first, tried on real open-source projects and every finding checked by hand.
+- 🐳 **dockerize-anything.** `detect_stack.py` reads the runtime version, package manager and lockfile, the install command that honours it, start commands, the port (with file:line) and the *names* of env vars the code reads, and never opens `.env`. An existing Dockerfile and `.dockerignore` get a lint with each rule cited from Docker's docs: unpinned base, no USER, `ADD` for local files, apt cache left behind, `COPY . .` before the install, `.env` or `.git` in the build context.
+- ♿ **a11y-fixer.** `a11y_scan.py` scans HTML, JSX/TSX, Vue and Svelte for 15 failures static markup can decide (missing alt, unlabelled controls, nameless buttons and links, click handlers with no keyboard path, positive tabindex, invalid roles), each mapped to its WCAG 2.2 criterion with a confidence level. `--fail-on high` makes it a CI gate. Colour contrast and anything set at runtime are out of scope, and it says so.
+- ✨ **readme-glow-up.** `readme_audit.py` finds broken relative links and images, in-page anchors that don't resolve (GitHub's slug rules, checked against GitHub's own renderer, emoji headings included), images with no alt, code fences with no language, missing sections, and install commands that don't match the repo, such as `npm run test` with no test script. External URLs are listed, never fetched. It found two GIFs with no alt text in this README; both are fixed.
+- 🧱 **commit-craft.** `commit_facts.py` lists staged, unstaged and untracked changes by kind, marks whitespace-only files as formatting, and measures the repo's own message style from its history (Conventional Commits, `area:` prefixes or free-form) so the agent matches it instead of imposing one. `--lint` checks a message; its Conventional Commits parser is the same one changelog-from-git uses, and CI keeps the two identical.
+- The three v5.8 mirror repos now show real sample output in their READMEs.
+- 1,191 unit tests in total; 46 skills now run a script first.
+
 ## 2026-11-28: v5.8 · three core dev skills now work from facts
 Three of the most-used developer skills were instructions only. Each now runs a read-only stdlib Python script first, with tests, so the agent starts from your repo instead of guessing.
 - 🧪 **test-gap-hunter.** `find_gaps.py` ranks source files by risk = commits in the last 180 days × how untested they are. It reads Cobertura (`coverage.xml`) and LCOV (`lcov.info`) reports when they exist; without one it pairs sources and tests by each language's naming conventions and labels every row as a guess. For Python it lists the biggest untested functions in the top files.

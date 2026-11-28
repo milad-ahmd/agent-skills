@@ -6,7 +6,7 @@
   },
   "metadata": {
     "description": "71 Agent Skills: roast-my-github, a dead code funeral, repo diets, commit roasts, bus factor, dev wrapped, a tech debt receipt, an AI slop detector, a bisecting bug detective, merge conflict resolver, agent guardrails, TDD loop, issue triage, domain modeling, pre-commit hooks, durable agent workflows, architecture doctor, UI taste lint, Playwright e2e tests, spec grilling and a social media manager",
-    "version": "5.8.0"
+    "version": "5.9.0"
   },
   "plugins": [
     {

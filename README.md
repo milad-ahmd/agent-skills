@@ -9,7 +9,7 @@ Review PRs · resolve merge conflicts · find dead code · block dangerous comma
 [![Stars](https://img.shields.io/github/stars/milad-ahmd/agent-skills?style=social)](https://github.com/milad-ahmd/agent-skills)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 ![Skills](https://img.shields.io/badge/skills-71-orange)
-![Unit tests](https://img.shields.io/badge/unit%20tests-1083-blue)
+![Unit tests](https://img.shields.io/badge/unit%20tests-1191-blue)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](#-contributing)
 
 [Install](#-install-in-10-seconds) · [Start here](#-start-with-these-three) · [All 71 skills](#-all-71-skills) · [🌐 Website](https://milad-ahmd.github.io/agent-skills/) · [Request a skill](https://github.com/milad-ahmd/agent-skills/issues/new)
@@ -26,8 +26,8 @@ Review PRs · resolve merge conflicts · find dead code · block dangerous comma
 
 Most skills are a prompt. These do the homework first.
 
-- ⚙️ **Real data, not guesses.** 42 skills run a script before the agent writes anything: your git history, your files, the GitHub API. The agent works from what is actually there.
-- 🧪 **Tested like code.** 1,083 unit tests run on every push, every `SKILL.md` is linted in strict mode, and trigger evals check that each skill loads for its own prompts and not for its neighbours'.
+- ⚙️ **Real data, not guesses.** 46 skills run a script before the agent writes anything: your git history, your files, the GitHub API. The agent works from what is actually there.
+- 🧪 **Tested like code.** 1,191 unit tests run on every push, every `SKILL.md` is linted in strict mode, and trigger evals check that each skill loads for its own prompts and not for its neighbours'.
 - 🛑 **Safe by default.** The scripts never change your code unless you pass a flag for it, and anything that pushes, deletes, posts or rewrites history waits for your OK.
 - 🕶️ **Anonymous by default.** Shareable cards and reports leave out names, emails and file paths unless you ask for them.
 
@@ -135,7 +135,7 @@ Try: *"Tell me the story of this codebase"*
 
 | 🔐 env-secrets-guard | 🩺 skills-doctor |
 |---|---|
-| <img src="assets/demo-env-secrets-guard.gif" width="420"/> | <img src="assets/demo-skills-doctor.gif" width="420"/> |
+| <img src="assets/demo-env-secrets-guard.gif" width="420" alt="env-secrets-guard scanning a repo and listing a leaked key with its file and line"/> | <img src="assets/demo-skills-doctor.gif" width="420" alt="skills-doctor linting a skills folder and reporting errors, warnings and overlaps"/> |
 
 ## 📚 All 71 skills
 
@@ -168,7 +168,7 @@ Try: *"Tell me the story of this codebase"*
 | 🔎 [**pr-reviewer-pro**](skills/pr-reviewer-pro) ⚙️ | Senior-engineer PR reviews: severities, `file:line` evidence, suggested fixes | *"Review PR #123"* |
 | 🔀 [**merge-conflict-resolver**](skills/merge-conflict-resolver) ⚙️ | Resolves merge, rebase and cherry-pick conflicts by reading what each side meant (base, both sides and their commits), regenerates lockfiles and checks no markers are left | *"My rebase stopped with conflicts in 4 files"* |
 | 🚦 [**pre-commit-setup**](skills/pre-commit-setup) ⚙️ | Fast git hooks from the tools you already use (pre-commit, husky + lint-staged or lefthook) on staged files only, with the same checks mirrored in CI | *"Set up pre-commit hooks for this repo"* |
-| 🧱 [**commit-craft**](skills/commit-craft) | Messy changes → clean, atomic Conventional Commits | *"Commit my changes"* |
+| 🧱 [**commit-craft**](skills/commit-craft) ⚙️ | Messy changes → clean, atomic commits in your repo's own style, with a message linter | *"Commit my changes"* |
 | 🏷️ [**issue-triage**](skills/issue-triage) ⚙️ | Triages open GitHub issues: duplicate candidates, bug reports missing a version or repro, stale threads, labels and priority; drafts replies and writes to GitHub only on your approval | *"Triage the open issues on our repo"* |
 | 📋 [**meeting-notes-to-tickets**](skills/meeting-notes-to-tickets) | Meeting notes → de-duplicated GitHub/Linear/Jira tickets | *"Turn these notes into issues"* |
 | 📝 [**changelog-from-git**](skills/changelog-from-git) ⚙️ | Release notes from git history: commits grouped by Conventional Commit type, breaking changes, PR numbers, reverts dropped and a suggested next version, then rewritten for users | *"Write release notes since v1.2"* |
@@ -186,7 +186,7 @@ Try: *"Tell me the story of this codebase"*
 |---|---|---|
 | 💅 [**ui-taste**](skills/ui-taste) ⚙️ | Scores CSS and Tailwind 0-100 for one-off font sizes, near-duplicate colours, off-grid spacing and weak contrast, then folds them into tokens without a redesign | *"Our app looks amateur, tidy it up"* |
 | 🖼️ [**screenshot-to-component**](skills/screenshot-to-component) | Screenshot → component in *your* design system | *"Build this screenshot as a component"* |
-| ♿ [**a11y-fixer**](skills/a11y-fixer) | WCAG 2.2 AA audit that fixes issues in code | *"Make this app accessible"* |
+| ♿ [**a11y-fixer**](skills/a11y-fixer) ⚙️ | Scans HTML, JSX, Vue and Svelte for WCAG 2.2 failures, then fixes them in code | *"Make this app accessible"* |
 
 ### 🧙 Refactoring
 | Skill | What it does | Try saying |
@@ -207,7 +207,7 @@ Try: *"Tell me the story of this codebase"*
 ### 🐳 DevOps & Backend
 | Skill | What it does | Try saying |
 |---|---|---|
-| 🐳 [**dockerize-anything**](skills/dockerize-anything) | Small, secure, multi-stage Dockerfile and compose | *"Dockerize this project"* |
+| 🐳 [**dockerize-anything**](skills/dockerize-anything) ⚙️ | Detects your stack, port and env vars, lints an existing Dockerfile, then writes a small, secure one | *"Dockerize this project"* |
 | ⏪ [**durable-agent-workflows**](skills/durable-agent-workflows) ⚙️ | Makes a long Python agent job crash-proof with [rewindable](https://github.com/milad-ahmd/rewindable): resume where it died without re-paying model calls, human approval before emails and payments, rewind after a fix. Ships an audit of calls that break replay | *"Make my research agent resumable after a crash"* |
 | 📖 [**domain-modeler**](skills/domain-modeler) ⚙️ | A glossary, aggregates, bounded contexts and events grounded in your code's real names; flags one concept living under several names (Customer, Client, User) and checks the glossary in CI | *"We call the same person customer, client and user, pick one name"* |
 | 🔌 [**api-to-sdk**](skills/api-to-sdk) | Typed, idiomatic SDK from OpenAPI or your routes | *"Generate a TS SDK from openapi.yaml"* |
@@ -216,7 +216,7 @@ Try: *"Tell me the story of this codebase"*
 ### 📚 Documentation
 | Skill | What it does | Try saying |
 |---|---|---|
-| ✨ [**readme-glow-up**](skills/readme-glow-up) | Turns any README into a star magnet | *"Glow up my README"* |
+| ✨ [**readme-glow-up**](skills/readme-glow-up) ⚙️ | Audits broken links, anchors and install commands, then turns your README into a star magnet | *"Glow up my README"* |
 | 🗺️ [**codebase-explainer**](skills/codebase-explainer) ⚙️ | Onboarding guide built from a real import graph: entry points, hubs, cycles, Mermaid and an interactive HTML map | *"Explain this codebase"* |
 
 ### 🚀 Growth
@@ -294,7 +294,7 @@ A skill is a folder with a `SKILL.md` file: YAML frontmatter (`name`, `descripti
 
 - **Linted on every push** with [skills-doctor](skills/skills-doctor): frontmatter, trigger language, overlapping descriptions, missing scripts, leaked secrets. Lint your own skills in CI with the [Skills Doctor Action](https://github.com/milad-ahmd/skills-doctor#-use-it-in-ci).
 - **Trigger evals** in [`evals/`](evals): every skill has prompts that should load it and prompts that belong to a neighbor. CI runs a free offline check on every push; `python3 scripts/run_trigger_evals.py --live` runs them against Claude Code itself.
-- **Unit tests** for every skill script (1,083 at v5.8), run in CI on every push.
+- **Unit tests** for every skill script (1,191 at v5.9), run in CI on every push.
 
 ## 🗺️ Roadmap
 

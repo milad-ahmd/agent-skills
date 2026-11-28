@@ -4,7 +4,7 @@
 
 ## Skills
 
-- [a11y-fixer](https://milad-ahmd.github.io/agent-skills/skills/a11y-fixer/): WCAG 2.2 AA audit that fixes accessibility issues in your code
+- [a11y-fixer](https://milad-ahmd.github.io/agent-skills/skills/a11y-fixer/): Scan HTML, JSX, Vue and Svelte for WCAG 2.2 failures, then fix them
 - [ad-copy-generator](https://milad-ahmd.github.io/agent-skills/skills/ad-copy-generator/): Ad copy for Meta, TikTok, Google and YouTube within each platform's limits, plus an A/B test matrix
 - [agent-guardrails](https://milad-ahmd.github.io/agent-skills/skills/agent-guardrails/): A tested hook that stops your agent force pushing main, rm -rf outside the project, reading .env or curl | bash
 - [agent-memory-keeper](https://milad-ahmd.github.io/agent-skills/skills/agent-memory-keeper/): Project memory (MEMORY.md) plus session handoffs (HANDOFF.md) so the next session picks up where this one stopped
@@ -19,7 +19,7 @@
 - [codebase-explainer](https://milad-ahmd.github.io/agent-skills/skills/codebase-explainer/): Onboarding guide built from a real import graph: entry points, hubs, cycles, Mermaid and an interactive map
 - [codebase-time-machine](https://milad-ahmd.github.io/agent-skills/skills/codebase-time-machine/): The story of your repo from git history, as a documentary: eras, cast, plot twists, cursed files
 - [codebase-valuation](https://milad-ahmd.github.io/agent-skills/skills/codebase-valuation/): What a repo would cost to build from scratch (COCOMO), next to what git shows really happened
-- [commit-craft](https://milad-ahmd.github.io/agent-skills/skills/commit-craft/): Turn messy changes into clean, atomic Conventional Commits
+- [commit-craft](https://milad-ahmd.github.io/agent-skills/skills/commit-craft/): Turn messy changes into clean, atomic commits in your repo's own style
 - [commit-roast](https://milad-ahmd.github.io/agent-skills/skills/commit-roast/): Roast a repo's commit history with real numbers, then get commit rules that fix what it does wrong
 - [competitor-spy](https://milad-ahmd.github.io/agent-skills/skills/competitor-spy/): Competitor analysis of pricing, messaging, socials, ads and reviews, with a SWOT and opportunities
 - [content-repurposer](https://milad-ahmd.github.io/agent-skills/skills/content-repurposer/): One video or podcast into 15+ posts: Shorts, Reels, threads, LinkedIn, carousel, newsletter
@@ -30,7 +30,7 @@
 - [dependency-doctor](https://milad-ahmd.github.io/agent-skills/skills/dependency-doctor/): Audit vulnerable, outdated and unused packages with a safe upgrade plan
 - [dependency-weigh-in](https://milad-ahmd.github.io/agent-skills/skills/dependency-weigh-in/): Weigh node_modules, venvs and Go modules in floppy disks and Doom copies, then find what to slim
 - [dev-wrapped](https://milad-ahmd.github.io/agent-skills/skills/dev-wrapped/): Your year in code from your own git history: streaks, hours, languages, an archetype and a shareable card
-- [dockerize-anything](https://milad-ahmd.github.io/agent-skills/skills/dockerize-anything/): Production-ready, small, secure Dockerfile and compose for any repo
+- [dockerize-anything](https://milad-ahmd.github.io/agent-skills/skills/dockerize-anything/): Detect your stack, lint your Dockerfile, then write a small, secure one
 - [domain-modeler](https://milad-ahmd.github.io/agent-skills/skills/domain-modeler/): Glossary, aggregates, bounded contexts and events grounded in your code's real names; flags synonym drift
 - [durable-agent-workflows](https://milad-ahmd.github.io/agent-skills/skills/durable-agent-workflows/): Resume a crashed Python agent job where it stopped, without re-paying finished model calls
 - [e2e-flow-tester](https://milad-ahmd.github.io/agent-skills/skills/e2e-flow-tester/): Find your app's critical user flows and write Playwright end-to-end tests for them
@@ -53,7 +53,7 @@
 - [pr-reviewer-pro](https://milad-ahmd.github.io/agent-skills/skills/pr-reviewer-pro/): Senior-engineer PR reviews with severity levels, file:line evidence and suggested fixes
 - [pre-commit-setup](https://milad-ahmd.github.io/agent-skills/skills/pre-commit-setup/): Fast git hooks from the tools you already use: pre-commit, husky + lint-staged or lefthook, mirrored in CI
 - [prompt-injection-scanner](https://milad-ahmd.github.io/agent-skills/skills/prompt-injection-scanner/): Scan skills, CLAUDE.md, hooks and MCP configs for prompt injection and hidden instructions
-- [readme-glow-up](https://milad-ahmd.github.io/agent-skills/skills/readme-glow-up/): Turn any README into a star magnet using only facts from your repo
+- [readme-glow-up](https://milad-ahmd.github.io/agent-skills/skills/readme-glow-up/): Audit broken links and anchors, then turn your README into a star magnet
 - [repo-card](https://milad-ahmd.github.io/agent-skills/skills/repo-card/): Build a real-data social preview card (OG image) so your repo link looks good when shared
 - [repo-diet](https://milad-ahmd.github.io/agent-skills/skills/repo-diet/): Finds why a repo is heavy to clone: biggest blobs in history, committed junk, LFS candidates, a safe slim-down plan
 - [roast-my-github](https://milad-ahmd.github.io/agent-skills/skills/roast-my-github/): Get your GitHub profile roasted with real data, then a scorecard and glow-up plan

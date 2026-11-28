@@ -5,9 +5,9 @@
   {
    "name": "a11y-fixer",
    "emoji": "♿",
-   "tagline": "WCAG 2.2 AA audit that fixes accessibility issues in your code",
+   "tagline": "Scan HTML, JSX, Vue and Svelte for WCAG 2.2 failures, then fix them",
    "category": "Frontend",
-   "description": "Audits web and mobile UI code against WCAG 2.2 AA and fixes accessibility issues directly in the source, including alt text, labels, contrast, keyboard navigation, focus, ARIA, and semantics. Use when the user asks for an accessibility audit, a11y fixes, WCAG compliance, or screen-reader support.",
+   "description": "Audits web and mobile UI code against WCAG 2.2 AA and fixes accessibility issues directly in the source, including alt text, labels, contrast, keyboard navigation, focus, ARIA, and semantics. A read-only accessibility scan of HTML, JSX/TSX, Vue and Svelte components reports missing alt text, unlabelled form controls, nameless buttons and links, missing page lang, untitled iframes, positive tabindex, autoplaying media, clickable divs with no keyboard support, aria-hidden on focusable elements, invalid ARIA roles and skipped heading levels, each with its source location, the WCAG success criterion and a confidence level, and can fail CI. Use when the user asks for an accessibility audit, a11y fixes, WCAG compliance, or screen-reader support.",
    "examples": [
     "Audit this app for accessibility and fix the issues",
     "Make the signup form screen-reader friendly"
@@ -170,9 +170,9 @@
   {
    "name": "commit-craft",
    "emoji": "🧱",
-   "tagline": "Turn messy changes into clean, atomic Conventional Commits",
+   "tagline": "Turn messy changes into clean, atomic commits in your repo's own style",
    "category": "Git & Workflow",
-   "description": "Turns messy working-tree changes into clean, atomic Conventional Commits, splitting unrelated changes into separate commits with clear messages. Use when the user asks to commit, write a commit message, split changes into commits, or clean up git history before a PR.",
+   "description": "Turns messy working-tree changes into clean, atomic commits in the repo's own message style, splitting unrelated changes into separate commits with clear messages; Conventional Commits when the repo uses them or the user asks. A read-only script lists staged, unstaged and untracked files with line counts and a kind (source, tests, docs, deps, CI, config), flags whitespace-only changes, learns the message style from git log and lints a draft message. Use when the user asks to commit, write a commit message, split changes into commits, or clean up git history before a PR.",
    "examples": [
     "Commit my changes",
     "Split these changes into clean commits"
@@ -291,9 +291,9 @@
   {
    "name": "dockerize-anything",
    "emoji": "🐳",
-   "tagline": "Production-ready, small, secure Dockerfile and compose for any repo",
+   "tagline": "Detect your stack, lint your Dockerfile, then write a small, secure one",
    "category": "DevOps",
-   "description": "Generates a production-ready, secure, small Dockerfile, .dockerignore and docker-compose.yml for any project by detecting its stack, then builds and verifies the image. Use when the user asks to dockerize, containerize, add Docker or compose, or reduce Docker image size.",
+   "description": "Generates a production-ready, secure, small Dockerfile, .dockerignore and docker-compose.yml for any project by detecting its stack, then builds and verifies the image. A read-only script first reads the stack from the project's files (runtime version, lockfile and install command, start command, port, env var names, monorepo layout) and reviews an existing Dockerfile against Docker's documented practices for a smaller, safer image. Use when the user asks to dockerize, containerize, add Docker or compose, or reduce Docker image size.",
    "examples": [
     "Dockerize this project",
     "Make my Docker image smaller"
@@ -544,9 +544,9 @@
   {
    "name": "readme-glow-up",
    "emoji": "✨",
-   "tagline": "Turn any README into a star magnet using only facts from your repo",
+   "tagline": "Audit broken links and anchors, then turn your README into a star magnet",
    "category": "Documentation",
-   "description": "Rewrites a repository's README into a polished, star-worthy page with badges, a hero tagline, demo section, quickstart, features, usage, and contributing info. Use when the user asks to improve, rewrite, polish, or \"glow up\" a README, or when a repo has a missing or weak README.",
+   "description": "Rewrites a repository's README into a polished, star-worthy page with badges, a hero tagline, demo section, quickstart, features, usage, and contributing info. A read-only script audits the existing README first, finding broken relative links and images, broken heading anchors, missing sections, a weak first screen, and install commands that do not match the repo. Use when the user asks to improve, rewrite, polish, or \"glow up\" a README, or when a repo has a missing or weak README.",
    "examples": [
     "Glow up the README of this repo",
     "Rewrite my README with badges and a quickstart"

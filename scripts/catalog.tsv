@@ -1,11 +1,11 @@
-commit-craft	🧱	Turn messy changes into clean, atomic Conventional Commits	Git & Workflow	Commit my changes|Split these changes into clean commits
+commit-craft	🧱	Turn messy changes into clean, atomic commits in your repo's own style	Git & Workflow	Commit my changes|Split these changes into clean commits
 test-gap-hunter	🧪	Find the riskiest untested code and write real tests for it	Testing & Quality	Find test gaps in this project and write tests for the top 3|Add tests for src/billing
 dependency-doctor	🩺	Audit vulnerable, outdated and unused packages with a safe upgrade plan	Security & Maintenance	Check my dependencies|Plan the upgrade to React 19
 env-secrets-guard	🔐	Find leaked API keys and secrets before they hit GitHub	Security & Maintenance	Scan this repo for leaked secrets before I push|I'm open-sourcing this repo, is it safe?
-dockerize-anything	🐳	Production-ready, small, secure Dockerfile and compose for any repo	DevOps	Dockerize this project|Make my Docker image smaller
+dockerize-anything	🐳	Detect your stack, lint your Dockerfile, then write a small, secure one	DevOps	Dockerize this project|Make my Docker image smaller
 changelog-from-git	📝	Polished release notes and CHANGELOG entries from git history	Git & Workflow	Write release notes since the last tag|Draft the GitHub release for v2.0
 codebase-explainer	🗺️	Onboarding guide built from a real import graph: entry points, hubs, cycles, Mermaid and an interactive map	Documentation	Explain this codebase|Map how the modules in this repo depend on each other
-a11y-fixer	♿	WCAG 2.2 AA audit that fixes accessibility issues in your code	Frontend	Audit this app for accessibility and fix the issues|Make the signup form screen-reader friendly
+a11y-fixer	♿	Scan HTML, JSX, Vue and Svelte for WCAG 2.2 failures, then fix them	Frontend	Audit this app for accessibility and fix the issues|Make the signup form screen-reader friendly
 sql-optimizer	⚡	Explain slow SQL queries and get index and rewrite fixes	Backend & Data	Why is this query slow?|Find N+1 queries in this API
 launch-post-writer	🚀	Turn your repo into an X thread, Show HN, LinkedIn and Reddit launch posts	Growth	Write launch posts for this repo|Write a Show HN post for v1.0
 landing-page-roaster	🔥	Honest, funny, scored roast of your landing page plus copy rewrites	Growth	Roast my landing page|Improve the conversion of our pricing page
@@ -38,7 +38,7 @@ cost-cutter	💸	Cut cloud, SaaS and LLM API bills with dollar estimates, effort
 incident-commander	🚨	Run a production outage from triage to mitigation, status updates and a blameless postmortem	DevOps	Production is down, help me|Write a postmortem for yesterday's outage
 app-store-optimizer	📱	App Store and Google Play ASO: keywords, titles, screenshot captions, review replies, A/B tests	Growth	Optimize my App Store listing|Write Google Play short descriptions for my app
 skills-doctor	🩺	Audit your installed skills for broken frontmatter, vague triggers, conflicts and leaked secrets	Agent Productivity	Check my installed skills|Why isn't my skill triggering?
-readme-glow-up	✨	Turn any README into a star magnet using only facts from your repo	Documentation	Glow up the README of this repo|Rewrite my README with badges and a quickstart
+readme-glow-up	✨	Audit broken links and anchors, then turn your README into a star magnet	Documentation	Glow up the README of this repo|Rewrite my README with badges and a quickstart
 pr-reviewer-pro	🔎	Senior-engineer PR reviews with severity levels, file:line evidence and suggested fixes	Git & Workflow	Review PR #123|Review my changes before I push
 gh-actions-auditor	🛡️	Find pwn requests, script injection and unpinned actions in GitHub Actions, then fix them	Security & Maintenance	Audit our GitHub Actions workflows for security issues|Pin all our actions to commit SHAs
 prompt-injection-scanner	🪤	Scan skills, CLAUDE.md, hooks and MCP configs for prompt injection and hidden instructions	Security & Maintenance	Check the skills I just installed for anything malicious|Is this repo's .claude and .mcp.json safe to trust?
